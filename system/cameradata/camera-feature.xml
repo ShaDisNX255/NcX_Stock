@@ -109,6 +109,7 @@
     <local name="SUPPORT_TAP_AND_HOLD_CAMERA_BUTTON" value="true" />
 
     <!-- Intelligent recognition -->
+    <local name="SUPPORT_INTELLIGENT_GUIDE_TIPS" value="true" />
     <local name="SUPPORT_LENS_DIRTY_DETECTION" value="true" />
     <local name="SUPPORT_INTELLIGENT_RECOGNITION_TIPS" value="true" />
 
@@ -236,6 +237,15 @@
     <local name="SUPPORT_NIGHT_MODE_ZOOM" value="true"/>
     <local name="SUPPORT_VIDEO_PALM_DETECTION" value="true"/>
     <local name="SUPPORT_IPP_EFFECT_CAPTURE_IN_CORE2" value="true"/>
+    <local name="SUPPORT_PHOTO_NIGHT" value="true"/>
+    <local name="SUPPORT_NIGHT_CAPTURE_STOP" value="true"/>
+    <local name="SUPPORT_NIGHT_BEAUTY" value = "true"/>
+    <local name="SUPPORT_SMART_SCAN_EXTRACT_TEXT" value="true"/>
+    <local name="SUPPORT_UNLIMITED_VIDEO_FILE_SIZE" value="true"/>
+    <local name="SUPPORT_EXPAND_SHUTTER_SPEED" value="true"/>
+    <local name="SUPPORT_SELFIE_TONE_MODE" value="true"/>
+    <local name="SUPPORT_AUTO_HDR_MENU" value="true"/>
+    <local name="SUPPORT_BACK_WIDE_PRO" value="true"/>
     <local name="SUPPORT_VDIS_CENTER_CROP_FOR_PREVIEW_RECORDING" value="true"/>
 
     <!-- Advance option HDR10+ Video Recording -->
@@ -258,6 +268,15 @@
     <!-- Guide Line percentage -->
     <local name="TOP_GUIDE_LINE" value="0.14"/>
     <local name="BOTTOM_GUIDE_LINE" value="0.74"/>
+
+    <!-- single take features -->
+    <local name="SINGLE_TAKE_CAPTURE_INTERVAL" value="300"/>
+    <local name="SINGLE_TAKE_USING_CONTINUOUS_AF" value="true"/>
+    <local name="SINGLE_TAKE_USING_SINGLE_LENS_ONLY" value="true"/>
+    <local name="SUPPORT_SINGLE_TAKE_BURST_CAPTURE" value="true"/>
+    <local name="SUPPORT_SINGLE_TAKE_CUSTOMIZED_OPTION" value="true"/>
+    <local name="SUPPORT_SINGLE_TAKE_EXTENDED_CAPTURE" value="true"/>
+    <local name="SUPPORT_SINGLE_TAKE_HIGHLIGHT_VIDEOS" value="true"/>
 	
     <!-- new pro/pro video features -->
     <local name="SUPPORT_PRO_RESET" value="true"/>
