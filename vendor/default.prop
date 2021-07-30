@@ -29,4 +29,6 @@ dalvik.vm.isa.arm64.features=default
 dalvik.vm.isa.arm.variant=cortex-a9
 dalvik.vm.isa.arm.features=default
 ro.minui.pixel_format=RGBX_8888
+wlan.wfd.hdcp=disable
+wifi.interface=wlan0
 

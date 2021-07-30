@@ -231,5 +231,7 @@ persist.sys.zram.daily_quota_remain=131072
 ro.sys.kernelmemory.nandswap.daily_quota=131072
 ro.sys.kernelmemory.nandswap.daily_quota_limit=393216
 ro.camera.notify_nfc=1
+wlan.wfd.hdcp=disable
+wifi.interface=wlan0
 
 

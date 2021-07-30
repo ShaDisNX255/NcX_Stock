@@ -16,6 +16,8 @@ ro.product.product.device=a52q
 ro.product.product.manufacturer=samsung
 ro.product.product.model=SM-A525F
 ro.product.product.name=a52qnsxx
+wlan.wfd.hdcp=disable
+wifi.interface=wlan0
 # end common build properties
 #
 # ADDITIONAL PRODUCT PROPERTIES
