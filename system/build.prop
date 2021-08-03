@@ -90,7 +90,7 @@ ro.system.build.version.sehi=3003
 ro.build.selinux=1
 ro.config.iccc_version=3.0
 ro.config.dmverity=G
-ro.config.tima=0
+ro.config.tima=1
 ro.config.timaversion=3.0
 ro.config.timaversion_info=Knox3.4_S.R.R
 ro.config.knox.ucm=1
@@ -99,4 +99,9 @@ ro.kernel.qemu=0
 net.bt.name=Android
 ro.vendor.qti.va_aosp.support=1
 
+#Multi User
+fw.max_users=30
+fw.show_multiuserui=1
+fw.show_hidden_users=1
+fw.power_user_switcher=1
 
