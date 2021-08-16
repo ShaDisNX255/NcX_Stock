@@ -18992,68 +18992,9 @@
 .end method
 
 .method isSecureLocked()Z
-    .registers 5
+    .locals 1
 
-    .line 2144
-    iget-object v0, p0, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
-
-    iget v0, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
-
-    and-int/lit16 v0, v0, 0x2000
-
-    const/4 v1, 0x1
-
-    if-eqz v0, :cond_a
-
-    .line 2145
-    return v1
-
-    .line 2148
-    :cond_a
-    iget-object v0, p0, Lcom/android/server/wm/WindowState;->mWmService:Lcom/android/server/wm/WindowManagerService;
-
-    iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mExt:Lcom/android/server/wm/WindowManagerServiceExt;
-
-    iget-object v0, v0, Lcom/android/server/wm/WindowManagerServiceExt;->mScreenshotController:Lcom/android/server/wm/ScreenshotController;
-
-    .line 2149
-    invoke-virtual {v0, p0}, Lcom/android/server/wm/ScreenshotController;->isScreenshotDisabledLocked(Lcom/android/server/wm/WindowState;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_17
-
-    .line 2150
-    return v1
-
-    .line 2155
-    :cond_17
-    invoke-static {}, Landroid/app/admin/DevicePolicyCache;->getInstance()Landroid/app/admin/DevicePolicyCache;
-
-    move-result-object v0
-
-    if-nez v0, :cond_1f
-
-    .line 2157
     const/4 v0, 0x0
-
-    return v0
-
-    .line 2161
-    :cond_1f
-    invoke-static {}, Landroid/app/admin/DevicePolicyCache;->getInstance()Landroid/app/admin/DevicePolicyCache;
-
-    move-result-object v0
-
-    iget v2, p0, Lcom/android/server/wm/WindowState;->mShowUserId:I
-
-    iget-boolean v3, p0, Lcom/android/server/wm/WindowState;->mOwnerCanAddInternalSystemWindow:Z
-
-    invoke-virtual {v0, v2, v3}, Landroid/app/admin/DevicePolicyCache;->isScreenCaptureAllowed(IZ)Z
-
-    move-result v0
-
-    xor-int/2addr v0, v1
 
     return v0
 .end method
