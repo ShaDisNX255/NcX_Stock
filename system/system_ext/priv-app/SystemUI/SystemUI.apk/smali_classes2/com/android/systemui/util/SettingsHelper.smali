@@ -6626,29 +6626,8 @@
 .method public isNotificationLaunchFreeformEnabled()Z
     .locals 1
 
-    .line 1494
-    iget-object p0, p0, Lcom/android/systemui/util/SettingsHelper;->mItemLists:Lcom/android/systemui/util/SettingsHelper$ItemMap;
-
-    const-string v0, "notification_freeform_menuitem"
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/util/SettingsHelper$ItemMap;->get(Ljava/lang/String;)Lcom/android/systemui/util/SettingsHelper$Item;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Lcom/android/systemui/util/SettingsHelper$Item;->getIntValue()I
-
-    move-result p0
-
     const/4 v0, 0x1
-
-    if-ne p0, v0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
+	
     return v0
 .end method
 
