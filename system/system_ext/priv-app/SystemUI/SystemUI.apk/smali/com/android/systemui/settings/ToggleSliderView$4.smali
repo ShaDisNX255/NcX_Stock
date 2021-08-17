@@ -78,7 +78,7 @@
 
     const-string/jumbo p1, "shown_max_brightness_dialog"
 
-    const/4 v0, -0x2
+    const/4 v0, 0x0
 
     invoke-static {p0, p1, v1, v0}, Landroid/provider/Settings$System;->semPutIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
 
