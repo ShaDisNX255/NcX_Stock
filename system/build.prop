@@ -298,5 +298,10 @@ external_storage.cross_user.enabled=1
 persist.sys.usb.config=mtp
 wlan.wfd.hdcp=disable
 wifi.interface=wlan0
+#Multi User
+fw.max_users=30
+fw.show_multiuserui=1
+fw.show_hidden_users=1
+fw.power_user_switcher=1
 # end of file
 
