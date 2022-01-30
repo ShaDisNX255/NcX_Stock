@@ -2,7 +2,31 @@
 Here is the list of all the apps removed for this ROM
 
 # Product
-
+app/Chrome
+app/DuoStub
+app/Gmail2
+app/Maps
+app/YouTube
 
 # System
-
+app/ARCore
+app/ARDrawing
+app/ARZone
+app/AutomationTest_FB
+app/FBAppManager_NS
+app/Netflix_activationCommon
+app/SamsungPassAutofill_v1
+preload/Facebook_stub_preload
+preload/Tips
+priv-app/AREmoji
+priv-app/AREmojiEditor
+priv-app/Bixby
+priv-app/BixbyService
+priv-app/FBInstaller_NS
+priv-app/FBServices
+priv-app/knoxanalyticsagent
+priv-app/KnoxCore
+priv-app/KnoxPushManager
+priv-app/knoxvpnproxyhandler
+priv-app/OneDrive_Samsung_v3
+priv-app/SamsungPass
