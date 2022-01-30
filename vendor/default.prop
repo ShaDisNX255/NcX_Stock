@@ -7,8 +7,6 @@ ro.oem_unlock_supported=1
 ro.zygote=zygote64_32
 ro.logd.size.stats=64K
 log.tag.stats_log=I
-ro.radio.noril=no
-ro.vendor.epdg.support=true
 ro.surface_flinger.protected_contents=true
 ro.surface_flinger.has_wide_color_display=true
 ro.surface_flinger.has_HDR_display=true
@@ -29,6 +27,3 @@ dalvik.vm.isa.arm64.features=default
 dalvik.vm.isa.arm.variant=cortex-a9
 dalvik.vm.isa.arm.features=default
 ro.minui.pixel_format=RGBX_8888
-wlan.wfd.hdcp=disable
-wifi.interface=wlan0
-
