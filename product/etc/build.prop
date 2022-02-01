@@ -1,0 +1,53 @@
+####################################
+# from generate-common-build-props
+# These properties identify this partition image.
+####################################
+ro.product.product.brand=samsung
+ro.product.product.device=qssi
+ro.product.product.manufacturer=samsung
+ro.product.product.model=SM-A525F
+ro.product.product.name=a52qnsxx
+ro.product.build.date=Thu Jan  6 14:51:36 KST 2022
+ro.product.build.date.utc=1641448296
+ro.product.build.fingerprint=samsung/a52qnsxx/qssi:12/SP1A.210812.016/A525FXXS4BVA2:user/release-keys
+ro.product.build.id=SP1A.210812.016
+ro.product.build.tags=release-keys
+ro.product.build.type=user
+ro.product.build.version.incremental=A525FXXS4BVA2
+ro.product.build.version.release=12
+ro.product.build.version.release_or_codename=12
+ro.product.build.version.sdk=31
+####################################
+# from variable ADDITIONAL_PRODUCT_PROPERTIES
+####################################
+ro.product.vndk.version=31
+ro.build.characteristics=phone
+####################################
+# from variable PRODUCT_PRODUCT_PROPERTIES
+####################################
+af.fast_track_multiplier=1
+audio.offload.video=true
+audio.deep_buffer.media=true
+audio.sys.noisy.broadcast.delay=500
+audio.sys.mute.latency.factor=2
+audio.sys.routing.latency=0
+audio.offload.min.duration.secs=30
+audio.sys.offload.pstimeout.secs=3
+ro.af.client_heap_size_kbyte=7168
+media.stagefright.audio.deep=false
+aaudio.mmap_policy=2
+aaudio.mmap_exclusive_policy=2
+aaudio.hw_burst_min_usec=2000
+persist.sys.usb.config=mtp
+restore.feature.use_samsung_smart_switch_flow=1
+setupwizard.feature.enable_stencil_partner_customization=1
+setupwizard.feature.support_oem_large_screen_landscape_temporary_by_sys_prop=true
+ro.com.google.clientidbase=android-samsung-ss
+ro.setupwizard.rotation_locked=false
+setupwizard.theme=glif_v3_light
+ro.setupwizard.wifi_on_exit=false
+ro.setupwizard.mode=OPTIONAL
+ro.opa.eligible_device=true
+ro.com.google.gmsversion=12_202110
+# end of file
+
