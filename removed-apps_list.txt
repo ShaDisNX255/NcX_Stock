@@ -23,6 +23,7 @@ priv-app/AREmoji
 priv-app/AREmojiEditor
 priv-app/Bixby
 priv-app/BixbyService
+priv-app/CIDManager
 priv-app/FBInstaller_NS
 priv-app/FBServices
 priv-app/knoxanalyticsagent
