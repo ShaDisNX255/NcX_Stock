@@ -111,6 +111,11 @@
 
     <!-- Intelligent recognition -->
     <local name="SUPPORT_INTELLIGENT_RECOGNITION_TIPS" value="true" />
+    <local name="SUPPORT_SUPER_RESOLUTION_SMART_TIPS" value="true"/>
+    
+    <!-- Lens dirty detection -->
+    <local name="SUPPORT_LENS_DIRTY_DETECTION" value="true" />
+	
 
     <!-- Live focus & bokeh -->
     <local name="SUPPORT_LIVE_FOCUS_TORCH_FLASH" value="false"/>
