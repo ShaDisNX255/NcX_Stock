@@ -65,3 +65,4 @@ priv-app/GameOptimizingService
 priv-app/GameTools_Dream
 priv-app/HybridRadio
 priv-app/SecMyFiles2020
+priv-app/SmartWidgets
