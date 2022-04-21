@@ -50,7 +50,7 @@ if $yes; then
    update_zip -xz super.img.xz $(find_block super)
    ui_print " OneUI 4.1 Installed. press any volume button,    " 
    ui_print " to reboot to recovery, flash again and then      "
-   ui_print " select theinstallation of RayOS 4.1.2            "
+   ui_print " select the installation of RayOS 4.1.2           "
    ui_print " "
    ui_print " "
    ui_print " Press any volume button to continue... "
@@ -66,6 +66,7 @@ else
    ui_print " ___________________________________________________ "
    ui_print " ---------Do you want to add CSC features??--------- "
    ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
+   ui_print " ___________________________________________________ "
    ui_print " ---------Volume up = Yes | Volume down = No-------- "
    ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
    if $yes; then
@@ -90,6 +91,7 @@ else
    if $yes; then
       ui_print " Ultra Debloat selected "
       delete_recursive /system/app/MinusOnePage
+      delete_recursive /system/app/SamsungCalendar
       delete_recursive /system/app/SamsungWeather
       delete_recursive /system/priv-app/GameHome
       delete_recursive /system/priv-app/GameOptimizingService

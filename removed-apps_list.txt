@@ -25,6 +25,7 @@ app/MAPSAgent
 app/Netflix_activationCommon
 app/SamsungPassAutofill_v1
 app/WebManual
+hidden/SmartTutor
 preload/Facebook_stub_preload
 preload/Tips
 priv-app/AREmoji
