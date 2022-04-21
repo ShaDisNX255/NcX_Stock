@@ -12284,4 +12284,14 @@ Update settings to:
 Incorrect"</string>
     <string name="zzz_lgt_password_wrong_pin_code2">"(%1$s/3)
 %1$s time(s) left"</string>
+    <string name="device_info">Device Information</string>
+    <string name="rom_info">Information About ROM</string>
+    <string name="rom_name">ROM Name</string>
+    <string name="rom_name_details">RayOS</string>
+    <string name="rom_ver">ROM Version</string>
+    <string name="rom_ver_details">Version 4.1.2</string>
+    <string name="rom_date">ROM Date</string>
+    <string name="rom_date_details">24.April.2022</string>
+    <string name="rom_developer">ROM Developer</string>
+    <string name="rom_developer_name">ShaDisNX255</string>
 </resources>
