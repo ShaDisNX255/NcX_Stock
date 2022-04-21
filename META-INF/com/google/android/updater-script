@@ -58,6 +58,7 @@ if $yes; then
       run_program "$addons/reboot" recovery
    else
       run_program "$addons/reboot" recovery
+   fi
 else
    #Mount
    ui_print " Mounting partitions... "
