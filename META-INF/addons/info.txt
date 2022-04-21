@@ -1,0 +1,20 @@
+extra.zip: Extra plugins (binarys)
+
+extra.zip is needed for:
+
+- adb commands
+- unlock_all action
+- unlock action
+- superrepack action
+- superunpack action
+- get_offset action
+- get_size action
+- get_total_size action
+- get_group action
+- checksuper action
+- start_loop action
+- get_virtual_points action
+- try_mount (NOT ALL) only with flag -file "/sdcard/super.img" (It need start_loop action to work with external super images)                    
+
+
+If you are not going to use any of these actions you can delete extra.zip
