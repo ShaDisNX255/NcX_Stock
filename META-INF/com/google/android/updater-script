@@ -1,0 +1,178 @@
+# Before: ui_print("  Hi! ");
+# Now:    ui_print " Hi! "
+#-----------Dynamic Installer Configs-----------#
+#The #MAGISK tag is required, dont remove it
+#MAGISK
+setdefault magisk_support off
+setdefault run_addons off
+setdefault apex_mount on
+setdefault extraction_speed default
+setdefault permissions "0755:0644"
+setdefault devices off
+#-----------------------------------------------#
+#Your script starts here:
+#Start Log
+startlog /sdcard/RayOSv4.1.log
+
+#Print
+ui_print " "
+
+ui_print " _______________________________________________ "
+ui_print " |--|---------------------------------------|--| "
+ui_print " |--|              RayOS v4.1               |--| "
+ui_print " |--|---------------------------------------|--| "
+ui_print " |--|        for Samsung Galaxy A52         |--| "
+ui_print " |--|---------------------------------------|--| "
+ui_print " |--|      by ShaDisNX255@XDADevelopers     |--| "
+ui_print " |--|---------------------------------------|--| "
+ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
+
+#Installation
+ui_print " ___________________________________________________ "
+ui_print " --------------Select ROM installation-------------- "
+ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
+ui_print " You must first install OneUI 4.1, reboot to         "
+ui_print " recovery and then flash again to install RayOS      "
+ui_print "                                                     "
+ui_print " Volume up = Install OneUI 4.1                       "
+ui_print " Volume down = Install RayOS 4.1                     "
+ui_print " ___________________________________________________ "
+ui_print " ------Volume up = OneUI | Volume down = RayOS------ "
+ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
+if $yes; then
+   ui_print " Installing OneUI 4.1... "
+   #Mount
+   ui_print " Unmounting all partitions... "
+   umount_all
+   ui_print " Installing March patch kernel... "
+   update_zip boot.img $(find_block boot)
+   ui_print " Installing ROM... "
+   update_zip -xz super.img.xz $(find_block super)
+   ui_print " OneUI 4.1 Installed. Reboot to recovery,         " 
+   ui_print " reflash and select RayOS installation.           " 
+else
+   #Mount
+   ui_print " Mounting partitions... "
+   auto_mount_partitions
+   ui_print " First debloat... "
+   delete_recursive /system/app/AutomationTest_FB
+   delete_recursive /system/app/BBCAgent
+   delete_recursive /system/app/CarrierDefaultApp
+   delete_recursive /system/app/FBAppManager_NS
+   delete_recursive /system/app/KidsHome_Installer
+   delete_recursive /system/app/MAPSAgent
+   delete_recursive /system/app/Netflix_activationCommon
+   delete_recursive /system/app/SamsungPassAutofill_v1
+   delete_recursive /system/app/WebManual
+   delete_recursive /system/preload/Facebook_stub_preload
+   delete_recursive /system/preload/Tips
+   delete_recursive /system/priv-app/AuthFramework
+   delete_recursive /system/priv-app/CIDManager
+   delete_recursive /system/priv-app/EnhancedAttestationAgent
+   delete_recursive /system/priv-app/FBInstaller_NS
+   delete_recursive /system/priv-app/FBServices
+   delete_recursive /system/priv-app/knoxanalyticsagent
+   delete_recursive /system/priv-app/KnoxCore
+   delete_recursive /system/priv-app/KnoxPushManager
+   delete_recursive /system/priv-app/knoxvpnproxyhandler
+   delete_recursive /system/priv-app/OMCAgent5
+   delete_recursive /system/priv-app/OneDrive_Samsung_v3
+   delete_recursive /system/priv-app/PaymentFramework
+   delete_recursive /system/priv-app/SPPPushClient
+   delete_recursive /system/priv-app/SamsungPass
+   delete_recursive /system/priv-app/SecureFolder
+   delete_recursive /system/priv-app/PhotoEditor_Mid
+   package_extract_dir rayos /system
+   #CSC
+   ui_print " ___________________________________________________ "
+   ui_print " ---------Do you want to add CSC features??--------- "
+   ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
+   ui_print " ---------Volume up = Yes | Volume down = No-------- "
+   ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
+   if $yes; then
+      ui_print " Adding CSC features... "
+      cscfeature="$addons/omc/cscfeature.xml"
+      cscfeature_network="$addons/omc/cscfeature_network.xml"
+      omc_decoder="$addons/omc/decoder.jar"
+      . "$addons/omc_edit.sh"
+   else
+      ui_print " Skipping CSC features... "
+   fi
+   #Debloat
+   ui_print " ___________________________________________________ "
+   ui_print " ------------Do you want Ultra Debloat-------------? "
+   ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
+   ui_print " Note: Check the ROMs GitHub page to see the extra   "
+   ui_print " apps that this deletes. Deletes more Samsung apps   "
+   ui_print " but not all, so keep that in mind                   "
+   ui_print " ___________________________________________________ "
+   ui_print " ---------Volume up = Yes | Volume down = No-------- "
+   ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
+   if $yes; then
+      ui_print " Ultra Debloat selected "
+      delete_recursive /system/app/MinusOnePage
+      delete_recursive /system/app/SamsungWeather
+      delete_recursive /system/priv-app/GameHome
+      delete_recursive /system/priv-app/GameOptimizingService
+      delete_recursive /system/priv-app/GameTools_Dream
+      delete_recursive /system/priv-app/HybridRadio
+      delete_recursive /system/priv-app/SecMyFiles2020
+      delete_recursive /system/priv-app/SmartWidget
+   else
+      ui_print " Regular debloat kept, keeping extra apps "
+   fi
+   #Clocktransition
+   ui_print " ___________________________________________________ "
+   ui_print " Do you want to add the AOD to Lockscreen animation? "
+   ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
+   ui_print " Note: Avoid using this with FOD as it can mess with "
+   ui_print " the AOD brightness. Still usable, but can be        "
+   ui_print " annoying. There is a workaround, check in XDA       "
+   ui_print " ___________________________________________________ "
+   ui_print " ---------Volume up = Yes | Volume down = No-------- "
+   ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
+   if $yes; then
+      ui_print " Adding animation "
+      package_extract_dir activeclock /system
+   else
+      ui_print " Skipping this animation "
+   fi
+   #SamsungFeatures
+   ui_print " ___________________________________________________ "
+   ui_print " -----Do you want to add Bixby and AR Stickers?----- "
+   ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
+   ui_print " Note: This is the last question I promise lol       "
+   ui_print " ___________________________________________________ "
+   ui_print " ---------Volume up = Yes | Volume down = No-------- "
+   ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
+   if $yes; then
+      ui_print " Bixby and AR stickers installed "
+   else
+      ui_print " Bixby and AR stickers removed "
+      delete_recursive /system/app/ARCore
+      delete_recursive /system/app/ARDrawing
+      delete_recursive /system/app/ARZone
+      delete_recursive /system/app/BixbyWakeup
+      delete_recursive /system/priv-app/AREmoji
+      delete_recursive /system/priv-app/AREmojiEditor
+      delete_recursive /system/priv-app/AvatarEmojiSticker_S
+      delete_recursive /system/priv-app/Bixby
+      delete_recursive /system/priv-app/BixbyService
+      delete_recursive /system/priv-app/SettingsBixby
+      delete_recursive /system/priv-app/StickerFaceARAvatar
+      delete_recursive /system/priv-app/SystemUIBixby2
+   fi
+   #Unmount
+   ui_print " Unmounting partitions... "
+   umount_all
+   #Finished
+   ui_print " _______________________________________________ "
+   ui_print " |--|---------------------------------------|--| "
+   ui_print " |--| RayOS v4.1 has successfully been      |--| "
+   ui_print " |--| installed. Special thanks BlassGO and |--| "
+   ui_print " |--| kirbyNx from XDA Developers for their |--| "
+   ui_print " |--| help and getting me off my ass to make|--| "
+   ui_print " |--| this ROM. I hope to update it more... |--| "
+   ui_print " |--|---------------------------------------|--| "
+   ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
+fi

@@ -1,0 +1,7 @@
+id=test-module
+name=Test Module
+version=v1.0
+versionCode=1
+author=random
+description=Dynamic Installer magisk space
+support=none

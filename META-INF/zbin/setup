@@ -1,0 +1,34 @@
+#!/sbin/sh
+#Dynamic Installer by @BlassGO
+#CUSTOM SETUP
+setenforce 0 2>/dev/null
+ps | grep zygote | grep -qv grep && export BOOTMODE=true || export BOOTMODE=false
+$BOOTMODE || ps -A 2>/dev/null | grep zygote | grep -qv grep && export BOOTMODE=true
+if ! $BOOTMODE && [ -d /tmp ]; then export TMPDIR=/tmp
+elif [ -d /data ] && mkdir -p /data/tmp && [ -d /data/tmp ]; then export TMPDIR=/data/tmp
+else TMPDIR=/dev/tmp
+fi
+export Dynamic_Setup=true
+rc="$TMPDIR/0000001.tmp"
+rm -rf "$TMPDIR" 2>/dev/null
+mkdir -p "$TMPDIR" 2>/dev/null
+if [ ! -d "$TMPDIR" ]; then echo "setup: Cant find $TMPDIR" && exit 1; fi
+if [[ -z "$1" && -e bash && -e core && -e busybox && -e bin ]]; then
+   cp -pf bash "$TMPDIR"
+   chmod +x "$TMPDIR/bash"
+   if [ ! -x "$TMPDIR/bash" ]; then echo "setup: Invalid $TMPDIR" && exit 1; fi
+   echo ". ./core" > "$rc"
+   echo 'rm -f "'$rc'"' >> "$rc"
+   if [ ! -f "$rc" ]; then echo "setup: Invalid $rc" && exit 1; fi
+   "$TMPDIR/bash" --rcfile "$rc"
+elif [[ -n "$1" && -d "$1" && -e "$1/bash" && -e "$1/core" && -e "$1/busybox" && -e "$1/bin" ]]; then
+   cp -pf "$1/bash" "$TMPDIR"
+   chmod +x "$TMPDIR/bash"
+   if [ ! -x "$TMPDIR/bash" ]; then echo "setup: Invalid $TMPDIR" && exit 1; fi
+   echo '. "'$1'/core" "'$1'"' > "$rc"
+   echo 'rm -f "'$rc'"' >> "$rc"
+   if [ ! -f "$rc" ]; then echo "setup: Invalid $rc" && exit 1; fi
+   "$TMPDIR/bash" --rcfile "$rc"
+else
+   echo "setup: CANT FIND VALID INFO " && exit 1
+fi

@@ -1,0 +1,167 @@
+#!/sbin/sh
+#Dynamic Installer by @BlassGO
+#Also uses code from @osm0sis and @topjohnwu
+#SETUP
+ui_print() {
+  if ! $BOOTMODE; then
+     echo "ui_print $1
+       ui_print" >> $OUTFD
+  else 
+    echo "$1"
+  fi
+}
+echo2() {
+   >&2 echo "$@"
+}
+abort() {
+   ui_print " " && ui_print "$*" && ui_print " "
+   exit 1
+}
+import_info() {
+     ( echo >> "$l/info.txt"
+       cat "$1" >> "$l/info.txt"
+       rm -f "$1"
+     ) 2>/dev/null
+}
+get() {
+  #Get v1.2.0
+  #Ensure Extraction
+  local var flag from to in get rm root
+  for var; do
+    flag="$1"
+    case $flag in
+       -from)
+       from="$2"
+       shift 2
+       ;;
+       -to)
+       to="$2"
+       shift 2
+       ;;
+       -in)
+       in="$2"
+       shift 2
+       ;;
+       *)
+       set -- "$@" "$1"
+       shift
+       ;;
+    esac
+  done
+  if [ -z "$from" ] || [ ! -f "$from" ]; then abort "ERROR: Invalid ZIP name"; fi
+  [ -n "$in" ] && in="$in/"
+  [ -n "$to" ] && to="$to/" || to="$PWD/"
+  [ "$to" == "//" ] && to=/
+  for get in "$@"; do
+     root="${in}$get"
+     echo2 "Getting: $get"
+     unzip -qo "$from" "$root" -d "$to"
+     if [ -f "${to}$root" ]; then
+        mv -f "${to}$root" "${to}$get"
+        chmod 755 "${to}$get"
+        if [ -f "${to}$get" ]; then
+           rm=${root%%/*}
+           [ -n "$rm" ] && rm -rf "$to/$rm"
+        else abort "ERROR:2: Cant get $get"
+        fi
+     else abort "ERROR:1: Cant get $get"
+     fi
+  done
+}
+setup_bb() {
+   #Ensure /system/bin/sh
+   if [ ! -f /system/bin/sh ]; then
+      umount -l /system 2>/dev/null
+      mkdir -p /system/bin
+      ln -sf "$(command -v sh)" /system/bin/sh
+   fi
+   if [ -e "$bb" ]; then
+     if ! "$bb" --install -s "$l"; then
+        for i in $("$bb" --list); do
+          if ! ln -sf "$bb" "$l/$i" && ! "$bb" ln -sf "$bb" "$l/$i" && ! "$bb" ln -f "$bb" "$l/$i"; then
+            # create script wrapper if symlinking and hardlinking failed because of restrictive selinux policy
+            if ! echo "#!$bb" > "$l/$i" || ! chmod 755 "$l/$i"; then
+              abort "ERROR:2: Failed to setup busybox"
+            fi
+          fi
+        done
+     fi
+   else
+      abort "ERROR:1: Cant find busybox"
+   fi
+   [ ! -f "$l/sh" ] && abort "ERROR:3: Failed to setup busybox"
+}
+setup() {
+  #Remove only zbin plugins
+  ( rm -rf "$l" "$TMP/zbin"
+    rm -f "$bb" "$bs" "$TMP/bin" "$TMP/bin.xz" "$TMP/extra.zip" "$TMP/core"
+  ) 2>/dev/null
+  
+  #Create work DIRs
+  mkdir -p "$l"
+  mkdir -p "$TMP/zbin"
+  if [ ! -d "$l" ] || [ ! -d "$TMP/zbin" ]; then
+    abort "ERROR: Cant startup"
+  fi
+  
+  #First ensuring Busybox environment
+  get busybox -from "$installzip" -in "META-INF/zbin" -to "$TMP"
+  setup_bb
+  export PATH="$l:$PATH"
+  
+  #Extracting zbin
+  get bash bin core -from "$installzip" -in "META-INF/zbin" -to "$TMP"
+  
+  #Loading bin
+  mv -f "$TMP/bin" "$TMP/bin.xz" >/dev/null 2>&1
+  xz -d "$TMP/bin.xz" >/dev/null 2>&1
+  if [ ! -f "$TMP/bin" ]; then abort "setup: Cant get bin"; fi;
+  unzip -qo "$TMP/bin" -d "$TMP/zbin"
+  import_info "$TMP/zbin/info.txt"
+  
+  #Loading extra.zip (Optional)
+  if unzip -l "$installzip" META-INF/addons/extra.zip | grep -q extra.zip; then
+     get extra.zip -from "$installzip" -in "META-INF/addons" -to "$TMP"
+     unzip -qo "$TMP/extra.zip" -d "$TMP/zbin"
+     import_info "$TMP/zbin/info.txt"
+  fi
+  
+  #Start Installation
+  find "$TMP/zbin" -type f -exec mv -f {} "$l" \;
+  find "$l" -type f -exec chmod 755 {} +;
+  PATH="$PATH:/system/bin" "$bs" "$TMP/core" "$@"
+  if [ "$?" == "130" ]; then exit 1; else exit 0; fi
+}
+setenforce 0
+ps | grep zygote | grep -qv grep && export BOOTMODE=true || export BOOTMODE=false
+$BOOTMODE || ps -A 2>/dev/null | grep zygote | grep -qv grep && export BOOTMODE=true
+if ! $BOOTMODE; then 
+   #Global vars
+   [ -d /tmp ] && export TMP=/tmp || export TMP=/dev/tmp
+   export TMPDIR="$TMP"
+   export OUTFD="/proc/self/fd/$2"
+   export installzip="$3"
+   export addons="$TMP/addons"
+   export l="$TMP/ugu"
+   cert=META-INF/zbin/version.txt
+   bb="$TMP/busybox"
+   bs="$TMP/bash"
+   setup
+else
+   umask 022
+   #Global vars
+   export TMP=/dev/tmp
+   export TMPDIR="$TMP"
+   export OUTFD="$2"
+   export ZIPFILE="$3"
+   export installzip="$3"
+   export DNM=META-INF/com/google/android/magisk
+   export PERSISTDIR=/sbin/.magisk/mirror/persist
+   export addons="$TMP/addons"
+   export l="$TMP/ugu"
+   cert=META-INF/zbin/version.txt
+   bb="$TMP/busybox"
+   bs="$TMP/bash"
+   setup
+fi
+ 
