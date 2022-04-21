@@ -19,7 +19,7 @@ ui_print " "
 
 ui_print " _______________________________________________ "
 ui_print " |--|---------------------------------------|--| "
-ui_print " |--|              RayOS v4.1               |--| "
+ui_print " |--|             RayOS v4.1.2              |--| "
 ui_print " |--|---------------------------------------|--| "
 ui_print " |--|        for Samsung Galaxy A52         |--| "
 ui_print " |--|---------------------------------------|--| "
@@ -31,11 +31,11 @@ ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯�
 ui_print " ___________________________________________________ "
 ui_print " --------------Select ROM installation-------------- "
 ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
-ui_print " You must first install OneUI 4.1, reboot to         "
+ui_print " You must first install OneUI 4.1.2, reboot to       "
 ui_print " recovery and then flash again to install RayOS      "
 ui_print "                                                     "
 ui_print " Volume up = Install OneUI 4.1                       "
-ui_print " Volume down = Install RayOS 4.1                     "
+ui_print " Volume down = Install RayOS 4.1.2                   "
 ui_print " ___________________________________________________ "
 ui_print " ------Volume up = OneUI | Volume down = RayOS------ "
 ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
@@ -48,41 +48,20 @@ if $yes; then
    update_zip boot.img $(find_block boot)
    ui_print " Installing ROM... "
    update_zip -xz super.img.xz $(find_block super)
-   ui_print " OneUI 4.1 Installed. Reboot to recovery,         " 
-   ui_print " reflash and select RayOS installation.           " 
+   ui_print " OneUI 4.1 Installed. press any volume button,    " 
+   ui_print " to reboot to recovery, flash again and then      "
+   ui_print " select theinstallation of RayOS 4.1.2            "
+   ui_print " "
+   ui_print " "
+   ui_print " Press any volume button to continue... "
+   if $yes; then
+      run_program "$addons/reboot" recovery
+   else
+      run_program "$addons/reboot" recovery
 else
    #Mount
    ui_print " Mounting partitions... "
    auto_mount_partitions
-   ui_print " First debloat... "
-   delete_recursive /system/app/AutomationTest_FB
-   delete_recursive /system/app/BBCAgent
-   delete_recursive /system/app/CarrierDefaultApp
-   delete_recursive /system/app/FBAppManager_NS
-   delete_recursive /system/app/KidsHome_Installer
-   delete_recursive /system/app/MAPSAgent
-   delete_recursive /system/app/Netflix_activationCommon
-   delete_recursive /system/app/SamsungPassAutofill_v1
-   delete_recursive /system/app/WebManual
-   delete_recursive /system/preload/Facebook_stub_preload
-   delete_recursive /system/preload/Tips
-   delete_recursive /system/priv-app/AuthFramework
-   delete_recursive /system/priv-app/CIDManager
-   delete_recursive /system/priv-app/EnhancedAttestationAgent
-   delete_recursive /system/priv-app/FBInstaller_NS
-   delete_recursive /system/priv-app/FBServices
-   delete_recursive /system/priv-app/knoxanalyticsagent
-   delete_recursive /system/priv-app/KnoxCore
-   delete_recursive /system/priv-app/KnoxPushManager
-   delete_recursive /system/priv-app/knoxvpnproxyhandler
-   delete_recursive /system/priv-app/OMCAgent5
-   delete_recursive /system/priv-app/OneDrive_Samsung_v3
-   delete_recursive /system/priv-app/PaymentFramework
-   delete_recursive /system/priv-app/SPPPushClient
-   delete_recursive /system/priv-app/SamsungPass
-   delete_recursive /system/priv-app/SecureFolder
-   delete_recursive /system/priv-app/PhotoEditor_Mid
-   package_extract_dir rayos /system
    #CSC
    ui_print " ___________________________________________________ "
    ui_print " ---------Do you want to add CSC features??--------- "
@@ -117,7 +96,6 @@ else
       delete_recursive /system/priv-app/GameTools_Dream
       delete_recursive /system/priv-app/HybridRadio
       delete_recursive /system/priv-app/SecMyFiles2020
-      delete_recursive /system/priv-app/SmartWidget
    else
       ui_print " Regular debloat kept, keeping extra apps "
    fi
@@ -168,7 +146,7 @@ else
    #Finished
    ui_print " _______________________________________________ "
    ui_print " |--|---------------------------------------|--| "
-   ui_print " |--| RayOS v4.1 has successfully been      |--| "
+   ui_print " |--| RayOS v4.1.2 has successfully been    |--| "
    ui_print " |--| installed. Special thanks BlassGO and |--| "
    ui_print " |--| kirbyNx from XDA Developers for their |--| "
    ui_print " |--| help and getting me off my ass to make|--| "
