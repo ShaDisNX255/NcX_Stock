@@ -61,5 +61,6 @@
             <extra android:name="from_settings" android:value="true" />
         </intent>
     </com.samsung.android.settings.widget.SecSelectablePreference>
+    <com.samsung.android.settings.widget.SecInsetCategoryPreference android:order="300000" />
     <com.samsung.android.settings.widget.SecSelectablePreference android:icon="@drawable/ic_settings_about" android:layout="@layout/sec_preference_home" android:title="@string/about_settings" android:key="top_level_about_phone" android:summary="@string/summary_placeholder" android:order="400000" android:fragment="com.android.settings.deviceinfo.aboutphone.MyDeviceInfoFragment" settings:controller="com.android.settings.deviceinfo.aboutphone.TopLevelAboutDevicePreferenceController" settings:keywords="@string/keywords_about_settings" />
-</PreferenceScreen>
+</PreferenceScreen> 
