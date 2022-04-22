@@ -31,7 +31,7 @@ ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯�
 ui_print " ___________________________________________________ "
 ui_print " --------------Select ROM installation-------------- "
 ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
-ui_print " You must first install OneUI 4.1.2, reboot to       "
+ui_print " You must first install OneUI 4.1, reboot to         "
 ui_print " recovery and then flash again to install RayOS      "
 ui_print "                                                     "
 ui_print " Volume up = Install OneUI 4.1                       "
