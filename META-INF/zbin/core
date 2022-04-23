@@ -68,6 +68,8 @@ get_array() { local e match="$1"; shift; for e; do [[ "$e" == *"$match"* ]] && e
 
 binarch() { local byte=$(od -An -t x1 -j 4 -N 1 "$1" | tr -d " "); if [[ "$byte" == "02" ]]; then echo 64bits; elif [[ "$byte" == "01" ]]; then echo 32bits; else echo Unknown && return 1; fi }
 
+reboot() { [ -f /system/bin/reboot ] && /system/bin/reboot "$@" || "$(which reboot)" "$@";}
+
 ###################################
 #Common EDIFY extra references (For new users)
 
@@ -89,6 +91,32 @@ stdout() { "$@" 2>&1; }
 
 concat() { local con; for c; do con="${con}$1"; shift; done; [ -n "$con" ] && echo "$con" || return 1; }
 
+
+###################################
+#Specific POSIX functions
+
+grep_o() (
+    #POSIX grep -o matching find by @BlassGO
+    if [ -z "$2" ]; then
+        grep=$(cat)
+    else
+        grep=$(cat "$2")
+    fi  
+    echo "$grep" | awk '
+    function start(str) {
+        matches="" 
+        return receiver(str)
+    }
+    function receiver(str2) {
+        find=match(str2, /'$1'/)
+        if(find!=0) {
+            matches=(matches substr(str2, RSTART, RLENGTH) "\n")
+            receiver(substr(str2, RSTART+RLENGTH, length(str2)))
+        }    
+        return matches
+    }
+    {print start($0)}' | grep -Ev "^$"
+)
 
 ###################################
 
@@ -174,25 +202,29 @@ undefined() {
 }
 
 copy() {
-   if ! $(cp -prf "$1" "$2" 2>/dev/null || [ ! -d "$(dirname "$2")" ] && mkdir -p "$(dirname "$2")" && cp -prf "$1" "$2"); then
-      if [[ -d "$(dirname "$2")" && -z "$(ls -A "$(dirname "$2")")" ]]; then
-         rm -rf "$(dirname "$2")"
-         return 1
-      else
-         return 1
+   if ! $(cp -prf "$1" "$2" 2>/dev/null || [ ! -d "$(dirname "$2")" ] && mkdir -p "$(dirname "$2")"); then
+      if ! cp -prf "$1" "$2"; then
+         if [[ -d "$(dirname "$2")" && -z "$(ls -A "$(dirname "$2")")" ]]; then
+            rm -rf "$(dirname "$2")"
+            return 1
+         else
+            return 1
+         fi
+      else return 0
       fi
-   else
-      return 0
+   else return 0
    fi
 }
 
 move() {
-   if ! $(mv -f "$1" "$2" 2>/dev/null || [ ! -d "$(dirname "$2")" ] && mkdir -p "$(dirname "$2")" && mv -f "$1" "$2"); then
-      if [[ -d "$(dirname "$2")" && -z "$(ls -A "$(dirname "$2")")" ]]; then
-         rm -rf "$(dirname "$2")"
-         return 1
-      else
-         return 1
+   if ! $(mv -f "$1" "$2" 2>/dev/null || [ ! -d "$(dirname "$2")" ] && mkdir -p "$(dirname "$2")"); then
+      if ! mv -f "$1" "$2"; then
+         if [[ -d "$(dirname "$2")" && -z "$(ls -A "$(dirname "$2")")" ]]; then
+            rm -rf "$(dirname "$2")"
+            return 1
+         else
+            return 1
+         fi
       fi
    else
       return 0
@@ -463,6 +495,51 @@ convert() {
    if is_number "$result"; then 
       $show && echo $result$to || echo $result
    else return 1
+   fi
+}
+
+convert_edify() {
+   #Generic edify function name format = \([[:alnum:]]\+_\{0,1\}[[:alnum:]]\+_\{0,1\}[[:alnum:]]\+\)
+   local tmp="$TMP/edify001.tmp" support func check
+   cat "$1" | dos2unix > "$tmp"
+   #Get all supported functions (Regex)
+   #For commands: $(ls $(echo $PATH | tr ':' ' ') 2>/dev/null | grep -Ev '/|\[' | grep . | sort)
+   for func in $(declare -F 2>/dev/null | awk '{ print $3; }'); do
+      [ -n "$support" ] && support+="\>|"
+      [ -n "$func" ] && support+="\<${func}"
+   done
+   support=$(echo "${support}|\<getprop\>|\<sleep\>|\<if\>|\<fi\>|\<then\>|\<else\>" | dos2unix)
+   #Checking supported actions
+   check=$(grep -Eo "[[:alnum:]]+_{0,1}[[:alnum:]]+_{0,1}[[:alnum:]]+[(]" "$tmp" | uniq | cut -d'(' -f1 | grep -Ewv "$support" | while read action; do
+      [ -z "$action" ] && break
+      echo "Unsupported action: $action"
+   done)
+   [ -n "$check" ] && echo2 "$check" && return 1
+   #sed -i -r '/.*[[:alnum:]]+_{0,1}[[:alnum:]]+_{0,1}[[:alnum:]]+[(].*[)]/ {/'$support'/! { s/.*/#Unsupported line: &/g} }' "$tmp"
+   #Standardizing ifelse(action, action) to action || action
+   sed -i -Ee :1 -e '/ifelse[(]/s/^(([^",]|"[^"]*")*),/\1||/;t1' "$tmp"
+   sed -i -e 's/ifelse[\(]\(.*\)[\)].*/\1/g' "$tmp"
+   sed -i -e 's/\([[:alnum:]]\+_\{0,1\}[[:alnum:]]\+_\{0,1\}[[:alnum:]]\+\)[\(]\(.*\)[\)].*||\(.*\)[\(]\(.*\)[\)]/\1 \2 || \3 \4/g' "$tmp"
+   #Edify: action("arg1", "arg2"); to DI: action "arg1", "arg2"
+   sed -i -e 's/\([[:alnum:]]\+_\{0,1\}[[:alnum:]]\+_\{0,1\}[[:alnum:]]\+\)[\(]\(.*\)[\)];.*/\1 \2/g' "$tmp"
+   #Remove any comma that is not inside double quotes
+   sed -i -Ee :1 -e 's/^(([^",]|"[^"]*")*),/\1 /;t1' "$tmp"
+   #Edify subaction("arg1" "arg2") to DI: $(subaction "arg1" "arg2")
+   sed -i -e 's/\([[:alnum:]]\+_\{0,1\}[[:alnum:]]\+_\{0,1\}[[:alnum:]]\+\)[\(]\(.*\)[\)]\(.*\)/$\(\1 \2\)\3/g' "$tmp"
+   #Standardizing if "ARG" comparator "ARG" then to if [[ "ARG" comparator "ARG" ]]; then
+   sed -i -r '/[=][=]|[!][=]|^[ \t]*then/s/^[ \t]*then|[ \t]*then[ \t]*$//g' "$tmp"
+   sed -i -Ee :1 -e 's/^(([^",]|"[,^"]*")*)endif/\1fi/;t1' "$tmp"
+   sed -i -e 's/\([\$][\(].*[\)]\)\(.*[==]\|[!=].*\)/"\1"\2/g' "$tmp"
+   sed -i -e 's/\([\"].*\)\([=][=]\|[!][=]\)\(.*\)/[[ \1\2\3 ]]; then/g' "$tmp"
+   #Justificate any indent: if fi
+   sed -i -r '/^[ \t]*if/,/^[ \t]*fi/{ /^[ \t]*if/{h;s/[^[:blank:]].*//;x;b;}; /^[ \t]*if|^[ \t]*fi|^[ \t]*else/! {;G;s/[[:blank:]]*(.*)\n(.*)/\2   \1/}}' "$tmp"
+   #Formating ui_print " " to ui_print ' '
+   sed -i -r 's/^([ \t]*ui_print*)[^"]*"([^"]*)["]/\1 '\''\2'\''/g' "$tmp"
+   #End
+   if is_valid "$tmp"; then
+      [ -z "$2" ] && copy "$tmp" "$1" || copy "$tmp" "$2"
+      delete "$tmp"
+   else echo2 "Oops! Empty result" && return 1
    fi
 }
 
@@ -1259,7 +1336,7 @@ set_context() {
    if exist "$1"; then context=$(eval_context "$1"); else echo2 "set_context: Invalid line" && return 1; fi
    if defined context; then contextback="$context"; else echo2 "set_context: FATAL ERROR: Cant get context from $1" && return 1; fi
    if ! exist file "$2" || exist folder "$2"; then 
-      find "$2" \( -type f -o -type d -o -type l \) 2>/dev/null | while read huh; do
+      find -L "$2" \( -type f -o -type d -o -type l \) 2>/dev/null | while read huh; do
          dir=
          try=
          ext=
@@ -1279,7 +1356,7 @@ set_context() {
             done <<< $(dirname "$1$(string remove "$2" "$huh")")
             ext=${huh##*.}
             if exist file "$huh"; then
-               if defined ext; then try=$(find "$backdir" -mindepth 1 -type f -name "*.$ext" | head -n1); fi
+               if defined ext; then try=$(find -L "$backdir" -mindepth 1 -type f -name "*.$ext" | head -n1); fi
                if exist "$try"; then context=$(eval_context "$try"); fi
             fi
          fi
@@ -1512,8 +1589,12 @@ setdefault() {
     read -r -d '' "$1" <<< "$2"
     if defined "$1"; then
        if [ "$1" == "permissions" ]; then
-          export di_perm_d=$(echo "$permissions" | cut -d: -f1 | tr -d " ")
-          export di_perm_f=$(echo "$permissions" | cut -d: -f2 | tr -d " ")
+          export di_uid=$(echo "$permissions" | cut -d: -f1 | tr -d " ")
+          export di_gid=$(echo "$permissions" | cut -d: -f2 | tr -d " ")
+          export di_perm_d=$(echo "$permissions" | cut -d: -f3 | tr -d " ")
+          export di_perm_f=$(echo "$permissions" | cut -d: -f4 | tr -d " ")
+          if ! is_number "$di_uid"; then export di_uid=0; fi
+          if ! is_number "$di_gid"; then export di_gid=0; fi
           if ! is_number "$di_perm_d"; then export di_perm_d=0755; fi
           if ! is_number "$di_perm_f"; then export di_perm_f=0777; fi
        fi
@@ -1555,16 +1636,17 @@ make_overlay() {
    echo " L: With $content..."
    echo " L: Building $(basename "$result")..."
    random=$(echo "$RANDOM" | tr '[0-9]' '[a-z]')
-   dynamic_apktool -d "$l/overlay.apk" -o "$tmp" >/dev/null
+   apktool -f d "$l/overlay.apk" -o "$tmp" >/dev/null
    if ! exist "$tmp/AndroidManifest.xml"; then echo " CANT setup: make_overlay " && return 1; fi
-   replace "overlay.template" "com.$random.dynamic.installer" "$tmp/AndroidManifest.xml"
+   ( replace "overlay.template" "com.$random.dynamic.installer" "$tmp/AndroidManifest.xml"
    replace 'android:targetPackage="android"' 'android:targetPackage="'$package'"' "$tmp/AndroidManifest.xml"
-   replace 'android:priority="1"' 'android:priority="'$priority'"' "$tmp/AndroidManifest.xml"
+   replace 'android:priority="1"' 'android:priority="'$priority'"' "$tmp/AndroidManifest.xml") 2>/dev/null
    delete_recursive "$tmp/res"
    current=${PWD}
    cd "$content"
    cp -prf * "$tmp"
    cd "$current"
+   delete "$tmp/res/values/public.xml"
    dynamic_apktool -sign -r "$tmp" -o "$result" >/dev/null
    if exist "$result"; then echo " L: Success $(basename "$result")"; else echo " make_overlay: Cant compile $(basename "$result")" && return 1; fi
    end_tmp
@@ -1714,7 +1796,7 @@ dynamic_install_apk() {
           echo "$userlist" >> "$TMP/userlist.txt"
           echo "$(basename "$userlist")=$package" >> "$TMP/packages.txt"
        fi
-   done <<< $(find "$2" -type f -name "*.apk" 2>/dev/null)
+   done <<< $(find -L "$2" -type f -name "*.apk" 2>/dev/null)
    if ! exist "$TMP/packages.txt" "$TMP/userlist.txt"; then
      #Make false files
      echo > "$TMP/packages.txt" 
@@ -1756,7 +1838,7 @@ dynamic_install_apk() {
              cp -pfr "$temp_dir/${include[i]}" "$temp_dest"
           fi
         done
-        set_perm_recursive2 0 0 $di_perm_d $di_perm_f "$temp_dest"
+        set_perm_recursive2 $di_uid $di_gid $di_perm_d $di_perm_f "$temp_dest"
      elif [ -z "$check_split" ]; then
         if [ -n "$na" ]; then continue; fi
         temp_pack="$package"
@@ -1773,9 +1855,9 @@ dynamic_install_apk() {
              cp -pfr "$temp_dir/${include[i]}" "$temp_dest"
           fi
         done
-        set_perm_recursive2 0 0 $di_perm_d $di_perm_f "$temp_dest"
+        set_perm_recursive2 $di_uid $di_gid $di_perm_d $di_perm_f "$temp_dest"
      fi
-   done <<< $(find "$1" -mindepth 1 -type f -name "*.apk")
+   done <<< $(find -L "$1" -mindepth 1 -type f -name "*.apk")
 }
 
 hex_patch() {
@@ -1976,7 +2058,7 @@ replace() {
            if [ -n "$load" ]; then
               if echo "$load" | grep -Fq "$(echo "$rpl" | grep -E "." | head -n1)"; then
                  echo "$load" > "$dir"
-                 set_perm2 0 0 $di_perm_f "$dir"
+                 set_perm2 $di_uid $di_gid $di_perm_f "$dir"
               else echo2 "replace: Cant replace: \"$try\"  \"$rpl\" in $dir" && return=1
               fi
            else echo2 "replace: Nothing to do: $(basename "$dir")"
@@ -1991,7 +2073,7 @@ replace() {
        if [ -n "$load" ]; then
           if echo "$load" | grep -Fq "$(echo "$rpl" | grep -E "." | head -n1)"; then
              echo "$load" > "$file"
-             set_perm2 0 0 $di_perm_f "$file"
+             set_perm2 $di_uid $di_gid $di_perm_f "$file"
           else echo2 "replace: Cant replace: \"$try\"  \"$rpl\" in $file" && return=1
           fi
        else echo2 "replace: Nothing to do: $(basename "$file")"
@@ -2838,7 +2920,7 @@ xml_kit() {
    if [ -n "$result" ]; then
       if [ -z "$print" ]; then
          echo "$result" > "$backdir"
-         if is_valid "$backdir"; then set_perm2 0 0 $di_perm_f "$backdir"
+         if is_valid "$backdir"; then set_perm2 $di_uid $di_gid $di_perm_f "$backdir"
          else echo2 "xml_kit: Cant write $backdir" && return 1
          fi
       else echo "$result"
@@ -3081,7 +3163,7 @@ find_apk() {
           echo "$userlist" >> "$TMP/userlist.txt"
           echo "$(basename "$userlist")=$package" >> "$TMP/packages.txt"
        fi
-   done <<< $(find "$path" -type f -name "*.apk")
+   done <<< $(find -L "$path" -type f -name "*.apk")
    for try in "${array[@]}"; do
      while read try2; do
         undefined try2 && continue
@@ -3567,14 +3649,14 @@ apex_pkg() {
     local pattern='s/.*"name":[^"]*"\([^"]*\).*/\1/p' apex="$1" dest
     local pattern2='s/.*package="\([^"]*\).*$/\1/p'
     if [ -f "$apex/apex_manifest.json" ]; then
-        dest=$(sed -n $pattern "$apex/apex_manifest.json")
+        dest=$(sed -n $pattern "$apex/apex_manifest.json" | tr -d " ")
     elif [ -f "$apex/apex_manifest.pb" ]; then
-        dest=$(strings "$apex/apex_manifest.pb" | head -n 1)
+        dest=$(strings "$apex/apex_manifest.pb" | head -n 1 | tr -d " ")
     fi
     [ ! -z "$dest" ] && echo "$dest" && return
-    dest=$(unzip -qp "$apex" apex_manifest.pb | strings | head -n 1)
-    [ -z "$dest" ] && dest=$(unzip -qp "$apex" apex_manifest.json | sed -n $pattern)
-    [ -z "$dest" ] && dest=$(unzip -qp "$apex" apex_build_info.pb | sed -n $pattern2)
+    dest=$((unzip -qp "$apex" apex_manifest.pb | strings | head -n 1 | tr -d " ") 2>/dev/null)
+    [ -z "$dest" ] && dest=$((unzip -qp "$apex" apex_manifest.json | sed -n $pattern | tr -d " ") 2>/dev/null)
+    [ -z "$dest" ] && dest=$((unzip -qp "$apex" apex_build_info.pb | sed -n $pattern2 | tr -d " ") 2>/dev/null)
     [ ! -z "$dest" ] && echo "$dest" || return 1
 }
 
@@ -3648,8 +3730,11 @@ getarch() {
   fi
   #Some Exynos devices use ro.hardware
   if is_substring exynos "$(getprop ro.hardware)"; then PROC=$(getprop ro.hardware); fi
+  #Magisk method
   encrypted=true
   touch /data/.rw && rm /data/.rw && encrypted=false
+  grep ' /data ' /proc/mounts | grep -q 'dm-' && encrypted=true
+  [ "$(getprop ro.crypto.state)" = "encrypted" ] && encrypted=true
   status=$(getenforce)
   arch=arm
   arch32=arm
@@ -3657,8 +3742,8 @@ getarch() {
   if [ -e "/proc/cpuinfo" ]; then 
      try=$(cat /proc/cpuinfo | grep -m1 "architecture" | cut -d':' -f2 | tr -d " ")
      if is_number "$try"; then
-        if [[ "$try" == "8" ]]; then native_arch=arm64
-        elif [[ "$try" == "7" ]]; then native_arch=arm
+        if [[ "$try" == "8" ]]; then max_arch=arm64
+        elif [[ "$try" == "7" ]]; then max_arch=arm
         fi
      else
         echo2 " Warning: ABnormal architecture"
@@ -3675,7 +3760,7 @@ getarch() {
   if [ "$ABILONG" = "arm64-v8a" ]; then arch=arm64; arch32=arm; is64bit=true; base_lib=64; fi;
   if [ "$ABILONG" = "x86_64" ]; then arch=x64; arch32=x86; is64bit=true; base_lib=64; fi;
   echo2 "------------Device INFO------------"
-  for info in API ABI ABI2 ABILONG PROC arch arch32 native_arch is64bit chipname status encrypted slot dynamic_partitions virtual_partitions free_root free_system free_vendor; do
+  for info in API ABI ABI2 ABILONG PROC arch arch32 max_arch is64bit chipname status encrypted slot dynamic_partitions virtual_partitions free_root free_system free_vendor di_version main_version; do
      if defined $info; then echo2 "$info=$(checkvar $info)"; fi
   done
   echo2 "-----------------------------------"
@@ -3770,9 +3855,9 @@ package_extract_file() {
    [ -n "$3" ] && local installzip="$3"
    [ ! -f "$installzip" ] && return 1
    if [[ -n "$1" && -n "$2" ]]; then
-      if [ ! -d "$(dirname "$2")" ]; then mkdir -p "$(dirname "$2")"; set_perm2 0 0 $di_perm_d "$(dirname "$2")"; fi
+      if [ ! -d "$(dirname "$2")" ]; then mkdir -p "$(dirname "$2")"; set_perm2 $di_uid $di_gid $di_perm_d "$(dirname "$2")"; fi
       unzip -qp "$installzip" "$1" > "$2"
-      if exist "$2"; then set_perm2 0 0 $di_perm_f "$2"
+      if exist "$2"; then set_perm2 $di_uid $di_gid $di_perm_f "$2"
       else return 1
       fi
    elif [ -n "$1" ]; then
@@ -3791,12 +3876,12 @@ package_extract_dir() {
     if [[ -n "$1" && -n "$2" ]]; then
        outfile=$(echo "$a" | sed "s|${1}|${2}|");
        if echo "$a" | grep -q '/$'; then 
-          if [ ! -d "$outfile" ]; then mkdir -p "$outfile"; set_perm2 0 0 $di_perm_d "$outfile"; fi
+          if [ ! -d "$outfile" ]; then mkdir -p "$outfile"; set_perm2 $di_uid $di_gid $di_perm_d "$outfile"; fi
           continue
-       elif [ ! -d "$(dirname "$outfile")" ]; then mkdir -p "$(dirname "$outfile")"; set_perm2 0 0 $di_perm_d "$(dirname "$outfile")"
+       elif [ ! -d "$(dirname "$outfile")" ]; then mkdir -p "$(dirname "$outfile")"; set_perm2 $di_uid $di_gid $di_perm_d "$(dirname "$outfile")"
        fi
        unzip -qp "$installzip" "$a" > "$outfile"
-       if exist "$outfile"; then set_perm2 0 0 $di_perm_f "$outfile"
+       if exist "$outfile"; then set_perm2 $di_uid $di_gid $di_perm_f "$outfile"
        else return=1 && continue
        fi
     elif [ -n "$1" ]; then
@@ -4088,15 +4173,15 @@ set_progress() { if ! $BOOTMODE; then echo "set_progress $1" >> $OUTFD; fi }
 ui_print() {
   until [ ! "$1" ]; do
      if ! $BOOTMODE; then
-        if [ $(echo "$1" | wc -l) -gt 2 ]; then
+        if [ $(echo "$1" | wc -l) -gt 1 ]; then
            local IFS=$'\n' line
            for line in $1; do
-             [ -n "$OUTFD" ] && echo "ui_print $line${n}ui_print" >> $OUTFD
-             [ -z "$OUTFD" ] && echo "$line"
+             [ -e "$OUTFD" ] && echo "ui_print $line${n}ui_print" >> $OUTFD
+             [ ! -e "$OUTFD" ] && echo "$line"
            done
         else
-           [ -n "$OUTFD" ] && echo "ui_print $1${n}ui_print" >> $OUTFD
-           [ -z "$OUTFD" ] && echo "$1"
+           [ -e "$OUTFD" ] && echo "ui_print $1${n}ui_print" >> $OUTFD
+           [ ! -e "$OUTFD" ] && echo "$1"
         fi
      else 
        echo "$1"
@@ -4218,7 +4303,7 @@ saveperm() {
    while [ "$1" ]; do
       if [ -d "$1" ]; then
          echo2 "saving permissions recursively: $1"
-         find "$1" -mindepth 1 | while read huh; do
+         find -L "$1" -mindepth 1 | while read huh; do
             if ! grep -Fq "$huh=" "$list"; then
                perm=$(get_all_perm "$huh")
                if [ -n "$perm" ]; then
@@ -4258,7 +4343,7 @@ restoreperm() {
    done
    while [ "$1" ]; do
       if [ -d "$1" ]; then
-         find "$1" -mindepth 1 | while read huh; do
+         find -L "$1" -mindepth 1 | while read huh; do
             perm=$(get_file_prop "$list" "$huh" 2>/dev/null)
             if [ -n "$perm" ]; then
                [[ "$perm" == "$(get_all_perm "$huh")" ]] && continue
@@ -4292,7 +4377,7 @@ savecontext() {
    while [ "$1" ]; do
       if [ -d "$1" ]; then
          echo2 "saving contexts recursively: $1"
-         find "$1" -mindepth 1 | while read huh; do
+         find -L "$1" -mindepth 1 | while read huh; do
             if ! grep -Fq "$huh=" "$list"; then
                context=$(get_context "$huh")
                if [ -n "$context" ]; then
@@ -4332,7 +4417,7 @@ restorecontext() {
    done
    while [ "$1" ]; do
       if [ -d "$1" ]; then
-         find "$1" -mindepth 1 | while read huh; do
+         find -L "$1" -mindepth 1 | while read huh; do
             context=$(get_file_prop "$list" "$huh" 2>/dev/null)
             if [ -n "$context" ]; then
                ch_con $context "$huh"
@@ -4395,14 +4480,16 @@ loop_setup() {
 
 mount_apex() {
   $BOOTMODE || [ ! -d /system/apex ] && return
-  local apex dest linkerconfig pkg
+  local apex dest linkerconfig pkg post_apex
   local list="$di_apex_list"
   delete "$list"
   setup_mountpoint /apex
   mount -t tmpfs tmpfs /apex -o mode=755
   for apex in /system/apex/* /system_ext/apex/*; do
     [ ! -e "$apex" ] && continue
-    if ! grep -q "^$pkg=" "$list" 2>/dev/null; then apex_mount "$apex"; fi
+    pkg=$(apex_pkg "$apex")
+    if is_substring ".vndk." "$pkg"; then post_apex+="${apex}:" && continue; fi
+    if ! grep -Eq "^$pkg=" "$list" 2>/dev/null; then apex_mount "$apex"; fi
   done
   export ANDROID_RUNTIME_ROOT=$(find /apex -type d -name "com.android.runtime*")
   export ANDROID_ART_ROOT=$(find /apex -type d -name "com.android.art*")
@@ -4426,10 +4513,15 @@ $FWK/voip-common.jar:$FWK/ims-common.jar:$FWK/telephony-ext.jar
      genre_apex_list || echo2 "CANT GENERATE: apex-info-list.xml"
      echo2 " Generating: /linkerconfig"
      setup_mountpoint /linkerconfig
+     mount -t tmpfs tmpfs /linkerconfig -o mode=755
      $linkerconfig --target /linkerconfig
      linkerconfig=$(find /linkerconfig -name '*.txt' | sort | tr '\n' ':')
-     all_umount+=("/linkerconfig")
   fi
+  #Mount post-apex
+  split_string : "$post_apex" | while read post; do
+     [ -z "$post" ] && break
+     apex_mount "$post"
+  done
   export APEX_MOUNT_PASS=true
   echo2 "------------APEX INFO------------"
   for dest in ANDROID_RUNTIME_ROOT ANDROID_ART_ROOT \
@@ -4484,13 +4576,17 @@ umount_apex() {
        losetup -d $loop 2>/dev/null
     fi
   done
+  echo2 " Unmounting /apex "
   umount -l /apex
+  echo2 " Unmounting /linkerconfig "
+  umount -l /linkerconfig 2>/dev/null
   for dest in ANDROID_RUNTIME_ROOT ANDROID_ART_ROOT \
   ANDROID_TZDATA_ROOT ANDROID_I18N_ROOT ANDROID_DATA \
   BOOTCLASSPATH DEX2OATBOOTCLASSPATH
   do
      unset $dest
   done
+  export APEX_MOUNT_PASS=false
 }
 
 genre_apex_list() {
@@ -4675,7 +4771,7 @@ checksuper() {
   #checksuper "SUPER partition/image"
   [ "$(superrepack teSt >/dev/null; echo $?)" == "100" ] && return 1
   [ -z "$1" ] && return 1
-  if ! superrepack >/dev/null "$1" noneeded 2>/dev/null | grep -q "This is not super image"; then true; else false; fi
+  if ! superrepack "$1" noneeded 2>/dev/null | grep -q "This is not super image"; then true; else false; fi
 }
 
 start_loop() {
@@ -5057,6 +5153,7 @@ mount_all_old() {
 
 umount_all() {
   local part umount post extra result=0 loop restore simple_umt
+  mount -o rw,remount -t auto / 2>/dev/null
   (if $BOOTMODE; then
      for umount in /system_ext /vendor /product /odm; do
          if ! contains_array "$umount" "${all_umount[@]}"; then all_umount+=("$umount"); fi
@@ -5067,19 +5164,14 @@ umount_all() {
      done
      echo2 " Unmounting /system_root "
      unmount /system_root || unmount /system_root
-     if is_mounted /system_root; then echo2 " CANT UNMOUNT: /system_root" && result=1; fi
+     if is_mounted /system_root; then echo2 " CANT UNMOUNT: /system_root"; else rm -rf /system_root; fi
      for loop in "${all_looped[@]}"; do
        echo2 " Unmounting $loop "
        umount -ld "$loop" 2>/dev/null
-       if is_mounted "$loop"; then echo2 " CANT UNMOUNT: $loop" && result=1; fi
+       if is_mounted "$loop"; then echo2 " CANT UNMOUNT: $loop"; fi
      done
      for loop in "${all_looped_loop[@]}"; do
        losetup -d "$loop" 2>/dev/null
-     done
-     for part in "${all_umount[@]}"; do
-        if is_mounted "$part"; then
-           try_mount -ro "$part" || try_mount -remount -ro "$part" || echo2 " CANT REMOUNT: $part as RO "
-        fi
      done
      for restore in "${all_umount[@]}" "${all_looped[@]}"; do
        if [ -L "${restore}_link" ]; then
@@ -5087,11 +5179,24 @@ umount_all() {
           mv -f "${restore}_link" "$restore"
        fi
      done
+     for part in "${all_umount[@]}"; do
+        if is_mounted "$part"; then
+           if ! try_mount -ro "$part"; then
+              blockdev --setro $(find_block -e "$(split_extract / 1 "$part")") 2>/dev/null
+              if ! try_mount -ro "$part"; then
+                 echo2 " "
+                 echo2 " CANT RESTORE: $part as Read/Only "
+                 echo2 " Oops! It is dangerous!  please save your information, you might have a brick after reboot"
+                 echo2 " "
+              fi
+           fi
+        fi
+     done
   else
      for umount in /system_ext /system /system_root /cache /persist /vendor /product /odm; do
          if ! contains_array "$umount" "${all_umount[@]}"; then all_umount+=("$umount"); fi
      done
-     if $APEX_MOUNT_PASS; then umount_apex; export APEX_MOUNT_PASS=false; fi
+     $APEX_MOUNT_PASS && umount_apex
      for simple_umt in "${all_binded_part[@]}"; do
         umount -l "$simple_umt" 2>/dev/null
      done
@@ -5108,17 +5213,15 @@ umount_all() {
      done
      for extra in "${post[@]}"; do
         unmount "$extra"
-        if is_mounted "$extra"; then echo2 " CANT UNMOUNT: $extra" && result=1; fi
+        if is_mounted "$extra"; then echo2 " CANT UNMOUNT: $extra"; fi
      done
-     for restore in /apex "${all_umount[@]}" "${all_looped[@]}"; do
+     for restore in /apex /linkerconfig "${all_umount[@]}" "${all_looped[@]}"; do
        if [ -L "${restore}_link" ]; then
           rmdir "$restore"
           mv -f "${restore}_link" "$restore"
        fi
      done
   fi
-  mount -o rw,remount -t auto / 2>/dev/null
-  if $BOOTMODE; then is_mounted /system_root || rm -rf /system_root; fi
   $BOOTMODE && mount -o ro,remount -t auto / 2>/dev/null
   if [ "$UMOUNT_DATA" ]; then
     umount /data
@@ -5152,11 +5255,11 @@ dynamic_install(){
      undefined f && break
      inst_dir=${f/"$origin"/"$2"}
      if [ -d "$f" ]; then
-        if [ ! -d "$inst_dir" ]; then mkdir -p "$inst_dir"; set_perm2 0 0 $di_perm_d "$inst_dir"; fi
+        if [ ! -d "$inst_dir" ]; then mkdir -p "$inst_dir"; set_perm2 $di_uid $di_gid $di_perm_d "$inst_dir"; fi
         continue
      fi
      inject "$f" "$(dirname "$inst_dir")"
-   done <<< $(find "$origin" -mindepth 1)
+   done <<< $(find -L "$origin" -mindepth 1)
 }
 	
 inject() {
@@ -5166,11 +5269,11 @@ inject() {
   [ ! -f "$1" ] && return 1
   if [ ! -d "$2" ]; then mkdir -p "$2"; fi
   if install -D "$1" "$dest" >/dev/null 2>&1; then
-     set_perm2 0 0 $di_perm_f "$dest"
-     set_perm2 0 0 $di_perm_d "$2"
+     set_perm2 $di_uid $di_gid $di_perm_f "$dest"
+     set_perm2 $di_uid $di_gid $di_perm_d "$2"
   elif cp -prf "$1" "$dest"; then
-     set_perm2 0 0 $di_perm_f "$dest"
-     set_perm2 0 0 $di_perm_d "$2"
+     set_perm2 $di_uid $di_gid $di_perm_f "$dest"
+     set_perm2 $di_uid $di_gid $di_perm_d "$2"
   else
      echo2 "Cant inject: $file" && return=1
   fi
@@ -5218,7 +5321,7 @@ auto_mount_partitions() {
        fi
        for extra in system_ext vendor product odm; do
           if ! contains_array "/$extra" "${all_binded_part[@]}" && exist $(find_block -e $extra); then
-             try_mount "/$extra" || try_mount -remount "/$extra"
+             try_mount "/$extra"
           fi
        done
        if is_mounted /vendor; then
@@ -5306,6 +5409,16 @@ if [ -z "$BOOTMODE" ]; then
    ps | grep zygote | grep -qv grep && export BOOTMODE=true || export BOOTMODE=false
    $BOOTMODE || ps -A 2>/dev/null | grep zygote | grep -qv grep && export BOOTMODE=true
 fi
+if [ -z "$di_version" ]; then
+   if [ -f "$installzip" ]; then
+      di_version=$(package_extract_file META-INF/zbin/version.txt 2>/dev/null | grep_o "[0-9]+[.][0-9]+[-]*[[:alnum:]]*" | head -n1)
+   elif [ -f "$1/version.txt" ]; then
+      di_version=$(grep_o "[0-9]+[.][0-9]+[-]*[[:alnum:]]*" "$1/version.txt" 2>/dev/null | head -n1)
+   elif [ -f version.txt ]; then
+      di_version=$(grep_o "[0-9]+[.][0-9]+[-]*[[:alnum:]]*" version.txt 2>/dev/null | head -n1)
+   fi
+fi
+test "$di_version" && main_version=$(echo "$di_version" | cut -d- -f1)
 test "$ANDROID_ROOT" || ANDROID_ROOT=/system
 getarch
 
@@ -5320,7 +5433,7 @@ export MYPATH="$1"
 #(Maintenance or just testing for Devs)
 if [[ -z "$installzip" && "$BOOTMODE" == "false" ]]; then
    export custom_mode=true
-   export apex_mount=true
+   export apex_mount=on
    echo " >> Recovery Mode 1.1.0 "
    echo " @BlassGO "
    echo " "
@@ -5438,7 +5551,7 @@ unset tmp2
 
 #Extra environment vars
 export di_apex_list="$TMP/apex_list_0001.txt"
-setdefault permissions "0755:0777"
+setdefault permissions "0:0:0755:0777"
 
 #Checking possible exceptions (Read/Only Functions)
 pattern=off_readonly
@@ -5483,7 +5596,6 @@ if $custom_mode; then return; fi
 
 # Pre-setup
 package_extract_file META-INF/com/google/android/updater-script "$TMP/updater-script"
-package_extract_dir META-INF/addons "$addons"
 package_extract_dir META-INF/zbin/configs "$l"
 chmod 755 "$TMP/updater-script"
 devices=$(getdefault "$TMP/updater-script" devices)
@@ -5492,7 +5604,7 @@ magisk_support=$(getdefault "$TMP/updater-script" magisk_support)
 extraction_speed=$(getdefault "$TMP/updater-script" extraction_speed)
 permissions=$(getdefault "$TMP/updater-script" permissions)
 if [[ -n "$devices" && "$devices" != "off" ]]; then
-    dcount=0
+    dcount=false
     setdefault may "
     $(getprop ro.product.device 2>/dev/null) 
     $(getprop ro.build.product 2>/dev/null) 
@@ -5507,16 +5619,20 @@ if [[ -n "$devices" && "$devices" != "off" ]]; then
        while read ugu; do
          undefined ugu && continue
          if [[ "$huh" == "$ugu" ]]; then
-            dcount=$(($dcount + 1))
-            echo2 "[$ugu] == [$huh]"
+            dcount=true
+            echo2 "Device checking: [$ugu] == [$huh]"
+            break
          else
-            echo2 "[$ugu] != [$huh]"
+            echo2 "Device checking: [$ugu] != [$huh]"
          fi
        done <<< $(split_string '' "$may")
     done <<< $(split_string : "$devices")
-    if [[ "$dcount" == "0" ]]; then abort " -- Incompatible device: Its only for $(string force -r replace : ' and ' "$devices")"; fi;
+    if ! $dcount; then abort " -- Incompatible device: Its only for $(string force -r replace : ' and ' "$devices")"; fi;
 fi
 unset may huh ugu dcount
+
+#Extracting addons after the device checking pass
+package_extract_dir META-INF/addons "$addons"
 
 #Ensure/Check new default permissions
 setdefault permissions "$permissions"
@@ -5650,7 +5766,7 @@ install_module() {
       # Default permissions
       echo2 "- Setting common permissions/contexts"
       echo2 " "
-      set_perm_recursive2 0 0 $di_perm_d $di_perm_f $MODPATH
+      set_perm_recursive2 $di_uid $di_gid $di_perm_d $di_perm_f $MODPATH
       ch_con_recursive system_file system_file $MODPATH
       for perm in /system/bin /system/xbin /system/system_ext/bin /system/vendor/bin; do
          if [ -d "$MODPATH$perm" ]; then
