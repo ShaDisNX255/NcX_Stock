@@ -60,10 +60,11 @@ In addition to the regular apps deletetd, the Ultra debloat option deletes these
 
 ##System
 app/MinusOnePage
-app/SamsungWeather
+app/SamsungCalendar
+app/SamsungWeather <-Will remove from list soon
 priv-app/GameHome
 priv-app/GameOptimizingService
 priv-app/GameTools_Dream
 priv-app/HybridRadio
 priv-app/SecMyFiles2020
-priv-app/SmartWidgets
+
