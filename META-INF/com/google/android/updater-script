@@ -19,7 +19,7 @@ ui_print " "
 
 ui_print " _______________________________________________ "
 ui_print " |--|---------------------------------------|--| "
-ui_print " |--|             RayOS v4.1.2              |--| "
+ui_print " |--|             RayOS v4.1.3              |--| "
 ui_print " |--|---------------------------------------|--| "
 ui_print " |--|        for Samsung Galaxy A52         |--| "
 ui_print " |--|---------------------------------------|--| "
@@ -31,16 +31,16 @@ ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯�
 ui_print " ___________________________________________________ "
 ui_print " --------------Select ROM installation-------------- "
 ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
-ui_print " You must first install OneUI 4.1, reboot to         "
+ui_print " You must first install OneUI 4.1(mod), reboot to    "
 ui_print " recovery and then flash again to install RayOS      "
 ui_print "                                                     "
-ui_print " Volume up = Install OneUI 4.1                       "
-ui_print " Volume down = Install RayOS 4.1.2                   "
+ui_print " Volume up = Install OneUI 4.1(mod)                  "
+ui_print " Volume down = Install RayOS 4.1.3                   "
 ui_print " ___________________________________________________ "
 ui_print " ------Volume up = OneUI | Volume down = RayOS------ "
 ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
 if $yes; then
-   ui_print " Installing OneUI 4.1... "
+   ui_print " Installing OneUI 4.1 (mod)... "
    #Mount
    ui_print " Unmounting all partitions... "
    umount_all
@@ -50,7 +50,7 @@ if $yes; then
    update_zip -xz super.img.xz $(find_block super)
    ui_print " OneUI 4.1 Installed. press any volume button,    " 
    ui_print " to reboot to recovery, flash again and then      "
-   ui_print " select the installation of RayOS 4.1.2           "
+   ui_print " select the installation of RayOS 4.1.3           "
    ui_print " "
    ui_print " "
    ui_print " Press any volume button to continue... "
@@ -63,72 +63,35 @@ else
    #Mount
    ui_print " Mounting partitions... "
    auto_mount_partitions
-   #CSC
+   ui_print " Beginning RayOS 4.1.3 installation... "
+   #Installation
    ui_print " ___________________________________________________ "
-   ui_print " ---------Do you want to add CSC features??--------- "
+   ui_print " ----------------RayOS Installation----------------- "
    ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
+   ui_print " Welcome to RayOS installation. I have made two      "
+   ui_print " different installation options here as well. The    "
+   ui_print " default and advanced installation. The default      "
+   ui_print " installation is the standard RayOS experience with  "
+   ui_print " predetermined options. If you want to customize     "
+   ui_print " installation with your own selection, select the    "
+   ui_print " advanced installation. The default installation     "
+   ui_print " selects the following options:                      "
+   ui_print " CSC features: No                                    "
+   ui_print " Ultra debloat: No                                   "
+   ui_print " AOD to lockscreen animation: Yes                    "
+   ui_print " Bixby and AR stickers: No                           "
+   ui_print " "
+   ui_print " "
+   ui_print " Volume up = Default installation                    "
+   ui_print " Volume down = Advanced installation                 "
    ui_print " ___________________________________________________ "
-   ui_print " ---------Volume up = Yes | Volume down = No-------- "
+   ui_print " ----Volume up = Default | Volume down = Advanced--- "
    ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
    if $yes; then
-      ui_print " Adding CSC features... "
-      cscfeature="$addons/omc/cscfeature.xml"
-      cscfeature_network="$addons/omc/cscfeature_network.xml"
-      omc_decoder="$addons/omc/decoder.jar"
-      . "$addons/omc_edit.sh"
-   else
       ui_print " Skipping CSC features... "
-   fi
-   #Debloat
-   ui_print " ___________________________________________________ "
-   ui_print " ------------Do you want Ultra Debloat-------------? "
-   ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
-   ui_print " Note: Check the ROMs GitHub page to see the extra   "
-   ui_print " apps that this deletes. Deletes more Samsung apps   "
-   ui_print " but not all, so keep that in mind                   "
-   ui_print " ___________________________________________________ "
-   ui_print " ---------Volume up = Yes | Volume down = No-------- "
-   ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
-   if $yes; then
-      ui_print " Ultra Debloat selected "
-      delete_recursive /system/app/MinusOnePage
-      delete_recursive /system/app/SamsungCalendar
-      delete_recursive /system/app/SamsungWeather
-      delete_recursive /system/priv-app/GameHome
-      delete_recursive /system/priv-app/GameOptimizingService
-      delete_recursive /system/priv-app/GameTools_Dream
-      delete_recursive /system/priv-app/HybridRadio
-      delete_recursive /system/priv-app/SecMyFiles2020
-   else
       ui_print " Regular debloat kept, keeping extra apps "
-   fi
-   #Clocktransition
-   ui_print " ___________________________________________________ "
-   ui_print " Do you want to add the AOD to Lockscreen animation? "
-   ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
-   ui_print " Note: Avoid using this with FOD as it can mess with "
-   ui_print " the AOD brightness. Still usable, but can be        "
-   ui_print " annoying. There is a workaround, check in XDA       "
-   ui_print " ___________________________________________________ "
-   ui_print " ---------Volume up = Yes | Volume down = No-------- "
-   ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
-   if $yes; then
       ui_print " Adding animation "
       package_extract_dir activeclock /system
-   else
-      ui_print " Skipping this animation "
-   fi
-   #SamsungFeatures
-   ui_print " ___________________________________________________ "
-   ui_print " -----Do you want to add Bixby and AR Stickers?----- "
-   ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
-   ui_print " Note: This is the last question I promise lol       "
-   ui_print " ___________________________________________________ "
-   ui_print " ---------Volume up = Yes | Volume down = No-------- "
-   ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
-   if $yes; then
-      ui_print " Bixby and AR stickers installed "
-   else
       ui_print " Bixby and AR stickers removed "
       delete_recursive /system/app/ARCore
       delete_recursive /system/app/ARDrawing
@@ -142,6 +105,100 @@ else
       delete_recursive /system/priv-app/SettingsBixby
       delete_recursive /system/priv-app/StickerFaceARAvatar
       delete_recursive /system/priv-app/SystemUIBixby2
+   else
+      ui_print " Advanced installation selected "
+      #CSC
+      ui_print " ___________________________________________________ "
+      ui_print " ---------Do you want to add CSC features??--------- "
+      ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
+      ui_print " ___________________________________________________ "
+      ui_print " ---------Volume up = Yes | Volume down = No-------- "
+      ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
+      if $yes; then
+         ui_print " Adding CSC features... "
+         cscfeature="$addons/omc/cscfeature.xml"
+         cscfeature_network="$addons/omc/cscfeature_network.xml"
+         omc_decoder="$addons/omc/decoder.jar"
+         . "$addons/omc_edit.sh"
+      else
+         ui_print " Skipping CSC features... "
+      fi
+      #Debloat
+      ui_print " ___________________________________________________ "
+      ui_print " ------------Do you want Ultra Debloat-------------? "
+      ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
+      ui_print " Note: Check the ROMs GitHub page to see the extra   "
+      ui_print " apps that this deletes. Deletes more Samsung apps   "
+      ui_print " but not all, so keep that in mind                   "
+      ui_print " ___________________________________________________ "
+      ui_print " ---------Volume up = Yes | Volume down = No-------- "
+      ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
+      if $yes; then
+         ui_print " Ultra Debloat selected "
+         delete_recursive /system/app/MinusOnePage
+         delete_recursive /system/app/SamsungCalendar
+         delete_recursive /system/priv-app/GameHome
+         delete_recursive /system/priv-app/GameOptimizingService
+         delete_recursive /system/priv-app/GameTools_Dream
+         delete_recursive /system/priv-app/HybridRadio
+         delete_recursive /system/priv-app/SecMyFiles2020
+      else
+         ui_print " Regular debloat kept, keeping extra apps "
+      fi
+      #Clocktransition
+      ui_print " ___________________________________________________ "
+      ui_print " Do you want to add the AOD to Lockscreen animation? "
+      ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
+      ui_print " Note: Avoid using this with FOD as it can mess with "
+      ui_print " the AOD brightness. Still usable, but can be        "
+      ui_print " annoying. There is a workaround, check in XDA       "
+      ui_print " ___________________________________________________ "
+      ui_print " ---------Volume up = Yes | Volume down = No-------- "
+      ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
+      if $yes; then
+         ui_print " Adding animation "
+         package_extract_dir activeclock /system
+      else
+         ui_print " Skipping this animation "
+      fi
+      #SamsungFeatures
+      ui_print " ___________________________________________________ "
+      ui_print " -----Do you want to add Bixby and AR Stickers?----- "
+      ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
+      ui_print " Note: This is the last question I promise lol       "
+      ui_print " ___________________________________________________ "
+      ui_print " ---------Volume up = Yes | Volume down = No-------- "
+      ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
+      if $yes; then
+         ui_print " Bixby and AR stickers installed "
+      else
+         ui_print " Bixby and AR stickers removed "
+         delete_recursive /system/app/ARCore
+         delete_recursive /system/app/ARDrawing
+         delete_recursive /system/app/ARZone
+         delete_recursive /system/app/BixbyWakeup
+         delete_recursive /system/priv-app/AREmoji
+         delete_recursive /system/priv-app/AREmojiEditor
+         delete_recursive /system/priv-app/AvatarEmojiSticker_S
+         delete_recursive /system/priv-app/Bixby
+         delete_recursive /system/priv-app/BixbyService
+         delete_recursive /system/priv-app/SettingsBixby
+         delete_recursive /system/priv-app/StickerFaceARAvatar
+         delete_recursive /system/priv-app/SystemUIBixby2
+      fi
+      #Unmount
+      ui_print " Unmounting partitions... "
+      umount_all
+      #Finished
+      ui_print " _______________________________________________ "
+      ui_print " |--|---------------------------------------|--| "
+      ui_print " |--| RayOS v4.1.3 has successfully been    |--| "
+      ui_print " |--| installed. Special thanks BlassGO and |--| "
+      ui_print " |--| kirbyNx from XDA Developers for their |--| "
+      ui_print " |--| help and getting me off my ass to make|--| "
+      ui_print " |--| this ROM. I hope to update it more... |--| "
+      ui_print " |--|---------------------------------------|--| "
+      ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
    fi
    #Unmount
    ui_print " Unmounting partitions... "
@@ -149,7 +206,7 @@ else
    #Finished
    ui_print " _______________________________________________ "
    ui_print " |--|---------------------------------------|--| "
-   ui_print " |--| RayOS v4.1.2 has successfully been    |--| "
+   ui_print " |--| RayOS v4.1.3 has successfully been    |--| "
    ui_print " |--| installed. Special thanks BlassGO and |--| "
    ui_print " |--| kirbyNx from XDA Developers for their |--| "
    ui_print " |--| help and getting me off my ass to make|--| "
