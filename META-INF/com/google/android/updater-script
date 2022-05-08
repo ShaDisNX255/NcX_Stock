@@ -186,19 +186,6 @@ else
          delete_recursive /system/priv-app/StickerFaceARAvatar
          delete_recursive /system/priv-app/SystemUIBixby2
       fi
-      #Unmount
-      ui_print " Unmounting partitions... "
-      umount_all
-      #Finished
-      ui_print " _______________________________________________ "
-      ui_print " |--|---------------------------------------|--| "
-      ui_print " |--| RayOS v4.1.3 has successfully been    |--| "
-      ui_print " |--| installed. Special thanks BlassGO and |--| "
-      ui_print " |--| kirbyNx from XDA Developers for their |--| "
-      ui_print " |--| help and getting me off my ass to make|--| "
-      ui_print " |--| this ROM. I hope to update it more... |--| "
-      ui_print " |--|---------------------------------------|--| "
-      ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
    fi
    #Unmount
    ui_print " Unmounting partitions... "
