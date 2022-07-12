@@ -9,50 +9,64 @@ app/DuoStub
 app/Gmail2
 app/Maps
 app/YouTube
-priv-app/Messages
+priv-app/Messages (optional in installer)
 
 # System
-app/ARCore
-app/ARDrawing
-app/ARZone
+app/ARCore(optional in installer)
+app/ARDrawing(optional in installer)
+app/ARZone(optional in installer)
 app/AutomationTest_FB
 app/BBCAgent
-app/BixbyWakeup
+app/BixbyWakeup(optional in installer)
 app/CarrierDefaultApp
 app/FBAppManager_NS
+app/GearManagerStub
 app/KidsHome_Installer
 app/MAPSAgent
+app/MDMApp
 app/Netflix_activationCommon
+app/PlayAutoInstallConfig
+app/Privacy
 app/SamsungPassAutofill_v1
+app/UniversalMDMClient
 app/WebManual
 hidden/SmartTutor
 preload/Facebook_stub_preload
 preload/Tips
-priv-app/AREmoji
-priv-app/AREmojiEditor
+priv/app/AppUpdateCenter
+priv-app/AREmoji(optional in installer)
+priv-app/AREmojiEditor(optional in installer)
 priv-app/AuthFramework
-priv-app/AvatarEmojiSticker_S
-priv-app/Bixby
-priv-app/BixbyService
+priv-app/AvatarEmojiSticker_S(optional in installer)
+priv-app/Bixby(optional in installer)
+priv-app/BixbyService(optional in installer)
 priv-app/CIDManager
+priv-app/ContainerAgent3
+priv-app/DiagMonAgent8
+priv-app/DigitalKey
 priv-app/EnhancedAttestationAgent
 priv-app/FBInstaller_NS
 priv-app/FBServices
+priv-app/FotaAgent
+priv-app/KLMSAgent
+priv-app/KnoxAIFrameworkApp
 priv-app/knoxanalyticsagent
 priv-app/KnoxCore
 priv-app/KnoxPushManager
 priv-app/knoxvpnproxyhandler
+priv-app/KPECore
+priv-app/LiveStickers
 priv-app/OMCAgent5
 priv-app/OneDrive_Samsung_v3
 priv-app/PaymentFramework
 priv-app/SPPPushClient
+priv-app/SamsungCarKeyFW
+priv-app/SamsungMessages (optional in installer)
 priv-app/SamsungPass
-priv-app/SecureFolder
-priv-app/SettingsBixby
-priv-app/StickerFaceARAvatar
-priv-app/SystemUIBixby2
-
-
+priv-app/SettingsBixby(optional in installer)
+priv-app/StickerFaceARAvatar(optional in installer)
+priv-app/SystemUIBixby2(optional in installer)
+priv-app/TaPackAuthFw
 
 
 #Ultra Debloat
@@ -66,4 +80,3 @@ priv-app/GameOptimizingService
 priv-app/GameTools_Dream
 priv-app/HybridRadio
 priv-app/SecMyFiles2020
-
