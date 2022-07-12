@@ -21,3 +21,10 @@ Constantly adding great mods to his hidden mods Magisk Module, you should check 
 
 # How to build/make
 
+- Extract stock and S21FE super.img
+- In S21FE system, replace the apps in replaced-apps.txt
+- Then, delete the apps in removed-apps.txt
+- Make your changes to system accordingly
+- Re-pack S21FE system
+- Add your new system and pack into super.img with stock odm, product and vendor
+- Flash
