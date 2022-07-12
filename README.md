@@ -1,7 +1,8 @@
-# RayOS for Galaxy A52
-This is a OneUI ROM for Galaxy A52 SM-A525 "F" and "M" 4G variants.
+# RayOS S21FE Port for Galaxy A52s
+S21 FE system port
 
-[XDA Link](https://forum.xda-developers.com/t/rom-oneui-3-1-rayos-v2-0-for-galaxy-a52-sm-a525g-f.4313599/)
+
+[XDA Link](https://forum.xda-developers.com/)
 
 Huge thanks to @UltraHQ
 Constantly adding great mods to his hidden mods Magisk Module, you should check it out here:
@@ -17,4 +18,6 @@ Constantly adding great mods to his hidden mods Magisk Module, you should check 
 - Full Edge Lighting
 - Fixed Smart View (Normally broken on rooted devices)
 - Codec support for APE, DSD and HDR10+ content
+
+# How to build/make
 
