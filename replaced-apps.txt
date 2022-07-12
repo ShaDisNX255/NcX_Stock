@@ -1,0 +1,8 @@
+# Replaced Apps 
+Here is the list of all the apps replaced for this ROM. Use stock ROM files
+
+app/NfcNci
+etc/libnfc-nci.conf
+etc/nfc_key
+lib64/libnfc-nxpsn.so
+lib64/libnfc-sec.so
