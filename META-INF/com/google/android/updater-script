@@ -11,17 +11,15 @@ setdefault permissions "0755:0644"
 setdefault devices off
 #-----------------------------------------------#
 #Your script starts here:
-#Start Log
-startlog /sdcard/RayOSv4.1.log
 
 #Print
 ui_print " "
 
 ui_print " _______________________________________________ "
 ui_print " |--|---------------------------------------|--| "
-ui_print " |--|             RayOS v4.1.3              |--| "
+ui_print " |--|           RayOS S21FE Port            |--| "
 ui_print " |--|---------------------------------------|--| "
-ui_print " |--|        for Samsung Galaxy A52         |--| "
+ui_print " |--|        for Samsung Galaxy A52s        |--| "
 ui_print " |--|---------------------------------------|--| "
 ui_print " |--|      by ShaDisNX255@XDADevelopers     |--| "
 ui_print " |--|---------------------------------------|--| "
@@ -31,26 +29,27 @@ ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯�
 ui_print " ___________________________________________________ "
 ui_print " --------------Select ROM installation-------------- "
 ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
-ui_print " You must first install OneUI 4.1(mod), reboot to    "
-ui_print " recovery and then flash again to install RayOS      "
+ui_print " Installation comes in 2 steps. First we must        "
+ui_print " install the super image and then we must reboot     "
+ui_print " the device and install the rest of the ROM.         "
 ui_print "                                                     "
-ui_print " Volume up = Install OneUI 4.1(mod)                  "
-ui_print " Volume down = Install RayOS 4.1.3                   "
+ui_print " Volume up = Install Super image                     "
+ui_print " Volume down = Install RayOS 2nd step                "
 ui_print " ___________________________________________________ "
-ui_print " ------Volume up = OneUI | Volume down = RayOS------ "
+ui_print " -----Volume up = Super | Volume down = 2nd Step---- "
 ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
 if $yes; then
-   ui_print " Installing OneUI 4.1 (mod)... "
+   ui_print " Installing Super image (step 1)... "
    #Mount
    ui_print " Unmounting all partitions... "
    umount_all
-   ui_print " Installing March patch kernel... "
+   ui_print " Installing June patch kernel... "
    update_zip boot.img $(find_block boot)
    ui_print " Installing ROM... "
    update_zip -xz super.img.xz $(find_block super)
-   ui_print " OneUI 4.1 Installed. press any volume button,    " 
+   ui_print " Super img Installed. press any volume button     " 
    ui_print " to reboot to recovery, flash again and then      "
-   ui_print " select the installation of RayOS 4.1.3           "
+   ui_print " select the installation of RayOS Rom 2nd step    "
    ui_print " "
    ui_print " "
    ui_print " Press any volume button to continue... "
@@ -63,15 +62,15 @@ else
    #Mount
    ui_print " Mounting partitions... "
    auto_mount_partitions
-   ui_print " Beginning RayOS 4.1.3 installation... "
+   ui_print " Beginning 2nd step of installation... "
    #Installation
    ui_print " ___________________________________________________ "
    ui_print " ----------------RayOS Installation----------------- "
    ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
-   ui_print " Welcome to RayOS installation. I have made two      "
+   ui_print " Welcome to the ROM installation. I have made two    "
    ui_print " different installation options here as well. The    "
    ui_print " default and advanced installation. The default      "
-   ui_print " installation is the standard RayOS experience with  "
+   ui_print " installation is the standard experience with        "
    ui_print " predetermined options. If you want to customize     "
    ui_print " installation with your own selection, select the    "
    ui_print " advanced installation. The default installation     "
@@ -79,7 +78,9 @@ else
    ui_print " CSC features: No                                    "
    ui_print " Ultra debloat: No                                   "
    ui_print " AOD to lockscreen animation: Yes                    "
-   ui_print " Bixby and AR stickers: No                           "
+   ui_print " Samsung Free, Bixby and AR Stickers: No             "
+   ui_print " Messaging app: Google                               "
+   ui_print " Blur mode: Live blur                                "
    ui_print " "
    ui_print " "
    ui_print " Volume up = Default installation                    "
@@ -91,7 +92,7 @@ else
       ui_print " Skipping CSC features... "
       ui_print " Regular debloat kept, keeping extra apps "
       ui_print " Adding animation "
-      package_extract_dir activeclock /system
+      replace "    <SEC_FLOATING_FEATURE_FRAMEWORK_CONFIG_AOD_ITEM>aodversion=7" "    <SEC_FLOATING_FEATURE_FRAMEWORK_CONFIG_AOD_ITEM>activeclock=7,aodversion=7" /system/etc/floating_feature.xml
       ui_print " Bixby and AR stickers removed "
       delete_recursive /system/app/ARCore
       delete_recursive /system/app/ARDrawing
@@ -105,6 +106,11 @@ else
       delete_recursive /system/priv-app/SettingsBixby
       delete_recursive /system/priv-app/StickerFaceARAvatar
       delete_recursive /system/priv-app/SystemUIBixby2
+      delete_recursive /system/app/MinusOnePage
+      ui_print " Using Google Messages "
+      delete_recursive /system/priv-app/SamsungMessages
+      ui_print " Blur mode set to live blur "
+      replace "    <SEC_FLOATING_FEATURE_GRAPHICS_SUPPORT_3D_SURFACE_TRANSITION_FLAG>FALSE" "    <SEC_FLOATING_FEATURE_GRAPHICS_SUPPORT_3D_SURFACE_TRANSITION_FLAG>TRUE" /system/etc/floating_feature.xml
    else
       ui_print " Advanced installation selected "
       #CSC
@@ -135,7 +141,6 @@ else
       ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
       if $yes; then
          ui_print " Ultra Debloat selected "
-         delete_recursive /system/app/MinusOnePage
          delete_recursive /system/app/SamsungCalendar
          delete_recursive /system/priv-app/GameHome
          delete_recursive /system/priv-app/GameOptimizingService
@@ -157,13 +162,47 @@ else
       ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
       if $yes; then
          ui_print " Adding animation "
-         package_extract_dir activeclock /system
+         replace "    <SEC_FLOATING_FEATURE_FRAMEWORK_CONFIG_AOD_ITEM>aodversion=7" "    <SEC_FLOATING_FEATURE_FRAMEWORK_CONFIG_AOD_ITEM>activeclock=7,aodversion=7" /system/etc/floating_feature.xml
       else
          ui_print " Skipping this animation "
+         replace "    <SEC_FLOATING_FEATURE_FRAMEWORK_CONFIG_AOD_ITEM>activeclock=7,aodversion=7" "    <SEC_FLOATING_FEATURE_FRAMEWORK_CONFIG_AOD_ITEM>aodversion=7" /system/etc/floating_feature.xml
+      fi
+      #Messaging
+      ui_print " ___________________________________________________ "
+      ui_print "    Select your Messaging app (Samsung or Google)    "
+      ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
+      ui_print " Volume up = Samsung Messaging                       "
+      ui_print " Volume down = Google Messaging                      "
+      ui_print " ___________________________________________________ "
+      ui_print " -----Volume up = Samsung | Volume down = Google---- "
+      ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
+      if $yes; then
+         ui_print " Samsung Messaging option selected "
+         delete_recursive /product/priv-app/Messages
+      else
+         ui_print " Google Messaging option selected "
+         delete_recursive /system/priv-app/SamsungMessages
+      fi
+      #BlurType
+      ui_print " ___________________________________________________ "
+      ui_print "    What type of blur would you like installed?      "
+      ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
+      ui_print " Live blur is the type included in Samsung flagships "
+      ui_print " and static blur is the stock a52s blur. This is the "
+      ui_print " blur noticeable when you pull down the notifications"
+      ui_print " ___________________________________________________ "
+      ui_print " -----Volume up = Live | Volume down = Static------- "
+      ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
+      if $yes; then
+         ui_print " Adding live blur "
+         replace "    <SEC_FLOATING_FEATURE_GRAPHICS_SUPPORT_3D_SURFACE_TRANSITION_FLAG>FALSE" "    <SEC_FLOATING_FEATURE_GRAPHICS_SUPPORT_3D_SURFACE_TRANSITION_FLAG>TRUE" /system/etc/floating_feature.xml
+      else
+         ui_print " Adding static blur "
+         replace "    <SEC_FLOATING_FEATURE_GRAPHICS_SUPPORT_3D_SURFACE_TRANSITION_FLAG>TRUE" "    <SEC_FLOATING_FEATURE_GRAPHICS_SUPPORT_3D_SURFACE_TRANSITION_FLAG>FALSE" /system/etc/floating_feature.xml
       fi
       #SamsungFeatures
       ui_print " ___________________________________________________ "
-      ui_print " -----Do you want to add Bixby and AR Stickers?----- "
+      ui_print " Do you want to add Samsung Free, Bixby and AR Stickers? "
       ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
       ui_print " Note: This is the last question I promise lol       "
       ui_print " ___________________________________________________ "
@@ -185,6 +224,7 @@ else
          delete_recursive /system/priv-app/SettingsBixby
          delete_recursive /system/priv-app/StickerFaceARAvatar
          delete_recursive /system/priv-app/SystemUIBixby2
+         delete_recursive /system/app/MinusOnePage
       fi
    fi
    #Unmount
@@ -193,11 +233,8 @@ else
    #Finished
    ui_print " _______________________________________________ "
    ui_print " |--|---------------------------------------|--| "
-   ui_print " |--| RayOS v4.1.3 has successfully been    |--| "
-   ui_print " |--| installed. Special thanks BlassGO and |--| "
-   ui_print " |--| kirbyNx from XDA Developers for their |--| "
-   ui_print " |--| help and getting me off my ass to make|--| "
-   ui_print " |--| this ROM. I hope to update it more... |--| "
+   ui_print " |--| RS Rom has been successfully          |--| "
+   ui_print " |--| installed. Enjoy the ROM!             |--| "
    ui_print " |--|---------------------------------------|--| "
    ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
 fi
