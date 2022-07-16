@@ -37,7 +37,7 @@ priv/app/AppUpdateCenter
 priv-app/AREmoji(optional in installer)
 priv-app/AREmojiEditor(optional in installer)
 priv-app/AuthFramework
-priv-app/AvatarEmojiSticker_S(optional in installer)
+priv-app/AvatarEmojiSticker_S2(optional in installer)
 priv-app/Bixby(optional in installer)
 priv-app/BixbyService(optional in installer)
 priv-app/CIDManager
