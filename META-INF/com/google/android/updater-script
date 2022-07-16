@@ -100,7 +100,7 @@ else
       delete_recursive /system/app/BixbyWakeup
       delete_recursive /system/priv-app/AREmoji
       delete_recursive /system/priv-app/AREmojiEditor
-      delete_recursive /system/priv-app/AvatarEmojiSticker_S
+      delete_recursive /system/priv-app/AvatarEmojiSticker_S2
       delete_recursive /system/priv-app/Bixby
       delete_recursive /system/priv-app/BixbyService
       delete_recursive /system/priv-app/SettingsBixby
@@ -218,7 +218,7 @@ else
          delete_recursive /system/app/BixbyWakeup
          delete_recursive /system/priv-app/AREmoji
          delete_recursive /system/priv-app/AREmojiEditor
-         delete_recursive /system/priv-app/AvatarEmojiSticker_S
+         delete_recursive /system/priv-app/AvatarEmojiSticker_S2
          delete_recursive /system/priv-app/Bixby
          delete_recursive /system/priv-app/BixbyService
          delete_recursive /system/priv-app/SettingsBixby
