@@ -68,6 +68,10 @@ priv-app/StickerFaceARAvatar(optional in installer)
 priv-app/SystemUIBixby2(optional in installer)
 priv-app/TaPackAuthFw
 
+# Vendor
+lib/liboemcrypto.so
+lib64/liboemcrypto.so
+
 
 #Ultra Debloat
 In addition to the regular apps deletetd, the Ultra debloat option deletes these apps:
