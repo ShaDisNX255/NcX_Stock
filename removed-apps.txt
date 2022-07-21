@@ -42,7 +42,6 @@ priv-app/Bixby(optional in installer)
 priv-app/BixbyService(optional in installer)
 priv-app/CIDManager
 priv-app/ContainerAgent3
-priv-app/DiagMonAgent8
 priv-app/DigitalKey
 priv-app/EnhancedAttestationAgent
 priv-app/FBInstaller_NS
