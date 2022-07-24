@@ -70,6 +70,9 @@ priv-app/TaPackAuthFw
 # Vendor
 lib/liboemcrypto.so
 lib64/liboemcrypto.so
+bin/cass
+bin/vaultkeeperd
+etc/vintf/manifest/vaultkeeper_manifest.xml
 
 
 #Ultra Debloat

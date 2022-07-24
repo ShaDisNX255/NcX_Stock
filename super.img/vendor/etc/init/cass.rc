@@ -1,0 +1,9 @@
+# service cass /vendor/bin/cass
+#    class core
+#    user system
+#    group radio wakelock system
+#    capabilities BLOCK_SUSPEND
+#    disabled
+
+# on post-fs-data
+#    start cass
