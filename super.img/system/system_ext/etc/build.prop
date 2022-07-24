@@ -5,15 +5,15 @@
 ro.product.system_ext.brand=samsung
 ro.product.system_ext.device=qssi
 ro.product.system_ext.manufacturer=samsung
-ro.product.system_ext.model=SM-A525F
-ro.product.system_ext.name=a52qnsxx
-ro.system_ext.build.date=Mon Mar 14 21:08:46 KST 2022
-ro.system_ext.build.date.utc=1647259726
-ro.system_ext.build.fingerprint=samsung/a52qnsxx/qssi:12/SP1A.210812.016/A525FXXU4BVC2:user/release-keys
+ro.product.system_ext.model=SM-G990U1
+ro.product.system_ext.name=r9quew
+ro.system_ext.build.date=Mon Jun 20 12:10:13 KST 2022
+ro.system_ext.build.date.utc=1655694613
+ro.system_ext.build.fingerprint=samsung/r9quew/qssi:12/SP1A.210812.016/G990U1UES3CVF3:user/release-keys
 ro.system_ext.build.id=SP1A.210812.016
 ro.system_ext.build.tags=release-keys
 ro.system_ext.build.type=user
-ro.system_ext.build.version.incremental=A525FXXU4BVC2
+ro.system_ext.build.version.incremental=G990U1UES3CVF3
 ro.system_ext.build.version.release=12
 ro.system_ext.build.version.release_or_codename=12
 ro.system_ext.build.version.sdk=31
@@ -23,7 +23,5 @@ ro.system_ext.build.version.sdk=31
 persist.vendor.dpm.feature=11
 # Auto-added by post_process_props.py
 persist.sys.usb.config=mtp
-wlan.wfd.hdcp=disable
-wifi.interface=wlan0
 # end of file
 

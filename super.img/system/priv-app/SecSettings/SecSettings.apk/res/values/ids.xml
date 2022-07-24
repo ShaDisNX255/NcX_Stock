@@ -392,8 +392,6 @@
     <item type="id" name="brightness_icon" />
     <item type="id" name="brightness_seekbar" />
     <item type="id" name="brightnesslevel_and_overheatwarning" />
-    <item type="id" name="broadcast_channel_spinner" />
-    <item type="id" name="broadcast_channel_view" />
     <item type="id" name="bssid" />
     <item type="id" name="bt_battery_icon" />
     <item type="id" name="bt_battery_icon_cradle" />
@@ -450,7 +448,6 @@
     <item type="id" name="button_sellect_all" />
     <item type="id" name="button_send" />
     <item type="id" name="button_start_help" />
-    <item type="id" name="button_text" />
     <item type="id" name="button_tutorial_image" />
     <item type="id" name="button_tutorial_message" />
     <item type="id" name="button_tutorial_title" />
@@ -501,8 +498,6 @@
     <item type="id" name="checkbox_frame" />
     <item type="id" name="checkbox_wifi_ap_channel_2g" />
     <item type="id" name="checkbox_wifi_ap_channel_5g" />
-    <item type="id" name="checkbox_wifi_ap_pmf_on" />
-    <item type="id" name="checkbox_wifi_ap_power_save" />
     <item type="id" name="checked" />
     <item type="id" name="china_wireless_regulations_text" />
     <item type="id" name="chip" />
@@ -641,7 +636,6 @@
     <item type="id" name="data_state_label" />
     <item type="id" name="data_state_value" />
     <item type="id" name="data_usage" />
-    <item type="id" name="data_usage_display_unit" />
     <item type="id" name="data_usage_infomation_container" />
     <item type="id" name="data_usage_menu_cellular_networks" />
     <item type="id" name="data_usage_scroll_view" />
@@ -1036,7 +1030,6 @@
     <item type="id" name="hidden_ssid" />
     <item type="id" name="hide_all" />
     <item type="id" name="hide_ssid" />
-    <item type="id" name="hide_ssid_view" />
     <item type="id" name="hide_system" />
     <item type="id" name="high_button" />
     <item type="id" name="high_button_dot" />
@@ -1045,7 +1038,6 @@
     <item type="id" name="high_button_icon_text" />
     <item type="id" name="high_button_text" />
     <item type="id" name="hint" />
-    <item type="id" name="hint_oneui_3_0" />
     <item type="id" name="hint_scrollview" />
     <item type="id" name="hintcard_autowifi_container" />
     <item type="id" name="history_app_divider" />
@@ -1404,7 +1396,6 @@
     <item type="id" name="material_timepicker_ok_button" />
     <item type="id" name="material_timepicker_view" />
     <item type="id" name="material_value_index" />
-    <item type="id" name="maximum_connections_view" />
     <item type="id" name="media_actions" />
     <item type="id" name="media_controller_compat_view_tag" />
     <item type="id" name="meid_number_label" />
@@ -1832,7 +1823,6 @@
     <item type="id" name="pointer_color_item_layout" />
     <item type="id" name="pointer_seekbar" />
     <item type="id" name="port" />
-    <item type="id" name="powersave_hint" />
     <item type="id" name="pp_update_progressbar" />
     <item type="id" name="pref_layout" />
     <item type="id" name="preference_container" />
@@ -2139,9 +2129,6 @@
     <item type="id" name="security_msg" />
     <item type="id" name="security_settings_face_settings_enroll_button" />
     <item type="id" name="security_settings_face_settings_remove_button" />
-    <item type="id" name="security_testmode" />
-    <item type="id" name="security_title" />
-    <item type="id" name="security_view" />
     <item type="id" name="see_more" />
     <item type="id" name="seekBarForFontSize" />
     <item type="id" name="seekBarForScreenSize" />
@@ -2294,7 +2281,6 @@
     <item type="id" name="show_owner_info_on_lockscreen_checkbox_popup" />
     <item type="id" name="show_password" />
     <item type="id" name="show_password_layout" />
-    <item type="id" name="show_password_view" />
     <item type="id" name="show_system" />
     <item type="id" name="show_type_spinner" />
     <item type="id" name="signStatusIcon" />
@@ -2552,7 +2538,6 @@
     <item type="id" name="time_zone_search_menu" />
     <item type="id" name="time_zone_update_message" />
     <item type="id" name="timeout_title" />
-    <item type="id" name="timeout_view" />
     <item type="id" name="timestamp" />
     <item type="id" name="tint_overlay" />
     <item type="id" name="tip_linear_layout" />
@@ -2742,11 +2727,9 @@
     <item type="id" name="wifi_ap_broadcast_network_name_msg" />
     <item type="id" name="wifi_ap_channel" />
     <item type="id" name="wifi_ap_channel_5g" />
-    <item type="id" name="wifi_ap_channel_broadcast" />
     <item type="id" name="wifi_ap_connected_device_pref" />
     <item type="id" name="wifi_ap_connection_duration" />
     <item type="id" name="wifi_ap_connection_time" />
-    <item type="id" name="wifi_ap_dialog_title" />
     <item type="id" name="wifi_ap_disable_warning_dialog_content" />
     <item type="id" name="wifi_ap_do_not_show" />
     <item type="id" name="wifi_ap_do_not_show_again" />
@@ -2756,17 +2739,12 @@
     <item type="id" name="wifi_ap_mac" />
     <item type="id" name="wifi_ap_maxclient" />
     <item type="id" name="wifi_ap_maxclient_title" />
-    <item type="id" name="wifi_ap_maximum_connections" />
     <item type="id" name="wifi_ap_picture_view" />
-    <item type="id" name="wifi_ap_pmf_layout" />
-    <item type="id" name="wifi_ap_power_save_layout" />
     <item type="id" name="wifi_ap_pref" />
     <item type="id" name="wifi_ap_settings_allowed_toggle" />
     <item type="id" name="wifi_ap_settings_land" />
     <item type="id" name="wifi_ap_settings_land_scroll" />
     <item type="id" name="wifi_ap_settings_vert" />
-    <item type="id" name="wifi_ap_timeout_settings" />
-    <item type="id" name="wifi_ap_timeout_settings_title" />
     <item type="id" name="wifi_ap_tmo_first_time_popup" />
     <item type="id" name="wifi_ap_warning_disable_do_not_show_again" />
     <item type="id" name="wifi_ap_wifi_disable_warning_do_not_show" />
@@ -2791,6 +2769,7 @@
     <item type="id" name="wifi_secsetup_activity_mobile_data_button" />
     <item type="id" name="wifi_secsetup_activity_refresh_list_vzw" />
     <item type="id" name="wifi_secsetup_activity_top_view" />
+    <item type="id" name="wifi_secsetup_emergency_call_layout" />
     <item type="id" name="wifi_security_detection" />
     <item type="id" name="wifi_security_summary" />
     <item type="id" name="wifi_select_all_title_text" />
@@ -2860,5 +2839,4 @@
     <item type="id" name="zxing_prewiew_size_ready" />
     <item type="id" name="zxing_status_view" />
     <item type="id" name="zxing_viewfinder_view" />
-    <item type="id" name="dev_settings" />
 </resources>

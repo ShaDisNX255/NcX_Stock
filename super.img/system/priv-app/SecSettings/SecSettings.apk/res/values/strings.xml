@@ -2536,6 +2536,12 @@ This setting affects all users on this phone."</string>
     <string name="device_info_battery_capacity_typical_summary_1">%d mAh (typical)</string>
     <string name="device_info_battery_capacity_typical_summary_2">The typical capacity has been tested under third-party laboratory conditions. The typical capacity is the estimated average considering the deviation in battery capacity among the battery samples tested under the IEC 61960 standard. The rated (minimum) capacity is %d mAh. Actual battery life may vary depending on network environment, usage patterns, and other factors.</string>
     <string name="device_info_battery_capacity_typical_summary_2_chn">The typical value is the estimated average value, based on the deviation in battery capacity among battery samples tested under the IEC 61960 standard. The rated (minimum) capacity is %d mAh. The actual battery life may vary, depending on your network environment, usage patterns, and other factors.</string>
+    <string name="device_info_battery_cycle_count">Battery cycle count</string>
+    <string name="device_info_battery_first_used_date">First used date</string>
+    <string name="device_info_battery_health">Battery health</string>
+    <string name="device_info_battery_health_summary">"Analizing...
+Charge battery more than 20% continuously."</string>
+    <string name="device_info_battery_manufacture_date">Manufacture date</string>
     <string name="device_info_battery_title">Battery info</string>
     <string name="device_info_ce_and_weee_mark_additional_description">Tap the button below for additional regulatory information.</string>
     <string name="device_info_ce_and_weee_mark_title">CE and WEEE marks</string>
@@ -3647,6 +3653,8 @@ When you turn on automatic backup, device and app data is periodically saved rem
     <string name="go_to_samsungAccount_galaxy">Galaxy accounts</string>
     <string name="google">Google</string>
     <string name="google_backup_search_title">Back up data (Google Drive)</string>
+    <string name="google_core_control_summary">Turn on to sign in to a Google account and use Google services where available.</string>
+    <string name="google_core_control_title">Google Services</string>
     <string name="google_settings_summary">Google services</string>
     <string name="google_settings_title">Google</string>
     <string name="gprscomment">WLAN network is disconnected. Connect via data network? If you do not have data plan, it may incur additional charges.</string>
@@ -3964,6 +3972,7 @@ You can change this later from Settings > Apps &amp; notifications."</string>
     <string name="insert_sim_card">Insert SIM card</string>
     <string name="insert_sim_card_message">Insert SIM card to access network services.</string>
     <string name="install_all_warning">Your phone and personal data are more vulnerable to attack by unknown apps. By installing apps from this source, you agree that you are responsible for any damage to your phone or loss of data that may result from their use.</string>
+    <string name="install_all_warning_new">By default, your phone can only install apps from approved sources such as the Play Store and Galaxy Store. This helps protect you from malicious apps. Installing apps from other sources may put your tablet and data at risk. If you want to install apps from other sources, allow those sources in the list below.</string>
     <string name="install_applications">Unknown sources</string>
     <string name="install_applications_title">Allow all app sources</string>
     <string name="install_other_apps">Install unknown apps</string>
@@ -7949,6 +7958,7 @@ Your %s fingerprints had to be removed for this update, so go to Settings and re
     <string name="sec_icon_glossary_sound_silent_mode">Mute</string>
     <string name="sec_icon_glossary_sound_vibration_mode">Vibrate mode</string>
     <string name="sec_icon_number_1">1</string>
+    <string name="sec_install_allow_deny_all_button">Deny all</string>
     <string name="sec_installed_services">Installed services</string>
     <string name="sec_installing_applications">Installing applications...</string>
     <string name="sec_intelligentscan_choose_lock_summary">Use face and iris recognition together for better accuracy and security.</string>
@@ -8096,6 +8106,8 @@ Your %s fingerprints had to be removed for this update, so go to Settings and re
     <string name="sec_long_press_power_off">Power off menu</string>
     <string name="sec_long_press_wake_bixby">Wake Bixby</string>
     <string name="sec_longpress_custom_button">Custom</string>
+    <string name="sec_manage_unknown_app">Manage unknown apps</string>
+    <string name="sec_manage_unknown_app_description">"The apps below may put your phone and data at risk because they weren't installed from an approved source such as the Play Store or Galaxy Store. Uninstall any apps that you don't trust or recognize."</string>
     <string name="sec_manual_disabled">Manually disabled</string>
     <string name="sec_master_clear_desc">All data will be erased from your phone, including your:</string>
     <string name="sec_master_clear_list_summary">Reset your device to its factory default settings. This will erase all data, including files and downloaded apps.</string>
@@ -8676,8 +8688,11 @@ This may also affect your ability to send and receive messages."</string>
     <string name="sec_vibration">Vibration</string>
     <string name="sec_vibration_intensity">Vibration intensity</string>
     <string name="sec_vibration_sound_for_incoming_calls">Vibration sound for incoming calls</string>
+    <string name="sec_vibration_sound_for_incoming_calls_device_description_support_watch_summary">"Vibration sound won't be played when your phone is connected to an external audio device."</string>
     <string name="sec_vibration_sound_for_incoming_calls_summary">Avoid missed calls by playing a sound to make vibrations louder.</string>
     <string name="sec_video_call_title">Video call</string>
+    <string name="sec_voip_extra_volume_control_summary">Make the speaker louder while using voice chat, push to talk, and similar features.</string>
+    <string name="sec_voip_extra_volume_control_title">Increase speaker volume for voice apps</string>
     <string name="sec_volume_key_control_summary">Control the media volume by default when you press the Volume keys.</string>
     <string name="sec_volume_key_control_title">Use Volume keys for media</string>
     <string name="sec_volume_key_control_title_tts">Use Volume keys for media</string>
@@ -9290,6 +9305,8 @@ Do you still want to connect?"</string>
     <string name="show_virtual_keyboard_for_dex">Show on-screen keyboard in Samsung DeX</string>
     <string name="shutdown_progress">Shutting down…</string>
     <string name="silent_notifications_status_bar">Hide silent notifications in status bar</string>
+    <string name="sim1_vonr_calls_title">VoNR SIM 1</string>
+    <string name="sim2_vonr_calls_title">VoNR SIM 2</string>
     <string name="sim_action_continue">Continue</string>
     <string name="sim_action_enable_dsds_text">This device can have 2 SIMs active at once. To continue using 1 SIM at a time, tap \"No thanks\".</string>
     <string name="sim_action_enable_dsds_title">Use 2 SIMs?</string>
@@ -9528,6 +9545,7 @@ Samsung account"</string>
     <string name="smart_tethering_internet_not_available">Internet not available</string>
     <string name="smart_tethering_internet_not_available_toast">Internet is not available</string>
     <string name="smart_tethering_low_battery_dialog_disconnect_device">Disconnect</string>
+    <string name="smart_tethering_nearby_can_not_available">Turn on Nearby device scanning to use Auto Hotspot.</string>
     <string name="smart_tethering_nearby_not_available">Turn on Nearby device scanning to use Mobile Hotspot.</string>
     <string name="smart_tethering_not_support_warning_toast">This feature is not supported by this device.</string>
     <string name="smart_tethering_wifi_only_model_warning_toast">Tablets without SIM only can connect to Auto Hotspot turned on.</string>
@@ -10276,7 +10294,7 @@ This also deletes the fingerprint model stored on your device. You won’t be ab
     <string name="unsupported_setting_summary">Setting isn’t supported on this phone</string>
     <string name="untitled_apn">Untitled</string>
     <string name="unused_apps">Unused apps</string>
-    <string name="unused_apps_switch">Remove permissions and free up space</string>
+    <string name="unused_apps_switch">Remove permissions if app is unused</string>
     <string name="update_button_text">Update</string>
     <string name="update_prl">Update PRL</string>
     <string name="update_profile">Update Profile</string>
@@ -10659,7 +10677,9 @@ During a voice call, you can’t use the internet and some apps may not work."</
     <string name="vzw_check_internet_connection">Checking the internet connection...</string>
     <string name="vzw_wifi_no_internet">Unable to connect</string>
     <string name="vzw_wifi_no_internet_left_btn">USE Wi-Fi</string>
+    <string name="vzw_wifi_setupwizard_emergency_call">Emergency call</string>
     <string name="vzw_wifi_setupwizard_select_a_network">Select a network if you want to connect to Wi-Fi now.</string>
+    <string name="vzw_wifi_setupwizard_select_a_network_without_sim">To activate your phone and make calls, you need to connect to Wi-Fi.</string>
     <string name="wait_for_debugger">Wait for debugger</string>
     <string name="wait_for_debugger_summary">Debugged application waits for debugger to attach before executing</string>
     <string name="wallpaper">Wallpaper</string>
@@ -10743,6 +10763,11 @@ Please review your service provider’s privacy policy."</string>
 - You will not get software updates until you connect to the Internet.
 
 - You will not be able to use device protection functions."</string>
+    <string name="wifi_and_mobile_skipped_message_connect_internet">Connect to the internet</string>
+    <string name="wifi_and_mobile_skipped_message_devices_protection">Use devices protection features</string>
+    <string name="wifi_and_mobile_skipped_message_header">Wi‑Fi is required to:</string>
+    <string name="wifi_and_mobile_skipped_message_setup_esim">Set up a eSIM mobile plan so you can connect to a mobile network</string>
+    <string name="wifi_and_mobile_skipped_message_software_update">Install software update</string>
     <string name="wifi_ap_11ax_summary">"Some devices aren't compatible with this standard and may experience connection problems."</string>
     <string name="wifi_ap_11ax_title">Support Wi-Fi 6 standard</string>
     <string name="wifi_ap_2G">2.4 GHz</string>
@@ -11280,7 +11305,7 @@ You will switch back to Wi-Fi Sharing when a Wi-Fi network becomes available."</
     <string name="wifi_do_not_provide_eap_user_cert">Do not provide</string>
     <string name="wifi_do_not_validate_eap_server">Do not validate</string>
     <string name="wifi_do_not_validate_eap_server_warning">No certificate specified. Your connection will not be private.</string>
-    <string name="wifi_dont_skip">"Don't skip"</string>
+    <string name="wifi_dont_skip">Back to Wi‑Fi setup</string>
     <string name="wifi_dpp_add_another_device">Add another device</string>
     <string name="wifi_dpp_add_device">Add device</string>
     <string name="wifi_dpp_add_device_to_network">Add a device</string>
@@ -11673,7 +11698,7 @@ Allow this for all apps that want to scan?"</string>
     <string name="wifi_signal">@string/wifi_network_speed</string>
     <string name="wifi_skip_anyway">Skip anyway</string>
     <string name="wifi_skip_button">Skip</string>
-    <string name="wifi_skip_title">Skip Wi‑Fi</string>
+    <string name="wifi_skip_title">Skip Wi‑Fi setup?</string>
     <string name="wifi_smart_network_switch_excluded_body_text">%1$s will be removed from Network exceptions.</string>
     <string name="wifi_smart_network_switch_excluded_networks">Network exceptions</string>
     <string name="wifi_smart_network_switch_excluded_networks_body">Your phone will remain connected to these networks, even if the connection is unstable.</string>
@@ -12284,14 +12309,4 @@ Update settings to:
 Incorrect"</string>
     <string name="zzz_lgt_password_wrong_pin_code2">"(%1$s/3)
 %1$s time(s) left"</string>
-    <string name="device_info">Device Information</string>
-    <string name="rom_info">Information About ROM</string>
-    <string name="rom_name">ROM Name</string>
-    <string name="rom_name_details">RayOS</string>
-    <string name="rom_ver">ROM Version</string>
-    <string name="rom_ver_details">Version 4.1.2</string>
-    <string name="rom_date">ROM Date</string>
-    <string name="rom_date_details">24.April.2022</string>
-    <string name="rom_developer">ROM Developer</string>
-    <string name="rom_developer_name">ShaDisNX255</string>
 </resources>

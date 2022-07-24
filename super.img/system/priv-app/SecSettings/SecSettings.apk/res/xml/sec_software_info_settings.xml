@@ -2,14 +2,6 @@
 <PreferenceScreen android:title="@string/device_info_software_title" settings:hierarchicalParentFragment="com.android.settings.deviceinfo.aboutphone.MyDeviceInfoFragment" settings:topLevelPreferenceKey="top_level_about_phone"
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
-    <PreferenceScreen android:layout="@layout/logo" android:key="od_logo" />
-    <PreferenceCategory android:title="@string/rom_info" android:key="dummy_gen">
-        <Preference android:title="@string/rom_name" android:key="rom_name" android:summary="@string/rom_name_details" style="?android:preferenceInformationStyle" />
-        <Preference android:title="@string/rom_ver" android:key="rom_ver" android:summary="@string/rom_ver_details" style="?android:preferenceInformationStyle" />
-        <Preference android:title="@string/rom_date" android:key="rom_date" android:summary="@string/rom_date_details" style="?android:preferenceInformationStyle" />
-        <Preference android:title="@string/rom_developer" android:key="rom_developer" android:summary="@string/rom_developer_name" style="?android:preferenceInformationStyle" />
-    </PreferenceCategory>
-    <PreferenceCategory android:title="@string/device_info" android:key="dummy_gen" />
     <Preference android:enabled="false" android:title="@string/one_ui_version_title" android:key="one_ui_version" android:summary="@string/summary_placeholder" android:shouldDisableView="false" settings:controller="com.samsung.android.settings.deviceinfo.softwareinfo.OneUIVersionPreferenceController" />
     <Preference android:title="@string/firmware_version" android:key="android_firmware_version" android:summary="@string/summary_placeholder" settings:controller="com.android.settings.deviceinfo.firmwareversion.FirmwareVersionDetailPreferenceController" />
     <Preference android:title="@string/module_version" android:key="module_version" android:summary="@string/summary_placeholder" settings:controller="com.android.settings.deviceinfo.firmwareversion.MainlineModuleVersionPreferenceController" />
