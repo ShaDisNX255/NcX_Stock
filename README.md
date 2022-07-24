@@ -1,4 +1,4 @@
-# RayOS S21FE Port for Galaxy A52s
+# RayOS S21FE Port for Galaxy A52 4G
 S21 FE system port
 
 
