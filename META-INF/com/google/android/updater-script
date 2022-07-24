@@ -14,12 +14,13 @@ setdefault devices off
 
 #Print
 ui_print " "
-
+#Get device info
+model=$(grep_cmdline androidboot.em.model)
 ui_print " _______________________________________________ "
 ui_print " |--|---------------------------------------|--| "
 ui_print " |--|           RayOS S21FE Port            |--| "
 ui_print " |--|---------------------------------------|--| "
-ui_print " |--|        for Samsung Galaxy A52s        |--| "
+ui_print " |--|      for $model with $chipname     |--| "
 ui_print " |--|---------------------------------------|--| "
 ui_print " |--|      by ShaDisNX255@XDADevelopers     |--| "
 ui_print " |--|---------------------------------------|--| "
@@ -43,7 +44,7 @@ if $yes; then
    #Mount
    ui_print " Unmounting all partitions... "
    umount_all
-   ui_print " Installing June patch kernel... "
+   ui_print " Installing July patch kernel... "
    update_zip boot.img $(find_block boot)
    ui_print " Installing ROM... "
    update_zip -xz super.img.xz $(find_block super)

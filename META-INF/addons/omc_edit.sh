@@ -10,7 +10,7 @@ try_mount -e /odm
 
 #Check type of OMC
 if exist /system_root/optics/configs /system_root/prism/etc; then ported=true
-elif exist /optics /prism; then newdevice=true
+elif exist "$(find_block -e optics)"; then newdevice=true
 elif exist "$(find /product -type d -name "omc")" || exist "$(find /odm -type d -name "omc")"; then partdevice=true
 elif exist "$(find /system -type d -name "omc")" || exist /system/csc; then olddevice=true
 fi
@@ -78,11 +78,11 @@ if exist "$omc_decoder"; then
 else
     echo2 "OMC_DECODER: FALSE"
 fi
-
+    
 #cscfeature.xml and cscfeature_network.xml locations
 native_csc="$csc_path/cscfeature.xml"
 native_network="$csc_path/cscfeature_network.xml"
-
+   
 #Making & Decrypting if needed cscfeature.xml
 if exist "$omc_decoder"; then
     if ! run_jar "$omc_decoder" -d -i "$native_csc" -o "$native_csc"; then echo2 "CANT DECODE: $native_csc"; fi
