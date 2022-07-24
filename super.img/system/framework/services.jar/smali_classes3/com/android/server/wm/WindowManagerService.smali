@@ -978,7 +978,7 @@
 
     iput-object v1, v0, Lcom/android/server/wm/WindowManagerService;->mWindowContextListenerController:Lcom/android/server/wm/WindowContextListenerController;
 
-    const/high16 v1, 0x3f800000    # 1.0f
+    const/high16 v1, 0x3f59999a    # 0.85f
 
     iput v1, v0, Lcom/android/server/wm/WindowManagerService;->mWindowAnimationScaleSetting:F
 
