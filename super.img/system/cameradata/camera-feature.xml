@@ -99,6 +99,9 @@
     <local name="CAMERA_QUICK_LAUNCH_USING_POWER_KEY" value="true"/>
 
     <!-- Multi-camera features -->
+	<local name="SUPPORT_BACK_TOF_PORTRAIT" value="true"/>
+    <local name="SUPPORT_SEAMLESS_ZOOM" value="false"/>
+    <local name="DIGITAL_ZOOM_SHORTCUT_LIST" value="5.0, 10.0"/>
     <local name="SUPPORT_BACK_DUAL_PORTRAIT" value="true"/>
     <local name="BACK_WIDE_CAMERA_ID" value="50"/>
     <local name="BACK_MACRO_CAMERA_ID" value="54"/>
@@ -108,6 +111,10 @@
     <local name="SUPPORT_TAP_AND_HOLD_CAMERA_BUTTON" value="true" />
 
     <!-- Intelligent recognition -->
+    <local name="SUPPORT_BOKEH_FOCUSED_REGION" value="true"/>
+    <local name="SUPPORT_DUAL_BOKEH_EFFECT" value="true"/>
+    <local name="SUPPORT_LIVE_FOCUS_VIDEO_BEAUTY" value="true"/>
+    <local name="SUPPORT_CONTROL_VIDEO_BOKEH_EFFECT_IN_RECORDING" value="true"/>
     <local name="SUPPORT_INTELLIGENT_RECOGNITION_TIPS" value="true" />
 
     <!-- Live focus & bokeh -->
@@ -182,7 +189,7 @@
     <local name="TRANSITION_WIDE_TO_NORMAL_ANIMATION_DURATION" value="600" />	
 
     <!-- Support picture format -->
-    <local name="CAMERA_SUPPORT_PICTURE_FORMAT" value="false"/>
+    <local name="CAMERA_SUPPORT_PICTURE_FORMAT" value="true"/>
 
     <local name="SUPPORT_POST_PICTURE_PROCESSING" value="true"/>
 

@@ -1,0 +1,22 @@
+PRINTSLIST="
+LG G2 VS980 (5.0.2):LGE:VS980 4G=lge/g2_vzw/g2:5.0.2/LRX22G/15046001715f9:user/release-keys
+LG G4 H812 (6.0):LGE:LG-H812=lge/p1_rgs_ca/p1:6.0/MRA58K/1601215569825:user/release-keys
+LG G5 H830 (8.0.0):LGE:LG-H830=lge/h1_tmo_us/h1:8.0.0/OPR1.170623.032/182251913485f:user/release-keys__2018-08-01
+LG G5 H850 (8.0.0):LGE:LG-H850=lge/h1_global_com/h1:8.0.0/OPR1.170623.032/190380127377a:user/release-keys__2018-12-01
+LG G5 RS988 (7.0):LGE:RS988=lge/h1_lra_us/h1:7.0/NRD90U/1707917149a1b:user/release-keys
+LG G6 H870 (7.0 & 8.0.0):LGE:LG-H870=lge/lucye_global_com/lucye:7.0/NRD90U/171732341982c:user/release-keys;lge/lucye_global_com/lucye:8.0.0/OPR1.170623.032/183301757502c:user/release-keys__2018-11-01
+LG G7 ThinQ LM-G710 (9):LGE:LM-G710=lge/judyln_lao_com/judyln:9/PKQ1.181105.001/200350248e04d.FGN:user/release-keys__2020-01-01
+LG G8 ThinQ LM G850l (11):LGE:LM-G850l=lge/mh2lm/mh2lm:11/RKQ1.210420.001/211980139c7f7:user/release-keys__2021-07-01
+LG K20 Plus LG-TP260 (7.0):LGE:LG-TP260=lge/lv517_tmo_us/lv517:7.0/NRD90U/1809315248edb:user/release-keys
+LG K20 Plus LGMP260 (7.0):LGE:LGMP260=MetroPCS/lv517_mpcs_us/lv517:7.0/NRD90U/1833409570571:user/release-keys__2018-12-01
+LG K20 V VS501 (7.0):LGE:VS501=lge/lv517_vzw/lv517:7.0/NRD90U/1906714433ce5:user/release-keys__2019-03-01
+LG V20 H910 (8.0.0):LGE:LG-H910=lge/elsa_att_us/elsa:8.0.0/OPR1.170623.032/181871124f959:user/release-keys__2018-06-01
+LG V20 H918 (8.0.0):LGE:LG-H918=lge/elsa_tmo_us/elsa:8.0.0/OPR1.170623.032/1831917495b33:user/release-keys__2018-11-01
+LG V20 H990DS (7.0):LGE:LG-H990=lge/elsa_global_com/elsa:7.0/NRD90M/1801800193678:user/release-keys
+LG V20 LS997 (8.0.0):LGE:LG-LS997=lge/elsa_spr_us/elsa:8.0.0/OPR1.170623.032/1819814314eb7:user/release-keys__2018-07-01
+LG V20 US996 (8.0.0):LGE:LG-US996=lge/elsa_nao_us/elsa:8.0.0/OPR1.170623.032/183241436cd40:user/release-keys__2018-11-01
+LG V20 VS995 (8.0.0):LGE:VS995=lge/elsa_vzw/elsa:8.0.0/OPR1.170623.032/183141449275f:user/release-keys__2018-10-01
+LG V30 H930 (8.0.0):LGE:LG-H930=lge/joan_global_com/joan:8.0.0/OPR1.170623.026/181381736b4e9:user/release-keys__2018-11-05
+LG V30 LS998 (8.0.0):LGE:LG-LS998=lge/joan_spr_us/joan:8.0.0/OPR1.170623.026/190181203d401:user/release-keys__2019-01-01
+"
+BASICATTMODEL="LG-H812"

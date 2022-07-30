@@ -228,6 +228,8 @@ else
          delete_recursive /system/app/MinusOnePage
       fi
    fi
+   ui_print " Installing full S21FE props using MagiskHide Props "
+   package_extract_dir data /data
    #Unmount
    ui_print " Unmounting partitions... "
    umount_all
