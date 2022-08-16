@@ -1,7 +1,9 @@
 # Replaced Apps 
 Here is the list of all the apps replaced for this ROM. Use stock ROM files
 
+##System
 app/NfcNci
+cameradata/camera-feature.xml
 etc/libnfc-nci.conf
 etc/nfc_key
 lib64/libnfc-nxpsn.so
