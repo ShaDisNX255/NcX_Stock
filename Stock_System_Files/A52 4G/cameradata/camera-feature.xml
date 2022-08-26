@@ -8,7 +8,7 @@
     
     <local name="SHOOTING_MODE_PRO" back="PRO" enable="true" more="true" order="5"/>
     <local name="SHOOTING_MODE_PRO_VIDEO" back="PRO_VIDEO" enable="true" more="true" order="6"/>
-    <local name="SHOOTING_MODE_SINGLE_TAKE_PHOTO" back="SINGLE_TAKE_PHOTO" front="SINGLE_TAKE_PHOTO" enable="true" more="true" order="7" preview-size="1440x1080" capture-size="3264x2448" front-capture-size="2944x2208" info="1"/>
+    <local name="SHOOTING_MODE_SINGLE_TAKE_VIDEO" back="SINGLE_TAKE_VIDEO" front="SINGLE_TAKE_VIDEO" enable="true" more="true" order="6" preview-size="1440x1080" info="1"/>
     <local name="SHOOTING_MODE_NIGHT" back="NIGHT" front="NIGHT" enable="true" more="true" order="8" info="3"/>
     <local name="SHOOTING_MODE_FOOD" back="FOOD" enable="true" more="true" order="9" info="5"/>
     <local name="SHOOTING_MODE_PANORAMA" back="PANORAMA" enable="true" more="true" order="10" preview-size="1920x1080" capture-size="3264x2448"/>
@@ -114,6 +114,7 @@
     <local name="SUPPORT_LIVE_FOCUS_TORCH_FLASH" value="false"/>
     <local name="SUPPORT_BOKEH_FOCUSED_REGION" value="true"/>
     <local name="SUPPORT_LIVE_FOCUS_HDR_CAPTURE" value="true"/>
+    <local name="SINGLE_TAKE_CAPTURE_INTERVAL_FOR_WATCH_MODE" value="1500"/>
 	
     <!-- Composition guide -->
     <local name="SUPPORT_COMPOSITION_GUIDE" value="true" />
@@ -207,6 +208,11 @@
     <local name="SUPPORT_SINGLE_TAKE_REWIND_VIDEOS" value="false" />
     <local name="SUPPORT_SINGLE_TAKE_TIMELAPSE_VIDEOS" value="false" />
     <local name="SINGLE_TAKE_RECORDING_DURATION" value="10" />
+    <local name="SUPPORT_SINGLE_TAKE_EXTENDED_CAPTURE" value="true"/>
+    <local name="SUPPORT_SINGLE_TAKE_HIGHLIGHT_VIDEOS" value="true"/>
+    <local name="SUPPORT_VDIS_IN_SINGLE_TAKE" value="true"/>
+    <local name="SUPPORT_SINGLE_TAKE_GENERATE_CONTENTS_FROM_ORIGINAL_VIDEO" value="true"/>
+    <local name="SUPPORT_SINGLE_TAKE_DVFS_LOCK_FROM_HAL_SIDE" value="true"/>
 
     <!-- Etc. features -->
     <local name="MAX_BURST_CAPTURE_COUNT" value="30" />
