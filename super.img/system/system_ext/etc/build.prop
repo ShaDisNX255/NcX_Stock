@@ -23,5 +23,7 @@ ro.system_ext.build.version.sdk=31
 persist.vendor.dpm.feature=11
 # Auto-added by post_process_props.py
 persist.sys.usb.config=mtp
+wlan.wfd.hdcp=disable
+wifi.interface=wlan0
 # end of file
 

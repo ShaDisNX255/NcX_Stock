@@ -19,6 +19,8 @@ ro.product.odm.device=a52q
 ro.product.odm.manufacturer=samsung
 ro.product.odm.model=SM-A525F
 ro.product.odm.name=a52qnsxx
+wlan.wfd.hdcp=disable
+wifi.interface=wlan0
 # end common build properties
 #
 # ADDITIONAL ODM BUILD PROPERTIES
