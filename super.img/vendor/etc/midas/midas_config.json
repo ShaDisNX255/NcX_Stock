@@ -63,7 +63,7 @@
               ],
               "models_list": [
                 "t2q", "p3q", "o1q", "r9q",
-                "b2q", "q2q", "v2q",
+                "b2q", "q2q", "v2q", "a52q",
                 "SC-52B", "SC-51B", "SCG10", "SCG09", "SC-54B", "SCG12", "SC-55B", "SCG11"
               ]
             },
@@ -170,7 +170,7 @@
               ],
               "models_list": [
                 "t2q", "p3q", "o1q", "r9q",
-                "b2q", "q2q", "v2q",
+                "b2q", "q2q", "v2q", "a52q",
                 "SC-52B", "SC-51B", "SCG10", "SCG09", "SC-54B", "SCG12", "SC-55B", "SCG11"
               ]
             },
@@ -435,7 +435,7 @@
               ],
               "models_list": [
                 "t2q", "p3q", "o1q", "r9q",
-                "b2q", "q2q", "v2q"
+                "b2q", "a52q", "q2q", "v2q"
               ]
             },
             {
