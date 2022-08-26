@@ -1,0 +1,530 @@
+{
+  "version": "1.3.23",
+  "device_types": "flagships, innovative",
+  "description": "Configurations file for Midas PhotoRemaster IPs",
+  "comment": "Model enabling for SCG15",
+  "dnn_models_path": "/vendor/etc/midas/",
+  "device_property": "ro.product.device",
+  "enhancements": [
+    {
+      "type": "deblur",
+      "inference_dim": [
+        768,
+        768
+      ],
+      "nChannel": 12,
+      "noOfModels": 1,
+      "input_node": "input",
+      "output_node": "output_deblur",
+      "dnn_model_info": [
+        {
+          "version": "132",
+          "compatible_models": [
+            {
+            "id": "adreno,amd",
+            "model_file": [
+              "SRIBMidas_aiDEBLUR_FP16_V0132.caffemodel"
+            ],
+            "models_list": [
+              "victory", "zodiac", "winner", "bloomq", "bloomxq", "a52xq",
+              "r8q", "r8s", "a72q", "a82xq", "a71xq", "a51xq", "a71", "a71x", "a51", "a51x", 
+              "gts7l", "gts7xl", "gts71wifi", "gts7xlwifi", "gts7lwifi",
+              "c1q", "c1s", "c2q", "c2s", "f2q", "x1q", "x1s", "y2q", "y2s", "z3q", "z3s", "r5q", "f62",
+              "beyond1", "beyond1q", "beyondx", "beyondxq", "beyond2", "beyond2q", "beyond0", "beyond0q",
+              "m53x", "a52q", "gts7xllite", "d1q", "d2q", "d2xq", "d2xq2", "d1", "d1x", "d2s", "d2x",
+              "SC-03L", "SCV41", "SM-G973C", "SC-04L", "SC-05L", "SCV42", "SC-51A", "SC-51Aa", "SCG01", 
+              "SC-52A", "SCG03", "SCG02", "SC-01M", "SCV45", "SM-N975C", "SC-53A", "SCG06", 
+              "SC-53B", "SC-54A", "SCG07", "SCV44", "SCG05", "SCV47", "SCG04", "SC51Aa"
+            ]
+          }
+        ],
+          "compute_unit": "GPU",
+          "model_format": "CAFFE",
+          "exec_type": "FLOAT16"
+        },
+        {
+          "version": "132",
+          "compatible_models": [
+            {
+              "id": "1.56.3",
+              "model_file": [
+                "SRIBMidas_aiDEBLUR_INT16_V0132_sm8450_snpe1563.dlc"
+              ],
+              "models_list": [
+                "gts8", "gts8p", "gts8u", "gts8wifi", "gts8pwifi", "gts8uwifi",
+                "q4q", "b4q", "r0q", "g0q", "b0q",
+                "SC-51C", "SC-52C", "SCG13", "SCG14", "SGH-N086", "SGH-N244", "KBZ", "MEY"
+              ]
+            },
+            {
+              "id": "1.50.2",
+              "model_file": [
+                "SRIBMidas_aiDEBLUR_INT16_V0132_sm8350_snpe1502.dlc"
+              ],
+              "models_list": [
+                "t2q", "p3q", "o1q", "r9q",
+                "b2q", "q2q", "v2q",
+                "SC-52B", "SC-51B", "SCG10", "SCG09", "SC-54B", "SCG12", "SC-55B", "SCG11"
+              ]
+            },
+            {
+              "id": "1.50.2",
+              "model_file": [
+                "SRIBMidas_aiDEBLUR_INT16_V0132_sm7325_snpe1502.dlc"
+              ],
+              "models_list": [
+                "a73xq", "a52sxq", "m52xq", "gts7fewifi", "xcoverpro2"
+              ]
+            }
+          ],
+          "compute_unit": "DSP",
+          "model_format": "SNPE",
+          "exec_type": "FLOAT16"
+        },
+        {
+          "version": "132",
+          "compatible_models": [
+            {
+              "id": "olympus",
+              "model_file": [
+                "SRIBMidas_aiDEBLUR_INT16_V0132_olympus_eden167.nnc"
+              ],
+              "models_list": [
+                "t2s", "p3s", "o1s", "r9s",
+                "a33x", "a53x", "m33x", "SC-53C", "SCG15", "SM-A536D"
+              ]
+            },
+            {
+              "id": "parmir",
+              "model_file": [
+                "SRIBMidas_aiDEBLUR_INT16_V0132_parmir_eden411.nnc"
+              ],
+              "models_list": [
+                "r0s", "g0s", "b0s"
+              ]
+            }
+          ],
+          "compute_unit": "NPU",
+          "model_format": "EDEN",
+          "exec_type": "FLOAT16"
+        }
+      ]
+    },
+    {
+      "type": "hdr",
+      "inference_dim": [
+        512,
+        512
+      ],
+      "nChannel": 12,
+      "noOfModels": 2,
+      "input_node": "input",
+      "output_node": "output",
+      "dnn_model_info": [
+        {
+          "version": "430",
+          "compatible_models": [
+            {
+            "id": "adreno,amd",
+            "model_file": [
+              "SRIB_aiHDR_Global_V430_1024.caffemodel",
+              "SRIB_aiHDR_Local_V430_1024.caffemodel"
+            ],
+            "models_list": [
+              "victory", "zodiac", "winner", "bloomq", "bloomxq", "a52xq",
+              "r8q", "r8s", "a72q", "a82xq", "a71xq", "a51xq", "a71", "a71x", "a51", "a51x", 
+              "gts7l", "gts7xl", "gts71wifi", "gts7xlwifi", "gts7lwifi",
+              "c1q", "c1s", "c2q", "c2s", "f2q", "x1q", "x1s", "y2q", "y2s", "z3q", "z3s", "r5q", "f62",
+              "beyond1", "beyond1q", "beyondx", "beyondxq", "beyond2", "beyond2q", "beyond0", "beyond0q",
+              "m53x", "a52q", "gts7xllite", "d1q", "d2q", "d2xq", "d2xq2", "d1", "d1x", "d2s", "d2x",
+              "SC-03L", "SCV41", "SM-G973C", "SC-04L", "SC-05L", "SCV42", "SC-51A", "SC-51Aa", "SCG01", 
+              "SC-52A", "SCG03", "SCG02", "SC-01M", "SCV45", "SM-N975C", "SC-53A", "SCG06", 
+              "SC-53B", "SC-54A", "SCG07", "SCV44", "SCG05", "SCV47", "SCG04", "SC51Aa", "SM-A536D"
+            ]
+          }
+        ],
+          "compute_unit": "GPU",
+          "model_format": "CAFFE",
+          "exec_type": "FLOAT16"
+        },
+        {
+          "version": "430",
+          "compatible_models": [
+            {
+              "id": "1.56.3",
+              "model_file": [
+                "SRIBMidas_aiHDR_Global_INT16_V430_sm8450_snpe1563.dlc",
+                "SRIBMidas_aiHDR_Local_INT16_V430_sm8450_snpe1563.dlc"
+              ],
+              "models_list": [
+                "q4q", "b4q", "r0q", "g0q", "b0q",
+                "gts8", "gts8p", "gts8u", "gts8wifi", "gts8pwifi", "gts8uwifi",
+                "SC-51C", "SC-52C", "SCG13", "SCG14", "SGH-N086", "SGH-N244", "KBZ", "MEY"
+              ]
+            },
+            {
+              "id": "1.50.2",
+              "model_file": [
+                "SRIBMidas_aiHDR_Global_INT16_V430_sm8350_snpe1502.dlc",
+                "SRIBMidas_aiHDR_Local_INT16_V430_sm8350_snpe1502.dlc"
+              ],
+              "models_list": [
+                "t2q", "p3q", "o1q", "r9q",
+                "b2q", "q2q", "v2q",
+                "SC-52B", "SC-51B", "SCG10", "SCG09", "SC-54B", "SCG12", "SC-55B", "SCG11"
+              ]
+            },
+            {
+              "id": "1.50.2",
+              "model_file": [
+                "SRIBMidas_aiHDR_Global_INT16_V430_sm7325_snpe1502.dlc",
+                "SRIBMidas_aiHDR_Local_INT16_V430_sm7325_snpe1502.dlc"
+              ],
+              "models_list": [
+                "a73xq", "a52sxq", "m52xq", "gts7fewifi", "xcoverpro2"
+              ]
+            }
+          ],
+          "compute_unit": "DSP",
+          "model_format": "SNPE",
+          "exec_type": "QASYMM8"
+        },
+        {
+          "version": "430",
+          "compatible_models": [
+            {
+              "id": "olympus",
+              "model_file": [
+                "SRIBMidas_aiHDR_Global_INT16_V430_1024_olympus_eden167.nnc",
+                "SRIBMidas_aiHDR_Local_INT16_V430_1024_olympus_eden167.nnc"
+              ],
+              "models_list": [
+                "t2s", "p3s", "o1s", "r9s",
+                "a33x", "a53x", "m33x", "SC-53C", "SCG15", "SM-A536D"
+              ]
+            },
+            {
+              "id": "parmir",
+              "model_file": [
+                "SRIBMidas_aiHDR_Global_INT16_V430_1024_parmir_eden411.nnc",
+                "SRIBMidas_aiHDR_Local_INT16_V430_1024_parmir_eden411.nnc"
+              ],
+              "models_list": [
+                "r0s", "g0s", "b0s"
+              ]
+            }
+          ],
+          "compute_unit": "NPU",
+          "model_format": "EDEN",
+          "exec_type": "FLOAT16"
+        }
+      ]
+    },
+    {
+      "type": "moire",
+      "inference_dim": [
+        1024,
+        1024
+      ],
+      "nChannel": 3,
+      "noOfModels": 2,
+      "input_node": "input",
+      "output_node": "output",
+      "dnn_model_info": [
+        {
+          "version": "800",
+          "compatible_models": [
+            {
+            "id": "adreno,amd",
+            "model_file": [
+              "SRIBMidas_aiMOIREREMOVE_Coarse_FP32_V800.caffemodel",
+              "SRIBMidas_aiMOIREREMOVE_Fine_FP32_V800.caffemodel"
+            ],
+            "models_list": [
+              "b2q", "q2q", "v2q", "m53x", "a73xq", "gts7xllite", "gts7fewifi", "zodiac", "winner", "victory",
+              "t2q", "p3q", "o1q", "r9q", "r8q", "r8s", "t2s", "p3s", "o1s", "r9s",
+              "c1q", "c1s", "c2q", "c2s", "f2q", "x1q", "x1s", "y2q", "y2s", "z3q", "z3s", "r5q", "f62",
+              "beyond1", "beyond1q", "beyondx", "beyondxq", "beyond2", "beyond2q", "beyond0", "beyond0q",
+              "a52q", "d1q", "d2q", "d2xq", "d2xq2", "d1", "d1x", "d2s", "d2x", "xcoverpro2",
+              "bloomq", "bloomxq", "gts7l", "gts7xl", "gts71wifi", "gts7xlwifi", "gts7lwifi", "a52sxq", "m52xq",
+              "SC-03L", "SCV41", "SM-G973C", "SC-04L", "SC-05L", "SCV42", "SC-51A", "SC-51Aa", "SCG01", "SC-52A", 
+              "SCG03", "SCG02", "SC-01M", "SCV45", "SM-N975C", "SC-53A", "SCG06", "SC-53B", 
+              "SC-54A", "SCG07", "SCV44", "SCG05", "SCV47", "SCG04", "SC51Aa", "SC-55B", "SC-54B", "SM-A536D"
+            ]
+          }
+        ],
+          "compute_unit": "GPU",
+          "model_format": "CAFFE",
+          "exec_type": "FLOAT32"
+        },
+        {
+          "version": "800",
+          "compatible_models": [
+            {
+            "id": "1.56.3",
+            "model_file": [
+              "SRIBMidas_aiMOIREREMOVE_Coarse_FP16_V800_sm8450_snpe1563.dlc",
+              "SRIBMidas_aiMOIREREMOVE_Fine_INT16_V800_sm8450_snpe1563.dlc"
+            ],
+            "models_list": [
+              "q4q", "b4q", "r0q", "g0q", "b0q",
+              "gts8", "gts8p", "gts8u", "gts8wifi", "gts8pwifi", "gts8uwifi",
+              "SC-51C", "SC-52C", "SCG13", "SCG14", "SGH-N086", "SGH-N244", "KBZ", "MEY"
+            ]
+          }
+        ],
+          "compute_unit": "DSP",
+          "model_format": "SNPE",
+          "exec_type": "QASYMM8"
+        },
+        {
+          "version": "800",
+          "compatible_models": [
+            {
+              "id": "pamir",
+              "model_file": [
+                "SRIBMidas_aiMOIREREMOVE_Coarse_FP16_V800_parmir_eden411.nnc",
+                "SRIBMidas_aiMOIREREMOVE_Fine_INT16_V800_parmir_eden411.nnc"
+              ],
+              "models_list": [
+                "r0s", "g0s", "b0s"
+              ]
+            },
+            {
+              "id": "papaya",
+              "model_file": [
+                "SRIBMidas_aiMOIREREMOVE_Coarse_INT16_V810_papaya_eden411.nnc",
+                "SRIBMidas_aiMOIREREMOVE_Fine_INT16_V810_papaya_eden411.nnc"
+              ],
+              "models_list": [
+                "a33x", "a53x", "m33x", "SC-53C", "SCG15", "SM-A536D"
+              ]
+            }
+          ],
+          "compute_unit": "NPU",
+          "model_format": "EDEN",
+          "exec_type": "FLOAT16"
+        }
+      ]
+    },
+    {
+      "type": "unified",
+      "inference_dim": [
+        768,
+        768
+      ],
+      "nChannel": 12,
+      "noOfModels": 1,
+      "input_node": "input",
+      "output_node": "output_deblur",
+      "dnn_model_info": [
+        {
+          "version": "500",
+          "compatible_models": [
+            {
+            "id": "adreno,amd",
+            "model_file": [
+              "SRIBMidas_aiUNIFIED_FP16_V610.caffemodel"
+            ],
+            "models_list": [
+              "b2q", "q2q", "v2q", "m53x", "a73xq", "t2q", "p3q", "o1q", "r9q", "victory",
+              "r8q", "r8s", "gts7xllite", "gts7fewifi", "zodiac", "winner", "t2s", "p3s", "o1s", "r9s",
+              "c1q", "c1s", "c2q", "c2s", "f2q", "x1q", "x1s", "y2q", "y2s", "z3q", "z3s", "r5q", "f62",
+              "beyond1", "beyond1q", "beyondx", "beyondxq", "beyond2", "beyond2q", "beyond0", "beyond0q",
+              "a52q", "d1q", "d2q", "d2xq", "d2xq2", "d1", "d1x", "d2s", "d2x", "xcoverpro2",           
+              "bloomq", "bloomxq", "gts7l", "gts7xl", "gts71wifi", "gts7xlwifi", "gts7lwifi", "a52sxq", "m52xq",
+              "SC-03L", "SCV41", "SM-G973C", "SC-04L", "SC-05L", "SCV42", "SC-51A", "SC-51Aa", "SCG01", "SC-52A", 
+              "SCG03", "SCG02", "SC-01M", "SCV45", "SM-N975C", "SC-53A", "SCG06", "SC-53B", 
+              "SC-54A", "SCG07", "SCV44", "SCG05", "SCV47", "SCG04", "SC51Aa", "SC-55B", "SC-54B", "SM-A536D"
+            ]
+          }
+        ],
+          "compute_unit": "GPU",
+          "model_format": "CAFFE",
+          "exec_type": "FLOAT16"
+        },
+        {
+          "version": "610",
+          "compatible_models": [
+            {
+            "id": "1.55.1",
+            "model_file": [
+              "SRIBMidas_aiUNIFIED_INT16_V610_sm8450_snpe1563.dlc"
+            ],
+            "models_list": [
+              "gts8", "gts8p", "gts8u", "gts8wifi", "gts8pwifi", "gts8uwifi",
+              "q4q", "b4q", "r0q", "g0q", "b0q",
+              "SC-51C", "SC-52C", "SCG13", "SCG14", "SGH-N086", "SGH-N244", "KBZ", "MEY"
+            ]
+          },
+          {
+            "id": "1.50.2",
+            "model_file": [
+              "SRIBMidas_aiUNIFIED_INT16_V610_sm8350_snpe1502.dlc"
+            ],
+            "models_list": [
+               
+            ]
+          }
+        ],
+          "compute_unit": "DSP",
+          "model_format": "SNPE",
+          "exec_type": "FLOAT16"
+        },
+        {
+          "version": "610",
+          "compatible_models": [
+            {
+              "id": "parmir",
+              "model_file": [
+                "SRIBMidas_aiUNIFIED_INT16_V610_parmir_eden411.nnc"
+              ],
+              "models_list": [
+                "r0s", "g0s", "b0s"
+              ]
+            },
+            {
+              "id": "papaya",
+              "model_file": [
+                "SRIBMidas_aiUNIFIED_INT16_V610_papaya_eden411.nnc"
+              ],
+              "models_list": [
+                "a33x", "a53x", "m33x", "SC-53C", "SCG15", "SM-A536D"
+              ]
+            }
+          ],
+          "compute_unit": "NPU",
+          "model_format": "EDEN",
+          "exec_type": "FLOAT16"
+        }
+      ]
+    },
+    {
+      "type": "reflection",
+      "inference_dim": [
+        1536,
+        3072
+      ],
+      "nChannel": 3,
+      "noOfModels": 1,
+      "input_node": "blob1",
+      "output_node": "Hconv_blob24",
+      "dnn_model_info": [
+        {
+          "version": "711",
+          "compatible_models": [
+            {
+            "id": "adreno,amd",
+            "model_file": [
+              "SRIBMidas_aiREFLECTIONREMOVE_FP32_V711.caffemodel"
+            ],
+            "models_list": []
+          }
+        ],
+          "compute_unit": "GPU",
+          "model_format": "CAFFE",
+          "exec_type": "FLOAT32"
+        },
+        {
+          "version": "711",
+          "compatible_models": [
+            {
+              "id": "1.50.2",
+              "model_file": [
+                "SRIBMidas_aiREFLECTIONREMOVE_FP32_V711.dlc"
+              ],
+              "models_list": [
+                "t2q", "p3q", "o1q", "r9q",
+                "b2q", "q2q", "v2q"
+              ]
+            },
+            {
+              "id": "1.54.3",
+              "model_file": [
+                "SRIBMidas_aiREFLECTIONREMOVE_FP32_V711.dlc"
+              ],
+              "models_list": []
+            }
+          ],
+          "compute_unit": "DSP",
+          "model_format": "SNPE",
+          "exec_type": "FLOAT32"
+        },
+        {
+          "version": "711",
+          "compatible_models": [
+            {
+            "id": "parmir",
+            "model_file": [
+              "SRIBMidas_aiREFLECTIONREMOVE_FP32_V711.nnc"
+            ],
+            "models_list": []
+          }
+        ],
+          "compute_unit": "NPU",
+          "model_format": "EDEN",
+          "exec_type": "FLOAT16"
+        }
+      ]
+    }
+  ],
+  "detection": [
+    {
+    "type": "blur-detect",
+    "inference_dim": [
+      768,
+      1024
+    ],
+    "nChannel": 4,
+    "noOfModels": 2,
+    "input_node": "input",
+    "output_node": "output",
+    "dnn_model_info": [
+      {
+        "version": "130",
+        "compatible_models": [
+          {
+          "id": "adreno,amd",
+          "model_file": [
+            "SRIBMidas_aiBLURDETECT_Stage1_FP32_V130.caffemodel",
+            "SRIBMidas_aiBLURDETECT_Stage2_FP32_V130.caffemodel"
+          ],
+          "models_list": [
+            "q4q", "b4q", "r0q", "g0q", "b0q", "r0s", "g0s", "b0s", "zodiac", "winner", "bloomq", "bloomxq", "a52xq", "victory",
+            "b2q", "q2q", "v2q", "gts8", "gts8p", "gts8u", "gts8wifi", "gts8pwifi", "gts8uwifi", "gts7xllite",
+            "a82xq", "a72q", "a52sxq", "m52xq", "a71xq", "a51xq", "a71", "a71x", "a51", "a51x", "gts7l", "gts7xl", "gts7xlwifi", "gts7lwifi",
+            "t2q", "t2s", "p3q", "p3s", "o1q", "o1s", "r8q", "r8s", "r9q", "r9s", "f62", "a33x", "a53x", "m53x",
+            "c1q", "c1s", "c2q", "c2s", "f2q", "x1q", "x1s", "y2q", "y2s", "z3q", "z3s", "r5q",
+            "beyond1", "beyond1q", "beyondx", "beyondxq", "beyond2", "beyond2q", "beyond0", "beyond0q",
+            "a53x", "a73xq", "a52q", "d1q", "d2q", "d2xq", "d2xq2", "d1", "d1x", "d2s", "d2x", "xcoverpro2",
+            "SC-03L", "SCV41", "SM-G973C", "SC-04L", "SC-05L", "SCV42", "SC-51A", "SC-51Aa", "SCG01", "SC-52A", "SCG03", "SCG02", "SC-01M", "SCV45",
+            "SM-N975C", "SC-53A", "SCG06", "SCG15", "SC-53B", "SC-54A", "SCG07", "SCV44", "SCG05", "SCV47", "SCG04",
+            "SC-51C", "SC-52C", "SCG13", "SCG14", "SGH-N086", "SGH-N244", "SC51Aa", "KBZ", "MEY", "SC-53C", "SM-A536D",
+            "m23xq", "m23x", "m33x"
+            
+          ]
+        }
+      ],
+        "compute_unit": "GPU",
+        "model_format": "CAFFE",
+        "exec_type": "FLOAT32"
+      },
+      {
+        "version": "130",
+        "compatible_models": [
+          {
+          "id": "1.54.3",
+          "model_file": [
+            "SRIBMidas_aiBLURDETECT_Stage1_FP32_V130.dlc",
+            "SRIBMidas_aiBLURDETECT_Stage2_FP32_V130.dlc"
+          ],
+          "models_list": []
+        }
+      ],
+        "compute_unit": "DSP",
+        "model_format": "SNPE",
+        "exec_type": "QASYMM8"
+      }
+    ]
+  }]
+}
