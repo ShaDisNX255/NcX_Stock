@@ -16,6 +16,7 @@
     <local name="SHOOTING_MODE_SUPER_SLOW_MOTION" back="SUPER_SLOW_MOTION" enable="true" more="true" order="12" preview-size="1280x720" capture-size="1280x720" info="6"/>
     <local name="SHOOTING_MODE_SLOW_MOTION" back="SLOW_MOTION" front="SLOW_MOTION" enable="true" more="true" order="13" preview-size="1280x720" capture-size="1280x720" front-preview-size="1280x720" front-capture-size="1280x720"/>
     <local name="SHOOTING_MODE_HYPER_LAPSE" back="HYPER_LAPSE" front="HYPER_LAPSE" enable="true" more="true" order="14" preview-size="1920x1080" capture-size="1920x1080" info="7"/>
+    <local name="SHOOTING_MODE_DUAL_RECORDING" back="DUAL_RECORDING" front="DUAL_RECORDING" enable="true" more="true" order="15" preview-size="1920x1080" capture-size="1920x1080" info="3"/>
     <local name="SHOOTING_MODE_QR" back="QR" enable="true" more="false" order="100" preview-size="2400x1080"/>
 
     <!-- Capture resolution - BACK -->
@@ -314,4 +315,10 @@
     <local name="SUPPORT_PRO_RESET" value="true"/>
     <local name="SUPPORT_PRO_VIDEO_RESET" value="true" />
     <local name="SUPPORT_PRO_VIDEO_RESOLUTION_SETTING" value="true" />
+
+    <local name="QUICK_SETTING_GUIDE_LINE" value="0.108f"/>
+    <local name="TOP_GUIDE_LINE" value="0.11f"/>
+    <local name="BOTTOM_GUIDE_LINE" value="0.725f"/>
+    <local name="SHUTTER_AREA_GUIDE_LINE" value="0.805f"/>
+    <local name="DIRECTORS_VIEW_MODE_PREVIEW_TOP_GUIDE_LINE" value="0.11f"/>
 </resources>
