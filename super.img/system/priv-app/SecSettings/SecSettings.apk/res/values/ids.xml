@@ -2839,5 +2839,4 @@
     <item type="id" name="zxing_prewiew_size_ready" />
     <item type="id" name="zxing_status_view" />
     <item type="id" name="zxing_viewfinder_view" />
-    <item type="id" name="dev_settings" />
 </resources>

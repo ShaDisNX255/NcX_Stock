@@ -2534,7 +2534,7 @@ This setting affects all users on this phone."</string>
     <string name="device_info_battery_capacity">Battery capacity</string>
     <string name="device_info_battery_capacity_summary">%d mAh</string>
     <string name="device_info_battery_capacity_typical_summary_1">%d mAh (typical)</string>
-    <string name="device_info_battery_capacity_typical_summary_2">The typical capacity has been tested under third-party laboratory conditions. The typical capacity is the estimated average considering the deviation in battery capacity among the battery samples tested under the IEC 61960 standard. The rated (minimum) capacity is %d mAh. Actual battery life may vary depending on network environment, usage patterns, and other factors.</string>
+    <string name="device_info_battery_capacity_typical_summary_2">The typical capacity has been tested under third-party laboratory conditions. The typical capacity is the estimated average capacity considering the deviation in battery capacity among the battery samples tested under the IEC 61960 standard. The rated capacity is %d mAh. Actual battery life may vary depending on network environment, usage patterns, and other factors.</string>
     <string name="device_info_battery_capacity_typical_summary_2_chn">The typical value is the estimated average value, based on the deviation in battery capacity among battery samples tested under the IEC 61960 standard. The rated (minimum) capacity is %d mAh. The actual battery life may vary, depending on your network environment, usage patterns, and other factors.</string>
     <string name="device_info_battery_cycle_count">Battery cycle count</string>
     <string name="device_info_battery_first_used_date">First used date</string>
@@ -12309,14 +12309,4 @@ Update settings to:
 Incorrect"</string>
     <string name="zzz_lgt_password_wrong_pin_code2">"(%1$s/3)
 %1$s time(s) left"</string>
-    <string name="device_info">Device Information</string>
-    <string name="rom_info">Information About ROM</string>
-    <string name="rom_name">ROM Name</string>
-    <string name="rom_name_details">RayOS S21FE ROM</string>
-    <string name="rom_ver">ROM Version</string>
-    <string name="rom_ver_details">Version 2</string>
-    <string name="rom_date">ROM Date</string>
-    <string name="rom_date_details">24.July.2022</string>
-    <string name="rom_developer">ROM Developer</string>
-    <string name="rom_developer_name">ShaDisNX255</string>
 </resources>

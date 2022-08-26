@@ -2,7 +2,7 @@
 
 <audioPolicyConfiguration version="1.0" xmlns:xi="http://www.w3.org/2001/XInclude">
 
-    <globalConfiguration speaker_drc_enabled="false"/>
+    <globalConfiguration speaker_drc_enabled="true"/>
 
     <modules>
         <module name="primary" halVersion="3.0">

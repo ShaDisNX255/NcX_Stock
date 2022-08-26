@@ -41,7 +41,7 @@ odm	/odm	ext4	ro	wait,avb,logical,first_stage_mount
 /dev/block/bootdevice/by-name/cache	/cache	ext4	noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic	wait,check
 /dev/block/by-name/metadata	/metadata	ext4	noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic,sync	wait,formattable,wrappedkey,first_stage_mount,check
 # Add fs_mgr flag - sysfs_path=/sys/devices/platform/soc/xxxx.[ufshc|sdhci] to userdata entry, based on UFS|eMMC device.
-/dev/block/bootdevice/by-name/userdata	/data	f2fs	noatime,nosuid,nodev,discard,usrquota,grpquota,fsync_mode=nobarrier,reserve_root=32768,resgid=5678,inlinecrypt	latemount,wait,check,,encryptable=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,wrappedkey,quota,reservedsize=128M,checkpoint=fs,keydirectory=/metadata/vold/metadata_encryption
+/dev/block/bootdevice/by-name/userdata	/data	f2fs	noatime,nosuid,nodev,discard,usrquota,grpquota,fsync_mode=nobarrier,reserve_root=32768,resgid=5678,inlinecrypt	latemount,wait,check,,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,wrappedkey,quota,reservedsize=128M,checkpoint=fs,keydirectory=/metadata/vold/metadata_encryption
 /dev/block/platform/soc/1d84000.ufshc/by-name/prism     /prism                   ext4    ro,barrier=1,discard                                 nofail,avb,first_stage_mount
 /dev/block/platform/soc/1d84000.ufshc/by-name/optics    /optics                  ext4    ro,barrier=1,discard                                 nofail,avb,first_stage_mount
 /dev/block/bootdevice/by-name/apnhlos                   /vendor/firmware_mnt   vfat    ro,shortname=lower,uid=0,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0 wait
