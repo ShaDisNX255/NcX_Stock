@@ -19,13 +19,7 @@
 
 .field public static final DEFAULT_KEY_LEN:I = 0x20
 
-.field private static final MSG_EMERGENCY_STATE_CHANGED:I = 0x77
-
-.field private static final MSG_HANDLE_LOCKED_BOOT_COMPLETE:I = 0x78
-
 .field private static final MSG_SET_RESET_TOKEN_FOR_LEGACY:I = 0x76
-
-.field private static final MSG_UNLOCK_SECURE_FOLDER_WITH_TOKEN:I = 0x96
 
 .field private static final NULL_USER:Landroid/content/pm/UserInfo;
 
@@ -51,8 +45,6 @@
 
 .field private mDualDarManagerImpl:Lcom/android/server/knox/dar/ddar/DualDarManagerImpl;
 
-.field private mEmergencyStateReceiver:Landroid/content/BroadcastReceiver;
-
 .field private mEscrowTokenStateChangeCallback:Lcom/android/internal/widget/LockPatternUtils$EscrowTokenStateChangeCallback;
 
 .field private mHandlerThread:Landroid/os/HandlerThread;
@@ -66,8 +58,6 @@
 .field private mSdpManagerImpl:Lcom/android/server/knox/dar/sdp/SdpManagerImpl;
 
 .field private mUserManager:Landroid/os/UserManager;
-
-.field private mUserSwitchObserver:Landroid/app/UserSwitchObserver;
 
 .field private mVirtualLockImpl:Lcom/android/server/knox/dar/VirtualLockImpl;
 
@@ -119,18 +109,6 @@
     invoke-direct {v0, p0}, Lcom/android/server/knox/dar/DarManagerService$$ExternalSyntheticLambda1;-><init>(Lcom/android/server/knox/dar/DarManagerService;)V
 
     iput-object v0, p0, Lcom/android/server/knox/dar/DarManagerService;->mEscrowTokenStateChangeCallback:Lcom/android/internal/widget/LockPatternUtils$EscrowTokenStateChangeCallback;
-
-    new-instance v0, Lcom/android/server/knox/dar/DarManagerService$1;
-
-    invoke-direct {v0, p0}, Lcom/android/server/knox/dar/DarManagerService$1;-><init>(Lcom/android/server/knox/dar/DarManagerService;)V
-
-    iput-object v0, p0, Lcom/android/server/knox/dar/DarManagerService;->mEmergencyStateReceiver:Landroid/content/BroadcastReceiver;
-
-    new-instance v0, Lcom/android/server/knox/dar/DarManagerService$2;
-
-    invoke-direct {v0, p0}, Lcom/android/server/knox/dar/DarManagerService$2;-><init>(Lcom/android/server/knox/dar/DarManagerService;)V
-
-    iput-object v0, p0, Lcom/android/server/knox/dar/DarManagerService;->mUserSwitchObserver:Landroid/app/UserSwitchObserver;
 
     const-string v0, "DarManagerService"
 
@@ -223,46 +201,6 @@
     invoke-direct {p0, p1, p2}, Lcom/android/server/knox/dar/DarManagerService;->handleSetResetTokenForLegacy(ILjava/lang/String;)V
 
     return-void
-.end method
-
-.method static synthetic access$500(Lcom/android/server/knox/dar/DarManagerService;I)V
-    .registers 2
-
-    invoke-direct {p0, p1}, Lcom/android/server/knox/dar/DarManagerService;->handleEmergencyStateChanged(I)V
-
-    return-void
-.end method
-
-.method static synthetic access$600(Lcom/android/server/knox/dar/DarManagerService;I)V
-    .registers 2
-
-    invoke-direct {p0, p1}, Lcom/android/server/knox/dar/DarManagerService;->handleLockedBootCompleted(I)V
-
-    return-void
-.end method
-
-.method static synthetic access$700(Lcom/android/server/knox/dar/DarManagerService;I)V
-    .registers 2
-
-    invoke-direct {p0, p1}, Lcom/android/server/knox/dar/DarManagerService;->handleUnlockSecureFolderWithToken(I)V
-
-    return-void
-.end method
-
-.method static synthetic access$800(Lcom/android/server/knox/dar/DarManagerService;)Ljava/lang/Object;
-    .registers 2
-
-    iget-object v0, p0, Lcom/android/server/knox/dar/DarManagerService;->mDeviceEmergencyModeLock:Ljava/lang/Object;
-
-    return-object v0
-.end method
-
-.method static synthetic access$900(Lcom/android/server/knox/dar/DarManagerService;)Lcom/android/server/knox/dar/DarManagerService$DarHandler;
-    .registers 2
-
-    iget-object v0, p0, Lcom/android/server/knox/dar/DarManagerService;->mDarHandler:Lcom/android/server/knox/dar/DarManagerService$DarHandler;
-
-    return-object v0
 .end method
 
 .method private checkDeviceIntegrity([Ljava/security/cert/Certificate;)Z
@@ -717,225 +655,6 @@
     return-object v0
 .end method
 
-.method private handleEmergencyStateChanged(I)V
-    .registers 6
-
-    const/4 v0, 0x5
-
-    if-ne v0, p1, :cond_43
-
-    const-string v0, "DarManagerService"
-
-    const-string v1, "Emergency mode has been disabled"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-static {}, Landroid/os/storage/StorageManager;->isFileEncryptedNativeOrEmulated()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_43
-
-    iget-object v1, p0, Lcom/android/server/knox/dar/DarManagerService;->mContext:Landroid/content/Context;
-
-    invoke-static {v1}, Lcom/samsung/android/knox/SemPersonaManager;->getSecureFolderId(Landroid/content/Context;)I
-
-    move-result v1
-
-    if-lez v1, :cond_43
-
-    invoke-direct {p0}, Lcom/android/server/knox/dar/DarManagerService;->getUserManager()Landroid/os/UserManager;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v1}, Landroid/os/UserManager;->isUserRunning(I)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_43
-
-    invoke-direct {p0}, Lcom/android/server/knox/dar/DarManagerService;->getUserManager()Landroid/os/UserManager;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v1}, Landroid/os/UserManager;->isUserUnlockingOrUnlocked(I)Z
-
-    move-result v2
-
-    if-nez v2, :cond_43
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "Unlock secure folder user "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {p0, v1}, Lcom/android/server/knox/dar/DarManagerService;->unlockSecureFolderWithToken(I)V
-
-    :cond_43
-    return-void
-.end method
-
-.method private handleLockedBootCompleted(I)V
-    .registers 6
-
-    invoke-static {}, Landroid/os/storage/StorageManager;->isFileEncryptedNativeOrEmulated()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_97
-
-    invoke-static {p1}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
-
-    move-result v0
-
-    const-string v1, "DarManagerService"
-
-    if-eqz v0, :cond_22
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "Locked boot completed for user "
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_22
-    invoke-static {p1}, Lcom/samsung/android/knox/SemPersonaManager;->isSecureFolderId(I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_97
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "Locked boot completed for SecureFolder user "
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-direct {p0}, Lcom/android/server/knox/dar/DarManagerService;->getUserManager()Landroid/os/UserManager;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Landroid/os/UserManager;->getProfileParent(I)Landroid/content/pm/UserInfo;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_75
-
-    invoke-direct {p0}, Lcom/android/server/knox/dar/DarManagerService;->getUserManager()Landroid/os/UserManager;
-
-    move-result-object v2
-
-    iget v3, v0, Landroid/content/pm/UserInfo;->id:I
-
-    invoke-virtual {v2, v3}, Landroid/os/UserManager;->isUserUnlockingOrUnlocked(I)Z
-
-    move-result v2
-
-    if-nez v2, :cond_53
-
-    goto :goto_75
-
-    :cond_53
-    invoke-direct {p0}, Lcom/android/server/knox/dar/DarManagerService;->getUserManager()Landroid/os/UserManager;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Landroid/os/UserManager;->isUserUnlockingOrUnlocked(I)Z
-
-    move-result v2
-
-    if-nez v2, :cond_97
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "Unlock secure folder user "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {p0, p1}, Lcom/android/server/knox/dar/DarManagerService;->unlockSecureFolderWithToken(I)V
-
-    goto :goto_97
-
-    :cond_75
-    :goto_75
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "Parent "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    if-eqz v0, :cond_84
-
-    iget v3, v0, Landroid/content/pm/UserInfo;->id:I
-
-    goto :goto_85
-
-    :cond_84
-    const/4 v3, 0x0
-
-    :goto_85
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v3, " is not ready to unlock secure folder user "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_97
-    :goto_97
-    return-void
-.end method
-
 .method private handleSetResetTokenForLegacy(ILjava/lang/String;)V
     .registers 20
 
@@ -1277,109 +996,6 @@
     invoke-static {v6, v7}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     throw v0
-.end method
-
-.method private handleUnlockSecureFolderWithToken(I)V
-    .registers 11
-
-    invoke-static {p1}, Lcom/samsung/android/knox/SemPersonaManager;->isSecureFolderId(I)Z
-
-    move-result v0
-
-    if-nez v0, :cond_7
-
-    return-void
-
-    :cond_7
-    invoke-virtual {p0, p1}, Lcom/android/server/knox/dar/DarManagerService;->getSecureFolderTokenHandleViaProtector(I)J
-
-    move-result-wide v0
-
-    invoke-virtual {p0, p1}, Lcom/android/server/knox/dar/DarManagerService;->getSecureFolderResetTokenViaProtector(I)[B
-
-    move-result-object v2
-
-    const-class v3, Lcom/android/internal/widget/LockSettingsInternal;
-
-    invoke-static {v3}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/android/internal/widget/LockSettingsInternal;
-
-    const-string v4, "DarManagerService"
-
-    if-eqz v3, :cond_34
-
-    :try_start_1b
-    invoke-virtual {v3, v0, v1, v2, p1}, Lcom/android/internal/widget/LockSettingsInternal;->unlockUserWithToken(J[BI)Z
-    :try_end_1e
-    .catch Ljava/lang/Exception; {:try_start_1b .. :try_end_1e} :catch_1f
-
-    goto :goto_34
-
-    :catch_1f
-    move-exception v5
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v7, "Unexpected failure while unlock secure folder with token"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v4, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_34
-    :goto_34
-    invoke-static {v2}, Lcom/android/server/knox/dar/SecureUtil;->clear([B)V
-
-    sget-object v5, Ljava/util/Locale;->US:Ljava/util/Locale;
-
-    const/4 v6, 0x2
-
-    new-array v6, v6, [Ljava/lang/Object;
-
-    const/4 v7, 0x0
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v8
-
-    aput-object v8, v6, v7
-
-    const/4 v7, 0x1
-
-    invoke-direct {p0}, Lcom/android/server/knox/dar/DarManagerService;->getUserManager()Landroid/os/UserManager;
-
-    move-result-object v8
-
-    invoke-virtual {v8, p1}, Landroid/os/UserManager;->isUserUnlocked(I)Z
-
-    move-result v8
-
-    invoke-static {v8}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v8
-
-    aput-object v8, v6, v7
-
-    const-string v7, "SecureFolder user %d has been unlocked [ res : %b ]"
-
-    invoke-static {v5, v7, v6}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
 .end method
 
 .method private isGRDMSupported()Z
@@ -3915,7 +3531,7 @@
 .end method
 
 .method public systemReady()V
-    .registers 6
+    .registers 4
 
     const-string v0, "DarManagerService"
 
@@ -3951,49 +3567,18 @@
 
     invoke-virtual {v1}, Landroid/os/HandlerThread;->start()V
 
-    new-instance v1, Lcom/android/server/knox/dar/DarManagerService$DarHandler;
+    new-instance v0, Lcom/android/server/knox/dar/DarManagerService$DarHandler;
 
-    iget-object v2, p0, Lcom/android/server/knox/dar/DarManagerService;->mHandlerThread:Landroid/os/HandlerThread;
+    iget-object v1, p0, Lcom/android/server/knox/dar/DarManagerService;->mHandlerThread:Landroid/os/HandlerThread;
 
-    invoke-virtual {v2}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
-
-    move-result-object v2
-
-    invoke-direct {v1, p0, v2}, Lcom/android/server/knox/dar/DarManagerService$DarHandler;-><init>(Lcom/android/server/knox/dar/DarManagerService;Landroid/os/Looper;)V
-
-    iput-object v1, p0, Lcom/android/server/knox/dar/DarManagerService;->mDarHandler:Lcom/android/server/knox/dar/DarManagerService$DarHandler;
-
-    iget-object v1, p0, Lcom/android/server/knox/dar/DarManagerService;->mContext:Landroid/content/Context;
-
-    iget-object v2, p0, Lcom/android/server/knox/dar/DarManagerService;->mEmergencyStateReceiver:Landroid/content/BroadcastReceiver;
-
-    new-instance v3, Landroid/content/IntentFilter;
-
-    const-string v4, "com.samsung.intent.action.EMERGENCY_STATE_CHANGED"
-
-    invoke-direct {v3, v4}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v1, v2, v3}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
-
-    :try_start_42
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    invoke-virtual {v1}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/android/server/knox/dar/DarManagerService;->mUserSwitchObserver:Landroid/app/UserSwitchObserver;
+    invoke-direct {v0, p0, v1}, Lcom/android/server/knox/dar/DarManagerService$DarHandler;-><init>(Lcom/android/server/knox/dar/DarManagerService;Landroid/os/Looper;)V
 
-    invoke-interface {v1, v2, v0}, Landroid/app/IActivityManager;->registerUserSwitchObserver(Landroid/app/IUserSwitchObserver;Ljava/lang/String;)V
-    :try_end_4b
-    .catch Landroid/os/RemoteException; {:try_start_42 .. :try_end_4b} :catch_4c
+    iput-object v0, p0, Lcom/android/server/knox/dar/DarManagerService;->mDarHandler:Lcom/android/server/knox/dar/DarManagerService$DarHandler;
 
-    goto :goto_50
-
-    :catch_4c
-    move-exception v0
-
-    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
-
-    :goto_50
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Lcom/android/server/knox/dar/DarManagerService;->prepareSecuredDataKey(I)V
@@ -4033,28 +3618,6 @@
     const/16 v0, -0xa
 
     return v0
-.end method
-
-.method public unlockSecureFolderWithToken(I)V
-    .registers 5
-
-    invoke-direct {p0}, Lcom/android/server/knox/dar/DarManagerService;->checkSystemPermission()Z
-
-    iget-object v0, p0, Lcom/android/server/knox/dar/DarManagerService;->mDarHandler:Lcom/android/server/knox/dar/DarManagerService$DarHandler;
-
-    const/16 v1, 0x96
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, v1, p1, v2}, Lcom/android/server/knox/dar/DarManagerService$DarHandler;->obtainMessage(III)Landroid/os/Message;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/server/knox/dar/DarManagerService;->mDarHandler:Lcom/android/server/knox/dar/DarManagerService$DarHandler;
-
-    invoke-virtual {v1, v0}, Lcom/android/server/knox/dar/DarManagerService$DarHandler;->sendMessage(Landroid/os/Message;)Z
-
-    return-void
 .end method
 
 .method public unlockViaTrusted(Ljava/lang/String;Ljava/lang/String;)I
