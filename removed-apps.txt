@@ -2,13 +2,13 @@
 Here is the list of all the apps removed for this ROM
 
 # Product
-app/CarrierServices
-app/CarrierWiFi
 app/Chrome
 app/DuoStub
 app/Gmail2
 app/Maps
 app/YouTube
+priv-app/CarrierServices
+priv-app/CarrierWiFi
 priv-app/Messages (optional in installer)
 
 # System
