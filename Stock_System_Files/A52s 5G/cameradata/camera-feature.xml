@@ -213,6 +213,12 @@
     <local name="SINGLE_TAKE_FRONT_CAMERA_DYNAMIC_FOV" value="false"/>
     <local name="SINGLE_TAKE_PHOTO_LOW_PERFORMANCE" value="true" />
     <local name="SUPPORT_PALM_DETECTION_LITE" value="false" />
+    <local name="SINGLE_TAKE_CAPTURE_INTERVAL_FOR_WATCH_MODE" value="1500"/>
+    <local name="SUPPORT_SINGLE_TAKE_EXTENDED_CAPTURE" value="true"/>
+    <local name="SUPPORT_SINGLE_TAKE_HIGHLIGHT_VIDEOS" value="true"/>
+    <local name="SUPPORT_VDIS_IN_SINGLE_TAKE" value="true"/>
+    <local name="SUPPORT_SINGLE_TAKE_GENERATE_CONTENTS_FROM_ORIGINAL_VIDEO" value="true"/>
+    <local name="SUPPORT_SINGLE_TAKE_DVFS_LOCK_FROM_HAL_SIDE" value="true"/>
 
     <!-- Etc. features -->
     <local name="USING_MAX_RESOLUTION_STAMP_IN_WATERMARK" value="true"/>
