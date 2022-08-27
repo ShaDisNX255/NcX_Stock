@@ -256,8 +256,10 @@ else
    set_metadata /vendor/etc/midas/SRIBMidas_aiDEBLUR_FP16_V0132.caffemodel capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
    set_metadata /vendor/etc/midas/SRIBMidas_aiDEBLUR_INT16_V0132_sm8350_snpe1502.dlc capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
    set_metadata /vendor/etc/midas/SRIBMidas_aiDENOISE_FP16_V900.caffemodel capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
+   set_metadata /vendor/etc/midas/SRIBMidas_aiHDR_Global_INT16_V430_sm7325_snpe1502.dlc capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
    set_metadata /vendor/etc/midas/SRIBMidas_aiHDR_Global_INT16_V430_sm8350_snpe1502.dlc capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
    set_metadata /vendor/etc/midas/SRIBMidas_aiHDR_Local_INT16_V430_sm8350_snpe1502.dlc capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
+   set_metadata /vendor/etc/midas/SRIBMidas_aiHDR_Local_INT16_V430_sm7325_snpe1502.dlc capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
    set_metadata /vendor/etc/midas/SRIBMidas_aiMOIREREMOVE_Coarse_FP32_V800.caffemodel capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
    set_metadata /vendor/etc/midas/SRIBMidas_aiMOIREREMOVE_Fine_FP32_V800.caffemodel capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
    set_metadata /vendor/etc/midas/SRIBMidas_aiUNIFIED_FP16_V610.caffemodel capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
@@ -265,6 +267,7 @@ else
    set_metadata /vendor/etc/midas/SRIB_aiHDR_Local_V430_1024.caffemodel capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
    set_metadata /vendor/etc/midas/SRIBMidas_aiBLURDETECT_Stage1_FP32_V130.caffemodel capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
    set_metadata /vendor/etc/midas/SRIBMidas_aiBLURDETECT_Stage2_FP32_V130.caffemodel capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
+   set_metadata /vendor/etc/midas/SRIBMidas_aiDEBLUR_INT16_V0132_sm7325_snpe1502.dlc capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
    set_metadata /vendor/etc/midas/midas_config.json capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
    #Props
    ui_print " Using MagiskHideProps to change locked prop to 1 "
