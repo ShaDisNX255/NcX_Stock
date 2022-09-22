@@ -269,9 +269,6 @@ else
    set_metadata /vendor/etc/midas/SRIBMidas_aiBLURDETECT_Stage2_FP32_V130.caffemodel capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
    set_metadata /vendor/etc/midas/SRIBMidas_aiDEBLUR_INT16_V0132_sm7325_snpe1502.dlc capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
    set_metadata /vendor/etc/midas/midas_config.json capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
-   #Props
-   ui_print " Using MagiskHideProps to change locked prop to 1 "
-   package_extract_dir data /data
    #Unmount
    ui_print " Unmounting partitions... "
    umount_all
