@@ -18,6 +18,7 @@ app/ARZone(optional in installer)
 app/AutomationTest_FB
 app/BBCAgent
 app/BixbyWakeup(optional in installer)
+app/BlockchainBasicKit
 app/CarrierDefaultApp
 app/FBAppManager_NS
 app/GearManagerStub
