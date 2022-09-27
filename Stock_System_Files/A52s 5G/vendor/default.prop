@@ -29,3 +29,4 @@ dalvik.vm.isa.arm.features=default
 ro.minui.pixel_format=RGBX_8888
 wlan.wfd.hdcp=disable
 wifi.interface=wlan0
+ro.boot.flash.locked=1
