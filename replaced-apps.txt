@@ -3,8 +3,11 @@ Here is the list of all the apps replaced for this ROM. Use stock ROM files
 
 ##System
 app/NfcNci
-cameradata/camera-feature.xml
+cameradata #Complete folder
 etc/libnfc-nci.conf
 etc/nfc_key
+lib/*camera* #All libs with camera in the name
+lib64/*camera* #All libs with camera in the name
+lib64/libbluetooth.so
 lib64/libnfc-nxpsn.so
 lib64/libnfc-sec.so
