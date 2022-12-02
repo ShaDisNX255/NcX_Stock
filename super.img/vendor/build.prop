@@ -274,4 +274,6 @@ ro.vendor.nfc.info.antpos=16
 ro.vendor.nfc.support.ese=false
 ro.security.vaultkeeper.native=0
 ro.security.vaultkeeper.feature=0
+wlan.wfd.hdcp=disable
+wifi.interface=wlan0
 

@@ -89,5 +89,7 @@ ro.setupwizard.wifi_on_exit=false
 ro.setupwizard.mode=OPTIONAL
 ro.opa.eligible_device=true
 ro.com.google.gmsversion=13_202209
+wlan.wfd.hdcp=disable
+wifi.interface=wlan0
 # end of file
 

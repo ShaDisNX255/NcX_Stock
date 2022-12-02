@@ -305,5 +305,7 @@ ro.audio.spatializer_enabled=true
 com.samsung.speg.prelauncher.disable=true
 # Auto-added by post_process_props.py
 persist.sys.usb.config=mtp
+wlan.wfd.hdcp=disable
+wifi.interface=wlan0
 # end of file
 
