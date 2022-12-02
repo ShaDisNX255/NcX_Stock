@@ -13027,4 +13027,14 @@ Update settings to:
     <string name="zone_time_type_standard">Standard time</string>
     <string name="zzz_lgt_password_wrong_pin_code1">The PIN was entered incorrectly %d time.</string>
     <string name="zzz_lgt_password_wrong_pin_code2">After 3 incorrect PIN attempts, you have to enter the personal unlocking key (PUK).</string>
+    <string name="device_info">Device Information</string>
+    <string name="rom_info">Information About ROM</string>
+    <string name="rom_name">ROM Name</string>
+    <string name="rom_name_details">NcX S21FE ROM</string>
+    <string name="rom_ver">ROM Version</string>
+    <string name="rom_ver_details">OneUI 5</string>
+    <string name="rom_date">ROM Date</string>
+    <string name="rom_date_details">November-2022</string>
+    <string name="rom_developer">ROM Developer</string>
+    <string name="rom_developer_name">ShaDisNX255</string>
 </resources>

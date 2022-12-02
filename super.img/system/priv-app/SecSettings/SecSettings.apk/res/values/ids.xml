@@ -2932,4 +2932,5 @@
     <item type="id" name="zen_radio_buttons_content" />
     <item type="id" name="zero" />
     <item type="id" name="zero_corner_chip" />
+    <item type="id" name="dev_settings" />
 </resources>
