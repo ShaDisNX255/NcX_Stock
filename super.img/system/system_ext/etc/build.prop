@@ -5,25 +5,23 @@
 ro.product.system_ext.brand=samsung
 ro.product.system_ext.device=qssi
 ro.product.system_ext.manufacturer=samsung
-ro.product.system_ext.model=SM-A525F
-ro.product.system_ext.name=a52qnsxx
-ro.system_ext.build.date=Wed Jul 27 14:21:24 KST 2022
-ro.system_ext.build.date.utc=1658899284
-ro.system_ext.build.fingerprint=samsung/a52qnsxx/qssi:12/SP1A.210812.016/A525FXXU4BVG2:user/release-keys
-ro.system_ext.build.id=SP1A.210812.016
+ro.product.system_ext.model=SM-G990B
+ro.product.system_ext.name=r9qxxx
+ro.system_ext.build.date=Thu Nov 10 06:58:33 +07 2022
+ro.system_ext.build.date.utc=1668038313
+ro.system_ext.build.fingerprint=samsung/r9qxxx/qssi:13/TP1A.220624.014/G990BXXU2DVK3:user/release-keys
+ro.system_ext.build.id=TP1A.220624.014
 ro.system_ext.build.tags=release-keys
 ro.system_ext.build.type=user
-ro.system_ext.build.version.incremental=A525FXXU4BVG2
-ro.system_ext.build.version.release=12
-ro.system_ext.build.version.release_or_codename=12
-ro.system_ext.build.version.sdk=31
+ro.system_ext.build.version.incremental=G990BXXU2DVK3
+ro.system_ext.build.version.release=13
+ro.system_ext.build.version.release_or_codename=13
+ro.system_ext.build.version.sdk=33
 ####################################
 # from variable PRODUCT_SYSTEM_EXT_PROPERTIES
 ####################################
 persist.vendor.dpm.feature=11
 # Auto-added by post_process_props.py
 persist.sys.usb.config=mtp
-wlan.wfd.hdcp=disable
-wifi.interface=wlan0
 # end of file
 
