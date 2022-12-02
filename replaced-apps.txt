@@ -15,6 +15,7 @@ etc/permissions/com.sec.feature.cover.minisviewwalletcover.xml
 etc/saiv
 etc/stage_policy.conf
 lib/*camera* #All libs with camera in the name
+lib/*arcsoft* #All libs with arcsoft in the name
 lib/libaudiosaplus_sec_legacy.so
 lib/libsamsungSoundbooster_plus_legacy.so
 lib/libsamsungSoundbooster_tdm.so
@@ -23,6 +24,7 @@ lib/libswdap_legacy.so
 lib/libswspatializer_legacy.so
 lib/libvolumemonitor_energy.so
 lib64/*camera* #All libs with camera in the name
+lib64/*arcsoft* #All libs with arcsoft in the name
 lib64/libaudiosaplus_sec_legacy.so
 lib64/libsamsungSoundbooster_plus_legacy.so
 lib64/libsamsungSoundbooster_tdm.so
