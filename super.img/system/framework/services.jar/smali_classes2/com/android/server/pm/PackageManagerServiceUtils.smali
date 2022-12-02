@@ -840,113 +840,11 @@
 .end method
 
 .method public static compareSignatures([Landroid/content/pm/Signature;[Landroid/content/pm/Signature;)I
-    .registers 8
+    .registers 9
 
-    const/4 v0, 0x1
+    const/4 v0, 0x0
 
-    if-nez p0, :cond_8
-
-    if-nez p1, :cond_6
-
-    goto :goto_7
-
-    :cond_6
-    const/4 v0, -0x1
-
-    :goto_7
     return v0
-
-    :cond_8
-    if-nez p1, :cond_c
-
-    const/4 p0, -0x2
-
-    return p0
-
-    :cond_c
-    array-length v1, p0
-
-    array-length v2, p1
-
-    const/4 v3, -0x3
-
-    if-eq v1, v2, :cond_12
-
-    return v3
-
-    :cond_12
-    array-length v1, p0
-
-    const/4 v2, 0x0
-
-    if-ne v1, v0, :cond_22
-
-    aget-object p0, p0, v2
-
-    aget-object p1, p1, v2
-
-    invoke-virtual {p0, p1}, Landroid/content/pm/Signature;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-eqz p0, :cond_21
-
-    move v3, v2
-
-    :cond_21
-    return v3
-
-    :cond_22
-    new-instance v0, Landroid/util/ArraySet;
-
-    invoke-direct {v0}, Landroid/util/ArraySet;-><init>()V
-
-    array-length v1, p0
-
-    move v4, v2
-
-    :goto_29
-    if-ge v4, v1, :cond_33
-
-    aget-object v5, p0, v4
-
-    invoke-virtual {v0, v5}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
-
-    add-int/lit8 v4, v4, 0x1
-
-    goto :goto_29
-
-    :cond_33
-    new-instance p0, Landroid/util/ArraySet;
-
-    invoke-direct {p0}, Landroid/util/ArraySet;-><init>()V
-
-    array-length v1, p1
-
-    move v4, v2
-
-    :goto_3a
-    if-ge v4, v1, :cond_44
-
-    aget-object v5, p1, v4
-
-    invoke-virtual {p0, v5}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
-
-    add-int/lit8 v4, v4, 0x1
-
-    goto :goto_3a
-
-    :cond_44
-    invoke-virtual {v0, p0}, Landroid/util/ArraySet;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-eqz p0, :cond_4b
-
-    return v2
-
-    :cond_4b
-    return v3
 .end method
 
 .method public static compressedFileExists(Ljava/lang/String;)Z
@@ -3183,203 +3081,21 @@
 .method public static matchSignaturesCompat(Ljava/lang/String;Lcom/android/server/pm/PackageSignatures;Landroid/content/pm/SigningDetails;)Z
     .registers 14
 
-    new-instance v0, Landroid/util/ArraySet;
+    const/4 v0, 0x0
 
-    invoke-direct {v0}, Landroid/util/ArraySet;-><init>()V
-
-    iget-object v1, p1, Lcom/android/server/pm/PackageSignatures;->mSigningDetails:Landroid/content/pm/SigningDetails;
-
-    invoke-virtual {v1}, Landroid/content/pm/SigningDetails;->getSignatures()[Landroid/content/pm/Signature;
-
-    move-result-object v1
-
-    array-length v2, v1
-
-    const/4 v3, 0x0
-
-    move v4, v3
-
-    :goto_e
-    if-ge v4, v2, :cond_18
-
-    aget-object v5, v1, v4
-
-    invoke-virtual {v0, v5}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
-
-    add-int/lit8 v4, v4, 0x1
-
-    goto :goto_e
-
-    :cond_18
-    new-instance v1, Landroid/util/ArraySet;
-
-    invoke-direct {v1}, Landroid/util/ArraySet;-><init>()V
-
-    invoke-virtual {p2}, Landroid/content/pm/SigningDetails;->getSignatures()[Landroid/content/pm/Signature;
-
-    move-result-object v2
-
-    array-length v4, v2
-
-    move v5, v3
-
-    :goto_23
-    if-ge v5, v4, :cond_3d
-
-    aget-object v6, v2, v5
-
-    :try_start_27
-    invoke-virtual {v6}, Landroid/content/pm/Signature;->getChainSignatures()[Landroid/content/pm/Signature;
-
-    move-result-object v7
-
-    array-length v8, v7
-
-    move v9, v3
-
-    :goto_2d
-    if-ge v9, v8, :cond_3a
-
-    aget-object v10, v7, v9
-
-    invoke-virtual {v1, v10}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
-    :try_end_34
-    .catch Ljava/security/cert/CertificateEncodingException; {:try_start_27 .. :try_end_34} :catch_37
-
-    add-int/lit8 v9, v9, 0x1
-
-    goto :goto_2d
-
-    :catch_37
-    invoke-virtual {v1, v6}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
-
-    :cond_3a
-    add-int/lit8 v5, v5, 0x1
-
-    goto :goto_23
-
-    :cond_3d
-    invoke-virtual {v1, v0}, Landroid/util/ArraySet;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_47
-
-    iput-object p2, p1, Lcom/android/server/pm/PackageSignatures;->mSigningDetails:Landroid/content/pm/SigningDetails;
-
-    const/4 p0, 0x1
-
-    return p0
-
-    :cond_47
-    invoke-virtual {p2}, Landroid/content/pm/SigningDetails;->hasPastSigningCertificates()Z
-
-    move-result p1
-
-    if-eqz p1, :cond_67
-
-    const/4 p1, 0x4
-
-    new-instance p2, Ljava/lang/StringBuilder;
-
-    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v0, "Existing package "
-
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string p0, " has flattened signing certificate chain. Unable to install newer version with rotated signing certificate."
-
-    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-static {p1, p0}, Lcom/android/server/pm/PackageManagerServiceUtils;->logCriticalInfo(ILjava/lang/String;)V
-
-    :cond_67
-    return v3
+    return v0
 .end method
 
 .method public static matchSignaturesRecover(Ljava/lang/String;Landroid/content/pm/SigningDetails;Landroid/content/pm/SigningDetails;I)Z
-    .registers 5
-    .param p3    # I
-        .annotation build Landroid/content/pm/SigningDetails$CertCapabilities;
-        .end annotation
+    .registers 8
+    .param p3 # I
+    .annotation build Landroid/content/pm/PackageParser$SigningDetails$CertCapabilities;
+    .end annotation
     .end param
 
-    const/4 v0, 0x4
+    const/4 v0, 0x0
 
-    :try_start_1
-    invoke-virtual {p2, p1, p3}, Landroid/content/pm/SigningDetails;->checkCapabilityRecover(Landroid/content/pm/SigningDetails;I)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_1d
-
-    new-instance p1, Ljava/lang/StringBuilder;
-
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string p2, "Recovered effectively matching certificates for "
-
-    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-static {v0, p1}, Lcom/android/server/pm/PackageManagerServiceUtils;->logCriticalInfo(ILjava/lang/String;)V
-    :try_end_1b
-    .catch Ljava/security/cert/CertificateException; {:try_start_1 .. :try_end_1b} :catch_1f
-
-    const/4 p0, 0x1
-
-    return p0
-
-    :cond_1d
-    const/4 p1, 0x0
-
-    goto :goto_24
-
-    :catch_1f
-    move-exception p1
-
-    invoke-virtual {p1}, Ljava/security/cert/CertificateException;->getMessage()Ljava/lang/String;
-
-    move-result-object p1
-
-    :goto_24
-    new-instance p2, Ljava/lang/StringBuilder;
-
-    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string p3, "Failed to recover certificates for "
-
-    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string p0, ": "
-
-    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-static {v0, p0}, Lcom/android/server/pm/PackageManagerServiceUtils;->logCriticalInfo(ILjava/lang/String;)V
-
-    const/4 p0, 0x0
-
-    return p0
+    return v0
 .end method
 
 .method public static preparePackageParserCache(ZZLjava/lang/String;)Ljava/io/File;

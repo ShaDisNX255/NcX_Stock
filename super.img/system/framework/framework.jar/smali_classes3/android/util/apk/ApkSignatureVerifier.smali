@@ -162,7 +162,7 @@
     if-lt p0, v0, :cond_6
 
     .line 516
-    const/4 v0, 0x2
+    const/4 v0, 0x1
 
     return v0
 
