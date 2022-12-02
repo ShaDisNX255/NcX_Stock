@@ -3,11 +3,17 @@ Here is the list of all the apps replaced for this ROM. Use stock ROM files
 
 ##System
 app/NfcNci
+app/Privacy
+app/WifiRROverlayAppH2E
 cameradata #Complete folder
 etc/libnfc-nci.conf
 etc/nfc_key
+etc/public.libraries-camera.samsung.txt
+etc/permissions/com.sec.feature.cover.minisviewwalletcover.xml
+etc/saiv
 lib/*camera* #All libs with camera in the name
 lib64/*camera* #All libs with camera in the name
 lib64/libbluetooth.so
 lib64/libnfc-nxpsn.so
 lib64/libnfc-sec.so
+saiv
