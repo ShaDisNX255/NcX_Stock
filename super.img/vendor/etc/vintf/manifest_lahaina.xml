@@ -533,16 +533,6 @@
         </interface>
         <fqname>@1.0::ISehWidevineKeyProvisioning/default</fqname>
     </hal>
-    <hal format="hidl">
-        <name>vendor.samsung.hardware.security.wsm</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>ISehWsm</name>
-            <instance>default</instance>
-        </interface>
-        <fqname>@1.0::ISehWsm/default</fqname>
-    </hal>
     <hal format="aidl">
         <name>vendor.samsung.hardware.snap</name>
         <fqname>ISehSnap/default</fqname>

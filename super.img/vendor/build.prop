@@ -231,7 +231,7 @@ vendor.usb.diag.func.name=ffs
 vendor.usb.use_ffs_mtp=1
 sys.usb.mtp.batchcancel=1
 debug.stagefright.ccodec=4
-ro.frp.pst=/dev/block/persistent
+ro.frp.pst=
 ro.em.version=20
 ro.hardware.chipname=SM7325
 ro.build.scafe.version=2021A
@@ -272,4 +272,6 @@ ro.vendor.nfc.support.uicc=true
 ro.camera.notify_nfc=1
 ro.vendor.nfc.info.antpos=16
 ro.vendor.nfc.support.ese=false
+ro.security.vaultkeeper.native=0
+ro.security.vaultkeeper.feature=0
 

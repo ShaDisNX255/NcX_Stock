@@ -42,7 +42,7 @@ vendor	/vendor	ext4	ro	wait,avb,logical,first_stage_mount
 product	/product	ext4	ro	wait,avb,logical,first_stage_mount
 odm	/odm	ext4	ro	wait,avb,logical,first_stage_mount
 /dev/block/by-name/metadata	/metadata	ext4	noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic,sync	wait,formattable,first_stage_mount,check
-#/dev/block/bootdevice/by-name/userdata                  /data                  f2fs    noatime,nosuid,nodev,discard,reserve_root=32768,resgid=1065,fsync_mode=nobarrier    latemount,wait,check,formattable,fileencryption=ice,wrappedkey,keydirectory=/metadata/vold/metadata_encryption,quota,reservedsize=128M,sysfs_path=/sys/devices/platform/soc/1d84000.ufshc,checkpoint=fs
+#/dev/block/bootdevice/by-name/userdata                  /data                  f2fs    noatime,nosuid,nodev,discard,reserve_root=32768,resgid=1065,fsync_mode=nobarrier    latemount,wait,check,formattable,,wrappedkey,keydirectory=/metadata/vold/metadata_encryption,quota,reservedsize=128M,sysfs_path=/sys/devices/platform/soc/1d84000.ufshc,checkpoint=fs
 /dev/block/platform/soc/1d84000.ufshc/by-name/prism     /prism                 ext4    ro,barrier=1,discard                                 nofail,avb,first_stage_mount
 /dev/block/platform/soc/1d84000.ufshc/by-name/optics    /optics                ext4    ro,barrier=1,discard                                 nofail,avb,first_stage_mount
 /dev/block/bootdevice/by-name/cache	/cache	ext4	noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic	wait,check
