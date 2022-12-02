@@ -19,27 +19,9 @@
 .end method
 
 .method public static greylist getAPILevelForInternal()I
-    .registers 2
+    .registers 1
 
-    :try_start_0
-    const-string v0, "36"
-
-    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v0
-    :try_end_6
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_6} :catch_7
-
-    return v0
-
-    :catch_7
-    sget-object v0, Lcom/samsung/android/knox/EdmUtils;->TAG:Ljava/lang/String;
-
-    const-string v1, "Failed parsing API level"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v0, 0x0
+    const/16 v0, 0x13
 
     return v0
 .end method
