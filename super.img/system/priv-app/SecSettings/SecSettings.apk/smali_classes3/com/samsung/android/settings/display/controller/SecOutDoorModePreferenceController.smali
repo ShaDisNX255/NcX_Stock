@@ -79,15 +79,11 @@
 .end method
 
 .method public isAvailable()Z
-    .locals 0
+    .locals 1
 
-    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+    const/4 v0, 0x1
 
-    invoke-static {p0}, Lcom/samsung/android/settings/Rune;->supportOutdoorMode(Landroid/content/Context;)Z
-
-    move-result p0
-
-    return p0
+    return v0
 .end method
 
 .method public onPreferenceChange(Landroidx/preference/Preference;Ljava/lang/Object;)Z
