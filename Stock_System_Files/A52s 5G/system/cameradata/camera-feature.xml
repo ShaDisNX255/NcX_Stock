@@ -110,7 +110,7 @@
     <local name="FRONT_CROP_FOV_CAMERA_ID" value="3"/>
 
     <!-- Support picture format -->
-    <local name="CAMERA_SUPPORT_PICTURE_FORMAT" value="false"/> 
+    <local name="CAMERA_SUPPORT_PICTURE_FORMAT" value="true"/> 
 
     <!-- Shutter LP features -->
     <local name="SUPPORT_TAP_AND_HOLD_CAMERA_BUTTON" value="true" />
@@ -190,7 +190,6 @@
     <local name="TRANSITION_WIDE_TO_NORMAL_ANIMATION_DURATION" value="600" />	
 
     <!-- Support picture format -->
-    <local name="CAMERA_SUPPORT_PICTURE_FORMAT" value="false"/>
     <local name="SUPPORT_POST_PICTURE_PROCESSING" value="true"/>
 
     <!-- Single take lite features-->
