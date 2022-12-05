@@ -4,10 +4,10 @@
 #The #MAGISK tag is required, dont remove it
 #MAGISK
 setdefault magisk_support off
-setdefault run_addons off
+setdefault import_addons off
 setdefault apex_mount on
 setdefault extraction_speed default
-setdefault permissions "0755:0644"
+setdefault permissions "0:0:0755:0644"
 setdefault devices off
 #-----------------------------------------------#
 #Your script starts here:
@@ -18,39 +18,41 @@ ui_print " "
 model=$(grep_cmdline androidboot.em.model)
 ui_print " _______________________________________________ "
 ui_print " |--|---------------------------------------|--| "
-ui_print " |--|           RayOS S21FE Port            |--| "
+ui_print " |--|            NcX S21FE Port             |--| "
 ui_print " |--|---------------------------------------|--| "
 ui_print " |--|      for $model with $chipname     |--| "
 ui_print " |--|---------------------------------------|--| "
 ui_print " |--|      by ShaDisNX255@XDADevelopers     |--| "
 ui_print " |--|---------------------------------------|--| "
 ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
+ui_print " _______________________________________________ "
+ui_print " |--|---------------------------------------|--| "
+ui_print " |--| Note: The installation works in 2     |--| "
+ui_print " |--| steps. Step 1 will install the        |--| "
+ui_print " |--| image and step 2 will let you make    |--| "
+ui_print " |--| the custom selections so that you can |--| "
+ui_print " |--| configure the ROM to your liking.     |--| "
+ui_print " |--| The zip will detect what step you are |--| "
+ui_print " |--| currently flashing                    |--| "
+ui_print " |--|---------------------------------------|--| "
+ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
 
 #Installation
-ui_print " ___________________________________________________ "
-ui_print " --------------Select ROM installation-------------- "
-ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
-ui_print " Installation comes in 2 steps. First we must        "
-ui_print " install the super image and then we must reboot     "
-ui_print " the device and install the rest of the ROM.         "
-ui_print "                                                     "
-ui_print " Volume up = Install Super image                     "
-ui_print " Volume down = Install RayOS 2nd step                "
-ui_print " ___________________________________________________ "
-ui_print " -----Volume up = Super | Volume down = OS mods----- "
-ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
-if $yes; then
-   ui_print " Installing Super image (step 1)... "
+FILE=/data/tmp.txt
+if ! exist "$FILE"; then
+   ui_print " 1st step detected, flasing ROM... "
+   ui_print " Installing Super image... "
    #Mount
    ui_print " Unmounting all partitions... "
    umount_all
-   ui_print " Installing August patch kernel... "
+   ui_print " Installing stock kernel... "
    update_zip boot.img $(find_block boot)
    ui_print " Installing ROM... "
    update_zip -xz super.img.xz $(find_block super)
+   create_file "$FILE"
    ui_print " Super img Installed. press any volume button     " 
-   ui_print " to reboot to recovery, flash again and then      "
-   ui_print " select the installation of RayOS Rom 2nd step    "
+   ui_print " to reboot to recovery, flash again and the zip   "
+   ui_print " should install step 2 automatically              "
    ui_print " "
    ui_print " "
    ui_print " Press any volume button to continue... "
@@ -66,10 +68,10 @@ else
    ui_print " Beginning 2nd step of installation... "
    #Installation
    ui_print " ___________________________________________________ "
-   ui_print " ----------------RayOS Installation----------------- "
+   ui_print " -----------------NcX Installation------------------ "
    ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
    ui_print " Welcome to the ROM installation. I have made two    "
-   ui_print " different installation options here as well. The    "
+   ui_print " different installation options here . The           "
    ui_print " default and advanced installation. The default      "
    ui_print " installation is the standard experience with        "
    ui_print " predetermined options. If you want to customize     "
@@ -83,6 +85,7 @@ else
    ui_print " Messaging app: Google                               "
    ui_print " Blur mode: Live blur                                "
    ui_print " DeX Standalone: Off                                 "
+   ui_print " Custom bootanimation zip support: On                "
    ui_print " "
    ui_print " "
    ui_print " Volume up = Default installation                    "
@@ -115,6 +118,11 @@ else
       replace "    <SEC_FLOATING_FEATURE_GRAPHICS_SUPPORT_3D_SURFACE_TRANSITION_FLAG>FALSE" "    <SEC_FLOATING_FEATURE_GRAPHICS_SUPPORT_3D_SURFACE_TRANSITION_FLAG>TRUE" /system/etc/floating_feature.xml
       ui_print " DeX Standalone disabled "
       replace "    <SEC_FLOATING_FEATURE_COMMON_CONFIG_DEX_MODE>standalone,dual" "    <SEC_FLOATING_FEATURE_COMMON_CONFIG_DEX_MODE>dual" /system/etc/floating_feature.xml
+      ui_print " Custom boot animation zip support added "
+      package_extract_dir "bootzip" /system
+      set_perm 0 0 0755 /system/bin/bootanimation
+      set_perm 0 0 0644 /system/lib64/libbootanimation.so
+      set_perm 0 0 0644 /system/media/bootanimation.zip
    else
       ui_print " Advanced installation selected "
       #CSC
@@ -227,7 +235,6 @@ else
       ui_print " ___________________________________________________ "
       ui_print " Do you want to add Samsung Free, Bixby and AR Stickers? "
       ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
-      ui_print " Note: This is the last question I promise lol       "
       ui_print " ___________________________________________________ "
       ui_print " ---------Volume up = Yes | Volume down = No-------- "
       ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
@@ -249,36 +256,47 @@ else
          delete_recursive /system/priv-app/SystemUIBixby2
          delete_recursive /system/app/MinusOnePage
       fi
+      #BootAnimation
+      ui_print " ___________________________________________________ "
+      ui_print " Do you want to add custom bootanimation zip support?"
+      ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
+      ui_print " Note: This will add NcX custom boot animation. This "
+      ui_print " will also add support for bootanimation zip instead "
+      ui_print " of Samsung's qmg, so you can always replace it in   "
+      ui_print " system/media/bootanimation.zip for one you like     "
+      ui_print " ___________________________________________________ "
+      ui_print " ---------Volume up = Yes | Volume down = No-------- "
+      ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
+      if $yes; then
+         ui_print " Custom boot animation zip support added "
+         package_extract_dir "bootzip" /system
+         set_perm 0 0 0755 /system/bin/bootanimation
+         set_perm 0 0 0644 /system/lib64/libbootanimation.so
+         set_perm 0 0 0644 /system/media/bootanimation.zip
+      else
+         ui_print " Stock qmg boot animation will be used instead "
+      fi
    fi
    ui_print " Adding extra permissions to vendor files "
    set_metadata /vendor/etc/VslMesDetector/MesDetectorBlur.tflite capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
    set_metadata /vendor/etc/VslMesDetector/MesDetectorLowlight.tflite capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
    set_metadata /vendor/etc/VslMesDetector/MesDetectorNoise.tflite capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
    set_metadata /vendor/etc/VslMesDetector/moire_detection.tflite capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
-   set_metadata /vendor/etc/midas/SRIBMidas_aiDEBLUR_FP16_V0132.caffemodel capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
-   set_metadata /vendor/etc/midas/SRIBMidas_aiDEBLUR_INT16_V0132_sm8350_snpe1502.dlc capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
-   set_metadata /vendor/etc/midas/SRIBMidas_aiDENOISE_FP16_V900.caffemodel capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
-   set_metadata /vendor/etc/midas/SRIBMidas_aiHDR_Global_INT16_V430_sm7325_snpe1502.dlc capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
-   set_metadata /vendor/etc/midas/SRIBMidas_aiHDR_Global_INT16_V430_sm8350_snpe1502.dlc capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
-   set_metadata /vendor/etc/midas/SRIBMidas_aiHDR_Local_INT16_V430_sm8350_snpe1502.dlc capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
-   set_metadata /vendor/etc/midas/SRIBMidas_aiHDR_Local_INT16_V430_sm7325_snpe1502.dlc capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
-   set_metadata /vendor/etc/midas/SRIBMidas_aiMOIREREMOVE_Coarse_FP32_V800.caffemodel capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
-   set_metadata /vendor/etc/midas/SRIBMidas_aiMOIREREMOVE_Fine_FP32_V800.caffemodel capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
-   set_metadata /vendor/etc/midas/SRIBMidas_aiUNIFIED_FP16_V610.caffemodel capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
-   set_metadata /vendor/etc/midas/SRIB_aiHDR_Global_V430_1024.caffemodel capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
-   set_metadata /vendor/etc/midas/SRIB_aiHDR_Local_V430_1024.caffemodel capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
-   set_metadata /vendor/etc/midas/SRIBMidas_aiBLURDETECT_Stage1_FP32_V130.caffemodel capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
-   set_metadata /vendor/etc/midas/SRIBMidas_aiBLURDETECT_Stage2_FP32_V130.caffemodel capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
-   set_metadata /vendor/etc/midas/SRIBMidas_aiDEBLUR_INT16_V0132_sm7325_snpe1502.dlc capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
-   set_metadata /vendor/etc/midas/midas_config.json capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
+   ui_print " Applying camera lib patch... "
+   ui_print " Special thanks to ddavidavidd @ Telegram and BlackMesa123 @ XDA "
+   . "$addons/camera_patch.sh"
    #Unmount
    ui_print " Unmounting partitions... "
    umount_all
    #Finished
    ui_print " _______________________________________________ "
    ui_print " |--|---------------------------------------|--| "
-   ui_print " |--| RS Rom has been successfully          |--| "
-   ui_print " |--| installed. Enjoy the ROM!             |--| "
+   ui_print " |--| NcX S21FE Port has been installed     |--| "
+   ui_print " |--| successfully. Huge thanks to all the  |--| "
+   ui_print " |--| devs and users for helping out with   |--| "
+   ui_print " |--| testing and fixes, this ROM wouldn't  |--| "
+   ui_print " |--| be the same without you all!          |--| "
    ui_print " |--|---------------------------------------|--| "
    ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
+   delete "$FILE"
 fi

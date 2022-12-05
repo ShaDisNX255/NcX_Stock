@@ -132,12 +132,16 @@ setup() {
   PATH="$PATH:/system/bin" "$bs" "$TMP/core" "$@"
   if [ "$?" == "130" ]; then exit 1; else exit 0; fi
 }
-setenforce 0
 ps | grep zygote | grep -qv grep && export BOOTMODE=true || export BOOTMODE=false
 $BOOTMODE || ps -A 2>/dev/null | grep zygote | grep -qv grep && export BOOTMODE=true
+export TMP=/dev/tmp$$
+mkdir -p $TMP
+if [ ! -d $TMP ]; then
+   export TMP=/cache/tmp$$
+fi
 if ! $BOOTMODE; then 
    #Global vars
-   [ -d /tmp ] && export TMP=/tmp || export TMP=/dev/tmp
+   #[ -d /tmp ] && export TMP=/tmp || export TMP=/dev/tmp
    export TMPDIR="$TMP"
    export OUTFD="/proc/self/fd/$2"
    export installzip="$3"
@@ -150,7 +154,7 @@ if ! $BOOTMODE; then
 else
    umask 022
    #Global vars
-   export TMP=/dev/tmp
+   #export TMP=/dev/tmp
    export TMPDIR="$TMP"
    export OUTFD="$2"
    export ZIPFILE="$3"

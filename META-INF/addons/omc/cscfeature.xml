@@ -1,6 +1,5 @@
 
     <CscFeature_SmartManager_ConfigSubFeatures>applock</CscFeature_SmartManager_ConfigSubFeatures>
-    <CscFeature_SystemUI_ConfigDefQuickSettingItem>Wifi,SoundMode,Bluetooth,RotationLock,Flashlight,AirplaneMode,HomeHub,MobileData,WifiCalling,WindowsLink,ScreenRecorder,ShareLive,BlueLightFilter,Hotspot,NearbyShare,UiModeNight,Location,QRScanner,AllShareCast,Dnd,ScreenCapture,VoLte,BatteryMode,DesktopMode</CscFeature_SystemUI_ConfigDefQuickSettingItem>
     <CscFeature_AOD_ConfigAdditionalHomeDoubleKeyAction>;QuickCamera</CscFeature_AOD_ConfigAdditionalHomeDoubleKeyAction>
     <CscFeature_Audio_SupportSyncBootSound>TRUE</CscFeature_Audio_SupportSyncBootSound>
     <CscFeature_Calendar_EnableLocalHolidayDisplay>ARABIC</CscFeature_Calendar_EnableLocalHolidayDisplay>
