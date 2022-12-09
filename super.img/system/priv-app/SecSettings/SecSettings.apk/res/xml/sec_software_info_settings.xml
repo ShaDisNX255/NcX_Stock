@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
+ <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen android:title="@string/device_info_software_title" settings:hierarchicalParentFragment="com.samsung.android.settings.deviceinfo.aboutphone.SecMyDeviceInfoFragment" settings:topLevelPreferenceKey="top_level_about_phone"
   xmlns:android="http://schemas.android.com/apk/res/android" xmlns:settings="http://schemas.android.com/apk/res-auto">
-    <PreferenceScreen android:layout="@layout/logo" android:key="od_logo" />
-    <PreferenceCategory android:title="@string/rom_info" android:key="dummy_gen">
-        <Preference android:title="@string/rom_name" android:key="rom_name" android:summary="@string/rom_name_details" style="?android:preferenceInformationStyle" />
-        <Preference android:title="@string/rom_ver" android:key="rom_ver" android:summary="@string/rom_ver_details" style="?android:preferenceInformationStyle" />
-        <Preference android:title="@string/rom_date" android:key="rom_date" android:summary="@string/rom_date_details" style="?android:preferenceInformationStyle" />
-        <Preference android:title="@string/rom_developer" android:key="rom_developer" android:summary="@string/rom_developer_name" style="?android:preferenceInformationStyle" />
+    <com.android.settingslib.widget.LayoutPreference android:layout="@layout/logo" android:selectable="false" android:key="rom_logo" />
+    <PreferenceCategory android:title="@string/rom_info" android:key="rom_info">
+        <Preference android:title="@string/rom_name" android:key="rom_name" android:summary="@string/rom_name_details" />
+        <Preference android:title="@string/rom_ver" android:key="rom_ver" android:summary="@string/rom_ver_details" />
+        <Preference android:title="@string/rom_date" android:key="rom_date" android:summary="@string/rom_date_details" />
+        <Preference android:title="@string/rom_developer" android:key="rom_developer" android:summary="@string/rom_developer_name" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/device_info" android:key="dummy_gen" />
     <Preference android:enabled="false" android:title="@string/one_ui_version_title" android:key="one_ui_version" android:summary="@string/summary_placeholder" android:shouldDisableView="false" settings:controller="com.samsung.android.settings.deviceinfo.softwareinfo.OneUIVersionPreferenceController" />
