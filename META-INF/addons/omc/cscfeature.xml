@@ -1,4 +1,7 @@
 
+    <CscFeature_Common_SupportPrivateMode>TRUE</CscFeature_Common_SupportPrivateMode>
+    <CscFeature_Gallery_SupportAliveZoom>TRUE</CscFeature_Gallery_SupportAliveZoom>
+    <CscFeature_Sip_ConfigAlivePrediction>multilingual</CscFeature_Sip_ConfigAlivePrediction>
     <CscFeature_SmartManager_ConfigSubFeatures>applock</CscFeature_SmartManager_ConfigSubFeatures>
     <CscFeature_AOD_ConfigAdditionalHomeDoubleKeyAction>;QuickCamera</CscFeature_AOD_ConfigAdditionalHomeDoubleKeyAction>
     <CscFeature_Audio_SupportSyncBootSound>TRUE</CscFeature_Audio_SupportSyncBootSound>
@@ -32,7 +35,6 @@
     <CscFeature_Common_DisablePhoneNumberFormatting>TRUE</CscFeature_Common_DisablePhoneNumberFormatting>
     <CscFeature_Common_EnableHDVoiceDuring3GConnection>TRUE</CscFeature_Common_EnableHDVoiceDuring3GConnection>
     <CscFeature_Common_EnableUiDisplayMirroring>TRUE</CscFeature_Common_EnableUiDisplayMirroring>
-    <CscFeature_Common_EnableVIPMode>TRUE</CscFeature_Common_EnableVIPMode>
     <CscFeature_Common_EulaVersion>2</CscFeature_Common_EulaVersion>
     <CscFeature_Common_SupportDualIMS>TRUE</CscFeature_Common_SupportDualIMS>
     <CscFeature_Common_SupportRmm>TRUE</CscFeature_Common_SupportRmm>
