@@ -69,7 +69,7 @@ else
    #Installation
    ui_print " ___________________________________________________ "
    ui_print " -----------------NcX Installation------------------ "
-   ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
+   ui_print " "
    ui_print " Welcome to the ROM installation. I have made two    "
    ui_print " different installation options here . The           "
    ui_print " default and advanced installation. The default      "
@@ -90,7 +90,7 @@ else
    ui_print " "
    ui_print " Volume up = Default installation                    "
    ui_print " Volume down = Advanced installation                 "
-   ui_print " ___________________________________________________ "
+   ui_print " "
    ui_print " ----Volume up = Default | Volume down = Advanced--- "
    ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
    if $yes; then
@@ -128,8 +128,8 @@ else
       #CSC
       ui_print " ___________________________________________________ "
       ui_print " ---------Do you want to add CSC features??--------- "
-      ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
-      ui_print " ___________________________________________________ "
+      ui_print " "
+      ui_print " "
       ui_print " ---------Volume up = Yes | Volume down = No-------- "
       ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
       if $yes; then
@@ -144,11 +144,11 @@ else
       #Debloat
       ui_print " ___________________________________________________ "
       ui_print " ------------Do you want Ultra Debloat-------------? "
-      ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
+      ui_print " "
       ui_print " Note: Check the ROMs GitHub page to see the extra   "
       ui_print " apps that this deletes. Deletes more Samsung apps   "
       ui_print " but not all, so keep that in mind                   "
-      ui_print " ___________________________________________________ "
+      ui_print " "
       ui_print " ---------Volume up = Yes | Volume down = No-------- "
       ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
       if $yes; then
@@ -165,11 +165,11 @@ else
       #Clocktransition
       ui_print " ___________________________________________________ "
       ui_print " Do you want to add the AOD to Lockscreen animation? "
-      ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
+      ui_print " "
       ui_print " Note: Avoid using this with FOD as it can mess with "
       ui_print " the AOD brightness. Still usable, but can be        "
       ui_print " annoying. There is a workaround, check in XDA       "
-      ui_print " ___________________________________________________ "
+      ui_print " "
       ui_print " ---------Volume up = Yes | Volume down = No-------- "
       ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
       if $yes; then
@@ -182,12 +182,12 @@ else
       #Messaging
       ui_print " ___________________________________________________ "
       ui_print "    Select your Messaging app (Samsung or Google)    "
-      ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
+      ui_print " "
       ui_print " Volume up = Samsung Messaging                       "
       ui_print " Volume down = Google Messaging (can't restore       "
       ui_print "               from Samsung Cloud backup without     "
       ui_print "               Samsung Messaging.)                   "
-      ui_print " ___________________________________________________ "
+      ui_print " "
       ui_print " -----Volume up = Samsung | Volume down = Google---- "
       ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
       if $yes; then
@@ -200,11 +200,11 @@ else
       #BlurType
       ui_print " ___________________________________________________ "
       ui_print "    What type of blur would you like installed?      "
-      ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
+      ui_print " "
       ui_print " Live blur is the type included in Samsung flagships "
       ui_print " and static blur is the stock a52s blur. This is the "
       ui_print " blur noticeable when you pull down the notifications"
-      ui_print " ___________________________________________________ "
+      ui_print " "
       ui_print " -----Volume up = Live | Volume down = Static------- "
       ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
       if $yes; then
@@ -217,11 +217,11 @@ else
       #DeXStandalone
       ui_print " ___________________________________________________ "
       ui_print "     Would you like to activate DeX Standalone?      "
-      ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
+      ui_print " "
       ui_print " DeX Standalone will allow you to use DeX in your    "
       ui_print " device without the need of an external display.     "
       ui_print " This will unfortunately break DeX to PC             "
-      ui_print " ___________________________________________________ "
+      ui_print " "
       ui_print " --------Volume up = Yes | Volume down = No--------- "
       ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
       if $yes; then
@@ -234,8 +234,8 @@ else
       #SamsungFeatures
       ui_print " ___________________________________________________ "
       ui_print " Do you want to add Samsung Free, Bixby and AR Stickers? "
-      ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
-      ui_print " ___________________________________________________ "
+      ui_print " "
+      ui_print " "
       ui_print " ---------Volume up = Yes | Volume down = No-------- "
       ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
       if $yes; then
@@ -259,12 +259,12 @@ else
       #BootAnimation
       ui_print " ___________________________________________________ "
       ui_print " Do you want to add custom bootanimation zip support?"
-      ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
+      ui_print " "
       ui_print " Note: This will add NcX custom boot animation. This "
       ui_print " will also add support for bootanimation zip instead "
       ui_print " of Samsung's qmg, so you can always replace it in   "
       ui_print " system/media/bootanimation.zip for one you like     "
-      ui_print " ___________________________________________________ "
+      ui_print " "
       ui_print " ---------Volume up = Yes | Volume down = No-------- "
       ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
       if $yes; then
