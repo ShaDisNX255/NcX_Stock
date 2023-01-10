@@ -27,7 +27,6 @@ app/MAPSAgent
 app/MDMApp
 app/Netflix_activationCommon
 app/PlayAutoInstallConfig
-app/Privacy
 app/SamsungPassAutofill_v1
 app/UniversalMDMClient
 app/WebManual
