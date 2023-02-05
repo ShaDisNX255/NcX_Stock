@@ -21,7 +21,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
-            "Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;",
+            "Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;",
             ">;"
         }
     .end annotation
@@ -31,7 +31,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
-            "Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;",
+            "Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;",
             ">;"
         }
     .end annotation
@@ -68,7 +68,7 @@
 
 
 # virtual methods
-.method public addViewModel(Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;)V
+.method public addViewModel(Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;)V
     .locals 0
 
     .line 251
@@ -132,15 +132,15 @@
 
     move-result-object v1
 
-    check-cast v1, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;
+    check-cast v1, Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;
 
     iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/view/MiniSViewCoverContentView$ContentAdapter;->this$0:Lcom/android/systemui/globalactions/presentation/view/MiniSViewCoverContentView;
 
-    invoke-static {v2}, Lcom/android/systemui/globalactions/presentation/view/MiniSViewCoverContentView;->-$$Nest$fgetmResourceFactory(Lcom/android/systemui/globalactions/presentation/view/MiniSViewCoverContentView;)Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceFactory;
+    invoke-static {v2}, Lcom/android/systemui/globalactions/presentation/view/MiniSViewCoverContentView;->-$$Nest$fgetmResourceFactory(Lcom/android/systemui/globalactions/presentation/view/MiniSViewCoverContentView;)Lcom/samsung/android/globalactions/presentation/view/ResourceFactory;
 
     move-result-object v2
 
-    invoke-direct {p2, v0, v1, p3, v2}, Lcom/android/systemui/globalactions/presentation/view/MiniSViewCoverContentItemView;-><init>(Landroid/content/Context;Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;Landroid/view/ViewGroup;Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceFactory;)V
+    invoke-direct {p2, v0, v1, p3, v2}, Lcom/android/systemui/globalactions/presentation/view/MiniSViewCoverContentItemView;-><init>(Landroid/content/Context;Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;Landroid/view/ViewGroup;Lcom/samsung/android/globalactions/presentation/view/ResourceFactory;)V
 
     .line 289
     invoke-virtual {p2}, Lcom/android/systemui/globalactions/presentation/view/MiniSViewCoverContentItemView;->inflateView()Landroid/view/View;
@@ -156,7 +156,7 @@
     .line 292
     iget-object p2, p0, Lcom/android/systemui/globalactions/presentation/view/MiniSViewCoverContentView$ContentAdapter;->this$0:Lcom/android/systemui/globalactions/presentation/view/MiniSViewCoverContentView;
 
-    invoke-static {p2}, Lcom/android/systemui/globalactions/presentation/view/MiniSViewCoverContentView;->-$$Nest$fgetmSelectedViewModel(Lcom/android/systemui/globalactions/presentation/view/MiniSViewCoverContentView;)Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;
+    invoke-static {p2}, Lcom/android/systemui/globalactions/presentation/view/MiniSViewCoverContentView;->-$$Nest$fgetmSelectedViewModel(Lcom/android/systemui/globalactions/presentation/view/MiniSViewCoverContentView;)Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;
 
     move-result-object p2
 
@@ -164,15 +164,15 @@
 
     iget-object p2, p0, Lcom/android/systemui/globalactions/presentation/view/MiniSViewCoverContentView$ContentAdapter;->this$0:Lcom/android/systemui/globalactions/presentation/view/MiniSViewCoverContentView;
 
-    invoke-static {p2}, Lcom/android/systemui/globalactions/presentation/view/MiniSViewCoverContentView;->-$$Nest$fgetmSelectedViewModel(Lcom/android/systemui/globalactions/presentation/view/MiniSViewCoverContentView;)Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;
+    invoke-static {p2}, Lcom/android/systemui/globalactions/presentation/view/MiniSViewCoverContentView;->-$$Nest$fgetmSelectedViewModel(Lcom/android/systemui/globalactions/presentation/view/MiniSViewCoverContentView;)Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;
 
     move-result-object p2
 
-    invoke-interface {p2}, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;->getActionInfo()Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;
+    invoke-interface {p2}, Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;->getActionInfo()Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;
 
     move-result-object p2
 
-    invoke-virtual {p2}, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;->getStateLabel()Ljava/lang/String;
+    invoke-virtual {p2}, Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;->getStateLabel()Ljava/lang/String;
 
     move-result-object p2
 
@@ -191,27 +191,27 @@
 
     move-result-object p1
 
-    check-cast p1, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;
+    check-cast p1, Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;
 
-    invoke-interface {p1}, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;->getActionInfo()Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;
+    invoke-interface {p1}, Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;->getActionInfo()Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;
 
     move-result-object p1
 
-    invoke-virtual {p1}, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;->getName()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;->getName()Ljava/lang/String;
 
     move-result-object p1
 
     iget-object p2, p0, Lcom/android/systemui/globalactions/presentation/view/MiniSViewCoverContentView$ContentAdapter;->this$0:Lcom/android/systemui/globalactions/presentation/view/MiniSViewCoverContentView;
 
-    invoke-static {p2}, Lcom/android/systemui/globalactions/presentation/view/MiniSViewCoverContentView;->-$$Nest$fgetmSelectedViewModel(Lcom/android/systemui/globalactions/presentation/view/MiniSViewCoverContentView;)Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;
+    invoke-static {p2}, Lcom/android/systemui/globalactions/presentation/view/MiniSViewCoverContentView;->-$$Nest$fgetmSelectedViewModel(Lcom/android/systemui/globalactions/presentation/view/MiniSViewCoverContentView;)Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;
 
     move-result-object p2
 
-    invoke-interface {p2}, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;->getActionInfo()Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;
+    invoke-interface {p2}, Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;->getActionInfo()Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;
 
     move-result-object p2
 
-    invoke-virtual {p2}, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;->getName()Ljava/lang/String;
+    invoke-virtual {p2}, Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;->getName()Ljava/lang/String;
 
     move-result-object p2
 

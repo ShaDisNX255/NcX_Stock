@@ -3,17 +3,17 @@
 .source "CapturedBlurStrategy.java"
 
 # interfaces
-.implements Lcom/samsung/android/globalactionsdlx/presentation/strategies/ViewInflateStrategy;
+.implements Lcom/samsung/android/globalactions/presentation/strategies/ViewInflateStrategy;
 
 
 # instance fields
-.field public final mCaptureUtil:Lcom/samsung/android/globalactionsdlx/util/ScreenCaptureUtil;
+.field public final mCaptureUtil:Lcom/samsung/android/globalactions/util/ScreenCaptureUtil;
 
 .field public final mContext:Landroid/content/Context;
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Lcom/samsung/android/globalactionsdlx/util/ScreenCaptureUtil;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/samsung/android/globalactions/util/ScreenCaptureUtil;)V
     .locals 0
 
     .line 16
@@ -23,7 +23,7 @@
     iput-object p1, p0, Lcom/android/systemui/globalactions/features/CapturedBlurStrategy;->mContext:Landroid/content/Context;
 
     .line 18
-    iput-object p2, p0, Lcom/android/systemui/globalactions/features/CapturedBlurStrategy;->mCaptureUtil:Lcom/samsung/android/globalactionsdlx/util/ScreenCaptureUtil;
+    iput-object p2, p0, Lcom/android/systemui/globalactions/features/CapturedBlurStrategy;->mCaptureUtil:Lcom/samsung/android/globalactions/util/ScreenCaptureUtil;
 
     return-void
 .end method
@@ -52,9 +52,9 @@
 
     move-result-object v2
 
-    iget-object p0, p0, Lcom/android/systemui/globalactions/features/CapturedBlurStrategy;->mCaptureUtil:Lcom/samsung/android/globalactionsdlx/util/ScreenCaptureUtil;
+    iget-object p0, p0, Lcom/android/systemui/globalactions/features/CapturedBlurStrategy;->mCaptureUtil:Lcom/samsung/android/globalactions/util/ScreenCaptureUtil;
 
-    invoke-virtual {p0}, Lcom/samsung/android/globalactionsdlx/util/ScreenCaptureUtil;->takeScreenShot()Landroid/graphics/Bitmap;
+    invoke-virtual {p0}, Lcom/samsung/android/globalactions/util/ScreenCaptureUtil;->takeScreenShot()Landroid/graphics/Bitmap;
 
     move-result-object p0
 

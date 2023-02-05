@@ -29,13 +29,13 @@
     invoke-direct {p0, p2}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
 
     .line 270
-    invoke-static {p1}, Lcom/android/systemui/globalactions/presentation/view/FrontCoverContentView;->-$$Nest$fgetmResourceFactory(Lcom/android/systemui/globalactions/presentation/view/FrontCoverContentView;)Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceFactory;
+    invoke-static {p1}, Lcom/android/systemui/globalactions/presentation/view/FrontCoverContentView;->-$$Nest$fgetmResourceFactory(Lcom/android/systemui/globalactions/presentation/view/FrontCoverContentView;)Lcom/samsung/android/globalactions/presentation/view/ResourceFactory;
 
     move-result-object p1
 
-    sget-object v0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->LAYOUT_FRONT_COVER_VIEW:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
+    sget-object v0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->LAYOUT_FRONT_COVER_VIEW:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
 
-    invoke-interface {p1, v0}, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceFactory;->get(Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;)I
+    invoke-interface {p1, v0}, Lcom/samsung/android/globalactions/presentation/view/ResourceFactory;->get(Lcom/samsung/android/globalactions/presentation/view/ResourceType;)I
 
     move-result p1
 
@@ -86,11 +86,11 @@
     .line 278
     iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/view/FrontCoverContentView$RootView;->this$0:Lcom/android/systemui/globalactions/presentation/view/FrontCoverContentView;
 
-    invoke-static {p0}, Lcom/android/systemui/globalactions/presentation/view/FrontCoverContentView;->-$$Nest$fgetmPresenter(Lcom/android/systemui/globalactions/presentation/view/FrontCoverContentView;)Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActionsPresenter;
+    invoke-static {p0}, Lcom/android/systemui/globalactions/presentation/view/FrontCoverContentView;->-$$Nest$fgetmPresenter(Lcom/android/systemui/globalactions/presentation/view/FrontCoverContentView;)Lcom/samsung/android/globalactions/presentation/SamsungGlobalActionsPresenter;
 
     move-result-object p0
 
-    invoke-virtual {p0}, Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActionsPresenter;->onCancelDialog()V
+    invoke-virtual {p0}, Lcom/samsung/android/globalactions/presentation/SamsungGlobalActionsPresenter;->onCancelDialog()V
 
     :cond_0
     const/4 p0, 0x1

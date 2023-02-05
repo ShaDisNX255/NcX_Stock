@@ -3,21 +3,21 @@
 .source "GlobalActionFeatures.java"
 
 # interfaces
-.implements Lcom/samsung/android/globalactionsdlx/presentation/features/Features;
+.implements Lcom/samsung/android/globalactions/presentation/features/Features;
 
 
 # instance fields
 .field public mContext:Landroid/content/Context;
 
-.field public final mLogWrapper:Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
+.field public final mLogWrapper:Lcom/samsung/android/globalactions/util/LogWrapper;
 
-.field public final mSettingsWrapper:Lcom/samsung/android/globalactionsdlx/util/SettingsWrapper;
+.field public final mSettingsWrapper:Lcom/samsung/android/globalactions/util/SettingsWrapper;
 
-.field public final mSystemPropertiesWrapper:Lcom/samsung/android/globalactionsdlx/util/SystemPropertiesWrapper;
+.field public final mSystemPropertiesWrapper:Lcom/samsung/android/globalactions/util/SystemPropertiesWrapper;
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Lcom/samsung/android/globalactionsdlx/util/SettingsWrapper;Lcom/samsung/android/globalactionsdlx/util/SystemPropertiesWrapper;Lcom/samsung/android/globalactionsdlx/util/LogWrapper;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/samsung/android/globalactions/util/SettingsWrapper;Lcom/samsung/android/globalactions/util/SystemPropertiesWrapper;Lcom/samsung/android/globalactions/util/LogWrapper;)V
     .locals 0
 
     .line 45
@@ -27,13 +27,13 @@
     iput-object p1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionFeatures;->mContext:Landroid/content/Context;
 
     .line 47
-    iput-object p2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionFeatures;->mSettingsWrapper:Lcom/samsung/android/globalactionsdlx/util/SettingsWrapper;
+    iput-object p2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionFeatures;->mSettingsWrapper:Lcom/samsung/android/globalactions/util/SettingsWrapper;
 
     .line 48
-    iput-object p3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionFeatures;->mSystemPropertiesWrapper:Lcom/samsung/android/globalactionsdlx/util/SystemPropertiesWrapper;
+    iput-object p3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionFeatures;->mSystemPropertiesWrapper:Lcom/samsung/android/globalactions/util/SystemPropertiesWrapper;
 
     .line 49
-    iput-object p4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionFeatures;->mLogWrapper:Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
+    iput-object p4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionFeatures;->mLogWrapper:Lcom/samsung/android/globalactions/util/LogWrapper;
 
     return-void
 .end method
@@ -93,10 +93,10 @@
 
     if-nez v0, :cond_1
 
-    iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionFeatures;->mSettingsWrapper:Lcom/samsung/android/globalactionsdlx/util/SettingsWrapper;
+    iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionFeatures;->mSettingsWrapper:Lcom/samsung/android/globalactions/util/SettingsWrapper;
 
     .line 97
-    invoke-virtual {p0}, Lcom/samsung/android/globalactionsdlx/util/SettingsWrapper;->isShopDemo()Z
+    invoke-virtual {p0}, Lcom/samsung/android/globalactions/util/SettingsWrapper;->isShopDemo()Z
 
     move-result p0
 
@@ -451,7 +451,7 @@
 
     .line 167
     :goto_0
-    iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionFeatures;->mLogWrapper:Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
+    iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionFeatures;->mLogWrapper:Lcom/samsung/android/globalactions/util/LogWrapper;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -475,7 +475,7 @@
 
     const-string v1, "GlobalActionFeatures"
 
-    invoke-virtual {p0, v1, p1}, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;->i(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v1, p1}, Lcom/samsung/android/globalactions/util/LogWrapper;->i(Ljava/lang/String;Ljava/lang/String;)V
 
     return v0
 .end method

@@ -169,7 +169,7 @@
     :cond_2
     iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/view/SideCoverContentView$SideCoverContentGridView;->this$0:Lcom/android/systemui/globalactions/presentation/view/SideCoverContentView;
 
-    invoke-static {p0}, Lcom/android/systemui/globalactions/presentation/view/SideCoverContentView;->-$$Nest$fgetmLogWrapper(Lcom/android/systemui/globalactions/presentation/view/SideCoverContentView;)Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
+    invoke-static {p0}, Lcom/android/systemui/globalactions/presentation/view/SideCoverContentView;->-$$Nest$fgetmLogWrapper(Lcom/android/systemui/globalactions/presentation/view/SideCoverContentView;)Lcom/samsung/android/globalactions/util/LogWrapper;
 
     move-result-object p0
 
@@ -189,7 +189,7 @@
 
     const-string v0, "SideCoverContentView"
 
-    invoke-virtual {p0, v0, p1}, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;->i(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, p1}, Lcom/samsung/android/globalactions/util/LogWrapper;->i(Ljava/lang/String;Ljava/lang/String;)V
 
     const/4 p0, 0x0
 

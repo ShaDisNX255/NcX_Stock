@@ -3,11 +3,11 @@
 .source "ScreenCapturePopupActionViewModel.java"
 
 # interfaces
-.implements Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;
+.implements Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;
 
 
 # instance fields
-.field public mInfo:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;
+.field public mInfo:Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;
 
 .field public mPopupController:Lcom/android/systemui/globalactions/util/ScreenCapturePopupController;
 
@@ -27,11 +27,11 @@
 
 
 # virtual methods
-.method public getActionInfo()Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;
+.method public getActionInfo()Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;
     .locals 0
 
     .line 17
-    iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/viewmodel/ScreenCapturePopupActionViewModel;->mInfo:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;
+    iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/viewmodel/ScreenCapturePopupActionViewModel;->mInfo:Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;
 
     return-object p0
 .end method
@@ -55,11 +55,11 @@
     return-void
 .end method
 
-.method public setActionInfo(Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;)V
+.method public setActionInfo(Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;)V
     .locals 0
 
     .line 22
-    iput-object p1, p0, Lcom/android/systemui/globalactions/presentation/viewmodel/ScreenCapturePopupActionViewModel;->mInfo:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;
+    iput-object p1, p0, Lcom/android/systemui/globalactions/presentation/viewmodel/ScreenCapturePopupActionViewModel;->mInfo:Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;
 
     return-void
 .end method

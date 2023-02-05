@@ -36,7 +36,7 @@
 .method public abstract getListView()Landroid/view/ViewGroup;
 .end method
 
-.method public abstract getSelectedActionViewModel()Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;
+.method public abstract getSelectedActionViewModel()Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;
 .end method
 
 .method public abstract getToastMessage()Ljava/lang/String;

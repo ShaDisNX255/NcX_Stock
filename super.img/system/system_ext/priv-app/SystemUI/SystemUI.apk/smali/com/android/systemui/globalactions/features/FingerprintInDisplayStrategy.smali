@@ -3,9 +3,9 @@
 .source "FingerprintInDisplayStrategy.java"
 
 # interfaces
-.implements Lcom/samsung/android/globalactionsdlx/presentation/strategies/ActionsCreationStrategy;
-.implements Lcom/samsung/android/globalactionsdlx/presentation/strategies/DisposingStrategy;
-.implements Lcom/samsung/android/globalactionsdlx/presentation/strategies/SecureConfirmStrategy;
+.implements Lcom/samsung/android/globalactions/presentation/strategies/ActionsCreationStrategy;
+.implements Lcom/samsung/android/globalactions/presentation/strategies/DisposingStrategy;
+.implements Lcom/samsung/android/globalactions/presentation/strategies/SecureConfirmStrategy;
 
 
 # instance fields
@@ -27,7 +27,7 @@
 
 
 # virtual methods
-.method public doActionBeforeSecureConfirm(Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;)Z
+.method public doActionBeforeSecureConfirm(Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;)Z
     .locals 0
 
     .line 31
@@ -42,7 +42,7 @@
     return p0
 .end method
 
-.method public onCreateActions(Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;)V
+.method public onCreateActions(Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;)V
     .locals 0
 
     .line 21

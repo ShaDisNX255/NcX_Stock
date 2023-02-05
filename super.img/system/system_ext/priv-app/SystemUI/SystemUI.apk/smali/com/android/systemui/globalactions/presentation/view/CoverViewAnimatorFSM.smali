@@ -13,30 +13,30 @@
 
 
 # instance fields
-.field public final mAnimator:Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsAnimator;
+.field public final mAnimator:Lcom/samsung/android/globalactions/presentation/view/GlobalActionsAnimator;
 
-.field public final mLogWrapper:Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
+.field public final mLogWrapper:Lcom/samsung/android/globalactions/util/LogWrapper;
 
 .field public mState:Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM$State;
 
-.field public final mViewStateController:Lcom/samsung/android/globalactionsdlx/presentation/view/ViewStateController;
+.field public final mViewStateController:Lcom/samsung/android/globalactions/presentation/view/ViewStateController;
 
 
 # direct methods
-.method public constructor <init>(Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsAnimator;Lcom/samsung/android/globalactionsdlx/util/LogWrapper;Lcom/samsung/android/globalactionsdlx/presentation/view/ViewStateController;)V
+.method public constructor <init>(Lcom/samsung/android/globalactions/presentation/view/GlobalActionsAnimator;Lcom/samsung/android/globalactions/util/LogWrapper;Lcom/samsung/android/globalactions/presentation/view/ViewStateController;)V
     .locals 0
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 33
-    iput-object p1, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mAnimator:Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsAnimator;
+    iput-object p1, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mAnimator:Lcom/samsung/android/globalactions/presentation/view/GlobalActionsAnimator;
 
     .line 34
-    iput-object p2, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mLogWrapper:Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
+    iput-object p2, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mLogWrapper:Lcom/samsung/android/globalactions/util/LogWrapper;
 
     .line 35
-    iput-object p3, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mViewStateController:Lcom/samsung/android/globalactionsdlx/presentation/view/ViewStateController;
+    iput-object p3, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mViewStateController:Lcom/samsung/android/globalactions/presentation/view/ViewStateController;
 
     .line 36
     sget-object p1, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM$State;->IDLE:Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM$State;
@@ -52,7 +52,7 @@
     .locals 4
 
     .line 45
-    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mLogWrapper:Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mLogWrapper:Lcom/samsung/android/globalactions/util/LogWrapper;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -78,16 +78,16 @@
 
     const-string v2, "CoverViewAnimatorFSM"
 
-    invoke-virtual {v0, v2, v1}, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;->v(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v2, v1}, Lcom/samsung/android/globalactions/util/LogWrapper;->v(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 46
-    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mViewStateController:Lcom/samsung/android/globalactionsdlx/presentation/view/ViewStateController;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mViewStateController:Lcom/samsung/android/globalactions/presentation/view/ViewStateController;
 
-    invoke-interface {v0}, Lcom/samsung/android/globalactionsdlx/presentation/view/ViewStateController;->getState()Lcom/samsung/android/globalactionsdlx/presentation/view/ViewAnimationState;
+    invoke-interface {v0}, Lcom/samsung/android/globalactions/presentation/view/ViewStateController;->getState()Lcom/samsung/android/globalactions/presentation/view/ViewAnimationState;
 
     move-result-object v0
 
-    sget-object v1, Lcom/samsung/android/globalactionsdlx/presentation/view/ViewAnimationState;->IDLE:Lcom/samsung/android/globalactionsdlx/presentation/view/ViewAnimationState;
+    sget-object v1, Lcom/samsung/android/globalactions/presentation/view/ViewAnimationState;->IDLE:Lcom/samsung/android/globalactions/presentation/view/ViewAnimationState;
 
     if-eq v0, v1, :cond_0
 
@@ -128,9 +128,9 @@
     if-ne p1, v0, :cond_2
 
     .line 76
-    iget-object p1, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mAnimator:Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsAnimator;
+    iget-object p1, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mAnimator:Lcom/samsung/android/globalactions/presentation/view/GlobalActionsAnimator;
 
-    invoke-interface {p1}, Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsAnimator;->startDismissConfirmAnimation()V
+    invoke-interface {p1}, Lcom/samsung/android/globalactions/presentation/view/GlobalActionsAnimator;->startDismissConfirmAnimation()V
 
     .line 77
     sget-object p1, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM$State;->MAIN:Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM$State;
@@ -146,9 +146,9 @@
     if-ne p1, v0, :cond_3
 
     .line 79
-    iget-object p1, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mAnimator:Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsAnimator;
+    iget-object p1, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mAnimator:Lcom/samsung/android/globalactions/presentation/view/GlobalActionsAnimator;
 
-    invoke-interface {p1, v1}, Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsAnimator;->startDismissAnimation(Z)V
+    invoke-interface {p1, v1}, Lcom/samsung/android/globalactions/presentation/view/GlobalActionsAnimator;->startDismissAnimation(Z)V
 
     .line 80
     sget-object p1, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM$State;->MAIN:Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM$State;
@@ -164,9 +164,9 @@
     if-ne p1, v0, :cond_4
 
     .line 82
-    iget-object p1, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mAnimator:Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsAnimator;
+    iget-object p1, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mAnimator:Lcom/samsung/android/globalactions/presentation/view/GlobalActionsAnimator;
 
-    invoke-interface {p1}, Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsAnimator;->startToastAnimation()V
+    invoke-interface {p1}, Lcom/samsung/android/globalactions/presentation/view/GlobalActionsAnimator;->startToastAnimation()V
 
     .line 83
     sget-object p1, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM$State;->MAIN:Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM$State;
@@ -182,9 +182,9 @@
     if-ne p1, v0, :cond_b
 
     .line 85
-    iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mAnimator:Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsAnimator;
+    iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mAnimator:Lcom/samsung/android/globalactions/presentation/view/GlobalActionsAnimator;
 
-    invoke-interface {p0, v3}, Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsAnimator;->startDismissAnimation(Z)V
+    invoke-interface {p0, v3}, Lcom/samsung/android/globalactions/presentation/view/GlobalActionsAnimator;->startDismissAnimation(Z)V
 
     goto :goto_0
 
@@ -195,9 +195,9 @@
     if-ne p1, v0, :cond_6
 
     .line 59
-    iget-object p1, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mAnimator:Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsAnimator;
+    iget-object p1, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mAnimator:Lcom/samsung/android/globalactions/presentation/view/GlobalActionsAnimator;
 
-    invoke-interface {p1}, Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsAnimator;->startShowConfirmAnimation()V
+    invoke-interface {p1}, Lcom/samsung/android/globalactions/presentation/view/GlobalActionsAnimator;->startShowConfirmAnimation()V
 
     .line 60
     sget-object p1, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM$State;->CONFIRM:Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM$State;
@@ -213,9 +213,9 @@
     if-ne p1, v0, :cond_7
 
     .line 62
-    iget-object p1, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mAnimator:Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsAnimator;
+    iget-object p1, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mAnimator:Lcom/samsung/android/globalactions/presentation/view/GlobalActionsAnimator;
 
-    invoke-interface {p1, v1}, Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsAnimator;->startDismissAnimation(Z)V
+    invoke-interface {p1, v1}, Lcom/samsung/android/globalactions/presentation/view/GlobalActionsAnimator;->startDismissAnimation(Z)V
 
     .line 63
     sget-object p1, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM$State;->IDLE:Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM$State;
@@ -231,9 +231,9 @@
     if-ne p1, v0, :cond_8
 
     .line 65
-    iget-object p1, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mAnimator:Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsAnimator;
+    iget-object p1, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mAnimator:Lcom/samsung/android/globalactions/presentation/view/GlobalActionsAnimator;
 
-    invoke-interface {p1, v3}, Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsAnimator;->startDismissAnimation(Z)V
+    invoke-interface {p1, v3}, Lcom/samsung/android/globalactions/presentation/view/GlobalActionsAnimator;->startDismissAnimation(Z)V
 
     .line 66
     sget-object p1, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM$State;->IDLE:Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM$State;
@@ -249,9 +249,9 @@
     if-ne p1, v0, :cond_9
 
     .line 68
-    iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mAnimator:Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsAnimator;
+    iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mAnimator:Lcom/samsung/android/globalactions/presentation/view/GlobalActionsAnimator;
 
-    invoke-interface {p0}, Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsAnimator;->startToastAnimation()V
+    invoke-interface {p0}, Lcom/samsung/android/globalactions/presentation/view/GlobalActionsAnimator;->startToastAnimation()V
 
     goto :goto_0
 
@@ -262,9 +262,9 @@
     if-ne p1, v0, :cond_b
 
     .line 70
-    iget-object p1, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mAnimator:Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsAnimator;
+    iget-object p1, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mAnimator:Lcom/samsung/android/globalactions/presentation/view/GlobalActionsAnimator;
 
-    invoke-interface {p1, v3}, Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsAnimator;->startDismissAnimation(Z)V
+    invoke-interface {p1, v3}, Lcom/samsung/android/globalactions/presentation/view/GlobalActionsAnimator;->startDismissAnimation(Z)V
 
     .line 71
     sget-object p1, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM$State;->IDLE:Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM$State;
@@ -280,9 +280,9 @@
     if-ne p1, v0, :cond_b
 
     .line 53
-    iget-object p1, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mAnimator:Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsAnimator;
+    iget-object p1, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mAnimator:Lcom/samsung/android/globalactions/presentation/view/GlobalActionsAnimator;
 
-    invoke-interface {p1}, Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsAnimator;->startShowAnimation()V
+    invoke-interface {p1}, Lcom/samsung/android/globalactions/presentation/view/GlobalActionsAnimator;->startShowAnimation()V
 
     .line 54
     sget-object p1, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM$State;->MAIN:Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM$State;
@@ -298,7 +298,7 @@
     .locals 3
 
     .line 40
-    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mLogWrapper:Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mLogWrapper:Lcom/samsung/android/globalactions/util/LogWrapper;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -320,7 +320,7 @@
 
     const-string v2, "CoverViewAnimatorFSM"
 
-    invoke-virtual {v0, v2, v1}, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;->v(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v2, v1}, Lcom/samsung/android/globalactions/util/LogWrapper;->v(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 41
     iput-object p1, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mState:Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM$State;

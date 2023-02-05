@@ -57,20 +57,20 @@
     .line 120
     iget-object p1, p0, Lcom/android/systemui/globalactions/presentation/view/FrontCoverContentView$1;->this$0:Lcom/android/systemui/globalactions/presentation/view/FrontCoverContentView;
 
-    invoke-static {p1}, Lcom/android/systemui/globalactions/presentation/view/FrontCoverContentView;->-$$Nest$fgetmPresenter(Lcom/android/systemui/globalactions/presentation/view/FrontCoverContentView;)Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActionsPresenter;
+    invoke-static {p1}, Lcom/android/systemui/globalactions/presentation/view/FrontCoverContentView;->-$$Nest$fgetmPresenter(Lcom/android/systemui/globalactions/presentation/view/FrontCoverContentView;)Lcom/samsung/android/globalactions/presentation/SamsungGlobalActionsPresenter;
 
     move-result-object p1
 
-    invoke-virtual {p1}, Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActionsPresenter;->onDismiss()V
+    invoke-virtual {p1}, Lcom/samsung/android/globalactions/presentation/SamsungGlobalActionsPresenter;->onDismiss()V
 
     .line 121
     iget-object p1, p0, Lcom/android/systemui/globalactions/presentation/view/FrontCoverContentView$1;->this$0:Lcom/android/systemui/globalactions/presentation/view/FrontCoverContentView;
 
-    invoke-static {p1}, Lcom/android/systemui/globalactions/presentation/view/FrontCoverContentView;->-$$Nest$fgetmParentView(Lcom/android/systemui/globalactions/presentation/view/FrontCoverContentView;)Lcom/samsung/android/globalactionsdlx/presentation/view/ExtendableGlobalActionsView;
+    invoke-static {p1}, Lcom/android/systemui/globalactions/presentation/view/FrontCoverContentView;->-$$Nest$fgetmParentView(Lcom/android/systemui/globalactions/presentation/view/FrontCoverContentView;)Lcom/samsung/android/globalactions/presentation/view/ExtendableGlobalActionsView;
 
     move-result-object p1
 
-    invoke-interface {p1}, Lcom/samsung/android/globalactionsdlx/presentation/view/ExtendableGlobalActionsView;->dismiss()V
+    invoke-interface {p1}, Lcom/samsung/android/globalactions/presentation/view/ExtendableGlobalActionsView;->dismiss()V
 
     .line 122
     iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/view/FrontCoverContentView$1;->this$0:Lcom/android/systemui/globalactions/presentation/view/FrontCoverContentView;

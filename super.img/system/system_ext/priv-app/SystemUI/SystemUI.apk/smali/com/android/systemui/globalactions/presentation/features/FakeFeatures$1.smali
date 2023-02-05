@@ -63,7 +63,7 @@
     .line 58
     iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/FakeFeatures$1;->this$0:Lcom/android/systemui/globalactions/presentation/features/FakeFeatures;
 
-    invoke-static {v1}, Lcom/android/systemui/globalactions/presentation/features/FakeFeatures;->-$$Nest$fgetmLogWrapper(Lcom/android/systemui/globalactions/presentation/features/FakeFeatures;)Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
+    invoke-static {v1}, Lcom/android/systemui/globalactions/presentation/features/FakeFeatures;->-$$Nest$fgetmLogWrapper(Lcom/android/systemui/globalactions/presentation/features/FakeFeatures;)Lcom/samsung/android/globalactions/util/LogWrapper;
 
     move-result-object v1
 
@@ -93,7 +93,7 @@
 
     const-string v3, "FakeFeatures"
 
-    invoke-virtual {v1, v3, v2}, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;->v(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v1, v3, v2}, Lcom/samsung/android/globalactions/util/LogWrapper;->v(Ljava/lang/String;Ljava/lang/String;)V
 
     const-string v1, "com.android.systemui.globalactions.ACTION_UPDATE_SYSTEM_FEATURE"
 

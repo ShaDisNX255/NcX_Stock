@@ -8,13 +8,13 @@
 
 .field public mKey:Ljava/lang/String;
 
-.field public mLogWrapper:Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
+.field public mLogWrapper:Lcom/samsung/android/globalactions/util/LogWrapper;
 
 .field public mPrefrerences:Landroid/content/SharedPreferences;
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Lcom/samsung/android/globalactionsdlx/util/LogWrapper;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/samsung/android/globalactions/util/LogWrapper;)V
     .locals 1
 
     .line 15
@@ -29,7 +29,7 @@
     iput-object p1, p0, Lcom/android/systemui/globalactions/util/ScreenCapturePopupController;->mContext:Landroid/content/Context;
 
     .line 17
-    iput-object p2, p0, Lcom/android/systemui/globalactions/util/ScreenCapturePopupController;->mLogWrapper:Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
+    iput-object p2, p0, Lcom/android/systemui/globalactions/util/ScreenCapturePopupController;->mLogWrapper:Lcom/samsung/android/globalactions/util/LogWrapper;
 
     const/4 p2, 0x0
 
@@ -118,7 +118,7 @@
     move-result v0
 
     .line 24
-    iget-object v1, p0, Lcom/android/systemui/globalactions/util/ScreenCapturePopupController;->mLogWrapper:Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/util/ScreenCapturePopupController;->mLogWrapper:Lcom/samsung/android/globalactions/util/LogWrapper;
 
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -146,7 +146,7 @@
 
     const-string v4, "ScreenCapturePopupController"
 
-    invoke-virtual {v1, v4, v3}, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;->logDebug(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v1, v4, v3}, Lcom/samsung/android/globalactions/util/LogWrapper;->logDebug(Ljava/lang/String;Ljava/lang/String;)V
 
     const/4 v1, 0x1
 
@@ -199,7 +199,7 @@
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
 
     .line 47
-    iget-object v0, p0, Lcom/android/systemui/globalactions/util/ScreenCapturePopupController;->mLogWrapper:Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/util/ScreenCapturePopupController;->mLogWrapper:Lcom/samsung/android/globalactions/util/LogWrapper;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -225,7 +225,7 @@
 
     const-string v1, "ScreenCapturePopupController"
 
-    invoke-virtual {v0, v1, p0}, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;->logDebug(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v1, p0}, Lcom/samsung/android/globalactions/util/LogWrapper;->logDebug(Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 .end method
