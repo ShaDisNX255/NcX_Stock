@@ -3,7 +3,7 @@
 .source "SystemUIResourceFactory.java"
 
 # interfaces
-.implements Lcom/samsung/android/globalactions/presentation/view/ResourceFactory;
+.implements Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceFactory;
 
 
 # direct methods
@@ -18,11 +18,11 @@
 
 
 # virtual methods
-.method public get(Lcom/samsung/android/globalactions/presentation/view/ResourceType;)I
+.method public get(Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;)I
     .locals 0
 
     .line 10
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->ID_ITEM_LIST:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->ID_ITEM_LIST:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_0
 
@@ -32,7 +32,7 @@
 
     .line 11
     :cond_0
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->ID_ITEM_LIST_LAND:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->ID_ITEM_LIST_LAND:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_1
 
@@ -42,7 +42,7 @@
 
     .line 12
     :cond_1
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->ID_STATE:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->ID_STATE:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_2
 
@@ -52,7 +52,7 @@
 
     .line 13
     :cond_2
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->ID_DESCRIPTION:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->ID_DESCRIPTION:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_3
 
@@ -62,7 +62,7 @@
 
     .line 14
     :cond_3
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->ID_DESCRIPTION_TEXT:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->ID_DESCRIPTION_TEXT:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_4
 
@@ -72,7 +72,7 @@
 
     .line 15
     :cond_4
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->ID_LABEL:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->ID_LABEL:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_5
 
@@ -82,7 +82,7 @@
 
     .line 16
     :cond_5
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->ID_ICON:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->ID_ICON:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_6
 
@@ -92,7 +92,7 @@
 
     .line 17
     :cond_6
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->ID_ICON_LABEL:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->ID_ICON_LABEL:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_7
 
@@ -102,7 +102,7 @@
 
     .line 18
     :cond_7
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->ID_TOP_VIEW:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->ID_TOP_VIEW:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_8
 
@@ -112,7 +112,7 @@
 
     .line 19
     :cond_8
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->ID_BOTTOM_BUTTON_VIEW:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->ID_BOTTOM_BUTTON_VIEW:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_9
 
@@ -122,7 +122,7 @@
 
     .line 20
     :cond_9
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->ID_FORCE_RESTART_TEXT_VIEW:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->ID_FORCE_RESTART_TEXT_VIEW:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_a
 
@@ -132,7 +132,7 @@
 
     .line 21
     :cond_a
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->ID_CONFIRMATION_VIEW:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->ID_CONFIRMATION_VIEW:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_b
 
@@ -142,7 +142,7 @@
 
     .line 22
     :cond_b
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->ID_BUGREPORT_VIEW:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->ID_BUGREPORT_VIEW:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_c
 
@@ -152,7 +152,7 @@
 
     .line 23
     :cond_c
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->ID_SIDE_COVER_BACKGROUND:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->ID_SIDE_COVER_BACKGROUND:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_d
 
@@ -162,7 +162,7 @@
 
     .line 24
     :cond_d
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->ID_SIDE_COVER_ITEM_LIST:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->ID_SIDE_COVER_ITEM_LIST:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_e
 
@@ -172,7 +172,7 @@
 
     .line 25
     :cond_e
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->ID_SIDE_COVER_CONFIRM:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->ID_SIDE_COVER_CONFIRM:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_f
 
@@ -182,7 +182,7 @@
 
     .line 26
     :cond_f
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->ID_COVER_ITEM_WRAPPED:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->ID_COVER_ITEM_WRAPPED:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_10
 
@@ -192,7 +192,7 @@
 
     .line 27
     :cond_10
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->ID_COVER_BTN_BACKGROUND:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->ID_COVER_BTN_BACKGROUND:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_11
 
@@ -202,7 +202,7 @@
 
     .line 28
     :cond_11
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->ID_COVER_ANIM:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->ID_COVER_ANIM:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_12
 
@@ -212,7 +212,7 @@
 
     .line 29
     :cond_12
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->ID_COVER_TEXT:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->ID_COVER_TEXT:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_13
 
@@ -222,7 +222,7 @@
 
     .line 30
     :cond_13
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->ID_COVER_TEXT_BACKGROUND:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->ID_COVER_TEXT_BACKGROUND:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_14
 
@@ -232,7 +232,7 @@
 
     .line 31
     :cond_14
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->ID_COVER_ICON:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->ID_COVER_ICON:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_15
 
@@ -242,7 +242,7 @@
 
     .line 32
     :cond_15
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->ID_SIDEKEY_SETTINGS_VIEW:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->ID_SIDEKEY_SETTINGS_VIEW:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_16
 
@@ -252,7 +252,7 @@
 
     .line 33
     :cond_16
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->ID_SCREEN_CAPTURE_POPUP:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->ID_SCREEN_CAPTURE_POPUP:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_17
 
@@ -262,7 +262,7 @@
 
     .line 34
     :cond_17
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->ID_MINI_BACKGROUND:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->ID_MINI_BACKGROUND:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_18
 
@@ -272,7 +272,7 @@
 
     .line 35
     :cond_18
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->ID_MINI_SVIEW_COVER_ITEM:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->ID_MINI_SVIEW_COVER_ITEM:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_19
 
@@ -282,7 +282,7 @@
 
     .line 36
     :cond_19
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->ID_MINI_SVIEW_COVER_ITEM_ICON:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->ID_MINI_SVIEW_COVER_ITEM_ICON:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_1a
 
@@ -292,7 +292,7 @@
 
     .line 37
     :cond_1a
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->ID_MINI_SVIEW_COVER_ITEM_TEXT:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->ID_MINI_SVIEW_COVER_ITEM_TEXT:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_1b
 
@@ -302,7 +302,7 @@
 
     .line 38
     :cond_1b
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->ID_MINI_SVIEW_COVER_CONFIRM:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->ID_MINI_SVIEW_COVER_CONFIRM:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_1c
 
@@ -312,7 +312,7 @@
 
     .line 39
     :cond_1c
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->ID_FRONT_COVER_ITEM:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->ID_FRONT_COVER_ITEM:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_1d
 
@@ -322,7 +322,7 @@
 
     .line 40
     :cond_1d
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->ID_FRONT_COVER_COFIRM:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->ID_FRONT_COVER_COFIRM:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_1e
 
@@ -332,7 +332,7 @@
 
     .line 42
     :cond_1e
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->LAYOUT_ROOT_VIEW:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->LAYOUT_ROOT_VIEW:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_1f
 
@@ -342,7 +342,7 @@
 
     .line 43
     :cond_1f
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->LAYOUT_TOP_VIEW:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->LAYOUT_TOP_VIEW:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_20
 
@@ -352,7 +352,7 @@
 
     .line 44
     :cond_20
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->LAYOUT_BOTTOM_VIEW:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->LAYOUT_BOTTOM_VIEW:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_21
 
@@ -362,7 +362,7 @@
 
     .line 45
     :cond_21
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->LAYOUT_BUGREPORT_VIEW:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->LAYOUT_BUGREPORT_VIEW:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_22
 
@@ -372,7 +372,7 @@
 
     .line 46
     :cond_22
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->LAYOUT_ITEM_LIST_VIEW:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->LAYOUT_ITEM_LIST_VIEW:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_23
 
@@ -382,7 +382,7 @@
 
     .line 47
     :cond_23
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->LAYOUT_SIDE_COVER_ROOT_VIEW:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->LAYOUT_SIDE_COVER_ROOT_VIEW:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_24
 
@@ -392,7 +392,7 @@
 
     .line 48
     :cond_24
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->LAYOUT_SIDE_COVER_ITEM_LIST_VIEW:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->LAYOUT_SIDE_COVER_ITEM_LIST_VIEW:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_25
 
@@ -402,7 +402,7 @@
 
     .line 49
     :cond_25
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->LAYOUT_SIDE_COVER_NOTIFICATION:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->LAYOUT_SIDE_COVER_NOTIFICATION:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_26
 
@@ -412,7 +412,7 @@
 
     .line 50
     :cond_26
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->LAYOUT_SIDEKEY_SETTINGS_VIEW:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->LAYOUT_SIDEKEY_SETTINGS_VIEW:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_27
 
@@ -422,7 +422,7 @@
 
     .line 51
     :cond_27
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->LAYOUT_FORCE_RESTART_TEXT_VIEW:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->LAYOUT_FORCE_RESTART_TEXT_VIEW:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_28
 
@@ -432,7 +432,7 @@
 
     .line 52
     :cond_28
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->LAYOUT_SCREEN_CAPTURE_POPUP:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->LAYOUT_SCREEN_CAPTURE_POPUP:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_29
 
@@ -442,7 +442,7 @@
 
     .line 53
     :cond_29
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->LAYOUT_MINI_SVIEW_COVER_VIEW:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->LAYOUT_MINI_SVIEW_COVER_VIEW:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_2a
 
@@ -452,7 +452,7 @@
 
     .line 54
     :cond_2a
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->LAYOUT_MINI_SVIEW_COVER_ITEM:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->LAYOUT_MINI_SVIEW_COVER_ITEM:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_2b
 
@@ -462,7 +462,7 @@
 
     .line 55
     :cond_2b
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->LAYOUT_MINI_SVIEW_COVER_NOTIFICATION:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->LAYOUT_MINI_SVIEW_COVER_NOTIFICATION:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_2c
 
@@ -472,7 +472,7 @@
 
     .line 56
     :cond_2c
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->LAYOUT_FRONT_COVER_VIEW:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->LAYOUT_FRONT_COVER_VIEW:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_2d
 
@@ -482,7 +482,7 @@
 
     .line 57
     :cond_2d
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->LAYOUT_FRONT_COVER_ITEM:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->LAYOUT_FRONT_COVER_ITEM:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_2e
 
@@ -492,7 +492,7 @@
 
     .line 58
     :cond_2e
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->LAYOUT_FRONT_COVER_NOTIFICATION:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->LAYOUT_FRONT_COVER_NOTIFICATION:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_2f
 
@@ -502,7 +502,7 @@
 
     .line 59
     :cond_2f
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->LAYOUT_CAPTURED_BLUR_BACKGROUND:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->LAYOUT_CAPTURED_BLUR_BACKGROUND:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_30
 
@@ -512,7 +512,7 @@
 
     .line 61
     :cond_30
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->DRAWABLE_POWEROFF:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->DRAWABLE_POWEROFF:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_31
 
@@ -522,7 +522,7 @@
 
     .line 62
     :cond_31
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->DRAWABLE_COVER_POWER_OFF_BG:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->DRAWABLE_COVER_POWER_OFF_BG:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_32
 
@@ -532,7 +532,7 @@
 
     .line 63
     :cond_32
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->DRAWABLE_COVER_POWER_OFF_ICON:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->DRAWABLE_COVER_POWER_OFF_ICON:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_33
 
@@ -542,7 +542,7 @@
 
     .line 64
     :cond_33
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->DRAWABLE_RESTART:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->DRAWABLE_RESTART:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_34
 
@@ -552,7 +552,7 @@
 
     .line 65
     :cond_34
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->DRAWABLE_COVER_RESTART_BG:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->DRAWABLE_COVER_RESTART_BG:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_35
 
@@ -562,7 +562,7 @@
 
     .line 66
     :cond_35
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->DRAWABLE_COVER_RESTART_ICON:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->DRAWABLE_COVER_RESTART_ICON:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_36
 
@@ -572,7 +572,7 @@
 
     .line 67
     :cond_36
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->DRAWABLE_SAFEMODE:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->DRAWABLE_SAFEMODE:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_37
 
@@ -582,7 +582,7 @@
 
     .line 68
     :cond_37
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->DRAWABLE_EMERGENCY:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->DRAWABLE_EMERGENCY:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_38
 
@@ -592,7 +592,7 @@
 
     .line 69
     :cond_38
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->DRAWABLE_EMERGENCY_CALL:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->DRAWABLE_EMERGENCY_CALL:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_39
 
@@ -602,7 +602,7 @@
 
     .line 70
     :cond_39
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->DRAWABLE_LOCKDOWN:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->DRAWABLE_LOCKDOWN:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_3a
 
@@ -612,7 +612,7 @@
 
     .line 71
     :cond_3a
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->DRAWABLE_PROKIOSK:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->DRAWABLE_PROKIOSK:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_3b
 
@@ -622,7 +622,7 @@
 
     .line 72
     :cond_3b
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->DRAWABLE_DATAMODE:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->DRAWABLE_DATAMODE:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_3c
 
@@ -632,7 +632,7 @@
 
     .line 73
     :cond_3c
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->DRAWABLE_ENDSESSION:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->DRAWABLE_ENDSESSION:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_3d
 
@@ -642,7 +642,7 @@
 
     .line 74
     :cond_3d
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->DRAWABLE_ICON_BG_FOCUSED:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->DRAWABLE_ICON_BG_FOCUSED:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_3e
 
@@ -652,7 +652,7 @@
 
     .line 75
     :cond_3e
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->DRAWABLE_ICON_RIPPLE:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->DRAWABLE_ICON_RIPPLE:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_3f
 
@@ -662,7 +662,7 @@
 
     .line 76
     :cond_3f
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->DRAWABLE_BG_RAISED_BTN_DARK:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->DRAWABLE_BG_RAISED_BTN_DARK:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_40
 
@@ -672,7 +672,7 @@
 
     .line 77
     :cond_40
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->DRAWABLE_BG_RAISED_BTN_LIGHT:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->DRAWABLE_BG_RAISED_BTN_LIGHT:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_41
 
@@ -682,7 +682,7 @@
 
     .line 78
     :cond_41
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->DRAWABLE_SIDEKEY_SETTINGS_RIPPLE_DARK:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->DRAWABLE_SIDEKEY_SETTINGS_RIPPLE_DARK:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_42
 
@@ -692,7 +692,7 @@
 
     .line 79
     :cond_42
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->DRAWABLE_SIDEKEY_SETTINGS_RIPPLE_LIGHT:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->DRAWABLE_SIDEKEY_SETTINGS_RIPPLE_LIGHT:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_43
 
@@ -702,7 +702,7 @@
 
     .line 81
     :cond_43
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->INTEGER_FORCE_RESTART_TIME:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->INTEGER_FORCE_RESTART_TIME:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_44
 
@@ -712,7 +712,7 @@
 
     .line 83
     :cond_44
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->DIMEN_BIXBY_SETTINGS_TOP_MARGIN:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->DIMEN_BIXBY_SETTINGS_TOP_MARGIN:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_45
 
@@ -722,7 +722,7 @@
 
     .line 84
     :cond_45
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->DIMEN_BIXBY_SETTINGS_TOP_MARGIN_LAND:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->DIMEN_BIXBY_SETTINGS_TOP_MARGIN_LAND:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_46
 
@@ -732,7 +732,7 @@
 
     .line 85
     :cond_46
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->DIMEN_BIXBY_SETTINGS_RIGHT_MARGIN:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->DIMEN_BIXBY_SETTINGS_RIGHT_MARGIN:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_47
 
@@ -742,7 +742,7 @@
 
     .line 86
     :cond_47
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->DIMEN_BIXBY_SETTINGS_RIGHT_MARGIN_LAND:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->DIMEN_BIXBY_SETTINGS_RIGHT_MARGIN_LAND:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_48
 
@@ -752,7 +752,7 @@
 
     .line 87
     :cond_48
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->DIMEN_BOTTOMBUTTONVIEW_BOTTOM_MARGIN_LAND:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->DIMEN_BOTTOMBUTTONVIEW_BOTTOM_MARGIN_LAND:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_49
 
@@ -762,7 +762,7 @@
 
     .line 88
     :cond_49
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->DIMEN_BUGREPORT_BOTTOM_MARGIN:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->DIMEN_BUGREPORT_BOTTOM_MARGIN:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_4a
 
@@ -772,7 +772,7 @@
 
     .line 89
     :cond_4a
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->DIMEN_BUGREPORT_BOTTOM_MARGIN_LAND:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->DIMEN_BUGREPORT_BOTTOM_MARGIN_LAND:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_4b
 
@@ -782,7 +782,7 @@
 
     .line 90
     :cond_4b
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->DIMEN_SIDE_COVER_WIDTH:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->DIMEN_SIDE_COVER_WIDTH:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_4c
 
@@ -792,7 +792,7 @@
 
     .line 91
     :cond_4c
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->DIMEN_SIDEKEY_SETTINGS_BOTTOM_MARGIN_2BTNS:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->DIMEN_SIDEKEY_SETTINGS_BOTTOM_MARGIN_2BTNS:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_4d
 
@@ -802,7 +802,7 @@
 
     .line 92
     :cond_4d
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->DIMEN_SIDEKEY_SETTINGS_BOTTOM_MARGIN_1BTN:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->DIMEN_SIDEKEY_SETTINGS_BOTTOM_MARGIN_1BTN:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_4e
 
@@ -812,7 +812,7 @@
 
     .line 93
     :cond_4e
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->DIMEN_SIDEKEY_SETTINGS_BOTTOM_MARGIN_LAND:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->DIMEN_SIDEKEY_SETTINGS_BOTTOM_MARGIN_LAND:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_4f
 
@@ -822,7 +822,7 @@
 
     .line 94
     :cond_4f
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->DIMEN_SIDEKEY_SETTINGS_RIGHT_MARGIN_LAND:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->DIMEN_SIDEKEY_SETTINGS_RIGHT_MARGIN_LAND:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_50
 
@@ -832,7 +832,7 @@
 
     .line 95
     :cond_50
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->DIMEN_MINI_SVIEW_COVER_HEIGHT:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->DIMEN_MINI_SVIEW_COVER_HEIGHT:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_51
 
@@ -842,7 +842,7 @@
 
     .line 96
     :cond_51
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->DIMEN_MINI_SVIEW_COVER_TOP_MARGIN:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->DIMEN_MINI_SVIEW_COVER_TOP_MARGIN:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_52
 
@@ -852,7 +852,7 @@
 
     .line 97
     :cond_52
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->DIMEN_MINI_SVIEW_COVER_SIDE_MARGIN:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->DIMEN_MINI_SVIEW_COVER_SIDE_MARGIN:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_53
 
@@ -862,7 +862,7 @@
 
     .line 98
     :cond_53
-    sget-object p0, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->DIMEN_MINI_OPEN_COVER_TOP_MARGIN:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object p0, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->DIMEN_MINI_OPEN_COVER_TOP_MARGIN:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     if-ne p1, p0, :cond_54
 

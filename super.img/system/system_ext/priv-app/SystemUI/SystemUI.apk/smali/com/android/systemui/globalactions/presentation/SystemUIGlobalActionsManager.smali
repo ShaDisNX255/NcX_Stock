@@ -3,7 +3,7 @@
 .source "SystemUIGlobalActionsManager.java"
 
 # interfaces
-.implements Lcom/samsung/android/globalactions/presentation/SamsungGlobalActionsManager;
+.implements Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActionsManager;
 
 
 # instance fields

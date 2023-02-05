@@ -225,7 +225,7 @@
     if-eqz p0, :cond_2
 
     .line 213
-    invoke-virtual {p0}, Lcom/samsung/android/globalactions/presentation/view/SamsungGlobalActionsDialogBase;->dismiss()V
+    invoke-virtual {p0}, Lcom/samsung/android/globalactionsdlx/presentation/view/SamsungGlobalActionsDialogBase;->dismiss()V
 
     :cond_2
     :goto_1
@@ -387,7 +387,7 @@
     const/4 v1, 0x0
 
     .line 98
-    invoke-virtual {p1, v0, p0, v1, p2}, Lcom/samsung/android/globalactions/presentation/view/SamsungGlobalActionsDialogBase;->show(ZZZI)V
+    invoke-virtual {p1, v0, p0, v1, p2}, Lcom/samsung/android/globalactionsdlx/presentation/view/SamsungGlobalActionsDialogBase;->show(ZZZI)V
 
     return-void
 .end method

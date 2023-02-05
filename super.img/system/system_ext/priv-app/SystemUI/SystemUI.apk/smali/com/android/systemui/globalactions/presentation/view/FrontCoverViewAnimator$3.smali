@@ -88,17 +88,17 @@
 
     move-result-object p1
 
-    invoke-interface {p1}, Lcom/android/systemui/globalactions/presentation/view/FrontCoverViewAnimator$ViewUpdateCallback;->getSelectedActionViewModel()Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;
+    invoke-interface {p1}, Lcom/android/systemui/globalactions/presentation/view/FrontCoverViewAnimator$ViewUpdateCallback;->getSelectedActionViewModel()Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;
 
     move-result-object p1
 
-    invoke-interface {p1}, Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;->getActionInfo()Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;
+    invoke-interface {p1}, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;->getActionInfo()Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;
 
     move-result-object p1
 
     const-string v0, ""
 
-    invoke-virtual {p1, v0}, Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;->setStateLabel(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;->setStateLabel(Ljava/lang/String;)V
 
     .line 272
     iget-object p1, p0, Lcom/android/systemui/globalactions/presentation/view/FrontCoverViewAnimator$3;->this$0:Lcom/android/systemui/globalactions/presentation/view/FrontCoverViewAnimator;
@@ -110,13 +110,13 @@
     .line 273
     iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/view/FrontCoverViewAnimator$3;->this$0:Lcom/android/systemui/globalactions/presentation/view/FrontCoverViewAnimator;
 
-    invoke-static {p0}, Lcom/android/systemui/globalactions/presentation/view/FrontCoverViewAnimator;->-$$Nest$fgetmViewStateController(Lcom/android/systemui/globalactions/presentation/view/FrontCoverViewAnimator;)Lcom/samsung/android/globalactions/presentation/view/ViewStateController;
+    invoke-static {p0}, Lcom/android/systemui/globalactions/presentation/view/FrontCoverViewAnimator;->-$$Nest$fgetmViewStateController(Lcom/android/systemui/globalactions/presentation/view/FrontCoverViewAnimator;)Lcom/samsung/android/globalactionsdlx/presentation/view/ViewStateController;
 
     move-result-object p0
 
-    sget-object p1, Lcom/samsung/android/globalactions/presentation/view/ViewAnimationState;->IDLE:Lcom/samsung/android/globalactions/presentation/view/ViewAnimationState;
+    sget-object p1, Lcom/samsung/android/globalactionsdlx/presentation/view/ViewAnimationState;->IDLE:Lcom/samsung/android/globalactionsdlx/presentation/view/ViewAnimationState;
 
-    invoke-interface {p0, p1}, Lcom/samsung/android/globalactions/presentation/view/ViewStateController;->setState(Lcom/samsung/android/globalactions/presentation/view/ViewAnimationState;)V
+    invoke-interface {p0, p1}, Lcom/samsung/android/globalactionsdlx/presentation/view/ViewStateController;->setState(Lcom/samsung/android/globalactionsdlx/presentation/view/ViewAnimationState;)V
 
     return-void
 .end method

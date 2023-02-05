@@ -3,27 +3,27 @@
 .source "GlobalActionsFeatureFactory.java"
 
 # interfaces
-.implements Lcom/samsung/android/globalactions/presentation/features/FeatureFactory;
+.implements Lcom/samsung/android/globalactionsdlx/presentation/features/FeatureFactory;
 
 
 # instance fields
-.field public mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+.field public mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
 .field public mContext:Landroid/content/Context;
 
-.field public mFeatures:Lcom/samsung/android/globalactions/presentation/features/Features;
+.field public mFeatures:Lcom/samsung/android/globalactionsdlx/presentation/features/Features;
 
-.field public final mLogWrapper:Lcom/samsung/android/globalactions/util/LogWrapper;
+.field public final mLogWrapper:Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
-.field public mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+.field public mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-.field public mView:Lcom/samsung/android/globalactions/presentation/view/ExtendableGlobalActionsView;
+.field public mView:Lcom/samsung/android/globalactionsdlx/presentation/view/ExtendableGlobalActionsView;
 
-.field public mViewModelFactory:Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;
+.field public mViewModelFactory:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Lcom/samsung/android/globalactions/presentation/view/ExtendableGlobalActionsView;Lcom/samsung/android/globalactions/util/UtilFactory;Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;Lcom/samsung/android/globalactions/presentation/features/Features;Lcom/samsung/android/globalactions/util/ConditionChecker;Lcom/samsung/android/globalactions/util/LogWrapper;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/samsung/android/globalactionsdlx/presentation/view/ExtendableGlobalActionsView;Lcom/samsung/android/globalactionsdlx/util/UtilFactory;Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;Lcom/samsung/android/globalactionsdlx/presentation/features/Features;Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;Lcom/samsung/android/globalactionsdlx/util/LogWrapper;)V
     .locals 0
 
     .line 94
@@ -33,22 +33,22 @@
     iput-object p1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mContext:Landroid/content/Context;
 
     .line 96
-    iput-object p2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mView:Lcom/samsung/android/globalactions/presentation/view/ExtendableGlobalActionsView;
+    iput-object p2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mView:Lcom/samsung/android/globalactionsdlx/presentation/view/ExtendableGlobalActionsView;
 
     .line 97
-    iput-object p3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iput-object p3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
     .line 98
-    iput-object p4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mViewModelFactory:Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;
+    iput-object p4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mViewModelFactory:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;
 
     .line 99
-    iput-object p5, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactions/presentation/features/Features;
+    iput-object p5, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactionsdlx/presentation/features/Features;
 
     .line 100
-    iput-object p6, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iput-object p6, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
     .line 101
-    iput-object p7, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mLogWrapper:Lcom/samsung/android/globalactions/util/LogWrapper;
+    iput-object p7, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mLogWrapper:Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
     return-void
 .end method
@@ -63,7 +63,7 @@
             "Ljava/lang/String;",
             ")",
             "Ljava/util/List<",
-            "Lcom/samsung/android/globalactions/presentation/strategies/ActionInteractionStrategy;",
+            "Lcom/samsung/android/globalactionsdlx/presentation/strategies/ActionInteractionStrategy;",
             ">;"
         }
     .end annotation
@@ -74,11 +74,11 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 233
-    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactions/presentation/features/Features;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactionsdlx/presentation/features/Features;
 
     const-string v2, "DEMO_MODE"
 
-    invoke-interface {v1, v2}, Lcom/samsung/android/globalactions/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
+    invoke-interface {v1, v2}, Lcom/samsung/android/globalactionsdlx/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
 
     move-result v1
 
@@ -93,39 +93,39 @@
     if-eqz v1, :cond_0
 
     .line 234
-    new-instance v1, Lcom/samsung/android/globalactions/features/DemoModeStrategy;
+    new-instance v1, Lcom/samsung/android/globalactionsdlx/features/DemoModeStrategy;
 
-    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v4, Lcom/samsung/android/globalactions/util/ToastController;
+    const-class v4, Lcom/samsung/android/globalactionsdlx/util/ToastController;
 
-    invoke-interface {v3, v4}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v3, v4}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v3
 
-    check-cast v3, Lcom/samsung/android/globalactions/util/ToastController;
+    check-cast v3, Lcom/samsung/android/globalactionsdlx/util/ToastController;
 
-    iget-object v4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v5, Lcom/samsung/android/globalactions/util/ResourcesWrapper;
+    const-class v5, Lcom/samsung/android/globalactionsdlx/util/ResourcesWrapper;
 
-    invoke-interface {v4, v5}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v4, v5}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v4
 
-    check-cast v4, Lcom/samsung/android/globalactions/util/ResourcesWrapper;
+    check-cast v4, Lcom/samsung/android/globalactionsdlx/util/ResourcesWrapper;
 
-    invoke-direct {v1, v3, v4}, Lcom/samsung/android/globalactions/features/DemoModeStrategy;-><init>(Lcom/samsung/android/globalactions/util/ToastController;Lcom/samsung/android/globalactions/util/ResourcesWrapper;)V
+    invoke-direct {v1, v3, v4}, Lcom/samsung/android/globalactionsdlx/features/DemoModeStrategy;-><init>(Lcom/samsung/android/globalactionsdlx/util/ToastController;Lcom/samsung/android/globalactionsdlx/util/ResourcesWrapper;)V
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 237
     :cond_0
-    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactions/presentation/features/Features;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactionsdlx/presentation/features/Features;
 
     const-string v3, "KNOX_DEVICE_MANAGER"
 
-    invoke-interface {v1, v3}, Lcom/samsung/android/globalactions/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
+    invoke-interface {v1, v3}, Lcom/samsung/android/globalactionsdlx/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
 
     move-result v1
 
@@ -152,9 +152,9 @@
     :cond_1
     new-instance v1, Lcom/android/systemui/globalactions/features/KnoxMDMStrategy;
 
-    iget-object v4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
-    invoke-direct {v1, v4}, Lcom/android/systemui/globalactions/features/KnoxMDMStrategy;-><init>(Lcom/samsung/android/globalactions/util/ConditionChecker;)V
+    invoke-direct {v1, v4}, Lcom/android/systemui/globalactions/features/KnoxMDMStrategy;-><init>(Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;)V
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -221,44 +221,44 @@
 
     .line 246
     :pswitch_0
-    new-instance p1, Lcom/samsung/android/globalactions/features/SktStrategy;
+    new-instance p1, Lcom/samsung/android/globalactionsdlx/features/SktStrategy;
 
-    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v3, Lcom/samsung/android/globalactions/util/ToastController;
+    const-class v3, Lcom/samsung/android/globalactionsdlx/util/ToastController;
 
     .line 247
-    invoke-interface {v2, v3}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v2, v3}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v2
 
-    check-cast v2, Lcom/samsung/android/globalactions/util/ToastController;
+    check-cast v2, Lcom/samsung/android/globalactionsdlx/util/ToastController;
 
-    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v4, Lcom/samsung/android/globalactions/util/ResourcesWrapper;
+    const-class v4, Lcom/samsung/android/globalactionsdlx/util/ResourcesWrapper;
 
     .line 248
-    invoke-interface {v3, v4}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v3, v4}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v3
 
-    check-cast v3, Lcom/samsung/android/globalactions/util/ResourcesWrapper;
+    check-cast v3, Lcom/samsung/android/globalactionsdlx/util/ResourcesWrapper;
 
-    iget-object v4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v5, Lcom/samsung/android/globalactions/util/LogWrapper;
+    const-class v5, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
     .line 249
-    invoke-interface {v4, v5}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v4, v5}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v4
 
-    check-cast v4, Lcom/samsung/android/globalactions/util/LogWrapper;
+    check-cast v4, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
-    invoke-direct {p1, v1, v2, v3, v4}, Lcom/samsung/android/globalactions/features/SktStrategy;-><init>(Lcom/samsung/android/globalactions/util/ConditionChecker;Lcom/samsung/android/globalactions/util/ToastController;Lcom/samsung/android/globalactions/util/ResourcesWrapper;Lcom/samsung/android/globalactions/util/LogWrapper;)V
+    invoke-direct {p1, v1, v2, v3, v4}, Lcom/samsung/android/globalactionsdlx/features/SktStrategy;-><init>(Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;Lcom/samsung/android/globalactionsdlx/util/ToastController;Lcom/samsung/android/globalactionsdlx/util/ResourcesWrapper;Lcom/samsung/android/globalactionsdlx/util/LogWrapper;)V
 
     .line 246
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -294,7 +294,7 @@
         value = {
             "()",
             "Ljava/util/List<",
-            "Lcom/samsung/android/globalactions/presentation/strategies/ActionUpdateStrategy;",
+            "Lcom/samsung/android/globalactionsdlx/presentation/strategies/ActionUpdateStrategy;",
             ">;"
         }
     .end annotation
@@ -305,11 +305,11 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 405
-    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactions/presentation/features/Features;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactionsdlx/presentation/features/Features;
 
     const-string v2, "SUPPORT_SIDE_KEY"
 
-    invoke-interface {v1, v2}, Lcom/samsung/android/globalactions/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
+    invoke-interface {v1, v2}, Lcom/samsung/android/globalactionsdlx/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
 
     move-result v1
 
@@ -318,24 +318,24 @@
     .line 406
     new-instance v1, Lcom/android/systemui/globalactions/features/SideKeyStrategy;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mViewModelFactory:Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mViewModelFactory:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;
 
-    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
     iget-object v4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mContext:Landroid/content/Context;
 
-    iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
     const-class v5, Lcom/android/systemui/globalactions/util/ScreenCapturePopupController;
 
     .line 407
-    invoke-interface {p0, v5}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {p0, v5}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object p0
 
     check-cast p0, Lcom/android/systemui/globalactions/util/ScreenCapturePopupController;
 
-    invoke-direct {v1, v2, v3, v4, p0}, Lcom/android/systemui/globalactions/features/SideKeyStrategy;-><init>(Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;Lcom/samsung/android/globalactions/util/ConditionChecker;Landroid/content/Context;Lcom/android/systemui/globalactions/util/ScreenCapturePopupController;)V
+    invoke-direct {v1, v2, v3, v4, p0}, Lcom/android/systemui/globalactions/features/SideKeyStrategy;-><init>(Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;Landroid/content/Context;Lcom/android/systemui/globalactions/util/ScreenCapturePopupController;)V
 
     .line 406
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -344,15 +344,15 @@
     return-object v0
 .end method
 
-.method public createActionsCreationStrategies(Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;)Ljava/util/List;
+.method public createActionsCreationStrategies(Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;)Ljava/util/List;
     .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;",
+            "Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;",
             ")",
             "Ljava/util/List<",
-            "Lcom/samsung/android/globalactions/presentation/strategies/ActionsCreationStrategy;",
+            "Lcom/samsung/android/globalactionsdlx/presentation/strategies/ActionsCreationStrategy;",
             ">;"
         }
     .end annotation
@@ -363,11 +363,11 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 141
-    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactions/presentation/features/Features;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactionsdlx/presentation/features/Features;
 
     const-string v2, "SUPPORT_SIDE_KEY"
 
-    invoke-interface {v1, v2}, Lcom/samsung/android/globalactions/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
+    invoke-interface {v1, v2}, Lcom/samsung/android/globalactionsdlx/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
 
     move-result v1
 
@@ -376,104 +376,104 @@
     .line 142
     new-instance v1, Lcom/android/systemui/globalactions/features/SideKeyStrategy;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mViewModelFactory:Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mViewModelFactory:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;
 
-    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
     iget-object v4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mContext:Landroid/content/Context;
 
-    iget-object v5, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v5, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
     const-class v6, Lcom/android/systemui/globalactions/util/ScreenCapturePopupController;
 
     .line 143
-    invoke-interface {v5, v6}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v5, v6}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v5
 
     check-cast v5, Lcom/android/systemui/globalactions/util/ScreenCapturePopupController;
 
-    invoke-direct {v1, v2, v3, v4, v5}, Lcom/android/systemui/globalactions/features/SideKeyStrategy;-><init>(Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;Lcom/samsung/android/globalactions/util/ConditionChecker;Landroid/content/Context;Lcom/android/systemui/globalactions/util/ScreenCapturePopupController;)V
+    invoke-direct {v1, v2, v3, v4, v5}, Lcom/android/systemui/globalactions/features/SideKeyStrategy;-><init>(Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;Landroid/content/Context;Lcom/android/systemui/globalactions/util/ScreenCapturePopupController;)V
 
     .line 142
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 146
     :cond_0
-    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactions/presentation/features/Features;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactionsdlx/presentation/features/Features;
 
     const-string v2, "DATA_MODE"
 
-    invoke-interface {v1, v2}, Lcom/samsung/android/globalactions/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
+    invoke-interface {v1, v2}, Lcom/samsung/android/globalactionsdlx/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
     .line 147
-    new-instance v1, Lcom/samsung/android/globalactions/features/DataModeStrategy;
+    new-instance v1, Lcom/samsung/android/globalactionsdlx/features/DataModeStrategy;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mViewModelFactory:Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mViewModelFactory:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;
 
-    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
-    invoke-direct {v1, v2, v3}, Lcom/samsung/android/globalactions/features/DataModeStrategy;-><init>(Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;Lcom/samsung/android/globalactions/util/ConditionChecker;)V
+    invoke-direct {v1, v2, v3}, Lcom/samsung/android/globalactionsdlx/features/DataModeStrategy;-><init>(Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;)V
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 150
     :cond_1
-    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactions/presentation/features/Features;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactionsdlx/presentation/features/Features;
 
     const-string v2, "LOCK_DOWN_MODE"
 
-    invoke-interface {v1, v2}, Lcom/samsung/android/globalactions/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
+    invoke-interface {v1, v2}, Lcom/samsung/android/globalactionsdlx/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
 
     move-result v1
 
     if-eqz v1, :cond_2
 
     .line 151
-    new-instance v1, Lcom/samsung/android/globalactions/features/LockdownModeStrategy;
+    new-instance v1, Lcom/samsung/android/globalactionsdlx/features/LockdownModeStrategy;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mViewModelFactory:Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mViewModelFactory:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;
 
-    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
-    invoke-direct {v1, v2, v3}, Lcom/samsung/android/globalactions/features/LockdownModeStrategy;-><init>(Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;Lcom/samsung/android/globalactions/util/ConditionChecker;)V
+    invoke-direct {v1, v2, v3}, Lcom/samsung/android/globalactionsdlx/features/LockdownModeStrategy;-><init>(Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;)V
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 154
     :cond_2
-    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactions/presentation/features/Features;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactionsdlx/presentation/features/Features;
 
     const-string v2, "FORCE_RESTART_MESSAGE"
 
-    invoke-interface {v1, v2}, Lcom/samsung/android/globalactions/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
+    invoke-interface {v1, v2}, Lcom/samsung/android/globalactionsdlx/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
 
     move-result v1
 
     if-eqz v1, :cond_3
 
     .line 155
-    new-instance v1, Lcom/samsung/android/globalactions/features/ForceRestartMessageStrategy;
+    new-instance v1, Lcom/samsung/android/globalactionsdlx/features/ForceRestartMessageStrategy;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mViewModelFactory:Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mViewModelFactory:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;
 
-    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
-    invoke-direct {v1, v2, v3}, Lcom/samsung/android/globalactions/features/ForceRestartMessageStrategy;-><init>(Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;Lcom/samsung/android/globalactions/util/ConditionChecker;)V
+    invoke-direct {v1, v2, v3}, Lcom/samsung/android/globalactionsdlx/features/ForceRestartMessageStrategy;-><init>(Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;)V
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 158
     :cond_3
-    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactions/presentation/features/Features;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactionsdlx/presentation/features/Features;
 
     const-string v2, "FINGERPRINT_IN_DISPLAY"
 
-    invoke-interface {v1, v2}, Lcom/samsung/android/globalactions/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
+    invoke-interface {v1, v2}, Lcom/samsung/android/globalactionsdlx/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
 
     move-result v1
 
@@ -482,11 +482,11 @@
     .line 159
     new-instance v1, Lcom/android/systemui/globalactions/features/FingerprintInDisplayStrategy;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
     const-class v3, Lcom/android/systemui/globalactions/util/KeyguardUpdateMonitorWrapper;
 
-    invoke-interface {v2, v3}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v2, v3}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -498,11 +498,11 @@
 
     .line 162
     :cond_4
-    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactions/presentation/features/Features;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactionsdlx/presentation/features/Features;
 
     const-string v2, "KNOX_SDK"
 
-    invoke-interface {v1, v2}, Lcom/samsung/android/globalactions/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
+    invoke-interface {v1, v2}, Lcom/samsung/android/globalactionsdlx/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
 
     move-result v1
 
@@ -511,15 +511,15 @@
     .line 163
     new-instance v1, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;
 
-    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mViewModelFactory:Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;
+    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mViewModelFactory:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;
 
-    iget-object v4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
     const-class v5, Lcom/android/systemui/globalactions/util/KnoxCustomManagerWrapper;
 
-    invoke-interface {v2, v5}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v2, v5}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -527,12 +527,12 @@
 
     check-cast v5, Lcom/android/systemui/globalactions/util/KnoxCustomManagerWrapper;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
     const-class v6, Lcom/android/systemui/globalactions/util/ProKioskManagerWrapper;
 
     .line 164
-    invoke-interface {v2, v6}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v2, v6}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -540,23 +540,23 @@
 
     check-cast v6, Lcom/android/systemui/globalactions/util/ProKioskManagerWrapper;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v7, Lcom/samsung/android/globalactions/util/LogWrapper;
+    const-class v7, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
-    invoke-interface {v2, v7}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v2, v7}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v2
 
     move-object v7, v2
 
-    check-cast v7, Lcom/samsung/android/globalactions/util/LogWrapper;
+    check-cast v7, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
     move-object v2, v1
 
     move-object v8, p1
 
-    invoke-direct/range {v2 .. v8}, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;-><init>(Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;Lcom/samsung/android/globalactions/util/ConditionChecker;Lcom/android/systemui/globalactions/util/KnoxCustomManagerWrapper;Lcom/android/systemui/globalactions/util/ProKioskManagerWrapper;Lcom/samsung/android/globalactions/util/LogWrapper;Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;)V
+    invoke-direct/range {v2 .. v8}, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;-><init>(Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;Lcom/android/systemui/globalactions/util/KnoxCustomManagerWrapper;Lcom/android/systemui/globalactions/util/ProKioskManagerWrapper;Lcom/samsung/android/globalactionsdlx/util/LogWrapper;Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;)V
 
     .line 163
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -570,16 +570,16 @@
     return-object v0
 .end method
 
-.method public createDefaultActionsCreationStrategy(Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;Ljava/lang/String;)Ljava/util/List;
+.method public createDefaultActionsCreationStrategy(Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;Ljava/lang/String;)Ljava/util/List;
     .locals 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;",
+            "Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;",
             "Ljava/lang/String;",
             ")",
             "Ljava/util/List<",
-            "Lcom/samsung/android/globalactions/presentation/strategies/DefaultActionsCreationStrategy;",
+            "Lcom/samsung/android/globalactionsdlx/presentation/strategies/DefaultActionsCreationStrategy;",
             ">;"
         }
     .end annotation
@@ -603,77 +603,77 @@
     if-eqz v2, :cond_4
 
     .line 265
-    iget-object p2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactions/presentation/features/Features;
+    iget-object p2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactionsdlx/presentation/features/Features;
 
     const-string v2, "SAFETY_CARE"
 
-    invoke-interface {p2, v2}, Lcom/samsung/android/globalactions/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
+    invoke-interface {p2, v2}, Lcom/samsung/android/globalactionsdlx/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
 
     move-result p2
 
     if-eqz p2, :cond_0
 
     .line 266
-    new-instance p2, Lcom/samsung/android/globalactions/features/SafetyCareStrategy;
+    new-instance p2, Lcom/samsung/android/globalactionsdlx/features/SafetyCareStrategy;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
-    iget-object v4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v5, Lcom/samsung/android/globalactions/util/LogWrapper;
+    const-class v5, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
-    invoke-interface {v4, v5}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v4, v5}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v4
 
-    check-cast v4, Lcom/samsung/android/globalactions/util/LogWrapper;
+    check-cast v4, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
-    invoke-direct {p2, p1, v2, v4}, Lcom/samsung/android/globalactions/features/SafetyCareStrategy;-><init>(Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;Lcom/samsung/android/globalactions/util/ConditionChecker;Lcom/samsung/android/globalactions/util/LogWrapper;)V
+    invoke-direct {p2, p1, v2, v4}, Lcom/samsung/android/globalactionsdlx/features/SafetyCareStrategy;-><init>(Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;Lcom/samsung/android/globalactionsdlx/util/LogWrapper;)V
 
     invoke-interface {v1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 269
     :cond_0
-    iget-object p2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactions/presentation/features/Features;
+    iget-object p2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactionsdlx/presentation/features/Features;
 
     const-string v2, "DESKTOP_MODE"
 
-    invoke-interface {p2, v2}, Lcom/samsung/android/globalactions/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
+    invoke-interface {p2, v2}, Lcom/samsung/android/globalactionsdlx/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
 
     move-result p2
 
     if-eqz p2, :cond_1
 
     .line 270
-    new-instance p2, Lcom/samsung/android/globalactions/features/DesktopModeStrategy;
+    new-instance p2, Lcom/samsung/android/globalactionsdlx/features/DesktopModeStrategy;
 
     iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mContext:Landroid/content/Context;
 
-    iget-object v4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mView:Lcom/samsung/android/globalactions/presentation/view/ExtendableGlobalActionsView;
+    iget-object v4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mView:Lcom/samsung/android/globalactionsdlx/presentation/view/ExtendableGlobalActionsView;
 
-    iget-object v5, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v5, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v6, Lcom/samsung/android/globalactions/util/DesktopModeManagerWrapper;
+    const-class v6, Lcom/samsung/android/globalactionsdlx/util/DesktopModeManagerWrapper;
 
-    invoke-interface {v5, v6}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v5, v6}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v5
 
-    check-cast v5, Lcom/samsung/android/globalactions/util/DesktopModeManagerWrapper;
+    check-cast v5, Lcom/samsung/android/globalactionsdlx/util/DesktopModeManagerWrapper;
 
-    iget-object v6, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v6, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
-    invoke-direct {p2, v2, v4, v5, v6}, Lcom/samsung/android/globalactions/features/DesktopModeStrategy;-><init>(Landroid/content/Context;Lcom/samsung/android/globalactions/presentation/view/ExtendableGlobalActionsView;Lcom/samsung/android/globalactions/util/DesktopModeManagerWrapper;Lcom/samsung/android/globalactions/util/ConditionChecker;)V
+    invoke-direct {p2, v2, v4, v5, v6}, Lcom/samsung/android/globalactionsdlx/features/DesktopModeStrategy;-><init>(Landroid/content/Context;Lcom/samsung/android/globalactionsdlx/presentation/view/ExtendableGlobalActionsView;Lcom/samsung/android/globalactionsdlx/util/DesktopModeManagerWrapper;Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;)V
 
     invoke-interface {v1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 274
     :cond_1
-    iget-object p2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactions/presentation/features/Features;
+    iget-object p2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactionsdlx/presentation/features/Features;
 
     const-string v2, "KNOX_SDK"
 
-    invoke-interface {p2, v2}, Lcom/samsung/android/globalactions/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
+    invoke-interface {p2, v2}, Lcom/samsung/android/globalactionsdlx/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
 
     move-result p2
 
@@ -682,15 +682,15 @@
     .line 275
     new-instance p2, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;
 
-    iget-object v5, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mViewModelFactory:Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;
+    iget-object v5, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mViewModelFactory:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;
 
-    iget-object v6, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v6, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
     const-class v4, Lcom/android/systemui/globalactions/util/KnoxCustomManagerWrapper;
 
-    invoke-interface {v2, v4}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v2, v4}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -698,12 +698,12 @@
 
     check-cast v7, Lcom/android/systemui/globalactions/util/KnoxCustomManagerWrapper;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
     const-class v4, Lcom/android/systemui/globalactions/util/ProKioskManagerWrapper;
 
     .line 276
-    invoke-interface {v2, v4}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v2, v4}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -711,32 +711,32 @@
 
     check-cast v8, Lcom/android/systemui/globalactions/util/ProKioskManagerWrapper;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v4, Lcom/samsung/android/globalactions/util/LogWrapper;
+    const-class v4, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
-    invoke-interface {v2, v4}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v2, v4}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v2
 
     move-object v9, v2
 
-    check-cast v9, Lcom/samsung/android/globalactions/util/LogWrapper;
+    check-cast v9, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
     move-object v4, p2
 
     move-object v10, p1
 
-    invoke-direct/range {v4 .. v10}, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;-><init>(Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;Lcom/samsung/android/globalactions/util/ConditionChecker;Lcom/android/systemui/globalactions/util/KnoxCustomManagerWrapper;Lcom/android/systemui/globalactions/util/ProKioskManagerWrapper;Lcom/samsung/android/globalactions/util/LogWrapper;Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;)V
+    invoke-direct/range {v4 .. v10}, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;-><init>(Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;Lcom/android/systemui/globalactions/util/KnoxCustomManagerWrapper;Lcom/android/systemui/globalactions/util/ProKioskManagerWrapper;Lcom/samsung/android/globalactionsdlx/util/LogWrapper;Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;)V
 
     .line 275
     invoke-interface {v1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 279
     :cond_2
-    iget-object p2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactions/presentation/features/Features;
+    iget-object p2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactionsdlx/presentation/features/Features;
 
-    invoke-interface {p2, v3}, Lcom/samsung/android/globalactions/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
+    invoke-interface {p2, v3}, Lcom/samsung/android/globalactionsdlx/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
 
     move-result p2
 
@@ -745,11 +745,11 @@
     .line 280
     new-instance p2, Lcom/android/systemui/globalactions/features/CoverSupportStrategy;
 
-    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    invoke-interface {v2, v0}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v2, v0}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -757,83 +757,83 @@
 
     check-cast v4, Lcom/android/systemui/basic/util/CoverUtilWrapper;
 
-    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v2, Lcom/samsung/android/globalactions/util/LogWrapper;
+    const-class v2, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
     .line 281
-    invoke-interface {v0, v2}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v0, v2}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
     move-object v6, v0
 
-    check-cast v6, Lcom/samsung/android/globalactions/util/LogWrapper;
+    check-cast v6, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
-    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v2, Lcom/samsung/android/globalactions/util/KeyGuardManagerWrapper;
+    const-class v2, Lcom/samsung/android/globalactionsdlx/util/KeyGuardManagerWrapper;
 
-    invoke-interface {v0, v2}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v0, v2}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
     move-object v7, v0
 
-    check-cast v7, Lcom/samsung/android/globalactions/util/KeyGuardManagerWrapper;
+    check-cast v7, Lcom/samsung/android/globalactionsdlx/util/KeyGuardManagerWrapper;
 
-    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v2, Lcom/samsung/android/globalactions/util/ToastController;
+    const-class v2, Lcom/samsung/android/globalactionsdlx/util/ToastController;
 
     .line 282
-    invoke-interface {v0, v2}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v0, v2}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
     move-object v8, v0
 
-    check-cast v8, Lcom/samsung/android/globalactions/util/ToastController;
+    check-cast v8, Lcom/samsung/android/globalactionsdlx/util/ToastController;
 
-    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v2, Lcom/samsung/android/globalactions/util/ResourcesWrapper;
+    const-class v2, Lcom/samsung/android/globalactionsdlx/util/ResourcesWrapper;
 
-    invoke-interface {v0, v2}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v0, v2}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
     move-object v9, v0
 
-    check-cast v9, Lcom/samsung/android/globalactions/util/ResourcesWrapper;
+    check-cast v9, Lcom/samsung/android/globalactionsdlx/util/ResourcesWrapper;
 
     move-object v2, p2
 
     move-object v5, p1
 
-    invoke-direct/range {v2 .. v9}, Lcom/android/systemui/globalactions/features/CoverSupportStrategy;-><init>(Lcom/samsung/android/globalactions/util/ConditionChecker;Lcom/android/systemui/basic/util/CoverUtilWrapper;Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;Lcom/samsung/android/globalactions/util/LogWrapper;Lcom/samsung/android/globalactions/util/KeyGuardManagerWrapper;Lcom/samsung/android/globalactions/util/ToastController;Lcom/samsung/android/globalactions/util/ResourcesWrapper;)V
+    invoke-direct/range {v2 .. v9}, Lcom/android/systemui/globalactions/features/CoverSupportStrategy;-><init>(Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;Lcom/android/systemui/basic/util/CoverUtilWrapper;Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;Lcom/samsung/android/globalactionsdlx/util/LogWrapper;Lcom/samsung/android/globalactionsdlx/util/KeyGuardManagerWrapper;Lcom/samsung/android/globalactionsdlx/util/ToastController;Lcom/samsung/android/globalactionsdlx/util/ResourcesWrapper;)V
 
     .line 280
     invoke-interface {v1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 285
     :cond_3
-    iget-object p1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactions/presentation/features/Features;
+    iget-object p1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactionsdlx/presentation/features/Features;
 
     const-string p2, "RESERVE_BATTERY_MODE"
 
-    invoke-interface {p1, p2}, Lcom/samsung/android/globalactions/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
+    invoke-interface {p1, p2}, Lcom/samsung/android/globalactionsdlx/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
 
     move-result p1
 
     if-eqz p1, :cond_6
 
     .line 286
-    new-instance p1, Lcom/samsung/android/globalactions/features/ReserveBatteryModeStrategy;
+    new-instance p1, Lcom/samsung/android/globalactionsdlx/features/ReserveBatteryModeStrategy;
 
-    iget-object p2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object p2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
-    invoke-direct {p1, p2}, Lcom/samsung/android/globalactions/features/ReserveBatteryModeStrategy;-><init>(Lcom/samsung/android/globalactions/util/ConditionChecker;)V
+    invoke-direct {p1, p2}, Lcom/samsung/android/globalactionsdlx/features/ReserveBatteryModeStrategy;-><init>(Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;)V
 
     invoke-interface {v1, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -850,9 +850,9 @@
     if-eqz v2, :cond_5
 
     .line 289
-    iget-object p2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactions/presentation/features/Features;
+    iget-object p2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactionsdlx/presentation/features/Features;
 
-    invoke-interface {p2, v3}, Lcom/samsung/android/globalactions/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
+    invoke-interface {p2, v3}, Lcom/samsung/android/globalactionsdlx/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
 
     move-result p2
 
@@ -861,11 +861,11 @@
     .line 290
     new-instance p2, Lcom/android/systemui/globalactions/features/CoverSupportStrategy;
 
-    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    invoke-interface {v2, v0}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v2, v0}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -873,61 +873,61 @@
 
     check-cast v4, Lcom/android/systemui/basic/util/CoverUtilWrapper;
 
-    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v2, Lcom/samsung/android/globalactions/util/LogWrapper;
+    const-class v2, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
     .line 291
-    invoke-interface {v0, v2}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v0, v2}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
     move-object v6, v0
 
-    check-cast v6, Lcom/samsung/android/globalactions/util/LogWrapper;
+    check-cast v6, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
-    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v2, Lcom/samsung/android/globalactions/util/KeyGuardManagerWrapper;
+    const-class v2, Lcom/samsung/android/globalactionsdlx/util/KeyGuardManagerWrapper;
 
-    invoke-interface {v0, v2}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v0, v2}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
     move-object v7, v0
 
-    check-cast v7, Lcom/samsung/android/globalactions/util/KeyGuardManagerWrapper;
+    check-cast v7, Lcom/samsung/android/globalactionsdlx/util/KeyGuardManagerWrapper;
 
-    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v2, Lcom/samsung/android/globalactions/util/ToastController;
+    const-class v2, Lcom/samsung/android/globalactionsdlx/util/ToastController;
 
     .line 292
-    invoke-interface {v0, v2}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v0, v2}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
     move-object v8, v0
 
-    check-cast v8, Lcom/samsung/android/globalactions/util/ToastController;
+    check-cast v8, Lcom/samsung/android/globalactionsdlx/util/ToastController;
 
-    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v2, Lcom/samsung/android/globalactions/util/ResourcesWrapper;
+    const-class v2, Lcom/samsung/android/globalactionsdlx/util/ResourcesWrapper;
 
-    invoke-interface {v0, v2}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v0, v2}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
     move-object v9, v0
 
-    check-cast v9, Lcom/samsung/android/globalactions/util/ResourcesWrapper;
+    check-cast v9, Lcom/samsung/android/globalactionsdlx/util/ResourcesWrapper;
 
     move-object v2, p2
 
     move-object v5, p1
 
-    invoke-direct/range {v2 .. v9}, Lcom/android/systemui/globalactions/features/CoverSupportStrategy;-><init>(Lcom/samsung/android/globalactions/util/ConditionChecker;Lcom/android/systemui/basic/util/CoverUtilWrapper;Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;Lcom/samsung/android/globalactions/util/LogWrapper;Lcom/samsung/android/globalactions/util/KeyGuardManagerWrapper;Lcom/samsung/android/globalactions/util/ToastController;Lcom/samsung/android/globalactions/util/ResourcesWrapper;)V
+    invoke-direct/range {v2 .. v9}, Lcom/android/systemui/globalactions/features/CoverSupportStrategy;-><init>(Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;Lcom/android/systemui/basic/util/CoverUtilWrapper;Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;Lcom/samsung/android/globalactionsdlx/util/LogWrapper;Lcom/samsung/android/globalactionsdlx/util/KeyGuardManagerWrapper;Lcom/samsung/android/globalactionsdlx/util/ToastController;Lcom/samsung/android/globalactionsdlx/util/ResourcesWrapper;)V
 
     .line 290
     invoke-interface {v1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -945,9 +945,9 @@
     if-eqz p2, :cond_6
 
     .line 295
-    iget-object p2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactions/presentation/features/Features;
+    iget-object p2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactionsdlx/presentation/features/Features;
 
-    invoke-interface {p2, v3}, Lcom/samsung/android/globalactions/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
+    invoke-interface {p2, v3}, Lcom/samsung/android/globalactionsdlx/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
 
     move-result p2
 
@@ -956,11 +956,11 @@
     .line 296
     new-instance p2, Lcom/android/systemui/globalactions/features/CoverSupportStrategy;
 
-    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    invoke-interface {v2, v0}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v2, v0}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -968,61 +968,61 @@
 
     check-cast v4, Lcom/android/systemui/basic/util/CoverUtilWrapper;
 
-    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v2, Lcom/samsung/android/globalactions/util/LogWrapper;
+    const-class v2, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
     .line 297
-    invoke-interface {v0, v2}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v0, v2}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
     move-object v6, v0
 
-    check-cast v6, Lcom/samsung/android/globalactions/util/LogWrapper;
+    check-cast v6, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
-    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v2, Lcom/samsung/android/globalactions/util/KeyGuardManagerWrapper;
+    const-class v2, Lcom/samsung/android/globalactionsdlx/util/KeyGuardManagerWrapper;
 
-    invoke-interface {v0, v2}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v0, v2}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
     move-object v7, v0
 
-    check-cast v7, Lcom/samsung/android/globalactions/util/KeyGuardManagerWrapper;
+    check-cast v7, Lcom/samsung/android/globalactionsdlx/util/KeyGuardManagerWrapper;
 
-    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v2, Lcom/samsung/android/globalactions/util/ToastController;
+    const-class v2, Lcom/samsung/android/globalactionsdlx/util/ToastController;
 
     .line 298
-    invoke-interface {v0, v2}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v0, v2}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
     move-object v8, v0
 
-    check-cast v8, Lcom/samsung/android/globalactions/util/ToastController;
+    check-cast v8, Lcom/samsung/android/globalactionsdlx/util/ToastController;
 
-    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v2, Lcom/samsung/android/globalactions/util/ResourcesWrapper;
+    const-class v2, Lcom/samsung/android/globalactionsdlx/util/ResourcesWrapper;
 
-    invoke-interface {v0, v2}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v0, v2}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
     move-object v9, v0
 
-    check-cast v9, Lcom/samsung/android/globalactions/util/ResourcesWrapper;
+    check-cast v9, Lcom/samsung/android/globalactionsdlx/util/ResourcesWrapper;
 
     move-object v2, p2
 
     move-object v5, p1
 
-    invoke-direct/range {v2 .. v9}, Lcom/android/systemui/globalactions/features/CoverSupportStrategy;-><init>(Lcom/samsung/android/globalactions/util/ConditionChecker;Lcom/android/systemui/basic/util/CoverUtilWrapper;Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;Lcom/samsung/android/globalactions/util/LogWrapper;Lcom/samsung/android/globalactions/util/KeyGuardManagerWrapper;Lcom/samsung/android/globalactions/util/ToastController;Lcom/samsung/android/globalactions/util/ResourcesWrapper;)V
+    invoke-direct/range {v2 .. v9}, Lcom/android/systemui/globalactions/features/CoverSupportStrategy;-><init>(Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;Lcom/android/systemui/basic/util/CoverUtilWrapper;Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;Lcom/samsung/android/globalactionsdlx/util/LogWrapper;Lcom/samsung/android/globalactionsdlx/util/KeyGuardManagerWrapper;Lcom/samsung/android/globalactionsdlx/util/ToastController;Lcom/samsung/android/globalactionsdlx/util/ResourcesWrapper;)V
 
     .line 296
     invoke-interface {v1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -1037,15 +1037,15 @@
     return-object v1
 .end method
 
-.method public createDisposingStrategies(Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;)Ljava/util/List;
+.method public createDisposingStrategies(Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;)Ljava/util/List;
     .locals 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;",
+            "Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;",
             ")",
             "Ljava/util/List<",
-            "Lcom/samsung/android/globalactions/presentation/strategies/DisposingStrategy;",
+            "Lcom/samsung/android/globalactionsdlx/presentation/strategies/DisposingStrategy;",
             ">;"
         }
     .end annotation
@@ -1056,11 +1056,11 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 199
-    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactions/presentation/features/Features;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactionsdlx/presentation/features/Features;
 
     const-string v2, "SCOVER"
 
-    invoke-interface {v1, v2}, Lcom/samsung/android/globalactions/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
+    invoke-interface {v1, v2}, Lcom/samsung/android/globalactionsdlx/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
 
     move-result v1
 
@@ -1069,13 +1069,13 @@
     .line 200
     new-instance v1, Lcom/android/systemui/globalactions/features/CoverSupportStrategy;
 
-    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
     const-class v4, Lcom/android/systemui/basic/util/CoverUtilWrapper;
 
-    invoke-interface {v2, v4}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v2, v4}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -1083,72 +1083,72 @@
 
     check-cast v4, Lcom/android/systemui/basic/util/CoverUtilWrapper;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v5, Lcom/samsung/android/globalactions/util/LogWrapper;
+    const-class v5, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
     .line 201
-    invoke-interface {v2, v5}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v2, v5}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v2
 
     move-object v6, v2
 
-    check-cast v6, Lcom/samsung/android/globalactions/util/LogWrapper;
+    check-cast v6, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v5, Lcom/samsung/android/globalactions/util/KeyGuardManagerWrapper;
+    const-class v5, Lcom/samsung/android/globalactionsdlx/util/KeyGuardManagerWrapper;
 
-    invoke-interface {v2, v5}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v2, v5}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v2
 
     move-object v7, v2
 
-    check-cast v7, Lcom/samsung/android/globalactions/util/KeyGuardManagerWrapper;
+    check-cast v7, Lcom/samsung/android/globalactionsdlx/util/KeyGuardManagerWrapper;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v5, Lcom/samsung/android/globalactions/util/ToastController;
+    const-class v5, Lcom/samsung/android/globalactionsdlx/util/ToastController;
 
     .line 202
-    invoke-interface {v2, v5}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v2, v5}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v2
 
     move-object v8, v2
 
-    check-cast v8, Lcom/samsung/android/globalactions/util/ToastController;
+    check-cast v8, Lcom/samsung/android/globalactionsdlx/util/ToastController;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v5, Lcom/samsung/android/globalactions/util/ResourcesWrapper;
+    const-class v5, Lcom/samsung/android/globalactionsdlx/util/ResourcesWrapper;
 
-    invoke-interface {v2, v5}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v2, v5}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v2
 
     move-object v9, v2
 
-    check-cast v9, Lcom/samsung/android/globalactions/util/ResourcesWrapper;
+    check-cast v9, Lcom/samsung/android/globalactionsdlx/util/ResourcesWrapper;
 
     move-object v2, v1
 
     move-object v5, p1
 
-    invoke-direct/range {v2 .. v9}, Lcom/android/systemui/globalactions/features/CoverSupportStrategy;-><init>(Lcom/samsung/android/globalactions/util/ConditionChecker;Lcom/android/systemui/basic/util/CoverUtilWrapper;Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;Lcom/samsung/android/globalactions/util/LogWrapper;Lcom/samsung/android/globalactions/util/KeyGuardManagerWrapper;Lcom/samsung/android/globalactions/util/ToastController;Lcom/samsung/android/globalactions/util/ResourcesWrapper;)V
+    invoke-direct/range {v2 .. v9}, Lcom/android/systemui/globalactions/features/CoverSupportStrategy;-><init>(Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;Lcom/android/systemui/basic/util/CoverUtilWrapper;Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;Lcom/samsung/android/globalactionsdlx/util/LogWrapper;Lcom/samsung/android/globalactionsdlx/util/KeyGuardManagerWrapper;Lcom/samsung/android/globalactionsdlx/util/ToastController;Lcom/samsung/android/globalactionsdlx/util/ResourcesWrapper;)V
 
     .line 200
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 205
     :cond_0
-    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactions/presentation/features/Features;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactionsdlx/presentation/features/Features;
 
     const-string v2, "FINGERPRINT_IN_DISPLAY"
 
-    invoke-interface {v1, v2}, Lcom/samsung/android/globalactions/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
+    invoke-interface {v1, v2}, Lcom/samsung/android/globalactionsdlx/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
 
     move-result v1
 
@@ -1157,11 +1157,11 @@
     .line 206
     new-instance v1, Lcom/android/systemui/globalactions/features/FingerprintInDisplayStrategy;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
     const-class v3, Lcom/android/systemui/globalactions/util/KeyguardUpdateMonitorWrapper;
 
-    invoke-interface {v2, v3}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v2, v3}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -1173,11 +1173,11 @@
 
     .line 209
     :cond_1
-    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactions/presentation/features/Features;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactionsdlx/presentation/features/Features;
 
     const-string v2, "SUPPORT_SIDE_KEY"
 
-    invoke-interface {v1, v2}, Lcom/samsung/android/globalactions/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
+    invoke-interface {v1, v2}, Lcom/samsung/android/globalactionsdlx/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
 
     move-result v1
 
@@ -1186,93 +1186,93 @@
     .line 210
     new-instance v1, Lcom/android/systemui/globalactions/features/SideKeyStrategy;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mViewModelFactory:Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mViewModelFactory:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;
 
-    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
     iget-object v4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mContext:Landroid/content/Context;
 
-    iget-object v5, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v5, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
     const-class v6, Lcom/android/systemui/globalactions/util/ScreenCapturePopupController;
 
     .line 211
-    invoke-interface {v5, v6}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v5, v6}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v5
 
     check-cast v5, Lcom/android/systemui/globalactions/util/ScreenCapturePopupController;
 
-    invoke-direct {v1, v2, v3, v4, v5}, Lcom/android/systemui/globalactions/features/SideKeyStrategy;-><init>(Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;Lcom/samsung/android/globalactions/util/ConditionChecker;Landroid/content/Context;Lcom/android/systemui/globalactions/util/ScreenCapturePopupController;)V
+    invoke-direct {v1, v2, v3, v4, v5}, Lcom/android/systemui/globalactions/features/SideKeyStrategy;-><init>(Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;Landroid/content/Context;Lcom/android/systemui/globalactions/util/ScreenCapturePopupController;)V
 
     .line 210
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 214
     :cond_2
-    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactions/presentation/features/Features;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactionsdlx/presentation/features/Features;
 
     const-string v2, "FRONT_COVER_DISPLAY"
 
-    invoke-interface {v1, v2}, Lcom/samsung/android/globalactions/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
+    invoke-interface {v1, v2}, Lcom/samsung/android/globalactionsdlx/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
 
     move-result v1
 
     if-eqz v1, :cond_3
 
     .line 215
-    new-instance v1, Lcom/samsung/android/globalactions/features/FrontDisplayStrategy;
+    new-instance v1, Lcom/samsung/android/globalactionsdlx/features/FrontDisplayStrategy;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mLogWrapper:Lcom/samsung/android/globalactions/util/LogWrapper;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mLogWrapper:Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
-    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v4, Lcom/samsung/android/globalactions/util/KeyGuardManagerWrapper;
+    const-class v4, Lcom/samsung/android/globalactionsdlx/util/KeyGuardManagerWrapper;
 
     .line 216
-    invoke-interface {v3, v4}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v3, v4}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v3
 
-    check-cast v3, Lcom/samsung/android/globalactions/util/KeyGuardManagerWrapper;
+    check-cast v3, Lcom/samsung/android/globalactionsdlx/util/KeyGuardManagerWrapper;
 
-    invoke-direct {v1, p1, v2, v3}, Lcom/samsung/android/globalactions/features/FrontDisplayStrategy;-><init>(Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;Lcom/samsung/android/globalactions/util/LogWrapper;Lcom/samsung/android/globalactions/util/KeyGuardManagerWrapper;)V
+    invoke-direct {v1, p1, v2, v3}, Lcom/samsung/android/globalactionsdlx/features/FrontDisplayStrategy;-><init>(Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;Lcom/samsung/android/globalactionsdlx/util/LogWrapper;Lcom/samsung/android/globalactionsdlx/util/KeyGuardManagerWrapper;)V
 
     .line 215
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 219
     :cond_3
-    iget-object p1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactions/presentation/features/Features;
+    iget-object p1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactionsdlx/presentation/features/Features;
 
     const-string v1, "DESKTOP_MODE"
 
-    invoke-interface {p1, v1}, Lcom/samsung/android/globalactions/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
+    invoke-interface {p1, v1}, Lcom/samsung/android/globalactionsdlx/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
 
     move-result p1
 
     if-eqz p1, :cond_4
 
     .line 220
-    new-instance p1, Lcom/samsung/android/globalactions/features/DesktopModeStrategy;
+    new-instance p1, Lcom/samsung/android/globalactionsdlx/features/DesktopModeStrategy;
 
     iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mContext:Landroid/content/Context;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mView:Lcom/samsung/android/globalactions/presentation/view/ExtendableGlobalActionsView;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mView:Lcom/samsung/android/globalactionsdlx/presentation/view/ExtendableGlobalActionsView;
 
-    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v4, Lcom/samsung/android/globalactions/util/DesktopModeManagerWrapper;
+    const-class v4, Lcom/samsung/android/globalactionsdlx/util/DesktopModeManagerWrapper;
 
-    invoke-interface {v3, v4}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v3, v4}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v3
 
-    check-cast v3, Lcom/samsung/android/globalactions/util/DesktopModeManagerWrapper;
+    check-cast v3, Lcom/samsung/android/globalactionsdlx/util/DesktopModeManagerWrapper;
 
-    iget-object v4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
-    invoke-direct {p1, v1, v2, v3, v4}, Lcom/samsung/android/globalactions/features/DesktopModeStrategy;-><init>(Landroid/content/Context;Lcom/samsung/android/globalactions/presentation/view/ExtendableGlobalActionsView;Lcom/samsung/android/globalactions/util/DesktopModeManagerWrapper;Lcom/samsung/android/globalactions/util/ConditionChecker;)V
+    invoke-direct {p1, v1, v2, v3, v4}, Lcom/samsung/android/globalactionsdlx/features/DesktopModeStrategy;-><init>(Landroid/content/Context;Lcom/samsung/android/globalactionsdlx/presentation/view/ExtendableGlobalActionsView;Lcom/samsung/android/globalactionsdlx/util/DesktopModeManagerWrapper;Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;)V
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -1285,15 +1285,15 @@
     return-object v0
 .end method
 
-.method public createInitializationStrategies(Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;)Ljava/util/List;
+.method public createInitializationStrategies(Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;)Ljava/util/List;
     .locals 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;",
+            "Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;",
             ")",
             "Ljava/util/List<",
-            "Lcom/samsung/android/globalactions/presentation/strategies/InitializationStrategy;",
+            "Lcom/samsung/android/globalactionsdlx/presentation/strategies/InitializationStrategy;",
             ">;"
         }
     .end annotation
@@ -1304,42 +1304,42 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 108
-    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactions/presentation/features/Features;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactionsdlx/presentation/features/Features;
 
     const-string v2, "SAFETY_CARE"
 
-    invoke-interface {v1, v2}, Lcom/samsung/android/globalactions/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
+    invoke-interface {v1, v2}, Lcom/samsung/android/globalactionsdlx/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
     .line 109
-    new-instance v1, Lcom/samsung/android/globalactions/features/SafetyCareStrategy;
+    new-instance v1, Lcom/samsung/android/globalactionsdlx/features/SafetyCareStrategy;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
-    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v4, Lcom/samsung/android/globalactions/util/LogWrapper;
+    const-class v4, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
-    invoke-interface {v3, v4}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v3, v4}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v3
 
-    check-cast v3, Lcom/samsung/android/globalactions/util/LogWrapper;
+    check-cast v3, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
-    invoke-direct {v1, p1, v2, v3}, Lcom/samsung/android/globalactions/features/SafetyCareStrategy;-><init>(Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;Lcom/samsung/android/globalactions/util/ConditionChecker;Lcom/samsung/android/globalactions/util/LogWrapper;)V
+    invoke-direct {v1, p1, v2, v3}, Lcom/samsung/android/globalactionsdlx/features/SafetyCareStrategy;-><init>(Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;Lcom/samsung/android/globalactionsdlx/util/LogWrapper;)V
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 112
     :cond_0
-    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactions/presentation/features/Features;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactionsdlx/presentation/features/Features;
 
     const-string v2, "SCOVER"
 
-    invoke-interface {v1, v2}, Lcom/samsung/android/globalactions/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
+    invoke-interface {v1, v2}, Lcom/samsung/android/globalactionsdlx/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
 
     move-result v1
 
@@ -1348,13 +1348,13 @@
     .line 113
     new-instance v1, Lcom/android/systemui/globalactions/features/CoverSupportStrategy;
 
-    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
     const-class v4, Lcom/android/systemui/basic/util/CoverUtilWrapper;
 
-    invoke-interface {v2, v4}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v2, v4}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -1362,107 +1362,107 @@
 
     check-cast v4, Lcom/android/systemui/basic/util/CoverUtilWrapper;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v5, Lcom/samsung/android/globalactions/util/LogWrapper;
+    const-class v5, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
     .line 114
-    invoke-interface {v2, v5}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v2, v5}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v2
 
     move-object v6, v2
 
-    check-cast v6, Lcom/samsung/android/globalactions/util/LogWrapper;
+    check-cast v6, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v5, Lcom/samsung/android/globalactions/util/KeyGuardManagerWrapper;
+    const-class v5, Lcom/samsung/android/globalactionsdlx/util/KeyGuardManagerWrapper;
 
-    invoke-interface {v2, v5}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v2, v5}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v2
 
     move-object v7, v2
 
-    check-cast v7, Lcom/samsung/android/globalactions/util/KeyGuardManagerWrapper;
+    check-cast v7, Lcom/samsung/android/globalactionsdlx/util/KeyGuardManagerWrapper;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v5, Lcom/samsung/android/globalactions/util/ToastController;
+    const-class v5, Lcom/samsung/android/globalactionsdlx/util/ToastController;
 
     .line 115
-    invoke-interface {v2, v5}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v2, v5}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v2
 
     move-object v8, v2
 
-    check-cast v8, Lcom/samsung/android/globalactions/util/ToastController;
+    check-cast v8, Lcom/samsung/android/globalactionsdlx/util/ToastController;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v5, Lcom/samsung/android/globalactions/util/ResourcesWrapper;
+    const-class v5, Lcom/samsung/android/globalactionsdlx/util/ResourcesWrapper;
 
-    invoke-interface {v2, v5}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v2, v5}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v2
 
     move-object v9, v2
 
-    check-cast v9, Lcom/samsung/android/globalactions/util/ResourcesWrapper;
+    check-cast v9, Lcom/samsung/android/globalactionsdlx/util/ResourcesWrapper;
 
     move-object v2, v1
 
     move-object v5, p1
 
-    invoke-direct/range {v2 .. v9}, Lcom/android/systemui/globalactions/features/CoverSupportStrategy;-><init>(Lcom/samsung/android/globalactions/util/ConditionChecker;Lcom/android/systemui/basic/util/CoverUtilWrapper;Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;Lcom/samsung/android/globalactions/util/LogWrapper;Lcom/samsung/android/globalactions/util/KeyGuardManagerWrapper;Lcom/samsung/android/globalactions/util/ToastController;Lcom/samsung/android/globalactions/util/ResourcesWrapper;)V
+    invoke-direct/range {v2 .. v9}, Lcom/android/systemui/globalactions/features/CoverSupportStrategy;-><init>(Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;Lcom/android/systemui/basic/util/CoverUtilWrapper;Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;Lcom/samsung/android/globalactionsdlx/util/LogWrapper;Lcom/samsung/android/globalactionsdlx/util/KeyGuardManagerWrapper;Lcom/samsung/android/globalactionsdlx/util/ToastController;Lcom/samsung/android/globalactionsdlx/util/ResourcesWrapper;)V
 
     .line 113
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 118
     :cond_1
-    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactions/presentation/features/Features;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactionsdlx/presentation/features/Features;
 
     const-string v2, "DESKTOP_MODE"
 
-    invoke-interface {v1, v2}, Lcom/samsung/android/globalactions/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
+    invoke-interface {v1, v2}, Lcom/samsung/android/globalactionsdlx/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
 
     move-result v1
 
     if-eqz v1, :cond_2
 
     .line 119
-    new-instance v1, Lcom/samsung/android/globalactions/features/DesktopModeStrategy;
+    new-instance v1, Lcom/samsung/android/globalactionsdlx/features/DesktopModeStrategy;
 
     iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mContext:Landroid/content/Context;
 
-    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mView:Lcom/samsung/android/globalactions/presentation/view/ExtendableGlobalActionsView;
+    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mView:Lcom/samsung/android/globalactionsdlx/presentation/view/ExtendableGlobalActionsView;
 
-    iget-object v4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v5, Lcom/samsung/android/globalactions/util/DesktopModeManagerWrapper;
+    const-class v5, Lcom/samsung/android/globalactionsdlx/util/DesktopModeManagerWrapper;
 
-    invoke-interface {v4, v5}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v4, v5}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v4
 
-    check-cast v4, Lcom/samsung/android/globalactions/util/DesktopModeManagerWrapper;
+    check-cast v4, Lcom/samsung/android/globalactionsdlx/util/DesktopModeManagerWrapper;
 
-    iget-object v5, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v5, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
-    invoke-direct {v1, v2, v3, v4, v5}, Lcom/samsung/android/globalactions/features/DesktopModeStrategy;-><init>(Landroid/content/Context;Lcom/samsung/android/globalactions/presentation/view/ExtendableGlobalActionsView;Lcom/samsung/android/globalactions/util/DesktopModeManagerWrapper;Lcom/samsung/android/globalactions/util/ConditionChecker;)V
+    invoke-direct {v1, v2, v3, v4, v5}, Lcom/samsung/android/globalactionsdlx/features/DesktopModeStrategy;-><init>(Landroid/content/Context;Lcom/samsung/android/globalactionsdlx/presentation/view/ExtendableGlobalActionsView;Lcom/samsung/android/globalactionsdlx/util/DesktopModeManagerWrapper;Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;)V
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 123
     :cond_2
-    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactions/presentation/features/Features;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactionsdlx/presentation/features/Features;
 
     const-string v2, "KNOX_SDK"
 
-    invoke-interface {v1, v2}, Lcom/samsung/android/globalactions/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
+    invoke-interface {v1, v2}, Lcom/samsung/android/globalactionsdlx/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
 
     move-result v1
 
@@ -1471,15 +1471,15 @@
     .line 124
     new-instance v1, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;
 
-    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mViewModelFactory:Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;
+    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mViewModelFactory:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;
 
-    iget-object v4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
     const-class v5, Lcom/android/systemui/globalactions/util/KnoxCustomManagerWrapper;
 
-    invoke-interface {v2, v5}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v2, v5}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -1487,12 +1487,12 @@
 
     check-cast v5, Lcom/android/systemui/globalactions/util/KnoxCustomManagerWrapper;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
     const-class v6, Lcom/android/systemui/globalactions/util/ProKioskManagerWrapper;
 
     .line 125
-    invoke-interface {v2, v6}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v2, v6}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -1500,45 +1500,45 @@
 
     check-cast v6, Lcom/android/systemui/globalactions/util/ProKioskManagerWrapper;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v7, Lcom/samsung/android/globalactions/util/LogWrapper;
+    const-class v7, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
-    invoke-interface {v2, v7}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v2, v7}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v2
 
     move-object v7, v2
 
-    check-cast v7, Lcom/samsung/android/globalactions/util/LogWrapper;
+    check-cast v7, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
     move-object v2, v1
 
     move-object v8, p1
 
-    invoke-direct/range {v2 .. v8}, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;-><init>(Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;Lcom/samsung/android/globalactions/util/ConditionChecker;Lcom/android/systemui/globalactions/util/KnoxCustomManagerWrapper;Lcom/android/systemui/globalactions/util/ProKioskManagerWrapper;Lcom/samsung/android/globalactions/util/LogWrapper;Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;)V
+    invoke-direct/range {v2 .. v8}, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;-><init>(Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;Lcom/android/systemui/globalactions/util/KnoxCustomManagerWrapper;Lcom/android/systemui/globalactions/util/ProKioskManagerWrapper;Lcom/samsung/android/globalactionsdlx/util/LogWrapper;Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;)V
 
     .line 124
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 128
     :cond_3
-    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactions/presentation/features/Features;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactionsdlx/presentation/features/Features;
 
     const-string v2, "KNOX_CONTAINER"
 
-    invoke-interface {v1, v2}, Lcom/samsung/android/globalactions/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
+    invoke-interface {v1, v2}, Lcom/samsung/android/globalactionsdlx/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
 
     move-result v1
 
     if-eqz v1, :cond_4
 
     .line 129
-    new-instance v1, Lcom/samsung/android/globalactions/features/KnoxContainerStrategy;
+    new-instance v1, Lcom/samsung/android/globalactionsdlx/features/KnoxContainerStrategy;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
-    invoke-direct {v1, p1, v2}, Lcom/samsung/android/globalactions/features/KnoxContainerStrategy;-><init>(Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;Lcom/samsung/android/globalactions/util/ConditionChecker;)V
+    invoke-direct {v1, p1, v2}, Lcom/samsung/android/globalactionsdlx/features/KnoxContainerStrategy;-><init>(Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;)V
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -1551,15 +1551,15 @@
     return-object v0
 .end method
 
-.method public createOnKeyListenerStrategy(Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;)Ljava/util/List;
+.method public createOnKeyListenerStrategy(Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;)Ljava/util/List;
     .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;",
+            "Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;",
             ")",
             "Ljava/util/List<",
-            "Lcom/samsung/android/globalactions/presentation/strategies/OnKeyListenerStrategy;",
+            "Lcom/samsung/android/globalactionsdlx/presentation/strategies/OnKeyListenerStrategy;",
             ">;"
         }
     .end annotation
@@ -1570,11 +1570,11 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 365
-    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactions/presentation/features/Features;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactionsdlx/presentation/features/Features;
 
     const-string v2, "KNOX_SDK"
 
-    invoke-interface {v1, v2}, Lcom/samsung/android/globalactions/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
+    invoke-interface {v1, v2}, Lcom/samsung/android/globalactionsdlx/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
 
     move-result v1
 
@@ -1583,15 +1583,15 @@
     .line 366
     new-instance v1, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;
 
-    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mViewModelFactory:Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;
+    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mViewModelFactory:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;
 
-    iget-object v4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
     const-class v5, Lcom/android/systemui/globalactions/util/KnoxCustomManagerWrapper;
 
-    invoke-interface {v2, v5}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v2, v5}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -1599,12 +1599,12 @@
 
     check-cast v5, Lcom/android/systemui/globalactions/util/KnoxCustomManagerWrapper;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
     const-class v6, Lcom/android/systemui/globalactions/util/ProKioskManagerWrapper;
 
     .line 367
-    invoke-interface {v2, v6}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v2, v6}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -1612,23 +1612,23 @@
 
     check-cast v6, Lcom/android/systemui/globalactions/util/ProKioskManagerWrapper;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v7, Lcom/samsung/android/globalactions/util/LogWrapper;
+    const-class v7, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
-    invoke-interface {v2, v7}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v2, v7}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v2
 
     move-object v7, v2
 
-    check-cast v7, Lcom/samsung/android/globalactions/util/LogWrapper;
+    check-cast v7, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
     move-object v2, v1
 
     move-object v8, p1
 
-    invoke-direct/range {v2 .. v8}, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;-><init>(Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;Lcom/samsung/android/globalactions/util/ConditionChecker;Lcom/android/systemui/globalactions/util/KnoxCustomManagerWrapper;Lcom/android/systemui/globalactions/util/ProKioskManagerWrapper;Lcom/samsung/android/globalactions/util/LogWrapper;Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;)V
+    invoke-direct/range {v2 .. v8}, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;-><init>(Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;Lcom/android/systemui/globalactions/util/KnoxCustomManagerWrapper;Lcom/android/systemui/globalactions/util/ProKioskManagerWrapper;Lcom/samsung/android/globalactionsdlx/util/LogWrapper;Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;)V
 
     .line 366
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -1642,16 +1642,16 @@
     return-object v0
 .end method
 
-.method public createSecureConfirmStrategy(Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;Ljava/lang/String;)Ljava/util/List;
+.method public createSecureConfirmStrategy(Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;Ljava/lang/String;)Ljava/util/List;
     .locals 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;",
+            "Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;",
             "Ljava/lang/String;",
             ")",
             "Ljava/util/List<",
-            "Lcom/samsung/android/globalactions/presentation/strategies/SecureConfirmStrategy;",
+            "Lcom/samsung/android/globalactionsdlx/presentation/strategies/SecureConfirmStrategy;",
             ">;"
         }
     .end annotation
@@ -1775,11 +1775,11 @@
 
     .line 317
     :pswitch_0
-    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactions/presentation/features/Features;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactionsdlx/presentation/features/Features;
 
     const-string v4, "FINGERPRINT_IN_DISPLAY"
 
-    invoke-interface {v1, v4}, Lcom/samsung/android/globalactions/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
+    invoke-interface {v1, v4}, Lcom/samsung/android/globalactionsdlx/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
 
     move-result v1
 
@@ -1788,11 +1788,11 @@
     .line 318
     new-instance v1, Lcom/android/systemui/globalactions/features/FingerprintInDisplayStrategy;
 
-    iget-object v4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
     const-class v5, Lcom/android/systemui/globalactions/util/KeyguardUpdateMonitorWrapper;
 
-    invoke-interface {v4, v5}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v4, v5}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v4
 
@@ -1804,11 +1804,11 @@
 
     .line 320
     :cond_6
-    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactions/presentation/features/Features;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactionsdlx/presentation/features/Features;
 
     const-string v4, "SCOVER"
 
-    invoke-interface {v1, v4}, Lcom/samsung/android/globalactions/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
+    invoke-interface {v1, v4}, Lcom/samsung/android/globalactionsdlx/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
 
     move-result v1
 
@@ -1817,13 +1817,13 @@
     .line 321
     new-instance v1, Lcom/android/systemui/globalactions/features/CoverSupportStrategy;
 
-    iget-object v5, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v5, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
-    iget-object v4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
     const-class v6, Lcom/android/systemui/basic/util/CoverUtilWrapper;
 
-    invoke-interface {v4, v6}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v4, v6}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v4
 
@@ -1831,61 +1831,61 @@
 
     check-cast v6, Lcom/android/systemui/basic/util/CoverUtilWrapper;
 
-    iget-object v4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v7, Lcom/samsung/android/globalactions/util/LogWrapper;
+    const-class v7, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
     .line 322
-    invoke-interface {v4, v7}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v4, v7}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v4
 
     move-object v8, v4
 
-    check-cast v8, Lcom/samsung/android/globalactions/util/LogWrapper;
+    check-cast v8, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
-    iget-object v4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v7, Lcom/samsung/android/globalactions/util/KeyGuardManagerWrapper;
+    const-class v7, Lcom/samsung/android/globalactionsdlx/util/KeyGuardManagerWrapper;
 
-    invoke-interface {v4, v7}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v4, v7}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v4
 
     move-object v9, v4
 
-    check-cast v9, Lcom/samsung/android/globalactions/util/KeyGuardManagerWrapper;
+    check-cast v9, Lcom/samsung/android/globalactionsdlx/util/KeyGuardManagerWrapper;
 
-    iget-object v4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v7, Lcom/samsung/android/globalactions/util/ToastController;
+    const-class v7, Lcom/samsung/android/globalactionsdlx/util/ToastController;
 
     .line 323
-    invoke-interface {v4, v7}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v4, v7}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v4
 
     move-object v10, v4
 
-    check-cast v10, Lcom/samsung/android/globalactions/util/ToastController;
+    check-cast v10, Lcom/samsung/android/globalactionsdlx/util/ToastController;
 
-    iget-object v4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v7, Lcom/samsung/android/globalactions/util/ResourcesWrapper;
+    const-class v7, Lcom/samsung/android/globalactionsdlx/util/ResourcesWrapper;
 
-    invoke-interface {v4, v7}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v4, v7}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v4
 
     move-object v11, v4
 
-    check-cast v11, Lcom/samsung/android/globalactions/util/ResourcesWrapper;
+    check-cast v11, Lcom/samsung/android/globalactionsdlx/util/ResourcesWrapper;
 
     move-object v4, v1
 
     move-object v7, p1
 
-    invoke-direct/range {v4 .. v11}, Lcom/android/systemui/globalactions/features/CoverSupportStrategy;-><init>(Lcom/samsung/android/globalactions/util/ConditionChecker;Lcom/android/systemui/basic/util/CoverUtilWrapper;Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;Lcom/samsung/android/globalactions/util/LogWrapper;Lcom/samsung/android/globalactions/util/KeyGuardManagerWrapper;Lcom/samsung/android/globalactions/util/ToastController;Lcom/samsung/android/globalactions/util/ResourcesWrapper;)V
+    invoke-direct/range {v4 .. v11}, Lcom/android/systemui/globalactions/features/CoverSupportStrategy;-><init>(Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;Lcom/android/systemui/basic/util/CoverUtilWrapper;Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;Lcom/samsung/android/globalactionsdlx/util/LogWrapper;Lcom/samsung/android/globalactionsdlx/util/KeyGuardManagerWrapper;Lcom/samsung/android/globalactionsdlx/util/ToastController;Lcom/samsung/android/globalactionsdlx/util/ResourcesWrapper;)V
 
     .line 321
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -1903,32 +1903,32 @@
 
     .line 333
     :cond_8
-    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactions/presentation/features/Features;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactionsdlx/presentation/features/Features;
 
     const-string v4, "POWER_OFF_LOCK"
 
-    invoke-interface {v1, v4}, Lcom/samsung/android/globalactions/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
+    invoke-interface {v1, v4}, Lcom/samsung/android/globalactionsdlx/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
 
     move-result v1
 
     if-eqz v1, :cond_9
 
     .line 334
-    new-instance v1, Lcom/samsung/android/globalactions/features/PowerOffLockStrategy;
+    new-instance v1, Lcom/samsung/android/globalactionsdlx/features/PowerOffLockStrategy;
 
-    iget-object v4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
-    iget-object v5, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v5, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v6, Lcom/samsung/android/globalactions/util/BiometricPromptWrapper;
+    const-class v6, Lcom/samsung/android/globalactionsdlx/util/BiometricPromptWrapper;
 
-    invoke-interface {v5, v6}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v5, v6}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v5
 
-    check-cast v5, Lcom/samsung/android/globalactions/util/BiometricPromptWrapper;
+    check-cast v5, Lcom/samsung/android/globalactionsdlx/util/BiometricPromptWrapper;
 
-    invoke-direct {v1, v4, v5}, Lcom/samsung/android/globalactions/features/PowerOffLockStrategy;-><init>(Lcom/samsung/android/globalactions/util/ConditionChecker;Lcom/samsung/android/globalactions/util/BiometricPromptWrapper;)V
+    invoke-direct {v1, v4, v5}, Lcom/samsung/android/globalactionsdlx/features/PowerOffLockStrategy;-><init>(Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;Lcom/samsung/android/globalactionsdlx/util/BiometricPromptWrapper;)V
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -1951,33 +1951,33 @@
 
     .line 341
     :cond_a
-    iget-object p2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactions/presentation/features/Features;
+    iget-object p2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactionsdlx/presentation/features/Features;
 
     const-string v1, "FRONT_COVER_DISPLAY"
 
-    invoke-interface {p2, v1}, Lcom/samsung/android/globalactions/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
+    invoke-interface {p2, v1}, Lcom/samsung/android/globalactionsdlx/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
 
     move-result p2
 
     if-eqz p2, :cond_b
 
     .line 342
-    new-instance p2, Lcom/samsung/android/globalactions/features/FrontDisplayStrategy;
+    new-instance p2, Lcom/samsung/android/globalactionsdlx/features/FrontDisplayStrategy;
 
-    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mLogWrapper:Lcom/samsung/android/globalactions/util/LogWrapper;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mLogWrapper:Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
-    iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v2, Lcom/samsung/android/globalactions/util/KeyGuardManagerWrapper;
+    const-class v2, Lcom/samsung/android/globalactionsdlx/util/KeyGuardManagerWrapper;
 
     .line 343
-    invoke-interface {p0, v2}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {p0, v2}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object p0
 
-    check-cast p0, Lcom/samsung/android/globalactions/util/KeyGuardManagerWrapper;
+    check-cast p0, Lcom/samsung/android/globalactionsdlx/util/KeyGuardManagerWrapper;
 
-    invoke-direct {p2, p1, v1, p0}, Lcom/samsung/android/globalactions/features/FrontDisplayStrategy;-><init>(Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;Lcom/samsung/android/globalactions/util/LogWrapper;Lcom/samsung/android/globalactions/util/KeyGuardManagerWrapper;)V
+    invoke-direct {p2, p1, v1, p0}, Lcom/samsung/android/globalactionsdlx/features/FrontDisplayStrategy;-><init>(Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;Lcom/samsung/android/globalactionsdlx/util/LogWrapper;Lcom/samsung/android/globalactionsdlx/util/KeyGuardManagerWrapper;)V
 
     .line 342
     invoke-interface {v0, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -2007,16 +2007,16 @@
     .end packed-switch
 .end method
 
-.method public createSoftwareUpdateStrategy(Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;Ljava/lang/String;)Ljava/util/List;
+.method public createSoftwareUpdateStrategy(Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;Ljava/lang/String;)Ljava/util/List;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;",
+            "Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;",
             "Ljava/lang/String;",
             ")",
             "Ljava/util/List<",
-            "Lcom/samsung/android/globalactions/presentation/strategies/SoftwareUpdateStrategy;",
+            "Lcom/samsung/android/globalactionsdlx/presentation/strategies/SoftwareUpdateStrategy;",
             ">;"
         }
     .end annotation
@@ -2036,21 +2036,21 @@
     if-eqz p2, :cond_0
 
     .line 355
-    new-instance p2, Lcom/samsung/android/globalactions/features/FOTAForceUpdateStrategy;
+    new-instance p2, Lcom/samsung/android/globalactionsdlx/features/FOTAForceUpdateStrategy;
 
-    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
-    iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v1, Lcom/samsung/android/globalactions/util/SystemController;
+    const-class v1, Lcom/samsung/android/globalactionsdlx/util/SystemController;
 
-    invoke-interface {p0, v1}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {p0, v1}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object p0
 
-    check-cast p0, Lcom/samsung/android/globalactions/util/SystemController;
+    check-cast p0, Lcom/samsung/android/globalactionsdlx/util/SystemController;
 
-    invoke-direct {p2, v0, p0}, Lcom/samsung/android/globalactions/features/FOTAForceUpdateStrategy;-><init>(Lcom/samsung/android/globalactions/util/ConditionChecker;Lcom/samsung/android/globalactions/util/SystemController;)V
+    invoke-direct {p2, v0, p0}, Lcom/samsung/android/globalactionsdlx/features/FOTAForceUpdateStrategy;-><init>(Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;Lcom/samsung/android/globalactionsdlx/util/SystemController;)V
 
     invoke-interface {p1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -2064,7 +2064,7 @@
         value = {
             "()",
             "Ljava/util/List<",
-            "Lcom/samsung/android/globalactions/presentation/strategies/ViewInflateStrategy;",
+            "Lcom/samsung/android/globalactionsdlx/presentation/strategies/ViewInflateStrategy;",
             ">;"
         }
     .end annotation
@@ -2075,11 +2075,11 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 394
-    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactions/presentation/features/Features;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactionsdlx/presentation/features/Features;
 
     const-string v2, "CAPTURED_BLUR"
 
-    invoke-interface {v1, v2}, Lcom/samsung/android/globalactions/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
+    invoke-interface {v1, v2}, Lcom/samsung/android/globalactionsdlx/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
 
     move-result v1
 
@@ -2090,17 +2090,17 @@
 
     iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mContext:Landroid/content/Context;
 
-    iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v3, Lcom/samsung/android/globalactions/util/ScreenCaptureUtil;
+    const-class v3, Lcom/samsung/android/globalactionsdlx/util/ScreenCaptureUtil;
 
-    invoke-interface {p0, v3}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {p0, v3}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object p0
 
-    check-cast p0, Lcom/samsung/android/globalactions/util/ScreenCaptureUtil;
+    check-cast p0, Lcom/samsung/android/globalactionsdlx/util/ScreenCaptureUtil;
 
-    invoke-direct {v1, v2, p0}, Lcom/android/systemui/globalactions/features/CapturedBlurStrategy;-><init>(Landroid/content/Context;Lcom/samsung/android/globalactions/util/ScreenCaptureUtil;)V
+    invoke-direct {v1, v2, p0}, Lcom/android/systemui/globalactions/features/CapturedBlurStrategy;-><init>(Landroid/content/Context;Lcom/samsung/android/globalactionsdlx/util/ScreenCaptureUtil;)V
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -2108,15 +2108,15 @@
     return-object v0
 .end method
 
-.method public createWindowDecorationStrategies(Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;)Ljava/util/List;
+.method public createWindowDecorationStrategies(Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;)Ljava/util/List;
     .locals 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;",
+            "Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;",
             ")",
             "Ljava/util/List<",
-            "Lcom/samsung/android/globalactions/presentation/strategies/WindowDecorationStrategy;",
+            "Lcom/samsung/android/globalactionsdlx/presentation/strategies/WindowDecorationStrategy;",
             ">;"
         }
     .end annotation
@@ -2127,51 +2127,51 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 176
-    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactions/presentation/features/Features;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactionsdlx/presentation/features/Features;
 
     const-string v2, "SF_EFFECT"
 
-    invoke-interface {v1, v2}, Lcom/samsung/android/globalactions/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
+    invoke-interface {v1, v2}, Lcom/samsung/android/globalactionsdlx/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
     .line 177
-    new-instance v1, Lcom/samsung/android/globalactions/features/SepEffectStrategy;
+    new-instance v1, Lcom/samsung/android/globalactionsdlx/features/SepEffectStrategy;
 
-    invoke-direct {v1}, Lcom/samsung/android/globalactions/features/SepEffectStrategy;-><init>()V
+    invoke-direct {v1}, Lcom/samsung/android/globalactionsdlx/features/SepEffectStrategy;-><init>()V
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 180
     :cond_0
-    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactions/presentation/features/Features;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactionsdlx/presentation/features/Features;
 
     const-string v2, "NAV_BAR"
 
-    invoke-interface {v1, v2}, Lcom/samsung/android/globalactions/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
+    invoke-interface {v1, v2}, Lcom/samsung/android/globalactionsdlx/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
     .line 181
-    new-instance v1, Lcom/samsung/android/globalactions/features/NavigationBarStrategy;
+    new-instance v1, Lcom/samsung/android/globalactionsdlx/features/NavigationBarStrategy;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
-    invoke-direct {v1, v2}, Lcom/samsung/android/globalactions/features/NavigationBarStrategy;-><init>(Lcom/samsung/android/globalactions/util/ConditionChecker;)V
+    invoke-direct {v1, v2}, Lcom/samsung/android/globalactionsdlx/features/NavigationBarStrategy;-><init>(Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;)V
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 184
     :cond_1
-    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactions/presentation/features/Features;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactionsdlx/presentation/features/Features;
 
     const-string v2, "SCOVER"
 
-    invoke-interface {v1, v2}, Lcom/samsung/android/globalactions/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
+    invoke-interface {v1, v2}, Lcom/samsung/android/globalactionsdlx/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
 
     move-result v1
 
@@ -2180,13 +2180,13 @@
     .line 185
     new-instance v1, Lcom/android/systemui/globalactions/features/CoverSupportStrategy;
 
-    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
     const-class v4, Lcom/android/systemui/basic/util/CoverUtilWrapper;
 
-    invoke-interface {v2, v4}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v2, v4}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -2194,61 +2194,61 @@
 
     check-cast v4, Lcom/android/systemui/basic/util/CoverUtilWrapper;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v5, Lcom/samsung/android/globalactions/util/LogWrapper;
+    const-class v5, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
     .line 186
-    invoke-interface {v2, v5}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v2, v5}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v2
 
     move-object v6, v2
 
-    check-cast v6, Lcom/samsung/android/globalactions/util/LogWrapper;
+    check-cast v6, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v5, Lcom/samsung/android/globalactions/util/KeyGuardManagerWrapper;
+    const-class v5, Lcom/samsung/android/globalactionsdlx/util/KeyGuardManagerWrapper;
 
-    invoke-interface {v2, v5}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v2, v5}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v2
 
     move-object v7, v2
 
-    check-cast v7, Lcom/samsung/android/globalactions/util/KeyGuardManagerWrapper;
+    check-cast v7, Lcom/samsung/android/globalactionsdlx/util/KeyGuardManagerWrapper;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v5, Lcom/samsung/android/globalactions/util/ToastController;
+    const-class v5, Lcom/samsung/android/globalactionsdlx/util/ToastController;
 
     .line 187
-    invoke-interface {v2, v5}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v2, v5}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v2
 
     move-object v8, v2
 
-    check-cast v8, Lcom/samsung/android/globalactions/util/ToastController;
+    check-cast v8, Lcom/samsung/android/globalactionsdlx/util/ToastController;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v5, Lcom/samsung/android/globalactions/util/ResourcesWrapper;
+    const-class v5, Lcom/samsung/android/globalactionsdlx/util/ResourcesWrapper;
 
-    invoke-interface {v2, v5}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v2, v5}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v2
 
     move-object v9, v2
 
-    check-cast v9, Lcom/samsung/android/globalactions/util/ResourcesWrapper;
+    check-cast v9, Lcom/samsung/android/globalactionsdlx/util/ResourcesWrapper;
 
     move-object v2, v1
 
     move-object v5, p1
 
-    invoke-direct/range {v2 .. v9}, Lcom/android/systemui/globalactions/features/CoverSupportStrategy;-><init>(Lcom/samsung/android/globalactions/util/ConditionChecker;Lcom/android/systemui/basic/util/CoverUtilWrapper;Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;Lcom/samsung/android/globalactions/util/LogWrapper;Lcom/samsung/android/globalactions/util/KeyGuardManagerWrapper;Lcom/samsung/android/globalactions/util/ToastController;Lcom/samsung/android/globalactions/util/ResourcesWrapper;)V
+    invoke-direct/range {v2 .. v9}, Lcom/android/systemui/globalactions/features/CoverSupportStrategy;-><init>(Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;Lcom/android/systemui/basic/util/CoverUtilWrapper;Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;Lcom/samsung/android/globalactionsdlx/util/LogWrapper;Lcom/samsung/android/globalactionsdlx/util/KeyGuardManagerWrapper;Lcom/samsung/android/globalactionsdlx/util/ToastController;Lcom/samsung/android/globalactionsdlx/util/ResourcesWrapper;)V
 
     .line 185
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -2262,16 +2262,16 @@
     return-object v0
 .end method
 
-.method public createWindowManagerFunctionStrategy(Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;Ljava/lang/String;)Ljava/util/List;
+.method public createWindowManagerFunctionStrategy(Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;Ljava/lang/String;)Ljava/util/List;
     .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;",
+            "Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;",
             "Ljava/lang/String;",
             ")",
             "Ljava/util/List<",
-            "Lcom/samsung/android/globalactions/presentation/strategies/WindowManagerFunctionStrategy;",
+            "Lcom/samsung/android/globalactionsdlx/presentation/strategies/WindowManagerFunctionStrategy;",
             ">;"
         }
     .end annotation
@@ -2282,11 +2282,11 @@
     invoke-direct {p2}, Ljava/util/ArrayList;-><init>()V
 
     .line 379
-    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactions/presentation/features/Features;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mFeatures:Lcom/samsung/android/globalactionsdlx/presentation/features/Features;
 
     const-string v1, "SCOVER"
 
-    invoke-interface {v0, v1}, Lcom/samsung/android/globalactions/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
+    invoke-interface {v0, v1}, Lcom/samsung/android/globalactionsdlx/presentation/features/Features;->isEnabled(Ljava/lang/String;)Z
 
     move-result v0
 
@@ -2295,13 +2295,13 @@
     .line 380
     new-instance v0, Lcom/android/systemui/globalactions/features/CoverSupportStrategy;
 
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
-    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
     const-class v3, Lcom/android/systemui/basic/util/CoverUtilWrapper;
 
-    invoke-interface {v1, v3}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v1, v3}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -2309,61 +2309,61 @@
 
     check-cast v3, Lcom/android/systemui/basic/util/CoverUtilWrapper;
 
-    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v4, Lcom/samsung/android/globalactions/util/LogWrapper;
+    const-class v4, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
     .line 381
-    invoke-interface {v1, v4}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v1, v4}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v1
 
     move-object v5, v1
 
-    check-cast v5, Lcom/samsung/android/globalactions/util/LogWrapper;
+    check-cast v5, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
-    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v4, Lcom/samsung/android/globalactions/util/KeyGuardManagerWrapper;
+    const-class v4, Lcom/samsung/android/globalactionsdlx/util/KeyGuardManagerWrapper;
 
-    invoke-interface {v1, v4}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v1, v4}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v1
 
     move-object v6, v1
 
-    check-cast v6, Lcom/samsung/android/globalactions/util/KeyGuardManagerWrapper;
+    check-cast v6, Lcom/samsung/android/globalactionsdlx/util/KeyGuardManagerWrapper;
 
-    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v4, Lcom/samsung/android/globalactions/util/ToastController;
+    const-class v4, Lcom/samsung/android/globalactionsdlx/util/ToastController;
 
     .line 382
-    invoke-interface {v1, v4}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v1, v4}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v1
 
     move-object v7, v1
 
-    check-cast v7, Lcom/samsung/android/globalactions/util/ToastController;
+    check-cast v7, Lcom/samsung/android/globalactionsdlx/util/ToastController;
 
-    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v4, Lcom/samsung/android/globalactions/util/ResourcesWrapper;
+    const-class v4, Lcom/samsung/android/globalactionsdlx/util/ResourcesWrapper;
 
-    invoke-interface {v1, v4}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v1, v4}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v1
 
     move-object v8, v1
 
-    check-cast v8, Lcom/samsung/android/globalactions/util/ResourcesWrapper;
+    check-cast v8, Lcom/samsung/android/globalactionsdlx/util/ResourcesWrapper;
 
     move-object v1, v0
 
     move-object v4, p1
 
-    invoke-direct/range {v1 .. v8}, Lcom/android/systemui/globalactions/features/CoverSupportStrategy;-><init>(Lcom/samsung/android/globalactions/util/ConditionChecker;Lcom/android/systemui/basic/util/CoverUtilWrapper;Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;Lcom/samsung/android/globalactions/util/LogWrapper;Lcom/samsung/android/globalactions/util/KeyGuardManagerWrapper;Lcom/samsung/android/globalactions/util/ToastController;Lcom/samsung/android/globalactions/util/ResourcesWrapper;)V
+    invoke-direct/range {v1 .. v8}, Lcom/android/systemui/globalactions/features/CoverSupportStrategy;-><init>(Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;Lcom/android/systemui/basic/util/CoverUtilWrapper;Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;Lcom/samsung/android/globalactionsdlx/util/LogWrapper;Lcom/samsung/android/globalactionsdlx/util/KeyGuardManagerWrapper;Lcom/samsung/android/globalactionsdlx/util/ToastController;Lcom/samsung/android/globalactionsdlx/util/ResourcesWrapper;)V
 
     .line 380
     invoke-interface {p2, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -2427,7 +2427,7 @@
 
     .line 418
     :cond_0
-    iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mLogWrapper:Lcom/samsung/android/globalactions/util/LogWrapper;
+    iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionsFeatureFactory;->mLogWrapper:Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
     new-instance p2, Ljava/lang/StringBuilder;
 
@@ -2455,7 +2455,7 @@
 
     const-string p2, "GlobalActionsFeatureFactory"
 
-    invoke-virtual {p0, p2, p1}, Lcom/samsung/android/globalactions/util/LogWrapper;->i(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, p2, p1}, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;->i(Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 .end method

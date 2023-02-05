@@ -71,13 +71,13 @@
     .line 183
     iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/view/MiniSViewCoverViewAnimator$1;->this$0:Lcom/android/systemui/globalactions/presentation/view/MiniSViewCoverViewAnimator;
 
-    invoke-static {p0}, Lcom/android/systemui/globalactions/presentation/view/MiniSViewCoverViewAnimator;->-$$Nest$fgetmViewStateController(Lcom/android/systemui/globalactions/presentation/view/MiniSViewCoverViewAnimator;)Lcom/samsung/android/globalactions/presentation/view/ViewStateController;
+    invoke-static {p0}, Lcom/android/systemui/globalactions/presentation/view/MiniSViewCoverViewAnimator;->-$$Nest$fgetmViewStateController(Lcom/android/systemui/globalactions/presentation/view/MiniSViewCoverViewAnimator;)Lcom/samsung/android/globalactionsdlx/presentation/view/ViewStateController;
 
     move-result-object p0
 
-    sget-object p1, Lcom/samsung/android/globalactions/presentation/view/ViewAnimationState;->IDLE:Lcom/samsung/android/globalactions/presentation/view/ViewAnimationState;
+    sget-object p1, Lcom/samsung/android/globalactionsdlx/presentation/view/ViewAnimationState;->IDLE:Lcom/samsung/android/globalactionsdlx/presentation/view/ViewAnimationState;
 
-    invoke-interface {p0, p1}, Lcom/samsung/android/globalactions/presentation/view/ViewStateController;->setState(Lcom/samsung/android/globalactions/presentation/view/ViewAnimationState;)V
+    invoke-interface {p0, p1}, Lcom/samsung/android/globalactionsdlx/presentation/view/ViewStateController;->setState(Lcom/samsung/android/globalactionsdlx/presentation/view/ViewAnimationState;)V
 
     return-void
 .end method
