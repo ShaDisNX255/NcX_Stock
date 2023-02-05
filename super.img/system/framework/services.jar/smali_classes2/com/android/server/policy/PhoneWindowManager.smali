@@ -553,42 +553,6 @@
 
 
 # direct methods
-.method static synthetic access$000(Lcom/android/server/policy/PhoneWindowManager;)Landroid/content/Context;
-    .registers 2
-    .param p0, "x0"    # Lcom/android/server/policy/PhoneWindowManager;
-
-    .prologue
-    .line 13
-    iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mContext:Landroid/content/Context;
-
-    return-object v0
-.end method
-
-.method private dlxReceiver()V
-    .registers 5
-
-    .prologue
-    .line 18
-    new-instance v0, Lcom/android/server/policy/PhoneWindowManager$DLXRCV;
-
-    invoke-direct {v0, p0}, Lcom/android/server/policy/PhoneWindowManager$DLXRCV;-><init>(Lcom/android/server/policy/PhoneWindowManager;)V
-
-    .line 49
-    .local v0, "rv":Landroid/content/BroadcastReceiver;
-    iget-object v1, p0, Lcom/android/server/policy/PhoneWindowManager;->mContext:Landroid/content/Context;
-
-    new-instance v2, Landroid/content/IntentFilter;
-
-    const-string v3, "deluxe_reboot_init"
-
-    invoke-direct {v2, v3}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v1, v0, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
-
-    .line 50
-    return-void
-.end method
-
 .method public static synthetic $r8$lambda$60xktEWPfmz688aGJuMuMUj4ww8(Lcom/android/server/policy/PhoneWindowManager;I)V
     .registers 2
 
@@ -6981,8 +6945,6 @@
 
     .line 2189
     iput-object p1, p0, Lcom/android/server/policy/PhoneWindowManager;->mContext:Landroid/content/Context;
-
-    invoke-direct {p0}, Lcom/android/server/policy/PhoneWindowManager;->dlxReceiver()V
 
     .line 2190
     iput-object p2, p0, Lcom/android/server/policy/PhoneWindowManager;->mWindowManager:Landroid/view/IWindowManager;
