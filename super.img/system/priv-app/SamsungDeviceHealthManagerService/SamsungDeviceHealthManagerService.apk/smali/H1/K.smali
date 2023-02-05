@@ -1073,54 +1073,8 @@
 .method public static u(Landroid/content/Context;Ljava/lang/String;)V
     .locals 1
 
-    if-eqz p0, :cond_0
+    const/4 v0, 0x0
 
-    new-instance v0, Landroid/app/AlertDialog$Builder;
-
-    invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
-
-    const/4 p0, 0x0
-
-    invoke-virtual {v0, p0}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
-
-    const-string p0, "SSRM Warning"
-
-    invoke-virtual {v0, p0}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
-
-    invoke-virtual {v0, p1}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
-
-    new-instance p0, LH1/H;
-
-    invoke-direct {p0}, LH1/H;-><init>()V
-
-    const-string p1, "I got it"
-
-    invoke-virtual {v0, p1, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
-
-    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
-
-    move-result-object p1
-
-    const/16 v0, 0x7d9
-
-    invoke-virtual {p1, v0}, Landroid/view/Window;->setType(I)V
-
-    invoke-virtual {p0}, Landroid/app/AlertDialog;->show()V
-
-    goto :goto_0
-
-    :cond_0
-    sget-object p0, LH1/K;->a:Ljava/lang/String;
-
-    const-string p1, "showAlert - context is null"
-
-    invoke-static {p0, p1}, LH1/x;->a(Ljava/lang/String;Ljava/lang/String;)V
-
-    :goto_0
     return-void
 .end method
 
