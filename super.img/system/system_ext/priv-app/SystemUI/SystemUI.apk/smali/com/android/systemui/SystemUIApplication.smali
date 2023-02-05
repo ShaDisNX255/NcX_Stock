@@ -6,6 +6,9 @@
 .implements Lcom/android/systemui/SystemUIAppComponentFactory$ContextInitializer;
 .implements Landroid/util/DumpableContainer;
 
+# static fields
+.field private static mGearContext:Landroid/content/Context;
+
 
 # instance fields
 .field public mBootAnimationFinishedCache:Lcom/android/systemui/BootAnimationFinishedCacheImpl;
@@ -107,6 +110,14 @@
     iget-boolean p0, p0, Lcom/android/systemui/SystemUIApplication;->mServicesStarted:Z
 
     return p0
+.end method
+
+.method public static getContext()Landroid/content/Context;
+    .locals 1
+
+    sget-object v0, Lcom/android/systemui/SystemUIApplication;->mGearContext:Landroid/content/Context;
+
+    return-object v0
 .end method
 
 .method public constructor <init>()V
@@ -580,6 +591,8 @@
     sget v1, Lcom/android/systemui/R$style;->Theme_SystemUI:I
 
     invoke-virtual {p0, v1}, Landroid/app/Application;->setTheme(I)V
+
+     sput-object p0, Lcom/android/systemui/SystemUIApplication;->mGearContext:Landroid/content/Context;
 
     .line 141
     invoke-static {}, Landroid/os/Process;->myUserHandle()Landroid/os/UserHandle;

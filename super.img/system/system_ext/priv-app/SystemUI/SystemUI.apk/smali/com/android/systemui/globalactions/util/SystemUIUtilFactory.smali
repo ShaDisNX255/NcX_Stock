@@ -3,13 +3,13 @@
 .source "SystemUIUtilFactory.java"
 
 # interfaces
-.implements Lcom/samsung/android/globalactions/util/UtilFactory;
+.implements Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
 
 # instance fields
 .field public mContext:Landroid/content/Context;
 
-.field public mDefaultUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+.field public mDefaultUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
 .field public mProvider:Landroid/util/ArrayMap;
     .annotation system Ldalvik/annotation/Signature;
@@ -24,7 +24,7 @@
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/plugins/GlobalActions$GlobalActionsManager;Lcom/samsung/android/globalactions/util/UtilFactory;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/plugins/GlobalActions$GlobalActionsManager;Lcom/samsung/android/globalactionsdlx/util/UtilFactory;)V
     .locals 3
 
     .line 19
@@ -43,7 +43,7 @@
     iput-object p1, p0, Lcom/android/systemui/globalactions/util/SystemUIUtilFactory;->mContext:Landroid/content/Context;
 
     .line 21
-    iput-object p3, p0, Lcom/android/systemui/globalactions/util/SystemUIUtilFactory;->mDefaultUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iput-object p3, p0, Lcom/android/systemui/globalactions/util/SystemUIUtilFactory;->mDefaultUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
     .line 23
     const-class p1, Lcom/android/systemui/plugins/GlobalActions$GlobalActionsManager;
@@ -103,17 +103,17 @@
 
     iget-object v0, p0, Lcom/android/systemui/globalactions/util/SystemUIUtilFactory;->mContext:Landroid/content/Context;
 
-    iget-object v1, p0, Lcom/android/systemui/globalactions/util/SystemUIUtilFactory;->mDefaultUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/util/SystemUIUtilFactory;->mDefaultUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v2, Lcom/samsung/android/globalactions/util/LogWrapper;
+    const-class v2, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
-    invoke-interface {v1, v2}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v1, v2}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v1
 
-    check-cast v1, Lcom/samsung/android/globalactions/util/LogWrapper;
+    check-cast v1, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
-    invoke-direct {p3, v0, v1}, Lcom/android/systemui/globalactions/util/ScreenCapturePopupController;-><init>(Landroid/content/Context;Lcom/samsung/android/globalactions/util/LogWrapper;)V
+    invoke-direct {p3, v0, v1}, Lcom/android/systemui/globalactions/util/ScreenCapturePopupController;-><init>(Landroid/content/Context;Lcom/samsung/android/globalactionsdlx/util/LogWrapper;)V
 
     invoke-virtual {p1, p2, p3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -152,17 +152,17 @@
 
     iget-object v0, p0, Lcom/android/systemui/globalactions/util/SystemUIUtilFactory;->mContext:Landroid/content/Context;
 
-    iget-object v1, p0, Lcom/android/systemui/globalactions/util/SystemUIUtilFactory;->mDefaultUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/util/SystemUIUtilFactory;->mDefaultUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    const-class v2, Lcom/samsung/android/globalactions/util/LogWrapper;
+    const-class v2, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
-    invoke-interface {v1, v2}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v1, v2}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v1
 
-    check-cast v1, Lcom/samsung/android/globalactions/util/LogWrapper;
+    check-cast v1, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
-    invoke-direct {p3, v0, v1}, Lcom/android/systemui/globalactions/util/ProKioskManagerWrapper;-><init>(Landroid/content/Context;Lcom/samsung/android/globalactions/util/LogWrapper;)V
+    invoke-direct {p3, v0, v1}, Lcom/android/systemui/globalactions/util/ProKioskManagerWrapper;-><init>(Landroid/content/Context;Lcom/samsung/android/globalactionsdlx/util/LogWrapper;)V
 
     invoke-virtual {p1, p2, p3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -216,9 +216,9 @@
 
     .line 41
     :cond_0
-    iget-object p0, p0, Lcom/android/systemui/globalactions/util/SystemUIUtilFactory;->mDefaultUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object p0, p0, Lcom/android/systemui/globalactions/util/SystemUIUtilFactory;->mDefaultUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
-    invoke-interface {p0, p1}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {p0, p1}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object p0
 

@@ -3,21 +3,21 @@
 .source "GlobalActionFeatures.java"
 
 # interfaces
-.implements Lcom/samsung/android/globalactions/presentation/features/Features;
+.implements Lcom/samsung/android/globalactionsdlx/presentation/features/Features;
 
 
 # instance fields
 .field public mContext:Landroid/content/Context;
 
-.field public final mLogWrapper:Lcom/samsung/android/globalactions/util/LogWrapper;
+.field public final mLogWrapper:Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
-.field public final mSettingsWrapper:Lcom/samsung/android/globalactions/util/SettingsWrapper;
+.field public final mSettingsWrapper:Lcom/samsung/android/globalactionsdlx/util/SettingsWrapper;
 
-.field public final mSystemPropertiesWrapper:Lcom/samsung/android/globalactions/util/SystemPropertiesWrapper;
+.field public final mSystemPropertiesWrapper:Lcom/samsung/android/globalactionsdlx/util/SystemPropertiesWrapper;
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Lcom/samsung/android/globalactions/util/SettingsWrapper;Lcom/samsung/android/globalactions/util/SystemPropertiesWrapper;Lcom/samsung/android/globalactions/util/LogWrapper;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/samsung/android/globalactionsdlx/util/SettingsWrapper;Lcom/samsung/android/globalactionsdlx/util/SystemPropertiesWrapper;Lcom/samsung/android/globalactionsdlx/util/LogWrapper;)V
     .locals 0
 
     .line 45
@@ -27,13 +27,13 @@
     iput-object p1, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionFeatures;->mContext:Landroid/content/Context;
 
     .line 47
-    iput-object p2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionFeatures;->mSettingsWrapper:Lcom/samsung/android/globalactions/util/SettingsWrapper;
+    iput-object p2, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionFeatures;->mSettingsWrapper:Lcom/samsung/android/globalactionsdlx/util/SettingsWrapper;
 
     .line 48
-    iput-object p3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionFeatures;->mSystemPropertiesWrapper:Lcom/samsung/android/globalactions/util/SystemPropertiesWrapper;
+    iput-object p3, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionFeatures;->mSystemPropertiesWrapper:Lcom/samsung/android/globalactionsdlx/util/SystemPropertiesWrapper;
 
     .line 49
-    iput-object p4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionFeatures;->mLogWrapper:Lcom/samsung/android/globalactions/util/LogWrapper;
+    iput-object p4, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionFeatures;->mLogWrapper:Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
     return-void
 .end method
@@ -61,20 +61,26 @@
 .end method
 
 .method public final isDataModeSupported()Z
-    .locals 1
+    .locals 3
 
-    .line 91
-    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
+    const/4 v1, 0x0
 
-    move-result-object p0
+    const-string v2, "am_power_datamode_show"
 
-    const-string v0, "CscFeature_Framework_SupportDataModeSwitchGlobalAction"
+    invoke-static {v2, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
 
-    invoke-virtual {p0, v0}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;)Z
+    move-result v2
 
-    move-result p0
+    if-eqz v2, :cond_0
 
-    return p0
+    const/4 v0, 0x1
+
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    return v0
 .end method
 
 .method public final isDemoModeSupported()Z
@@ -93,10 +99,10 @@
 
     if-nez v0, :cond_1
 
-    iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionFeatures;->mSettingsWrapper:Lcom/samsung/android/globalactions/util/SettingsWrapper;
+    iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionFeatures;->mSettingsWrapper:Lcom/samsung/android/globalactionsdlx/util/SettingsWrapper;
 
     .line 97
-    invoke-virtual {p0}, Lcom/samsung/android/globalactions/util/SettingsWrapper;->isShopDemo()Z
+    invoke-virtual {p0}, Lcom/samsung/android/globalactionsdlx/util/SettingsWrapper;->isShopDemo()Z
 
     move-result p0
 
@@ -451,7 +457,7 @@
 
     .line 167
     :goto_0
-    iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionFeatures;->mLogWrapper:Lcom/samsung/android/globalactions/util/LogWrapper;
+    iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/features/GlobalActionFeatures;->mLogWrapper:Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -475,7 +481,7 @@
 
     const-string v1, "GlobalActionFeatures"
 
-    invoke-virtual {p0, v1, p1}, Lcom/samsung/android/globalactions/util/LogWrapper;->i(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v1, p1}, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;->i(Ljava/lang/String;Ljava/lang/String;)V
 
     return v0
 .end method
@@ -508,20 +514,26 @@
 .end method
 
 .method public final isForceRestartMessageSupported()Z
-    .locals 1
+    .locals 3
 
-    .line 102
-    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
+    const/4 v1, 0x0
 
-    move-result-object p0
+    const-string v2, "am_power_forcerestart_show"
 
-    const-string v0, "CscFeature_Framework_SupportForceRestartGlobalAction"
+    invoke-static {v2, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
 
-    invoke-virtual {p0, v0}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;)Z
+    move-result v2
 
-    move-result p0
+    if-eqz v2, :cond_0
 
-    return p0
+    const/4 v0, 0x1
+
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    return v0
 .end method
 
 .method public final isKnoxContainerSupported()Z
@@ -629,20 +641,26 @@
 .end method
 
 .method public final isSideKeySupported()Z
-    .locals 1
+    .locals 3
 
-    .line 112
-    invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
+    const/4 v1, 0x1
 
-    move-result-object p0
+    const-string v2, "am_power_sidekey_show"
 
-    const-string v0, "SEC_FLOATING_FEATURE_SETTINGS_SUPPORT_FUNCTION_KEY_MENU"
+    invoke-static {v2, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
 
-    invoke-virtual {p0, v0}, Lcom/samsung/android/feature/SemFloatingFeature;->getBoolean(Ljava/lang/String;)Z
+    move-result v2
 
-    move-result p0
+    if-eqz v2, :cond_0
 
-    return p0
+    const/4 v0, 0x1
+
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    return v0
 .end method
 
 .method public final isSupportFrontDisplay()Z

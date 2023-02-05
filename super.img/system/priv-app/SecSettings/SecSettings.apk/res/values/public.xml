@@ -31858,4 +31858,9 @@
     <public type="xml" name="zen_mode_schedule_rule_settings" id="0x7f150217" />
     <public type="xml" name="zen_mode_settings" id="0x7f150218" />
     <public type="xml" name="zen_mode_sound_vibration_settings" id="0x7f150219" />
+    <public type="array" name="power_icon_landscape_entries" id="0x7f03019f" />
+    <public type="array" name="power_icon_landscape_values" id="0x7f030200" />
+    <public type="array" name="power_icon_portrait_entries" id="0x7f030201" />
+    <public type="array" name="power_icon_portrait_values" id="0x7f030202" />
+    <public type="xml" name="global_actions_settings" id="0x7f15021a" />
 </resources>
