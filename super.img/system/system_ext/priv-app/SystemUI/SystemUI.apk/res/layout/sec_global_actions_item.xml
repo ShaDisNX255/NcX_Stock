@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:id="@id/sec_global_actions_icon_label_view" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView android:gravity="center" android:id="@id/sec_global_actions_icon" android:layout_width="70.0dip" android:layout_height="70.0dip" android:scaleType="center" />
+        <TextView android:textSize="15.0sp" android:textColor="#fffafafa" android:gravity="center" android:id="@id/sec_global_actions_label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:importantForAccessibility="no" android:fontFamily="roboto-regular" />
+    </LinearLayout>
+    <TextView android:textSize="13.0sp" android:textColor="#b2fafafa" android:gravity="center" android:id="@id/sec_global_actions_state" android:layout_width="wrap_content" android:layout_height="wrap_content" android:importantForAccessibility="no" android:fontFamily="roboto-regular" />
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/sec_global_actions_description" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:weightSum="10.0" android:importantForAccessibility="no">
+        <TextView android:textSize="13.0sp" android:textColor="#b2fafafa" android:gravity="center" android:id="@id/sec_global_actions_description_text" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="8.6" android:fontFamily="roboto-regular" />
+    </LinearLayout>
+</LinearLayout>
