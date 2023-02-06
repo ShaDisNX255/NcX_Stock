@@ -66,6 +66,7 @@ priv-app/SettingsBixby(optional in installer)
 priv-app/StickerFaceARAvatar(optional in installer)
 priv-app/SystemUIBixby2(optional in installer)
 priv-app/TaPackAuthFw
+priv-app/Upday
 
 # Vendor
 bin/cass
