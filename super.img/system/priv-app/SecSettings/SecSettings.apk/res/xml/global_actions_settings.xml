@@ -5,13 +5,11 @@
     <PreferenceCategory android:title="Toggles">
         <SamsungSwitchPreference android:title="Restart" android:key="am_power_restart_show" android:defaultValue="false" />
         <SamsungSwitchPreference android:title="Mobile data" android:key="am_power_datamode_show" android:defaultValue="false" />
-        <SamsungSwitchPreference android:title="Emergency mode" android:key="am_power_emergency_show" android:defaultValue="false" />
         <SamsungSwitchPreference android:title="Recovery mode" android:key="am_power_recovery_show" android:defaultValue="false" />
         <SamsungSwitchPreference android:title="Download mode" android:key="am_power_download_show" android:defaultValue="false" />
         <SamsungSwitchPreference android:title="Quick restart" android:key="am_power_quick_reboot_show" android:defaultValue="false" />
         <SamsungSwitchPreference android:title="Screenshot" android:key="am_power_screenshot_show" android:defaultValue="false" />
         <SamsungSwitchPreference android:title="Flashlight" android:key="am_power_torchlight_show" android:defaultValue="false" />
-        <SamsungSwitchPreference android:title="Settings" android:key="am_power_settings_show" android:defaultValue="false" />
     </PreferenceCategory>
     <PreferenceCategory android:title="Layout">
         <SamsungListPreference android:entries="@array/power_icon_portrait_entries" android:title="Number of columns in portrait mode" android:key="am_menu_p" android:defaultValue="1" android:entryValues="@array/power_icon_portrait_values" />

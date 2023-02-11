@@ -15,9 +15,9 @@
 
 
 # instance fields
-.field blacklist mContext:Landroid/content/Context;
+.field mContext:Landroid/content/Context;
 
-.field blacklist mViewModelList:Ljava/util/List;
+.field mViewModelList:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -27,11 +27,11 @@
     .end annotation
 .end field
 
-.field final synthetic blacklist this$0:Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsContentView;
+.field final synthetic this$0:Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsContentView;
 
 
 # direct methods
-.method public constructor blacklist <init>(Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsContentView;Landroid/content/Context;)V
+.method public constructor <init>(Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsContentView;Landroid/content/Context;)V
     .registers 4
     .param p1, "this$0"    # Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsContentView;
     .param p2, "context"    # Landroid/content/Context;
@@ -55,7 +55,7 @@
     return-void
 .end method
 
-.method private blacklist setVerticalSpacing()V
+.method private setVerticalSpacing()V
     .registers 4
 
     .line 617
@@ -137,7 +137,7 @@
 
 
 # virtual methods
-.method public blacklist addItem(Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;)V
+.method public addItem(Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;)V
     .registers 3
     .param p1, "viewModel"    # Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;
 
@@ -150,7 +150,7 @@
     return-void
 .end method
 
-.method public whitelist getCount()I
+.method public getCount()I
     .registers 2
 
     .line 562
@@ -163,7 +163,7 @@
     return v0
 .end method
 
-.method public whitelist getItem(I)Ljava/lang/Object;
+.method public getItem(I)Ljava/lang/Object;
     .registers 3
     .param p1, "position"    # I
 
@@ -177,7 +177,7 @@
     return-object v0
 .end method
 
-.method public whitelist getItemId(I)J
+.method public getItemId(I)J
     .registers 4
     .param p1, "i"    # I
 
@@ -187,7 +187,7 @@
     return-wide v0
 .end method
 
-.method public whitelist getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
+.method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .registers 13
     .param p1, "position"    # I
     .param p2, "convertView"    # Landroid/view/View;
@@ -261,7 +261,7 @@
     return-object p2
 .end method
 
-.method public blacklist resetItems()V
+.method public resetItems()V
     .registers 2
 
     .line 594
@@ -273,12 +273,12 @@
     return-void
 .end method
 
-.method public blacklist updateNumColumns()V
+.method public updateNumColumns()V
     .locals 3
     # Setting the number of columns in portrait mode with the use of a key
     iget-object v0, p0, Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsContentView$BaseContentAdapter;->this$0:Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsContentView;
 
-    invoke-static {v0}, Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsContentView;->access$1300(Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsContentView;)Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsContentView$SamsungGlobalActionsGridView;
+    invoke-static {v0}, Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsContentView;->-$$Nest$fgetmListView(Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsContentView;)Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsContentView$SamsungGlobalActionsGridView;
 
     move-result-object v0
 
@@ -295,7 +295,7 @@
     # Setting the number of columns in landscape mode with the use of a key
     iget-object v0, p0, Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsContentView$BaseContentAdapter;->this$0:Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsContentView;
 
-    invoke-static {v0}, Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsContentView;->access$800(Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsContentView;)Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsContentView$SamsungGlobalActionsGridView;
+    invoke-static {v0}, Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsContentView;->-$$Nest$fgetmLandListView(Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsContentView;)Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsContentView$SamsungGlobalActionsGridView;
 
     move-result-object v0
 
