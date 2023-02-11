@@ -1,0 +1,7 @@
+user=_app seinfo=platform name=com.qualcomm.qti.services.systemhelper:systemhelper_service domain=vendor_systemhelper_app type=app_data_file levelFrom=user
+user=_app seinfo=platform name=com.qualcomm.qti.devicestatisticsservice domain=vendor_qtelephony type=app_data_file levelFrom=all
+user=_app seinfo=platform name=com.qualcomm.qti.uim domain=vendor_qtelephony type=app_data_file levelFrom=all
+user=_app seinfo=platform name=com.qualcomm.qti.uimGbaApp domain=vendor_qtelephony type=app_data_file levelFrom=all
+user=_app seinfo=platform name=com.qualcomm.uimremoteclient domain=vendor_qtelephony type=app_data_file levelFrom=all
+user=_app seinfo=platform name=com.qualcomm.uimremoteserver domain=vendor_qtelephony type=app_data_file levelFrom=all
+user=_app seinfo=platform name=com.qualcomm.qti.lpa domain=vendor_qtelephony type=app_data_file levelFrom=all
