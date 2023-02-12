@@ -49,106 +49,11 @@
 .end method
 
 .method public static autoLockDevice(Landroid/content/Context;Ljava/lang/String;)V
-    .registers 15
+    .registers 2
 
-    .line 227
-    invoke-static {}, Lcom/samsung/android/knoxguard/service/utils/Utils;->isTabletDevice()Z
+    const/4 v0, 0x0
 
-    move-result v0
-
-    if-eqz v0, :cond_15
-
-    const v0, 0x104067f
-
-    .line 228
-    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    const v1, 0x1040679
-
-    .line 229
-    invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object p0
-
-    goto :goto_23
-
-    :cond_15
-    const v0, 0x104067e
-
-    .line 231
-    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    const v1, 0x1040678
-
-    .line 232
-    invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object p0
-
-    :goto_23
-    move-object v6, v0
-
-    if-eqz p1, :cond_45
-
-    .line 235
-    invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
-
-    move-result v0
-
-    if-nez v0, :cond_45
-
-    .line 236
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, " ("
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string p1, ")\n\n"
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    :cond_45
-    move-object v2, p0
-
-    const/4 v0, 0x3
-
-    const/4 v1, 0x1
-
-    const/4 v5, 0x1
-
-    const/4 v7, 0x0
-
-    const-wide/16 v8, 0x0
-
-    const/4 v10, 0x0
-
-    const/4 v11, 0x1
-
-    const/4 v12, 0x0
-
-    const-string v3, ""
-
-    const-string v4, ""
-
-    .line 241
-    invoke-static/range {v0 .. v12}, Lcom/samsung/android/knoxguard/service/utils/Utils;->setRemoteLockToLockscreen(IZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;IJIZLandroid/os/Bundle;)V
-
-    return-void
+    return v0
 .end method
 
 .method public static checkPermission(Landroid/content/Context;Ljava/lang/String;)Z
