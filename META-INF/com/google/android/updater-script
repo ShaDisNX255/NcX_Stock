@@ -292,9 +292,24 @@ else
       ui_print " Applying camera lib patch... "
       ui_print " Special thanks to ddavidavidd @ Telegram and BlackMesa123 @ XDA "
       . "$addons/camera_patch.sh"
-	else
-	   ui_print " "
-	fi
+   else
+      ui_print " "
+   fi
+   if [[ "$model" == "SM-M526BR" ]]; then
+      ui_print " Applying BR specific WiFi files... "
+      ui_print " Thanks BlackMesa123 c: "
+      package_extract_dir "m52br" /vendor
+      set_perm 0 0 0644 /vendor/firmware/ipa_fws.b01
+      set_perm 0 0 0644 /vendor/firmware/ipa_fws.elf
+      set_perm 0 0 0644 /vendor/firmware/ipa_fws.mdt
+      set_perm 0 0 0644 /vendor/firmware/wpss.b01
+      set_perm 0 0 0644 /vendor/firmware/wpss.mdt
+      set_perm 0 0 0644 /vendor/firmware/yupik_ipa_fws.b01
+      set_perm 0 0 0644 /vendor/firmware/yupik_ipa_fws.elf
+      set_perm 0 0 0644 /vendor/firmware/yupik_ipa_fws.mdt
+   else
+      ui_print " "
+   fi
    #BTPatch
    ui_print " Running BT patch zip "
    flash_addon log1 bt-patch.zip
