@@ -20,7 +20,7 @@ ui_print " _______________________________________________ "
 ui_print " |--|---------------------------------------|--| "
 ui_print " |--|            NcX S21FE Port             |--| "
 ui_print " |--|---------------------------------------|--| "
-ui_print " |--|      for $model with $chipname     |--| "
+ui_print " |--|      for $model with Snapdragon     |--| "
 ui_print " |--|---------------------------------------|--| "
 ui_print " |--|      by ShaDisNX255@XDADevelopers     |--| "
 ui_print " |--|---------------------------------------|--| "
@@ -78,7 +78,7 @@ else
    ui_print " installation with your own selection, select the    "
    ui_print " advanced installation. The default installation     "
    ui_print " selects the following options:                      "
-   ui_print " CSC features: No                                    "
+   ui_print " CSC features: Yes                                   "
    ui_print " Ultra debloat: No                                   "
    ui_print " AOD to lockscreen animation: Yes                    "
    ui_print " Samsung Free, Bixby and AR Stickers: No             "
@@ -94,7 +94,11 @@ else
    ui_print " ----Volume up = Default | Volume down = Advanced--- "
    ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
    if $yes; then
-      ui_print " Skipping CSC features... "
+      ui_print " Adding CSC features... "
+      cscfeature="$addons/omc/cscfeature.xml"
+      cscfeature_network="$addons/omc/cscfeature_network.xml"
+      omc_decoder="$addons/omc/decoder.jar"
+      . "$addons/omc_edit.sh"
       ui_print " Regular debloat kept, keeping extra apps "
       ui_print " Adding animation "
       replace "    <SEC_FLOATING_FEATURE_FRAMEWORK_CONFIG_AOD_ITEM>aodversion=7" "    <SEC_FLOATING_FEATURE_FRAMEWORK_CONFIG_AOD_ITEM>activeclock=7,aodversion=7" /system/etc/floating_feature.xml
@@ -278,13 +282,22 @@ else
       fi
    fi
    ui_print " Adding extra permissions to vendor files "
-   set_metadata /vendor/etc/VslMesDetector/MesDetectorBlur.tflite capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
-   set_metadata /vendor/etc/VslMesDetector/MesDetectorLowlight.tflite capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
-   set_metadata /vendor/etc/VslMesDetector/MesDetectorNoise.tflite capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
+   set_metadata /vendor/etc/midas/SRIBMidas_aiDENOISE_FP16_V900.caffemodel capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
+   set_metadata /vendor/etc/midas/SRIBMidas_aiMOIREREMOVE_Coarse_FP32_V800.caffemodel capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
+   set_metadata /vendor/etc/midas/SRIBMidas_aiMOIREREMOVE_Fine_FP32_V800.caffemodel capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
+   set_metadata /vendor/etc/midas/SRIBMidas_aiUNIFIED_FP16_V610.caffemodel capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
    set_metadata /vendor/etc/VslMesDetector/moire_detection.tflite capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
-   ui_print " Applying camera lib patch... "
-   ui_print " Special thanks to ddavidavidd @ Telegram and BlackMesa123 @ XDA "
-   . "$addons/camera_patch.sh"
+   set_metadata /vendor/saiv/image_understanding/db/smartscan_rectifier/deep_dewarp_cnn.onnx capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
+   if [[ "$model" == "SM-A528B" ]]; then
+      ui_print " Applying camera lib patch... "
+      ui_print " Special thanks to ddavidavidd @ Telegram and BlackMesa123 @ XDA "
+      . "$addons/camera_patch.sh"
+	else
+	   ui_print " "
+	fi
+   #BTPatch
+   ui_print " Running BT patch zip "
+   flash_addon log1 bt-patch.zip
    #Unmount
    ui_print " Unmounting partitions... "
    umount_all
