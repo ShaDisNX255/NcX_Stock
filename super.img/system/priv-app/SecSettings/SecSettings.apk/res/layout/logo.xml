@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@drawable/logo" android:scaleType="centerCrop" />
-</LinearLayout>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="150.0dip" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.AppCompatImageView android:layout_width="fill_parent" android:layout_height="105.0dip" android:layout_gravity="center" android:src="@drawable/logo" android:scaleType="centerInside" app:tint="?colorPrimary" app:tintMode="src_in" />
+</FrameLayout>
