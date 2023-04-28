@@ -162,7 +162,6 @@ else
          delete_recursive /system/priv-app/GameOptimizingService
          delete_recursive /system/priv-app/GameTools_Dream
          delete_recursive /system/priv-app/HybridRadio
-         delete_recursive /system/priv-app/SecMyFiles2020
       else
          ui_print " Regular debloat kept, keeping extra apps "
       fi
