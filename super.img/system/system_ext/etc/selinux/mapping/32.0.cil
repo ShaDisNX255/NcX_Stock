@@ -517,11 +517,6 @@
 
 (expandtypeattribute (sec_diag_exec_32_0) true)
 
-(typeattributeset fabriccrypto_32_0 (fabriccrypto))
-(expandtypeattribute (fabriccrypto_32_0) true)
-(typeattributeset fabriccrypto_exec_32_0 (fabriccrypto_exec))
-(expandtypeattribute (fabriccrypto_exec_32_0) true)
-
 (expandtypeattribute (vendor_bt_prop_32_0) true)
 (expandtypeattribute (vendor_dataservice_app_32_0) true)
 (expandtypeattribute (vendor_dpmd_32_0) true)
