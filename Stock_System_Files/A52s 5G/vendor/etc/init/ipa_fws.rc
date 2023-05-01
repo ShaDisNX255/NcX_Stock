@@ -1,7 +1,85 @@
-# Copyright (c) 2019-2020 Qualcomm Technologies, Inc.
-# All Rights Reserved.
-# Confidential and Proprietary - Qualcomm Technologies, Inc.
-#
+on early-init
 
-on early-boot
-write /dev/ipa 1
+# bootloader revision 1, A528B (international)
+on fs && property:ro.boot.rp=1 && property:ro.product.vendor.model=SM-A528B
+    mount none /vendor/firmware/ipa/a528b/rev1/yupik_ipa_fws.b00 /vendor/firmware/yupik_ipa_fws.b00 bind
+    mount none /vendor/firmware/ipa/a528b/rev1/yupik_ipa_fws.b01 /vendor/firmware/yupik_ipa_fws.b01 bind
+    mount none /vendor/firmware/ipa/a528b/rev1/yupik_ipa_fws.b02 /vendor/firmware/yupik_ipa_fws.b02 bind
+    mount none /vendor/firmware/ipa/a528b/rev1/yupik_ipa_fws.b03 /vendor/firmware/yupik_ipa_fws.b03 bind
+    mount none /vendor/firmware/ipa/a528b/rev1/yupik_ipa_fws.b04 /vendor/firmware/yupik_ipa_fws.b04 bind
+    mount none /vendor/firmware/ipa/a528b/rev1/yupik_ipa_fws.elf /vendor/firmware/yupik_ipa_fws.elf bind
+    mount none /vendor/firmware/ipa/a528b/rev1/yupik_ipa_fws.mdt /vendor/firmware/yupik_ipa_fws.mdt bind
+    mount none /vendor/firmware/ipa/a528b/rev1/wpss.b00 /vendor/firmware/wpss.b00 bind
+    mount none /vendor/firmware/ipa/a528b/rev1/wpss.b01 /vendor/firmware/wpss.b01 bind
+    mount none /vendor/firmware/ipa/a528b/rev1/wpss.b02 /vendor/firmware/wpss.b02 bind
+    mount none /vendor/firmware/ipa/a528b/rev1/wpss.b03 /vendor/firmware/wpss.b03 bind
+    mount none /vendor/firmware/ipa/a528b/rev1/wpss.b04 /vendor/firmware/wpss.b04 bind
+    mount none /vendor/firmware/ipa/a528b/rev1/wpss.b05 /vendor/firmware/wpss.b05 bind
+    mount none /vendor/firmware/ipa/a528b/rev1/wpss.b06 /vendor/firmware/wpss.b06 bind
+    mount none /vendor/firmware/ipa/a528b/rev1/wpss.b07 /vendor/firmware/wpss.b07 bind
+    mount none /vendor/firmware/ipa/a528b/rev1/wpss.mdt /vendor/firmware/wpss.mdt bind
+    write /dev/ipa 1
+
+# bootloader revision 1, A528N (asia)
+on fs && property:ro.boot.rp=1 && property:ro.product.vendor.model=SM-A528N
+    mount none /vendor/firmware/ipa/a528n/rev1/yupik_ipa_fws.b00 /vendor/firmware/yupik_ipa_fws.b00 bind
+    mount none /vendor/firmware/ipa/a528n/rev1/yupik_ipa_fws.b01 /vendor/firmware/yupik_ipa_fws.b01 bind
+    mount none /vendor/firmware/ipa/a528n/rev1/yupik_ipa_fws.b02 /vendor/firmware/yupik_ipa_fws.b02 bind
+    mount none /vendor/firmware/ipa/a528n/rev1/yupik_ipa_fws.b03 /vendor/firmware/yupik_ipa_fws.b03 bind
+    mount none /vendor/firmware/ipa/a528n/rev1/yupik_ipa_fws.b04 /vendor/firmware/yupik_ipa_fws.b04 bind
+    mount none /vendor/firmware/ipa/a528n/rev1/yupik_ipa_fws.elf /vendor/firmware/yupik_ipa_fws.elf bind
+    mount none /vendor/firmware/ipa/a528n/rev1/yupik_ipa_fws.mdt /vendor/firmware/yupik_ipa_fws.mdt bind
+    mount none /vendor/firmware/ipa/a528n/rev1/wpss.b00 /vendor/firmware/wpss.b00 bind
+    mount none /vendor/firmware/ipa/a528n/rev1/wpss.b01 /vendor/firmware/wpss.b01 bind
+    mount none /vendor/firmware/ipa/a528n/rev1/wpss.b02 /vendor/firmware/wpss.b02 bind
+    mount none /vendor/firmware/ipa/a528n/rev1/wpss.b03 /vendor/firmware/wpss.b03 bind
+    mount none /vendor/firmware/ipa/a528n/rev1/wpss.b04 /vendor/firmware/wpss.b04 bind
+    mount none /vendor/firmware/ipa/a528n/rev1/wpss.b05 /vendor/firmware/wpss.b05 bind
+    mount none /vendor/firmware/ipa/a528n/rev1/wpss.b06 /vendor/firmware/wpss.b06 bind
+    mount none /vendor/firmware/ipa/a528n/rev1/wpss.b07 /vendor/firmware/wpss.b07 bind
+    mount none /vendor/firmware/ipa/a528n/rev1/wpss.mdt /vendor/firmware/wpss.mdt bind
+    write /dev/ipa 1
+
+# bootloader revision 2, A528B (international)
+on fs && property:ro.boot.rp=2 && property:ro.product.vendor.model=SM-A528B
+    mount none /vendor/firmware/ipa/a528b/rev2/yupik_ipa_fws.b00 /vendor/firmware/yupik_ipa_fws.b00 bind
+    mount none /vendor/firmware/ipa/a528b/rev2/yupik_ipa_fws.b01 /vendor/firmware/yupik_ipa_fws.b01 bind
+    mount none /vendor/firmware/ipa/a528b/rev2/yupik_ipa_fws.b02 /vendor/firmware/yupik_ipa_fws.b02 bind
+    mount none /vendor/firmware/ipa/a528b/rev2/yupik_ipa_fws.b03 /vendor/firmware/yupik_ipa_fws.b03 bind
+    mount none /vendor/firmware/ipa/a528b/rev2/yupik_ipa_fws.b04 /vendor/firmware/yupik_ipa_fws.b04 bind
+    mount none /vendor/firmware/ipa/a528b/rev2/yupik_ipa_fws.elf /vendor/firmware/yupik_ipa_fws.elf bind
+    mount none /vendor/firmware/ipa/a528b/rev2/yupik_ipa_fws.mdt /vendor/firmware/yupik_ipa_fws.mdt bind
+    mount none /vendor/firmware/ipa/a528b/rev2/wpss.b00 /vendor/firmware/wpss.b00 bind
+    mount none /vendor/firmware/ipa/a528b/rev2/wpss.b01 /vendor/firmware/wpss.b01 bind
+    mount none /vendor/firmware/ipa/a528b/rev2/wpss.b02 /vendor/firmware/wpss.b02 bind
+    mount none /vendor/firmware/ipa/a528b/rev2/wpss.b03 /vendor/firmware/wpss.b03 bind
+    mount none /vendor/firmware/ipa/a528b/rev2/wpss.b04 /vendor/firmware/wpss.b04 bind
+    mount none /vendor/firmware/ipa/a528b/rev2/wpss.b05 /vendor/firmware/wpss.b05 bind
+    mount none /vendor/firmware/ipa/a528b/rev2/wpss.b06 /vendor/firmware/wpss.b06 bind
+    mount none /vendor/firmware/ipa/a528b/rev2/wpss.b07 /vendor/firmware/wpss.b07 bind
+    mount none /vendor/firmware/ipa/a528b/rev2/wpss.mdt /vendor/firmware/wpss.mdt bind
+    write /dev/ipa 1
+
+# bootloader revision 2, A528N (asia)
+on fs && property:ro.boot.rp=2 && property:ro.product.vendor.model=SM-A528N
+    mount none /vendor/firmware/ipa/a528n/rev2/yupik_ipa_fws.b00 /vendor/firmware/yupik_ipa_fws.b00 bind
+    mount none /vendor/firmware/ipa/a528n/rev2/yupik_ipa_fws.b01 /vendor/firmware/yupik_ipa_fws.b01 bind
+    mount none /vendor/firmware/ipa/a528n/rev2/yupik_ipa_fws.b02 /vendor/firmware/yupik_ipa_fws.b02 bind
+    mount none /vendor/firmware/ipa/a528n/rev2/yupik_ipa_fws.b03 /vendor/firmware/yupik_ipa_fws.b03 bind
+    mount none /vendor/firmware/ipa/a528n/rev2/yupik_ipa_fws.b04 /vendor/firmware/yupik_ipa_fws.b04 bind
+    mount none /vendor/firmware/ipa/a528n/rev2/yupik_ipa_fws.elf /vendor/firmware/yupik_ipa_fws.elf bind
+    mount none /vendor/firmware/ipa/a528n/rev2/yupik_ipa_fws.mdt /vendor/firmware/yupik_ipa_fws.mdt bind
+    mount none /vendor/firmware/ipa/a528n/rev2/wpss.b00 /vendor/firmware/wpss.b00 bind
+    mount none /vendor/firmware/ipa/a528n/rev2/wpss.b01 /vendor/firmware/wpss.b01 bind
+    mount none /vendor/firmware/ipa/a528n/rev2/wpss.b02 /vendor/firmware/wpss.b02 bind
+    mount none /vendor/firmware/ipa/a528n/rev2/wpss.b03 /vendor/firmware/wpss.b03 bind
+    mount none /vendor/firmware/ipa/a528n/rev2/wpss.b04 /vendor/firmware/wpss.b04 bind
+    mount none /vendor/firmware/ipa/a528n/rev2/wpss.b05 /vendor/firmware/wpss.b05 bind
+    mount none /vendor/firmware/ipa/a528n/rev2/wpss.b06 /vendor/firmware/wpss.b06 bind
+    mount none /vendor/firmware/ipa/a528n/rev2/wpss.b07 /vendor/firmware/wpss.b07 bind
+    mount none /vendor/firmware/ipa/a528n/rev2/wpss.mdt /vendor/firmware/wpss.mdt bind
+    write /dev/ipa 1
+
+# Use A528B bootloader revision 3 firmware by default
+on fs && property:ro.boot.rp=3 && property:ro.product.vendor.model=SM-A528B
+    write /dev/ipa 1
