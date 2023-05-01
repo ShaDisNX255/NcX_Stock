@@ -1,7 +1,7 @@
 on early-init
 
 # bootloader revision 1, A528B (international)
-on fs && property:ro.boot.rp=1 && property:ro.product.vendor.model=SM-A528B
+on fs && property:ro.boot.rp=1 && property:ro.boot.em.model=SM-A528B
     mount none /vendor/firmware/ipa/a528b/rev1/yupik_ipa_fws.b00 /vendor/firmware/yupik_ipa_fws.b00 bind
     mount none /vendor/firmware/ipa/a528b/rev1/yupik_ipa_fws.b01 /vendor/firmware/yupik_ipa_fws.b01 bind
     mount none /vendor/firmware/ipa/a528b/rev1/yupik_ipa_fws.b02 /vendor/firmware/yupik_ipa_fws.b02 bind
@@ -21,7 +21,7 @@ on fs && property:ro.boot.rp=1 && property:ro.product.vendor.model=SM-A528B
     write /dev/ipa 1
 
 # bootloader revision 1, A528N (asia)
-on fs && property:ro.boot.rp=1 && property:ro.product.vendor.model=SM-A528N
+on fs && property:ro.boot.rp=1 && property:ro.boot.em.model=SM-A528N
     mount none /vendor/firmware/ipa/a528n/rev1/yupik_ipa_fws.b00 /vendor/firmware/yupik_ipa_fws.b00 bind
     mount none /vendor/firmware/ipa/a528n/rev1/yupik_ipa_fws.b01 /vendor/firmware/yupik_ipa_fws.b01 bind
     mount none /vendor/firmware/ipa/a528n/rev1/yupik_ipa_fws.b02 /vendor/firmware/yupik_ipa_fws.b02 bind
@@ -41,7 +41,7 @@ on fs && property:ro.boot.rp=1 && property:ro.product.vendor.model=SM-A528N
     write /dev/ipa 1
 
 # bootloader revision 2, A528B (international)
-on fs && property:ro.boot.rp=2 && property:ro.product.vendor.model=SM-A528B
+on fs && property:ro.boot.rp=2 && property:ro.boot.em.model=SM-A528B
     mount none /vendor/firmware/ipa/a528b/rev2/yupik_ipa_fws.b00 /vendor/firmware/yupik_ipa_fws.b00 bind
     mount none /vendor/firmware/ipa/a528b/rev2/yupik_ipa_fws.b01 /vendor/firmware/yupik_ipa_fws.b01 bind
     mount none /vendor/firmware/ipa/a528b/rev2/yupik_ipa_fws.b02 /vendor/firmware/yupik_ipa_fws.b02 bind
@@ -61,7 +61,7 @@ on fs && property:ro.boot.rp=2 && property:ro.product.vendor.model=SM-A528B
     write /dev/ipa 1
 
 # bootloader revision 2, A528N (asia)
-on fs && property:ro.boot.rp=2 && property:ro.product.vendor.model=SM-A528N
+on fs && property:ro.boot.rp=2 && property:ro.boot.em.model=SM-A528N
     mount none /vendor/firmware/ipa/a528n/rev2/yupik_ipa_fws.b00 /vendor/firmware/yupik_ipa_fws.b00 bind
     mount none /vendor/firmware/ipa/a528n/rev2/yupik_ipa_fws.b01 /vendor/firmware/yupik_ipa_fws.b01 bind
     mount none /vendor/firmware/ipa/a528n/rev2/yupik_ipa_fws.b02 /vendor/firmware/yupik_ipa_fws.b02 bind
@@ -81,5 +81,5 @@ on fs && property:ro.boot.rp=2 && property:ro.product.vendor.model=SM-A528N
     write /dev/ipa 1
 
 # Use A528B bootloader revision 3 firmware by default
-on fs && property:ro.boot.rp=3 && property:ro.product.vendor.model=SM-A528B
+on fs && property:ro.boot.rp=3 && property:ro.boot.em.model=SM-A528B
     write /dev/ipa 1
