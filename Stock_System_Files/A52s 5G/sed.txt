@@ -1,0 +1,3 @@
+Run this on raw super to replace fuse to 001
+
+sed -i 's/SRPUE26A003/SRPUE26A001/g' super.img
