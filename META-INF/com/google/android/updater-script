@@ -291,6 +291,9 @@ else
       ui_print " Applying camera lib patch... "
       ui_print " Special thanks to ddavidavidd @ Telegram and BlackMesa123 @ XDA "
       . "$addons/camera_patch.sh"
+      ui_print " Deleting broken arcsoft libs... "
+      delete_recursive /system/lib/libDocShadowRemoval.arcsoft.so
+      delete_recursive /system/lib64/libDocShadowRemoval.arcsoft.so
    else
       ui_print " "
    fi
