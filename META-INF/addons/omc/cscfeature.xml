@@ -1,5 +1,4 @@
 
-    <CscFeature_SystemUI_ConfigMaxRssiLevel>5</CscFeature_SystemUI_ConfigMaxRssiLevel>
     <CscFeature_Common_SupportPrivateMode>TRUE</CscFeature_Common_SupportPrivateMode>
     <CscFeature_Gallery_SupportAliveZoom>TRUE</CscFeature_Gallery_SupportAliveZoom>
     <CscFeature_Sip_ConfigAlivePrediction>multilingual</CscFeature_Sip_ConfigAlivePrediction>
