@@ -307,5 +307,7 @@ com.samsung.speg.prelauncher.disable=true
 persist.sys.usb.config=mtp
 wlan.wfd.hdcp=disable
 wifi.interface=wlan0
+ro.on.core.version=20230101
+ro.on.core.build=20230101
 # end of file
 
