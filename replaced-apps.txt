@@ -19,9 +19,9 @@ lib/libswdap_legacy.so
 lib/libswspatializer_legacy.so
 lib64/*camera* #All libs with camera in the name
 lib64/*arcsoft* #All libs with arcsoft in the name
+lib64/*bluetooth* #All libs with bluetooth in the name
 lib64/libswdap_legacy.so
 lib64/libswspatializer_legacy.so
-lib64/libbluetooth.so
 lib64/libnfc-nxpsn.so
 lib64/libnfc-sec.so
 saiv
