@@ -6,7 +6,7 @@ Samsung Galaxy A52 4G (a52q): [XDA Link](https://forum.xda-developers.com/t/rom-
 
 Samsung Galaxy A52s 5G (a52sxq): [XDA Link](https://forum.xda-developers.com/t/rom-port-oneui5-ncx-s21fe-rom-sm-a528b.4526805/)
 
-Samsung Galaxy A71 4G (a71): [Telegram Link](https://t.me/ncxsupport)
+Samsung Galaxy A71 4G (a71): [XDA Link](https://t.me/ncxsupport](https://forum.xda-developers.com/t/rom-ota-oneui5-1-ncx-s21fe-rom-sm-a715f.4591967/)
 
 Samsung Galaxy M52 5G (m52xq): [XDA Link](https://forum.xda-developers.com/t/sm-m526b-rom-oneui5-ncx-rom-for-samsung-galaxy-m52-5g.4538349/)
 
@@ -67,31 +67,31 @@ I'll try to cover as much as I can on how I build this ROM. There are some thing
 - And how, for all the things we skipped. I usually go about this by going through my commit history and just re-doing my work over and over and over and over again (isn't this fun)
 - So, I start from [here](https://github.com/ShaDisNX255/NcX-S21FE/commits/Android13?before=b32d24ce9b931940855112b6e3a5db993b77f6b2+105&branch=Android13&qualified_name=refs%2Fheads%2FAndroid13)
 - And I locate the commit "Adding stock Android 13 files" and look through all the changes and start implementing them. Here's the ones that will be relevant
-- [Fix for Samsung Health](https://github.com/ShaDisNX255/NcX-S21FE/commit/d97ec1672fe9e1b3f8c241ec96b3c0a9e096bfea)
-- [Disable APK signature checking](https://github.com/ShaDisNX255/NcX-S21FE/commit/e9fca1cedf2405c9f84dc2ee4aafa018e59de464)
-- [Patched precompiled_sepolicy](https://github.com/ShaDisNX255/NcX-S21FE/commit/0fb5531cd39d6325a1adbffcb75b4010134864fa) (this is def needed in A52. You have to patch this for some text extraction features on camera. I've linked the inject I use and the command as well)
-- [Disabling DRC in speaker](https://github.com/ShaDisNX255/NcX-S21FE/commit/89c3379735ee105fe30a938254972f893253557a) (This is probably not needed, I think David in A52s who is super pro mentioned that OneUI takes its audio policy from another file and this file is kinda irrelevant lol)
-- [Disabling Samsung crap and encryption](https://github.com/ShaDisNX255/NcX-S21FE/commit/dc8a0872d0362dc7a1a723623558a73336193975) 
-- [Replacing S21FE props with stock A52](https://github.com/ShaDisNX255/NcX-S21FE/commit/280d94531cee7d8636d27a1606edcf04797a0eaa) (I usually compare them and replace the differences between A52 and S21FE. This is to fix the whole safetynet shit breaking and therefore skipping the MagiskHide props requirement)
-- [Enabling OutDoor mode](https://github.com/ShaDisNX255/NcX-S21FE/commit/fa56e82d3d79d10a728a1e9fc0323eb53fb34dcd)
-- [Removing useless options in Settings](https://github.com/ShaDisNX255/NcX-S21FE/commit/01b48662a153a3c733fd8f24e4617ea8a0039b6d)
-- [Adding logo in Settings](https://github.com/ShaDisNX255/NcX-S21FE/commit/30a30eaded2d6ee247ef926c51f9342eb5b5c36f)
-- [Changing animations to 0.85x](https://github.com/ShaDisNX255/NcX-S21FE/commit/8042eb7f01155785e07ebf2da81cd1fd370cb4eb)
-- [Allow screenshots on secure apps](https://github.com/ShaDisNX255/NcX-S21FE/commit/c2cc85818df4fe040b4f89ca8f9b78e939b211b4)
-- [Fix Secure Folder](https://github.com/ShaDisNX255/NcX-S21FE/commit/8d5d613a133619d1a6dc98354aa9d6ffd1439bef)
-- [Fixing Secure WiFi and Private Share](https://github.com/ShaDisNX255/NcX-S21FE/commit/f26002dce2215824be076060c3ba59b84e6757db)
-- [Fix SmartView for rooted device](https://github.com/ShaDisNX255/NcX-S21FE/commit/daab0463d26e9411a98a60e63ea1e73026bad0ee)
-- [Disable init script to replace recovery](https://github.com/ShaDisNX255/NcX-S21FE/commit/a19c12d7c799fddb641afc0746eec6aeb57d7894) 
-- [Remove SSRM warning](https://github.com/ShaDisNX255/NcX-S21FE/commit/20e007bd742f25d4a2cac204deec575f16d3a012)
-- [Advanced Reboot Menu](https://github.com/ShaDisNX255/NcX-S21FE/commit/911bf1943c19007e4ed232c57ff08ebe431d94d5)
-- [a52q: Edits to floating_feature.xml](https://github.com/ShaDisNX255/NcX-S21FE/commit/78c1819c4d3ab53fa8a0840869fd3afacd65e506) [These are the lines that I add to A52 floating_features]
-- [Fixes to Advanced Reboot Menu](https://github.com/ShaDisNX255/NcX-S21FE/commit/afbc1b241b49b267607e245b1c0fb2bf2405a4ca)
-- [a52q: Camera Features](https://github.com/ShaDisNX255/NcX-S21FE/commit/dff7dac00ea60b03e6df9c239e215f85eb921620) [These are the camera lines that I add to A52]
-- [There's an interesting footnote Mesa added in this commit for A71](https://github.com/ShaDisNX255/NcX-S21FE/commit/e9e8ada401d4d227163859a73bef575d5bcdb3fc) where he says to modify the isSupportKGOnSEC method. I think I still haven't shown how to do this in my repo. This method will be already modified in the services jar I send you just an interesting note I remember every time I see this in my commit history
-- [Adding Voice Focus feature](https://github.com/ShaDisNX255/NcX-S21FE/commit/ccad1a78d661eac8f3afe72cf14caff7b13129a7) 
-- [Add screen resolution options](https://github.com/ShaDisNX255/NcX-S21FE/commit/8fb628abbc513bfb5815ab0d859f45450c98d94e)
-- [a52q: Fix Super Steady](https://github.com/ShaDisNX255/NcX-S21FE/commit/efa035271ad45a4118f306199e7b7994a3eda233) 
-- [Fix Advanced Reboot](https://github.com/ShaDisNX255/NcX-S21FE/commit/23df55abfda68a6929de240daea2aef1adca3fb8)
+  - [Fix for Samsung Health](https://github.com/ShaDisNX255/NcX-S21FE/commit/d97ec1672fe9e1b3f8c241ec96b3c0a9e096bfea)
+  - [Disable APK signature checking](https://github.com/ShaDisNX255/NcX-S21FE/commit/e9fca1cedf2405c9f84dc2ee4aafa018e59de464)
+  - [Patched precompiled_sepolicy](https://github.com/ShaDisNX255/NcX-S21FE/commit/0fb5531cd39d6325a1adbffcb75b4010134864fa) (this is def needed in A52. You have to patch this for some text extraction features on camera. I've linked the inject I use and the command as well)
+  - [Disabling DRC in speaker](https://github.com/ShaDisNX255/NcX-S21FE/commit/89c3379735ee105fe30a938254972f893253557a) (This is probably not needed, I think David in A52s who is super pro mentioned that OneUI takes its audio policy from another file and this file is kinda irrelevant lol)
+  - [Disabling Samsung crap and encryption](https://github.com/ShaDisNX255/NcX-S21FE/commit/dc8a0872d0362dc7a1a723623558a73336193975) 
+  - [Replacing S21FE props with stock A52](https://github.com/ShaDisNX255/NcX-S21FE/commit/280d94531cee7d8636d27a1606edcf04797a0eaa) (I usually compare them and replace the differences between A52 and S21FE. This is to fix the whole safetynet shit breaking and therefore skipping the MagiskHide props requirement)
+  - [Enabling OutDoor mode](https://github.com/ShaDisNX255/NcX-S21FE/commit/fa56e82d3d79d10a728a1e9fc0323eb53fb34dcd)
+  - [Removing useless options in Settings](https://github.com/ShaDisNX255/NcX-S21FE/commit/01b48662a153a3c733fd8f24e4617ea8a0039b6d)
+  - [Adding logo in Settings](https://github.com/ShaDisNX255/NcX-S21FE/commit/30a30eaded2d6ee247ef926c51f9342eb5b5c36f)
+  - [Changing animations to 0.85x](https://github.com/ShaDisNX255/NcX-S21FE/commit/8042eb7f01155785e07ebf2da81cd1fd370cb4eb)
+  - [Allow screenshots on secure apps](https://github.com/ShaDisNX255/NcX-S21FE/commit/c2cc85818df4fe040b4f89ca8f9b78e939b211b4)
+  - [Fix Secure Folder](https://github.com/ShaDisNX255/NcX-S21FE/commit/8d5d613a133619d1a6dc98354aa9d6ffd1439bef)
+  - [Fixing Secure WiFi and Private Share](https://github.com/ShaDisNX255/NcX-S21FE/commit/f26002dce2215824be076060c3ba59b84e6757db)
+  - [Fix SmartView for rooted device](https://github.com/ShaDisNX255/NcX-S21FE/commit/daab0463d26e9411a98a60e63ea1e73026bad0ee)
+  - [Disable init script to replace recovery](https://github.com/ShaDisNX255/NcX-S21FE/commit/a19c12d7c799fddb641afc0746eec6aeb57d7894) 
+  - [Remove SSRM warning](https://github.com/ShaDisNX255/NcX-S21FE/commit/20e007bd742f25d4a2cac204deec575f16d3a012)
+  - [Advanced Reboot Menu](https://github.com/ShaDisNX255/NcX-S21FE/commit/911bf1943c19007e4ed232c57ff08ebe431d94d5)
+  - [a52q: Edits to floating_feature.xml](https://github.com/ShaDisNX255/NcX-S21FE/commit/78c1819c4d3ab53fa8a0840869fd3afacd65e506) [These are the lines that I add to A52 floating_features]
+  - [Fixes to Advanced Reboot Menu](https://github.com/ShaDisNX255/NcX-S21FE/commit/afbc1b241b49b267607e245b1c0fb2bf2405a4ca)
+  - [a52q: Camera Features](https://github.com/ShaDisNX255/NcX-S21FE/commit/dff7dac00ea60b03e6df9c239e215f85eb921620) [These are the camera lines that I add to A52]
+  - [There's an interesting footnote Mesa added in this commit for A71](https://github.com/ShaDisNX255/NcX-S21FE/commit/e9e8ada401d4d227163859a73bef575d5bcdb3fc) where he says to modify the isSupportKGOnSEC method. I think I still haven't shown how to do this in my repo. This method will be already modified in the services jar I send you just an interesting note I remember every time I see this in my commit history
+  - [Adding Voice Focus feature](https://github.com/ShaDisNX255/NcX-S21FE/commit/ccad1a78d661eac8f3afe72cf14caff7b13129a7) 
+  - [Add screen resolution options](https://github.com/ShaDisNX255/NcX-S21FE/commit/8fb628abbc513bfb5815ab0d859f45450c98d94e)
+  - [a52q: Fix Super Steady](https://github.com/ShaDisNX255/NcX-S21FE/commit/efa035271ad45a4118f306199e7b7994a3eda233) 
+  - [Fix Advanced Reboot](https://github.com/ShaDisNX255/NcX-S21FE/commit/23df55abfda68a6929de240daea2aef1adca3fb8)
 - There may be a few commits I may be missing. You can always double check the commit history and read any notes I may have included. After doing these changes so many times there's a chance I'm missing a few of them.
 - After completing all the changes I want, I re-pack `odm`, `product` and `vendor` from my `NcX_A52` project.
 - Then, I re-pack `system` from my `S21FE_System` project
