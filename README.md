@@ -6,7 +6,7 @@ Samsung Galaxy A52 4G (a52q): [XDA Link](https://forum.xda-developers.com/t/rom-
 
 Samsung Galaxy A52s 5G (a52sxq): [XDA Link](https://forum.xda-developers.com/t/rom-port-oneui5-ncx-s21fe-rom-sm-a528b.4526805/)
 
-Samsung Galaxy A71 4G (a71): [XDA Link](https://t.me/ncxsupport](https://forum.xda-developers.com/t/rom-ota-oneui5-1-ncx-s21fe-rom-sm-a715f.4591967/)
+Samsung Galaxy A71 4G (a71): [XDA Link](https://forum.xda-developers.com/t/rom-ota-oneui5-1-ncx-s21fe-rom-sm-a715f.4591967/)
 
 Samsung Galaxy M52 5G (m52xq): [XDA Link](https://forum.xda-developers.com/t/sm-m526b-rom-oneui5-ncx-rom-for-samsung-galaxy-m52-5g.4538349/)
 
