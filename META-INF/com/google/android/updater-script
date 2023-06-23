@@ -16,6 +16,7 @@ setdefault devices off
 ui_print " "
 #Get device info
 model=$(grep_cmdline androidboot.em.model)
+bootrp=$(grep_cmdline androidboot.rp)
 ui_print " _______________________________________________ "
 ui_print " |--|---------------------------------------|--| "
 ui_print " |--|            NcX S21FE Port             |--| "
@@ -312,6 +313,46 @@ else
    else
       ui_print " "
    fi
+   if [[ "$bootrp" == "1" ]]; then
+      ui_print " U1 bootloader detected, installing correct files "
+      package_extract_dir "rev1" /vendor
+   else
+      ui_print " "
+   fi
+   if [[ "$bootrp" == "2" ]]; then
+      ui_print " U2 bootloader detected, installing correct files "
+      package_extract_dir "rev2" /vendor
+   else
+      ui_print " "
+   fi
+   if [[ "$bootrp" == "3" ]]; then
+      ui_print " U3 bootloader detected, installing correct files "
+      package_extract_dir "rev3" /vendor
+   else
+      ui_print " "
+   fi
+   if [[ "$bootrp" == "4" ]]; then
+      ui_print " U4 bootloader detected "
+   else
+      ui_print " "
+   fi
+   ui_print " Giving correct permissions... "
+   set_perm 0 0 0644 /vendor/firmware/wpss.b00
+   set_perm 0 0 0644 /vendor/firmware/wpss.b01
+   set_perm 0 0 0644 /vendor/firmware/wpss.b02
+   set_perm 0 0 0644 /vendor/firmware/wpss.b03
+   set_perm 0 0 0644 /vendor/firmware/wpss.b04
+   set_perm 0 0 0644 /vendor/firmware/wpss.b05
+   set_perm 0 0 0644 /vendor/firmware/wpss.b06
+   set_perm 0 0 0644 /vendor/firmware/wpss.b07
+   set_perm 0 0 0644 /vendor/firmware/wpss.mdt
+   set_perm 0 0 0644 /vendor/firmware/yupik_ipa_fws.b00
+   set_perm 0 0 0644 /vendor/firmware/yupik_ipa_fws.b01
+   set_perm 0 0 0644 /vendor/firmware/yupik_ipa_fws.b02
+   set_perm 0 0 0644 /vendor/firmware/yupik_ipa_fws.b03
+   set_perm 0 0 0644 /vendor/firmware/yupik_ipa_fws.b04
+   set_perm 0 0 0644 /vendor/firmware/yupik_ipa_fws.elf
+   set_perm 0 0 0644 /vendor/firmware/yupik_ipa_fws.mdt
    #BTPatch
    ui_print " Running BT patch zip "
    flash_addon log1 bt-patch.zip
