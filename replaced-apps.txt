@@ -5,6 +5,7 @@ Here is the list of all the apps replaced for this ROM. Use stock ROM files
 app/NfcNci
 app/WifiRROverlayAppH2E
 cameradata #Complete folder
+etc/floating_feature.xml
 etc/audio_effects.conf
 etc/audio_effects_common.conf
 etc/libnfc-nci.conf
