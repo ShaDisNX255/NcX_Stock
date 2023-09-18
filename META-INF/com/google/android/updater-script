@@ -41,7 +41,7 @@ ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯�
 #Installation
 FILE=/data/tmp.txt
 if ! exist "$FILE"; then
-   ui_print " 1st step detected, flasing ROM... "
+   ui_print " 1st step detected, flashing ROM... "
    ui_print " Installing Super image... "
    #Mount
    ui_print " Unmounting all partitions... "
