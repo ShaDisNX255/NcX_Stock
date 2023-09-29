@@ -1,3 +1,7 @@
 Run this on raw super to replace fuse to 001
 
-sed -i 's/SRPUE26A004/SRPUE26A001/g' super.img
+sed -i 's/SRPUE26A005/SRPUE26A001/g' super.img
+
+avbtool erase_footer --image dtbo.img
+
+truncate -s -512 dtbo.img
