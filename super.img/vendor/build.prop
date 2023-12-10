@@ -232,7 +232,7 @@ vendor.usb.diag.func.name=ffs
 vendor.usb.use_ffs_mtp=1
 sys.usb.mtp.batchcancel=1
 debug.stagefright.ccodec=4
-ro.frp.pst=/dev/block/persistent
+ro.frp.pst=
 ro.em.version=20
 ro.hardware.chipname=SM7325
 ro.build.scafe.version=2021A
@@ -279,4 +279,6 @@ ro.vendor.nfc.info.antposY=38.5
 ro.vendor.nfc.info.deviceWidth=75.1
 ro.vendor.nfc.info.deviceHeight=159.9
 ro.vendor.nfc.info.deviceFoldable=false
+ro.security.vaultkeeper.native=0
+ro.security.vaultkeeper.feature=0
 
