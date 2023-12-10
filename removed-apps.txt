@@ -7,17 +7,15 @@ app/DuoStub
 app/Gmail2
 app/Maps
 app/YouTube
-priv-app/CarrierServices
 priv-app/CarrierWiFi
-priv-app/Messages (optional in installer)
 
 # System
-app/ARCore(optional in installer)
-app/ARDrawing(optional in installer)
-app/ARZone(optional in installer)
+app/ARCore
+app/ARDrawing
+app/ARZone
 app/AutomationTest_FB
 app/BBCAgent
-app/BixbyWakeup(optional in installer)
+app/BixbyWakeup
 app/BlockchainBasicKit
 app/CarrierDefaultApp
 app/FBAppManager_NS
@@ -25,47 +23,38 @@ app/GearManagerStub
 app/KidsHome_Installer
 app/MAPSAgent
 app/MDMApp
-app/Netflix_activationCommon
 app/PlayAutoInstallConfig
 app/SamsungPassAutofill_v1
 app/UniversalMDMClient
 app/WebManual
+
 hidden/SmartTutor
+
 preload/Facebook_stub_preload
 preload/Tips
+
 priv/app/AppUpdateCenter
-priv-app/AREmoji(optional in installer)
-priv-app/AREmojiEditor(optional in installer)
+priv-app/AREmoji
+priv-app/AREmojiEditor
 priv-app/AuthFramework
-priv-app/AvatarEmojiSticker_S2(optional in installer)
-priv-app/Bixby(optional in installer)
-priv-app/BixbyService(optional in installer)
+priv-app/AvatarEmojiSticker
+priv-app/Bixby
 priv-app/CIDManager
-priv-app/ContainerAgent3
-priv-app/DigitalKey
 priv-app/EnhancedAttestationAgent
 priv-app/FBInstaller_NS
 priv-app/FBServices
 priv-app/FotaAgent
 priv-app/KLMSAgent
-priv-app/KnoxAIFrameworkApp
 priv-app/knoxanalyticsagent
 priv-app/KnoxCore
 priv-app/KnoxPushManager
 priv-app/knoxvpnproxyhandler
 priv-app/KPECore
-priv-app/LiveStickers
 priv-app/OMCAgent5
 priv-app/OneDrive_Samsung_v3
 priv-app/PaymentFramework
 priv-app/SPPPushClient
-priv-app/SamsungCarKeyFW
-priv-app/SamsungMessages (optional in installer)
 priv-app/SamsungPass
-priv-app/SettingsBixby(optional in installer)
-priv-app/StickerFaceARAvatar(optional in installer)
-priv-app/SystemUIBixby2(optional in installer)
-priv-app/TaPackAuthFw
 priv-app/Upday
 
 # Vendor
@@ -73,14 +62,3 @@ bin/cass
 bin/vaultkeeperd
 etc/vintf/manifest/vaultkeeper_manifest.xml
 
-
-#Ultra Debloat
-In addition to the regular apps deletetd, the Ultra debloat option deletes these apps:
-
-##System
-app/MinusOnePage
-app/SamsungCalendar
-priv-app/GameHome
-priv-app/GameOptimizingService
-priv-app/GameTools_Dream
-priv-app/HybridRadio

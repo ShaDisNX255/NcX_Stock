@@ -17,357 +17,40 @@ ui_print " "
 #Get device info
 model=$(grep_cmdline androidboot.em.model)
 bootrp=$(grep_cmdline androidboot.rp)
-ui_print " _______________________________________________ "
-ui_print " |--|---------------------------------------|--| "
-ui_print " |--|            NcX S21FE Port             |--| "
-ui_print " |--|---------------------------------------|--| "
-ui_print " |--|      for $model with Snapdragon     |--| "
-ui_print " |--|---------------------------------------|--| "
-ui_print " |--|      by ShaDisNX255@XDADevelopers     |--| "
-ui_print " |--|---------------------------------------|--| "
-ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
-ui_print " _______________________________________________ "
-ui_print " |--|---------------------------------------|--| "
-ui_print " |--| Note: The installation works in 2     |--| "
-ui_print " |--| steps. Step 1 will install the        |--| "
-ui_print " |--| image and step 2 will let you make    |--| "
-ui_print " |--| the custom selections so that you can |--| "
-ui_print " |--| configure the ROM to your liking.     |--| "
-ui_print " |--| The zip will detect what step you are |--| "
-ui_print " |--| currently flashing                    |--| "
-ui_print " |--|---------------------------------------|--| "
-ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
-
-#Installation
-FILE=/data/tmp.txt
-if ! exist "$FILE"; then
-   ui_print " 1st step detected, flasing ROM... "
-   ui_print " Installing Super image... "
-   #Mount
-   ui_print " Unmounting all partitions... "
-   umount_all
-   ui_print " Installing stock kernel... "
-   update_zip boot.img $(find_block boot)
-   ui_print " Installing ROM... "
-   update_zip -xz super.img.xz $(find_block super)
-   create_file "$FILE"
-   ui_print " Super img Installed. press any volume button     " 
-   ui_print " to reboot to recovery, flash again and the zip   "
-   ui_print " should install step 2 automatically              "
-   ui_print " "
-   ui_print " "
-   ui_print " Press any volume button to continue... "
-   if $yes; then
-      run_program "$addons/reboot" recovery
-   else
-      run_program "$addons/reboot" recovery
-   fi
-else
-   #Mount
-   ui_print " Mounting partitions... "
-   auto_mount_partitions
-   ui_print " Beginning 2nd step of installation... "
-   #Installation
-   ui_print " ___________________________________________________ "
-   ui_print " -----------------NcX Installation------------------ "
-   ui_print " "
-   ui_print " Welcome to the ROM installation. I have made two    "
-   ui_print " different installation options here . The           "
-   ui_print " default and advanced installation. The default      "
-   ui_print " installation is the standard experience with        "
-   ui_print " predetermined options. If you want to customize     "
-   ui_print " installation with your own selection, select the    "
-   ui_print " advanced installation. The default installation     "
-   ui_print " selects the following options:                      "
-   ui_print " CSC features: Yes                                   "
-   ui_print " Ultra debloat: No                                   "
-   ui_print " AOD to lockscreen animation: Yes                    "
-   ui_print " Samsung Free, Bixby and AR Stickers: No             "
-   ui_print " Messaging app: Google                               "
-   ui_print " Blur mode: Live blur                                "
-   ui_print " DeX Standalone: Off                                 "
-   ui_print " Custom bootanimation zip support: On                "
-   ui_print " "
-   ui_print " "
-   ui_print " Volume up = Default installation                    "
-   ui_print " Volume down = Advanced installation                 "
-   ui_print " "
-   ui_print " ----Volume up = Default | Volume down = Advanced--- "
-   ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
-   if $yes; then
+if [[ "$model" == "SM-A528B" ]]; then
+   ui_print " Samsung Galaxy A52s detected... "
+   if [[ "$bootrp" == "5" ]]; then
+      ui_print " Beginning ROM installation... "
+      ui_print " Unmounting all partitions... "
+      umount_all
+      ui_print " Done... "
+      ui_print " Installing stock kernel... "
+      update_zip boot.img $(find_block boot)
+      update_zip dtbo.img $(find_block dtbo)
+      update_zip vendor_boot.img $(find_block vendor_boot)
+      ui_print " Done... "
+      ui_print " Installing Super image... "
+      update_zip -xz super.img.xz $(find_block super)
+      ui_print " Done... "
+      ui_print " Mounting partitions... "
+      auto_mount_partitions
+      ui_print " Done... "
       ui_print " Adding CSC features... "
       cscfeature="$addons/omc/cscfeature.xml"
       cscfeature_network="$addons/omc/cscfeature_network.xml"
       omc_decoder="$addons/omc/decoder.jar"
       . "$addons/omc_edit.sh"
-      ui_print " Regular debloat kept, keeping extra apps "
-      ui_print " Adding animation "
-      replace "    <SEC_FLOATING_FEATURE_FRAMEWORK_CONFIG_AOD_ITEM>aodversion=7" "    <SEC_FLOATING_FEATURE_FRAMEWORK_CONFIG_AOD_ITEM>activeclock=7,aodversion=7" /system/etc/floating_feature.xml
-      ui_print " Bixby and AR stickers removed "
-      delete_recursive /system/app/ARCore
-      delete_recursive /system/app/ARDrawing
-      delete_recursive /system/app/ARZone
-      delete_recursive /system/app/BixbyWakeup
-      delete_recursive /system/priv-app/AREmoji
-      delete_recursive /system/priv-app/AREmojiEditor
-      delete_recursive /system/priv-app/AvatarEmojiSticker_S2
-      delete_recursive /system/priv-app/Bixby
-      delete_recursive /system/priv-app/BixbyService
-      delete_recursive /system/priv-app/SettingsBixby
-      delete_recursive /system/priv-app/StickerFaceARAvatar
-      delete_recursive /system/priv-app/SystemUIBixby2
-      delete_recursive /system/app/MinusOnePage
-      ui_print " Using Google Messages "
-      delete_recursive /system/priv-app/SamsungMessages
-      ui_print " Blur mode set to live blur "
-      replace "    <SEC_FLOATING_FEATURE_GRAPHICS_SUPPORT_3D_SURFACE_TRANSITION_FLAG>FALSE" "    <SEC_FLOATING_FEATURE_GRAPHICS_SUPPORT_3D_SURFACE_TRANSITION_FLAG>TRUE" /system/etc/floating_feature.xml
-      ui_print " DeX Standalone disabled "
-      replace "    <SEC_FLOATING_FEATURE_COMMON_CONFIG_DEX_MODE>standalone,dual" "    <SEC_FLOATING_FEATURE_COMMON_CONFIG_DEX_MODE>dual" /system/etc/floating_feature.xml
-      ui_print " Custom boot animation zip support added "
-      package_extract_dir "bootzip" /system
-      set_perm 0 0 0755 /system/bin/bootanimation
-      set_perm 0 0 0644 /system/lib64/libbootanimation.so
-      set_perm 0 0 0644 /system/media/bootanimation.zip
+      ui_print " Installation complete... "
+      ui_print " Press VOL+ if you want to reboot to recovery "
+      ui_print " Press VOL- if you want to finish and close the install zip "
+      if $yes; then
+         run_program "$addons/reboot" recovery
+      else
+         ui_print " Done... "
+      fi
    else
-      ui_print " Advanced installation selected "
-      #CSC
-      ui_print " ___________________________________________________ "
-      ui_print " ---------Do you want to add CSC features??--------- "
-      ui_print " "
-      ui_print " "
-      ui_print " ---------Volume up = Yes | Volume down = No-------- "
-      ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
-      if $yes; then
-         ui_print " Adding CSC features... "
-         cscfeature="$addons/omc/cscfeature.xml"
-         cscfeature_network="$addons/omc/cscfeature_network.xml"
-         omc_decoder="$addons/omc/decoder.jar"
-         . "$addons/omc_edit.sh"
-      else
-         ui_print " Skipping CSC features... "
-      fi
-      #Debloat
-      ui_print " ___________________________________________________ "
-      ui_print " ------------Do you want Ultra Debloat-------------? "
-      ui_print " "
-      ui_print " Note: Check the ROMs GitHub page to see the extra   "
-      ui_print " apps that this deletes. Deletes more Samsung apps   "
-      ui_print " but not all, so keep that in mind                   "
-      ui_print " "
-      ui_print " ---------Volume up = Yes | Volume down = No-------- "
-      ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
-      if $yes; then
-         ui_print " Ultra Debloat selected "
-         delete_recursive /system/app/SamsungCalendar
-         delete_recursive /system/priv-app/GameHome
-         delete_recursive /system/priv-app/GameOptimizingService
-         delete_recursive /system/priv-app/GameTools_Dream
-         delete_recursive /system/priv-app/HybridRadio
-      else
-         ui_print " Regular debloat kept, keeping extra apps "
-      fi
-      #Clocktransition
-      ui_print " ___________________________________________________ "
-      ui_print " Do you want to add the AOD to Lockscreen animation? "
-      ui_print " "
-      ui_print " Note: Avoid using this with FOD as it can mess with "
-      ui_print " the AOD brightness. Still usable, but can be        "
-      ui_print " annoying. There is a workaround, check in XDA       "
-      ui_print " "
-      ui_print " ---------Volume up = Yes | Volume down = No-------- "
-      ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
-      if $yes; then
-         ui_print " Adding animation "
-         replace "    <SEC_FLOATING_FEATURE_FRAMEWORK_CONFIG_AOD_ITEM>aodversion=7" "    <SEC_FLOATING_FEATURE_FRAMEWORK_CONFIG_AOD_ITEM>activeclock=7,aodversion=7" /system/etc/floating_feature.xml
-      else
-         ui_print " Skipping this animation "
-         replace "    <SEC_FLOATING_FEATURE_FRAMEWORK_CONFIG_AOD_ITEM>activeclock=7,aodversion=7" "    <SEC_FLOATING_FEATURE_FRAMEWORK_CONFIG_AOD_ITEM>aodversion=7" /system/etc/floating_feature.xml
-      fi
-      #Messaging
-      ui_print " ___________________________________________________ "
-      ui_print "    Select your Messaging app (Samsung or Google)    "
-      ui_print " "
-      ui_print " Volume up = Samsung Messaging                       "
-      ui_print " Volume down = Google Messaging (can't restore       "
-      ui_print "               from Samsung Cloud backup without     "
-      ui_print "               Samsung Messaging.)                   "
-      ui_print " "
-      ui_print " -----Volume up = Samsung | Volume down = Google---- "
-      ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
-      if $yes; then
-         ui_print " Samsung Messaging option selected "
-         delete_recursive /product/priv-app/Messages
-      else
-         ui_print " Google Messaging option selected "
-         delete_recursive /system/priv-app/SamsungMessages
-      fi
-      #BlurType
-      ui_print " ___________________________________________________ "
-      ui_print "    What type of blur would you like installed?      "
-      ui_print " "
-      ui_print " Live blur is the type included in Samsung flagships "
-      ui_print " and static blur is the stock a52s blur. This is the "
-      ui_print " blur noticeable when you pull down the notifications"
-      ui_print " "
-      ui_print " -----Volume up = Live | Volume down = Static------- "
-      ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
-      if $yes; then
-         ui_print " Adding live blur "
-         replace "    <SEC_FLOATING_FEATURE_GRAPHICS_SUPPORT_3D_SURFACE_TRANSITION_FLAG>FALSE" "    <SEC_FLOATING_FEATURE_GRAPHICS_SUPPORT_3D_SURFACE_TRANSITION_FLAG>TRUE" /system/etc/floating_feature.xml
-      else
-         ui_print " Adding static blur "
-         replace "    <SEC_FLOATING_FEATURE_GRAPHICS_SUPPORT_3D_SURFACE_TRANSITION_FLAG>TRUE" "    <SEC_FLOATING_FEATURE_GRAPHICS_SUPPORT_3D_SURFACE_TRANSITION_FLAG>FALSE" /system/etc/floating_feature.xml
-      fi
-      #DeXStandalone
-      ui_print " ___________________________________________________ "
-      ui_print "     Would you like to activate DeX Standalone?      "
-      ui_print " "
-      ui_print " DeX Standalone will allow you to use DeX in your    "
-      ui_print " device without the need of an external display.     "
-      ui_print " This will unfortunately break DeX to PC             "
-      ui_print " "
-      ui_print " --------Volume up = Yes | Volume down = No--------- "
-      ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
-      if $yes; then
-         ui_print " DeX Standalone enabled "
-         replace "    <SEC_FLOATING_FEATURE_COMMON_CONFIG_DEX_MODE>dual" "    <SEC_FLOATING_FEATURE_COMMON_CONFIG_DEX_MODE>standalone,dual" /system/etc/floating_feature.xml
-      else
-         ui_print " DeX Standalone disabled "
-         replace "    <SEC_FLOATING_FEATURE_COMMON_CONFIG_DEX_MODE>standalone,dual" "    <SEC_FLOATING_FEATURE_COMMON_CONFIG_DEX_MODE>dual" /system/etc/floating_feature.xml
-      fi
-      #SamsungFeatures
-      ui_print " ___________________________________________________ "
-      ui_print " Do you want to add Samsung Free, Bixby and AR Stickers? "
-      ui_print " "
-      ui_print " "
-      ui_print " ---------Volume up = Yes | Volume down = No-------- "
-      ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
-      if $yes; then
-         ui_print " Bixby and AR stickers installed "
-      else
-         ui_print " Bixby and AR stickers removed "
-         delete_recursive /system/app/ARCore
-         delete_recursive /system/app/ARDrawing
-         delete_recursive /system/app/ARZone
-         delete_recursive /system/app/BixbyWakeup
-         delete_recursive /system/priv-app/AREmoji
-         delete_recursive /system/priv-app/AREmojiEditor
-         delete_recursive /system/priv-app/AvatarEmojiSticker_S2
-         delete_recursive /system/priv-app/Bixby
-         delete_recursive /system/priv-app/BixbyService
-         delete_recursive /system/priv-app/SettingsBixby
-         delete_recursive /system/priv-app/StickerFaceARAvatar
-         delete_recursive /system/priv-app/SystemUIBixby2
-         delete_recursive /system/app/MinusOnePage
-      fi
-      #BootAnimation
-      ui_print " ___________________________________________________ "
-      ui_print " Do you want to add custom bootanimation zip support?"
-      ui_print " "
-      ui_print " Note: This will add NcX custom boot animation. This "
-      ui_print " will also add support for bootanimation zip instead "
-      ui_print " of Samsung's qmg, so you can always replace it in   "
-      ui_print " system/media/bootanimation.zip for one you like     "
-      ui_print " "
-      ui_print " ---------Volume up = Yes | Volume down = No-------- "
-      ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
-      if $yes; then
-         ui_print " Custom boot animation zip support added "
-         package_extract_dir "bootzip" /system
-         set_perm 0 0 0755 /system/bin/bootanimation
-         set_perm 0 0 0644 /system/lib64/libbootanimation.so
-         set_perm 0 0 0644 /system/media/bootanimation.zip
-      else
-         ui_print " Stock qmg boot animation will be used instead "
-      fi
+      ui_print " Your bootloader version is too old, please update to U5/S5 first "
    fi
-   ui_print " Adding extra permissions to vendor files "
-   set_metadata /vendor/etc/midas/SRIBMidas_aiDENOISE_FP16_V900.caffemodel capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
-   set_metadata /vendor/etc/midas/SRIBMidas_aiMOIREREMOVE_Coarse_FP32_V800.caffemodel capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
-   set_metadata /vendor/etc/midas/SRIBMidas_aiMOIREREMOVE_Fine_FP32_V800.caffemodel capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
-   set_metadata /vendor/etc/midas/SRIBMidas_aiUNIFIED_FP16_V610.caffemodel capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
-   set_metadata /vendor/etc/VslMesDetector/moire_detection.tflite capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
-   set_metadata /vendor/saiv/image_understanding/db/smartscan_rectifier/deep_dewarp_cnn.onnx capabilities 0x0 selabel u:object_r:vendor_configs_file:s0
-   if [[ "$model" == "SM-A528B" ]]; then
-      ui_print " Applying camera lib patch... "
-      ui_print " Special thanks to ddavidavidd @ Telegram and BlackMesa123 @ XDA "
-      . "$addons/camera_patch.sh"
-      ui_print " Deleting broken arcsoft libs... "
-      delete_recursive /system/lib/libDocShadowRemoval.arcsoft.so
-      delete_recursive /system/lib64/libDocShadowRemoval.arcsoft.so
-   else
-      ui_print " "
-   fi
-   if [[ "$model" == "SM-M526BR" ]]; then
-      ui_print " Applying BR specific WiFi files... "
-      ui_print " Thanks BlackMesa123 c: "
-      package_extract_dir "m52br" /vendor
-      set_perm 0 0 0644 /vendor/firmware/ipa_fws.b01
-      set_perm 0 0 0644 /vendor/firmware/ipa_fws.elf
-      set_perm 0 0 0644 /vendor/firmware/ipa_fws.mdt
-      set_perm 0 0 0644 /vendor/firmware/wpss.b01
-      set_perm 0 0 0644 /vendor/firmware/wpss.mdt
-      set_perm 0 0 0644 /vendor/firmware/yupik_ipa_fws.b01
-      set_perm 0 0 0644 /vendor/firmware/yupik_ipa_fws.elf
-      set_perm 0 0 0644 /vendor/firmware/yupik_ipa_fws.mdt
-   else
-      ui_print " "
-   fi
-   if [[ "$bootrp" == "1" ]]; then
-      ui_print " U1 bootloader detected, installing correct files "
-      package_extract_dir "rev1" /vendor
-   else
-      ui_print " "
-   fi
-   if [[ "$bootrp" == "2" ]]; then
-      ui_print " U2 bootloader detected, installing correct files "
-      package_extract_dir "rev2" /vendor
-   else
-      ui_print " "
-   fi
-   if [[ "$bootrp" == "3" ]]; then
-      ui_print " U3 bootloader detected, installing correct files "
-      package_extract_dir "rev3" /vendor
-   else
-      ui_print " "
-   fi
-   if [[ "$bootrp" == "4" ]]; then
-      ui_print " U4 bootloader detected "
-   else
-      ui_print " "
-   fi
-   ui_print " Giving correct permissions... "
-   set_perm 0 0 0644 /vendor/firmware/wpss.b00
-   set_perm 0 0 0644 /vendor/firmware/wpss.b01
-   set_perm 0 0 0644 /vendor/firmware/wpss.b02
-   set_perm 0 0 0644 /vendor/firmware/wpss.b03
-   set_perm 0 0 0644 /vendor/firmware/wpss.b04
-   set_perm 0 0 0644 /vendor/firmware/wpss.b05
-   set_perm 0 0 0644 /vendor/firmware/wpss.b06
-   set_perm 0 0 0644 /vendor/firmware/wpss.b07
-   set_perm 0 0 0644 /vendor/firmware/wpss.mdt
-   set_perm 0 0 0644 /vendor/firmware/yupik_ipa_fws.b00
-   set_perm 0 0 0644 /vendor/firmware/yupik_ipa_fws.b01
-   set_perm 0 0 0644 /vendor/firmware/yupik_ipa_fws.b02
-   set_perm 0 0 0644 /vendor/firmware/yupik_ipa_fws.b03
-   set_perm 0 0 0644 /vendor/firmware/yupik_ipa_fws.b04
-   set_perm 0 0 0644 /vendor/firmware/yupik_ipa_fws.elf
-   set_perm 0 0 0644 /vendor/firmware/yupik_ipa_fws.mdt
-   #BTPatch
-   ui_print " Running BT patch zip "
-   flash_addon log1 bt-patch.zip
-   #Unmount
-   ui_print " Unmounting partitions... "
-   umount_all
-   #Finished
-   ui_print " _______________________________________________ "
-   ui_print " |--|---------------------------------------|--| "
-   ui_print " |--| NcX S21FE Port has been installed     |--| "
-   ui_print " |--| successfully. Huge thanks to all the  |--| "
-   ui_print " |--| devs and users for helping out with   |--| "
-   ui_print " |--| testing and fixes, this ROM wouldn't  |--| "
-   ui_print " |--| be the same without you all!          |--| "
-   ui_print " |--|---------------------------------------|--| "
-   ui_print " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ "
-   delete "$FILE"
+else
+   ui_print " Different model detected, this ROM is for the Galaxy A52s... "
 fi
