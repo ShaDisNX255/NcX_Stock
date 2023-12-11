@@ -3,25 +3,25 @@
 .source "qb/73563223 fe378e894fe37ec6dd6172c2baac445480de745562988d83687da56e2e4ea9d8"
 
 # interfaces
-.implements Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;
+.implements Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;
 
 
 # instance fields
-.field public final mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+.field public final mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
-.field public final mDecoratedFactory:Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;
+.field public final mDecoratedFactory:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;
 
-.field public mFeatureFactory:Lcom/samsung/android/globalactions/presentation/features/FeatureFactory;
+.field public mFeatureFactory:Lcom/samsung/android/globalactionsdlx/presentation/features/FeatureFactory;
 
-.field public final mResourceFactory:Lcom/samsung/android/globalactions/presentation/view/ResourceFactory;
+.field public final mResourceFactory:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceFactory;
 
-.field public final mSAnalytics:Lcom/samsung/android/globalactions/util/SamsungGlobalActionsAnalytics;
+.field public final mSAnalytics:Lcom/samsung/android/globalactionsdlx/util/SamsungGlobalActionsAnalytics;
 
-.field public final mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+.field public final mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
 
 # direct methods
-.method public constructor <init>(Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;Lcom/samsung/android/globalactions/util/UtilFactory;Lcom/samsung/android/globalactions/presentation/view/ResourceFactory;Lcom/samsung/android/globalactions/util/ConditionChecker;Lcom/samsung/android/globalactions/util/SamsungGlobalActionsAnalytics;)V
+.method public constructor <init>(Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;Lcom/samsung/android/globalactionsdlx/util/UtilFactory;Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceFactory;Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;Lcom/samsung/android/globalactionsdlx/util/SamsungGlobalActionsAnalytics;)V
     .locals 0
 
     .line 1
@@ -30,23 +30,23 @@
     .line 2
     .line 3
     .line 4
-    iput-object p1, p0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mDecoratedFactory:Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;
+    iput-object p1, p0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mDecoratedFactory:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;
 
     .line 5
     .line 6
-    iput-object p2, p0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iput-object p2, p0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
     .line 7
     .line 8
-    iput-object p3, p0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mResourceFactory:Lcom/samsung/android/globalactions/presentation/view/ResourceFactory;
+    iput-object p3, p0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mResourceFactory:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceFactory;
 
     .line 9
     .line 10
-    iput-object p4, p0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iput-object p4, p0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
     .line 11
     .line 12
-    iput-object p5, p0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mSAnalytics:Lcom/samsung/android/globalactions/util/SamsungGlobalActionsAnalytics;
+    iput-object p5, p0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mSAnalytics:Lcom/samsung/android/globalactionsdlx/util/SamsungGlobalActionsAnalytics;
 
     .line 13
     .line 14
@@ -482,7 +482,7 @@
 
 
 # virtual methods
-.method public final createActionViewModel(Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;Ljava/lang/String;)Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;
+.method public final createActionViewModel(Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;Ljava/lang/String;)Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;
     .locals 14
 
     .line 1
@@ -496,11 +496,11 @@
 
     .line 4
     .line 5
-    new-instance v10, Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;
+    new-instance v10, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;
 
     .line 6
     .line 7
-    invoke-direct {v10}, Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;-><init>()V
+    invoke-direct {v10}, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;-><init>()V
 
     .line 8
     .line 9
@@ -647,11 +647,11 @@
     .line 70
     .line 71
     .line 72
-    iget-object v0, v0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mDecoratedFactory:Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;
+    iget-object v0, v0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mDecoratedFactory:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;
 
     .line 73
     .line 74
-    invoke-interface {v0, p1, v1}, Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;->createActionViewModel(Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;Ljava/lang/String;)Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;
+    invoke-interface {v0, p1, v1}, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;->createActionViewModel(Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;Ljava/lang/String;)Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;
 
     .line 75
     .line 76
@@ -667,7 +667,7 @@
 
     .line 80
     .line 81
-    iget-object v0, v0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v0, v0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
     .line 82
     .line 83
@@ -675,7 +675,7 @@
 
     .line 84
     .line 85
-    invoke-interface {v0, v2}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v0, v2}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     .line 86
     .line 87
@@ -687,26 +687,26 @@
 
     .line 90
     .line 91
-    invoke-direct {v1, v0, p1}, Lcom/android/systemui/globalactions/presentation/viewmodel/KnoxCustomActionViewModel;-><init>(Landroid/content/Context;Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;)V
+    invoke-direct {v1, v0, p1}, Lcom/android/systemui/globalactions/presentation/viewmodel/KnoxCustomActionViewModel;-><init>(Landroid/content/Context;Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;)V
 
     .line 92
     .line 93
     .line 94
-    invoke-virtual {v10, v4}, Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;->setName(Ljava/lang/String;)V
+    invoke-virtual {v10, v4}, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;->setName(Ljava/lang/String;)V
 
     .line 95
     .line 96
     .line 97
-    sget-object v0, Lcom/samsung/android/globalactions/presentation/viewmodel/ViewType;->CENTER_ICON_CUSTOM_VIEW:Lcom/samsung/android/globalactions/presentation/viewmodel/ViewType;
+    sget-object v0, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ViewType;->CENTER_ICON_CUSTOM_VIEW:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ViewType;
 
     .line 98
     .line 99
-    invoke-virtual {v10, v0}, Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;->setViewType(Lcom/samsung/android/globalactions/presentation/viewmodel/ViewType;)V
+    invoke-virtual {v10, v0}, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;->setViewType(Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ViewType;)V
 
     .line 100
     .line 101
     .line 102
-    iput-object v10, v1, Lcom/android/systemui/globalactions/presentation/viewmodel/KnoxCustomActionViewModel;->mActionInfo:Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;
+    iput-object v10, v1, Lcom/android/systemui/globalactions/presentation/viewmodel/KnoxCustomActionViewModel;->mActionInfo:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;
 
     .line 103
     .line 104
@@ -718,7 +718,7 @@
 
     .line 106
     .line 107
-    iget-object v1, v0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v1, v0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
     .line 108
     .line 109
@@ -726,7 +726,7 @@
 
     .line 110
     .line 111
-    invoke-interface {v1, v2}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v1, v2}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     .line 112
     .line 113
@@ -741,15 +741,15 @@
 
     .line 117
     .line 118
-    iget-object v1, v0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v1, v0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
     .line 119
     .line 120
-    const-class v4, Lcom/samsung/android/globalactions/util/LogWrapper;
+    const-class v4, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
     .line 121
     .line 122
-    invoke-interface {v1, v4}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v1, v4}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     .line 123
     .line 124
@@ -760,23 +760,23 @@
     move-object v4, v1
 
     .line 127
-    check-cast v4, Lcom/samsung/android/globalactions/util/LogWrapper;
+    check-cast v4, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
     .line 128
     .line 129
-    iget-object v5, v0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mFeatureFactory:Lcom/samsung/android/globalactions/presentation/features/FeatureFactory;
+    iget-object v5, v0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mFeatureFactory:Lcom/samsung/android/globalactionsdlx/presentation/features/FeatureFactory;
 
     .line 130
     .line 131
-    iget-object v1, v0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v1, v0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
     .line 132
     .line 133
-    const-class v6, Lcom/samsung/android/globalactions/util/KeyGuardManagerWrapper;
+    const-class v6, Lcom/samsung/android/globalactionsdlx/util/KeyGuardManagerWrapper;
 
     .line 134
     .line 135
-    invoke-interface {v1, v6}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v1, v6}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     .line 136
     .line 137
@@ -787,11 +787,11 @@
     move-object v6, v1
 
     .line 140
-    check-cast v6, Lcom/samsung/android/globalactions/util/KeyGuardManagerWrapper;
+    check-cast v6, Lcom/samsung/android/globalactionsdlx/util/KeyGuardManagerWrapper;
 
     .line 141
     .line 142
-    iget-object v1, v0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v1, v0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
     .line 143
     .line 144
@@ -799,7 +799,7 @@
 
     .line 145
     .line 146
-    invoke-interface {v1, v7}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v1, v7}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     .line 147
     .line 148
@@ -814,11 +814,11 @@
 
     .line 152
     .line 153
-    iget-object v8, v0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v8, v0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
     .line 154
     .line 155
-    iget-object v9, v0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mSAnalytics:Lcom/samsung/android/globalactions/util/SamsungGlobalActionsAnalytics;
+    iget-object v9, v0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mSAnalytics:Lcom/samsung/android/globalactionsdlx/util/SamsungGlobalActionsAnalytics;
 
     .line 156
     .line 157
@@ -828,17 +828,17 @@
     move-object v3, p1
 
     .line 159
-    invoke-direct/range {v1 .. v9}, Lcom/android/systemui/globalactions/presentation/viewmodel/SideKeyActionViewModel;-><init>(Landroid/content/Context;Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;Lcom/samsung/android/globalactions/util/LogWrapper;Lcom/samsung/android/globalactions/presentation/features/FeatureFactory;Lcom/samsung/android/globalactions/util/KeyGuardManagerWrapper;Lcom/android/systemui/globalactions/util/ActivityStarterWrapper;Lcom/samsung/android/globalactions/util/ConditionChecker;Lcom/samsung/android/globalactions/util/SamsungGlobalActionsAnalytics;)V
+    invoke-direct/range {v1 .. v9}, Lcom/android/systemui/globalactions/presentation/viewmodel/SideKeyActionViewModel;-><init>(Landroid/content/Context;Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;Lcom/samsung/android/globalactionsdlx/util/LogWrapper;Lcom/samsung/android/globalactionsdlx/presentation/features/FeatureFactory;Lcom/samsung/android/globalactionsdlx/util/KeyGuardManagerWrapper;Lcom/android/systemui/globalactions/util/ActivityStarterWrapper;Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;Lcom/samsung/android/globalactionsdlx/util/SamsungGlobalActionsAnalytics;)V
 
     .line 160
     .line 161
     .line 162
-    invoke-virtual {v10, v11}, Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;->setName(Ljava/lang/String;)V
+    invoke-virtual {v10, v11}, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;->setName(Ljava/lang/String;)V
 
     .line 163
     .line 164
     .line 165
-    iget-object v0, v0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v0, v0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
     .line 166
     .line 167
@@ -846,7 +846,7 @@
 
     .line 168
     .line 169
-    invoke-interface {v0, v1}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v0, v1}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     .line 170
     .line 171
@@ -879,26 +879,26 @@
     move-result-object v0
 
     .line 186
-    invoke-virtual {v10, v0}, Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;->setStateLabel(Ljava/lang/String;)V
+    invoke-virtual {v10, v0}, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;->setStateLabel(Ljava/lang/String;)V
 
     .line 187
     .line 188
     .line 189
-    invoke-virtual {v10, v13}, Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;->setIcon(I)V
+    invoke-virtual {v10, v13}, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;->setIcon(I)V
 
     .line 190
     .line 191
     .line 192
-    sget-object v0, Lcom/samsung/android/globalactions/presentation/viewmodel/ViewType;->KEY_SETTINGS_VIEW:Lcom/samsung/android/globalactions/presentation/viewmodel/ViewType;
+    sget-object v0, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ViewType;->KEY_SETTINGS_VIEW:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ViewType;
 
     .line 193
     .line 194
-    invoke-virtual {v10, v0}, Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;->setViewType(Lcom/samsung/android/globalactions/presentation/viewmodel/ViewType;)V
+    invoke-virtual {v10, v0}, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;->setViewType(Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ViewType;)V
 
     .line 195
     .line 196
     .line 197
-    iput-object v10, v12, Lcom/android/systemui/globalactions/presentation/viewmodel/SideKeyActionViewModel;->mInfo:Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;
+    iput-object v10, v12, Lcom/android/systemui/globalactions/presentation/viewmodel/SideKeyActionViewModel;->mInfo:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;
 
     .line 198
     .line 199
@@ -910,7 +910,7 @@
 
     .line 201
     .line 202
-    iget-object v0, v0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v0, v0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
     .line 203
     .line 204
@@ -918,7 +918,7 @@
 
     .line 205
     .line 206
-    invoke-interface {v0, v2}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v0, v2}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     .line 207
     .line 208
@@ -935,21 +935,21 @@
     .line 213
     .line 214
     .line 215
-    invoke-virtual {v10, v5}, Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;->setName(Ljava/lang/String;)V
+    invoke-virtual {v10, v5}, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;->setName(Ljava/lang/String;)V
 
     .line 216
     .line 217
     .line 218
-    sget-object v0, Lcom/samsung/android/globalactions/presentation/viewmodel/ViewType;->BOTTOM_POPUP_VIEW:Lcom/samsung/android/globalactions/presentation/viewmodel/ViewType;
+    sget-object v0, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ViewType;->BOTTOM_POPUP_VIEW:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ViewType;
 
     .line 219
     .line 220
-    invoke-virtual {v10, v0}, Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;->setViewType(Lcom/samsung/android/globalactions/presentation/viewmodel/ViewType;)V
+    invoke-virtual {v10, v0}, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;->setViewType(Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ViewType;)V
 
     .line 221
     .line 222
     .line 223
-    iput-object v10, v1, Lcom/android/systemui/globalactions/presentation/viewmodel/ScreenCapturePopupActionViewModel;->mInfo:Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;
+    iput-object v10, v1, Lcom/android/systemui/globalactions/presentation/viewmodel/ScreenCapturePopupActionViewModel;->mInfo:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;
 
     .line 224
     .line 225
@@ -961,15 +961,15 @@
 
     .line 227
     .line 228
-    iget-object v1, v0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v1, v0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
     .line 229
     .line 230
-    const-class v2, Lcom/samsung/android/globalactions/util/AlertDialogFactory;
+    const-class v2, Lcom/samsung/android/globalactionsdlx/util/AlertDialogFactory;
 
     .line 231
     .line 232
-    invoke-interface {v1, v2}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v1, v2}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     .line 233
     .line 234
@@ -980,19 +980,19 @@
     move-object v4, v1
 
     .line 237
-    check-cast v4, Lcom/samsung/android/globalactions/util/AlertDialogFactory;
+    check-cast v4, Lcom/samsung/android/globalactionsdlx/util/AlertDialogFactory;
 
     .line 238
     .line 239
-    iget-object v1, v0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v1, v0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
     .line 240
     .line 241
-    const-class v2, Lcom/samsung/android/globalactions/util/SystemController;
+    const-class v2, Lcom/samsung/android/globalactionsdlx/util/SystemController;
 
     .line 242
     .line 243
-    invoke-interface {v1, v2}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v1, v2}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     .line 244
     .line 245
@@ -1003,11 +1003,11 @@
     move-object v5, v1
 
     .line 248
-    check-cast v5, Lcom/samsung/android/globalactions/util/SystemController;
+    check-cast v5, Lcom/samsung/android/globalactionsdlx/util/SystemController;
 
     .line 249
     .line 250
-    iget-object v1, v0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v1, v0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
     .line 251
     .line 252
@@ -1015,7 +1015,7 @@
 
     .line 253
     .line 254
-    invoke-interface {v1, v2}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v1, v2}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     .line 255
     .line 256
@@ -1030,15 +1030,15 @@
 
     .line 260
     .line 261
-    iget-object v1, v0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v1, v0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
     .line 262
     .line 263
-    const-class v2, Lcom/samsung/android/globalactions/util/InputMethodManagerWrapper;
+    const-class v2, Lcom/samsung/android/globalactionsdlx/util/InputMethodManagerWrapper;
 
     .line 264
     .line 265
-    invoke-interface {v1, v2}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v1, v2}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     .line 266
     .line 267
@@ -1049,23 +1049,23 @@
     move-object v7, v1
 
     .line 270
-    check-cast v7, Lcom/samsung/android/globalactions/util/InputMethodManagerWrapper;
+    check-cast v7, Lcom/samsung/android/globalactionsdlx/util/InputMethodManagerWrapper;
 
     .line 271
     .line 272
-    iget-object v8, v0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v8, v0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
     .line 273
     .line 274
-    iget-object v1, v0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mUtilFactory:Lcom/samsung/android/globalactions/util/UtilFactory;
+    iget-object v1, v0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mUtilFactory:Lcom/samsung/android/globalactionsdlx/util/UtilFactory;
 
     .line 275
     .line 276
-    const-class v2, Lcom/samsung/android/globalactions/util/ResourcesWrapper;
+    const-class v2, Lcom/samsung/android/globalactionsdlx/util/ResourcesWrapper;
 
     .line 277
     .line 278
-    invoke-interface {v1, v2}, Lcom/samsung/android/globalactions/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {v1, v2}, Lcom/samsung/android/globalactionsdlx/util/UtilFactory;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     .line 279
     .line 280
@@ -1076,11 +1076,11 @@
     move-object v9, v1
 
     .line 283
-    check-cast v9, Lcom/samsung/android/globalactions/util/ResourcesWrapper;
+    check-cast v9, Lcom/samsung/android/globalactionsdlx/util/ResourcesWrapper;
 
     .line 284
     .line 285
-    iget-object v13, v0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mSAnalytics:Lcom/samsung/android/globalactions/util/SamsungGlobalActionsAnalytics;
+    iget-object v13, v0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mSAnalytics:Lcom/samsung/android/globalactionsdlx/util/SamsungGlobalActionsAnalytics;
 
     .line 286
     .line 287
@@ -1111,34 +1111,34 @@
     move-object v9, v13
 
     .line 296
-    invoke-direct/range {v1 .. v9}, Lcom/android/systemui/globalactions/presentation/viewmodel/ProKioskActionViewModel;-><init>(Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;Lcom/samsung/android/globalactions/util/AlertDialogFactory;Lcom/samsung/android/globalactions/util/SystemController;Lcom/android/systemui/globalactions/util/ProKioskManagerWrapper;Lcom/samsung/android/globalactions/util/InputMethodManagerWrapper;Lcom/samsung/android/globalactions/util/ConditionChecker;Lcom/samsung/android/globalactions/util/ResourcesWrapper;Lcom/samsung/android/globalactions/util/SamsungGlobalActionsAnalytics;)V
+    invoke-direct/range {v1 .. v9}, Lcom/android/systemui/globalactions/presentation/viewmodel/ProKioskActionViewModel;-><init>(Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;Lcom/samsung/android/globalactionsdlx/util/AlertDialogFactory;Lcom/samsung/android/globalactionsdlx/util/SystemController;Lcom/android/systemui/globalactions/util/ProKioskManagerWrapper;Lcom/samsung/android/globalactionsdlx/util/InputMethodManagerWrapper;Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;Lcom/samsung/android/globalactionsdlx/util/ResourcesWrapper;Lcom/samsung/android/globalactionsdlx/util/SamsungGlobalActionsAnalytics;)V
 
     .line 297
     .line 298
     .line 299
-    invoke-virtual {v10, v12}, Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;->setName(Ljava/lang/String;)V
+    invoke-virtual {v10, v12}, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;->setName(Ljava/lang/String;)V
 
     .line 300
     .line 301
     .line 302
-    sget-object v1, Lcom/samsung/android/globalactions/presentation/viewmodel/ViewType;->CENTER_ICON_8P_VIEW:Lcom/samsung/android/globalactions/presentation/viewmodel/ViewType;
+    sget-object v1, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ViewType;->CENTER_ICON_8P_VIEW:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ViewType;
 
     .line 303
     .line 304
-    invoke-virtual {v10, v1}, Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;->setViewType(Lcom/samsung/android/globalactions/presentation/viewmodel/ViewType;)V
+    invoke-virtual {v10, v1}, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;->setViewType(Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ViewType;)V
 
     .line 305
     .line 306
     .line 307
-    iget-object v0, v0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mResourceFactory:Lcom/samsung/android/globalactions/presentation/view/ResourceFactory;
+    iget-object v0, v0, Lcom/android/systemui/globalactions/presentation/viewmodel/ActionViewModelFactoryDecorator;->mResourceFactory:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceFactory;
 
     .line 308
     .line 309
-    sget-object v1, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->DRAWABLE_PROKIOSK:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object v1, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->DRAWABLE_PROKIOSK:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     .line 310
     .line 311
-    invoke-interface {v0, v1}, Lcom/samsung/android/globalactions/presentation/view/ResourceFactory;->get(Lcom/samsung/android/globalactions/presentation/view/ResourceType;)I
+    invoke-interface {v0, v1}, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceFactory;->get(Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;)I
 
     .line 312
     .line 313
@@ -1146,20 +1146,20 @@
     move-result v0
 
     .line 315
-    invoke-virtual {v10, v0}, Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;->setIcon(I)V
+    invoke-virtual {v10, v0}, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;->setIcon(I)V
 
     .line 316
     .line 317
     .line 318
-    iput-object v10, v11, Lcom/android/systemui/globalactions/presentation/viewmodel/ProKioskActionViewModel;->mInfo:Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;
+    iput-object v10, v11, Lcom/android/systemui/globalactions/presentation/viewmodel/ProKioskActionViewModel;->mInfo:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;
 
     .line 319
     .line 320
-    sget-object v0, Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel$ToggleState;->on:Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel$ToggleState;
+    sget-object v0, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel$ToggleState;->on:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel$ToggleState;
 
     .line 321
     .line 322
-    invoke-virtual {v11, v0}, Lcom/android/systemui/globalactions/presentation/viewmodel/ProKioskActionViewModel;->setState(Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel$ToggleState;)V
+    invoke-virtual {v11, v0}, Lcom/android/systemui/globalactions/presentation/viewmodel/ProKioskActionViewModel;->setState(Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel$ToggleState;)V
 
     .line 323
     .line 324

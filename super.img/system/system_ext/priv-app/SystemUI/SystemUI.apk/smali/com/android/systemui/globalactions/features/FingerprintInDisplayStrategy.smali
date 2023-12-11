@@ -3,9 +3,9 @@
 .source "qb/73563223 fe378e894fe37ec6dd6172c2baac445480de745562988d83687da56e2e4ea9d8"
 
 # interfaces
-.implements Lcom/samsung/android/globalactions/presentation/strategies/ActionsCreationStrategy;
-.implements Lcom/samsung/android/globalactions/presentation/strategies/DisposingStrategy;
-.implements Lcom/samsung/android/globalactions/presentation/strategies/SecureConfirmStrategy;
+.implements Lcom/samsung/android/globalactionsdlx/presentation/strategies/ActionsCreationStrategy;
+.implements Lcom/samsung/android/globalactionsdlx/presentation/strategies/DisposingStrategy;
+.implements Lcom/samsung/android/globalactionsdlx/presentation/strategies/SecureConfirmStrategy;
 
 
 # instance fields
@@ -48,7 +48,7 @@
 
 
 # virtual methods
-.method public final doActionBeforeSecureConfirm(Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;)Z
+.method public final doActionBeforeSecureConfirm(Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;)Z
     .locals 0
 
     .line 1
@@ -105,7 +105,7 @@
     .line 45
 .end method
 
-.method public final onCreateActions(Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;)V
+.method public final onCreateActions(Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;)V
     .locals 0
 
     .line 1

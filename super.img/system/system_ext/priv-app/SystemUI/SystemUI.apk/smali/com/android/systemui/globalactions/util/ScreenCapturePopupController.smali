@@ -4,13 +4,13 @@
 
 
 # instance fields
-.field public final mLogWrapper:Lcom/samsung/android/globalactions/util/LogWrapper;
+.field public final mLogWrapper:Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
 .field public final mPrefrerences:Landroid/content/SharedPreferences;
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Lcom/samsung/android/globalactions/util/LogWrapper;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/samsung/android/globalactionsdlx/util/LogWrapper;)V
     .locals 1
 
     .line 1
@@ -19,7 +19,7 @@
     .line 2
     .line 3
     .line 4
-    iput-object p2, p0, Lcom/android/systemui/globalactions/util/ScreenCapturePopupController;->mLogWrapper:Lcom/samsung/android/globalactions/util/LogWrapper;
+    iput-object p2, p0, Lcom/android/systemui/globalactions/util/ScreenCapturePopupController;->mLogWrapper:Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
     .line 5
     .line 6

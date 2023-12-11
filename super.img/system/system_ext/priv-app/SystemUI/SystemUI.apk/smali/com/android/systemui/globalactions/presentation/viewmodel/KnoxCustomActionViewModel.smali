@@ -3,15 +3,15 @@
 .source "qb/73563223 fe378e894fe37ec6dd6172c2baac445480de745562988d83687da56e2e4ea9d8"
 
 # interfaces
-.implements Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;
+.implements Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;
 
 
 # instance fields
-.field public mActionInfo:Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;
+.field public mActionInfo:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;
 
 .field public final mContext:Landroid/content/Context;
 
-.field public final mGlobalActions:Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;
+.field public final mGlobalActions:Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;
 
 .field public mIcon:Landroid/graphics/drawable/BitmapDrawable;
 
@@ -23,7 +23,7 @@
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;)V
     .locals 0
 
     .line 1
@@ -36,7 +36,7 @@
 
     .line 5
     .line 6
-    iput-object p2, p0, Lcom/android/systemui/globalactions/presentation/viewmodel/KnoxCustomActionViewModel;->mGlobalActions:Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;
+    iput-object p2, p0, Lcom/android/systemui/globalactions/presentation/viewmodel/KnoxCustomActionViewModel;->mGlobalActions:Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;
 
     .line 7
     .line 8
@@ -82,11 +82,11 @@
 
 
 # virtual methods
-.method public final getActionInfo()Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;
+.method public final getActionInfo()Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;
     .locals 0
 
     .line 1
-    iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/viewmodel/KnoxCustomActionViewModel;->mActionInfo:Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;
+    iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/viewmodel/KnoxCustomActionViewModel;->mActionInfo:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;
 
     .line 2
     .line 3
@@ -260,11 +260,11 @@
     .line 37
     :cond_2
     :goto_0
-    iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/viewmodel/KnoxCustomActionViewModel;->mGlobalActions:Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;
+    iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/viewmodel/KnoxCustomActionViewModel;->mGlobalActions:Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;
 
     .line 38
     .line 39
-    invoke-interface {p0, v1}, Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;->dismissDialog(Z)V
+    invoke-interface {p0, v1}, Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;->dismissDialog(Z)V
 
     .line 40
     .line 41
@@ -302,11 +302,11 @@
     .line 72
 .end method
 
-.method public final setActionInfo(Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;)V
+.method public final setActionInfo(Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;)V
     .locals 0
 
     .line 1
-    iput-object p1, p0, Lcom/android/systemui/globalactions/presentation/viewmodel/KnoxCustomActionViewModel;->mActionInfo:Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;
+    iput-object p1, p0, Lcom/android/systemui/globalactions/presentation/viewmodel/KnoxCustomActionViewModel;->mActionInfo:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;
 
     .line 2
     .line 3

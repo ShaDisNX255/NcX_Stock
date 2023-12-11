@@ -913,7 +913,7 @@
 
     .line 28
     .line 29
-    invoke-virtual {p0}, Lcom/samsung/android/globalactions/presentation/view/SamsungGlobalActionsDialogBase;->dismiss()V
+    invoke-virtual {p0}, Lcom/samsung/android/globalactionsdlx/presentation/view/SamsungGlobalActionsDialogBase;->dismiss()V
 
     .line 30
     .line 31
@@ -1168,7 +1168,7 @@
     const/4 v1, 0x0
 
     .line 9
-    invoke-virtual {p1, v0, p0, v1, p2}, Lcom/samsung/android/globalactions/presentation/view/SamsungGlobalActionsDialogBase;->show(ZZZI)V
+    invoke-virtual {p1, v0, p0, v1, p2}, Lcom/samsung/android/globalactionsdlx/presentation/view/SamsungGlobalActionsDialogBase;->show(ZZZI)V
 
     return-void
 .end method

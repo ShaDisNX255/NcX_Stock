@@ -4,17 +4,17 @@
 
 
 # instance fields
-.field public final mAnimator:Lcom/samsung/android/globalactions/presentation/view/GlobalActionsAnimator;
+.field public final mAnimator:Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsAnimator;
 
-.field public final mLogWrapper:Lcom/samsung/android/globalactions/util/LogWrapper;
+.field public final mLogWrapper:Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
 .field public mState:Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM$State;
 
-.field public final mViewStateController:Lcom/samsung/android/globalactions/presentation/view/ViewStateController;
+.field public final mViewStateController:Lcom/samsung/android/globalactionsdlx/presentation/view/ViewStateController;
 
 
 # direct methods
-.method public constructor <init>(Lcom/samsung/android/globalactions/presentation/view/GlobalActionsAnimator;Lcom/samsung/android/globalactions/util/LogWrapper;Lcom/samsung/android/globalactions/presentation/view/ViewStateController;)V
+.method public constructor <init>(Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsAnimator;Lcom/samsung/android/globalactionsdlx/util/LogWrapper;Lcom/samsung/android/globalactionsdlx/presentation/view/ViewStateController;)V
     .locals 0
 
     .line 1
@@ -23,15 +23,15 @@
     .line 2
     .line 3
     .line 4
-    iput-object p1, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mAnimator:Lcom/samsung/android/globalactions/presentation/view/GlobalActionsAnimator;
+    iput-object p1, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mAnimator:Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsAnimator;
 
     .line 5
     .line 6
-    iput-object p2, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mLogWrapper:Lcom/samsung/android/globalactions/util/LogWrapper;
+    iput-object p2, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mLogWrapper:Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
     .line 7
     .line 8
-    iput-object p3, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mViewStateController:Lcom/samsung/android/globalactions/presentation/view/ViewStateController;
+    iput-object p3, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mViewStateController:Lcom/samsung/android/globalactionsdlx/presentation/view/ViewStateController;
 
     .line 9
     .line 10
@@ -198,7 +198,7 @@
     move-result-object v0
 
     .line 25
-    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mLogWrapper:Lcom/samsung/android/globalactions/util/LogWrapper;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mLogWrapper:Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
     .line 26
     .line 27
@@ -206,16 +206,16 @@
 
     .line 28
     .line 29
-    invoke-virtual {v1, v2, v0}, Lcom/samsung/android/globalactions/util/LogWrapper;->v(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v1, v2, v0}, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;->v(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 30
     .line 31
     .line 32
-    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mViewStateController:Lcom/samsung/android/globalactions/presentation/view/ViewStateController;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mViewStateController:Lcom/samsung/android/globalactionsdlx/presentation/view/ViewStateController;
 
     .line 33
     .line 34
-    invoke-interface {v0}, Lcom/samsung/android/globalactions/presentation/view/ViewStateController;->getState()Lcom/samsung/android/globalactions/presentation/view/ViewAnimationState;
+    invoke-interface {v0}, Lcom/samsung/android/globalactionsdlx/presentation/view/ViewStateController;->getState()Lcom/samsung/android/globalactionsdlx/presentation/view/ViewAnimationState;
 
     .line 35
     .line 36
@@ -223,7 +223,7 @@
     move-result-object v0
 
     .line 38
-    sget-object v1, Lcom/samsung/android/globalactions/presentation/view/ViewAnimationState;->IDLE:Lcom/samsung/android/globalactions/presentation/view/ViewAnimationState;
+    sget-object v1, Lcom/samsung/android/globalactionsdlx/presentation/view/ViewAnimationState;->IDLE:Lcom/samsung/android/globalactionsdlx/presentation/view/ViewAnimationState;
 
     .line 39
     .line 40
@@ -258,7 +258,7 @@
     const/4 v1, 0x1
 
     .line 54
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mAnimator:Lcom/samsung/android/globalactions/presentation/view/GlobalActionsAnimator;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mAnimator:Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsAnimator;
 
     .line 55
     .line 56
@@ -296,7 +296,7 @@
 
     .line 70
     .line 71
-    invoke-interface {v2}, Lcom/samsung/android/globalactions/presentation/view/GlobalActionsAnimator;->startDismissConfirmAnimation()V
+    invoke-interface {v2}, Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsAnimator;->startDismissConfirmAnimation()V
 
     .line 72
     .line 73
@@ -323,7 +323,7 @@
 
     .line 84
     .line 85
-    invoke-interface {v2, v1}, Lcom/samsung/android/globalactions/presentation/view/GlobalActionsAnimator;->startDismissAnimation(Z)V
+    invoke-interface {v2, v1}, Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsAnimator;->startDismissAnimation(Z)V
 
     .line 86
     .line 87
@@ -349,7 +349,7 @@
 
     .line 97
     .line 98
-    invoke-interface {v2}, Lcom/samsung/android/globalactions/presentation/view/GlobalActionsAnimator;->startToastAnimation()V
+    invoke-interface {v2}, Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsAnimator;->startToastAnimation()V
 
     .line 99
     .line 100
@@ -375,7 +375,7 @@
 
     .line 110
     .line 111
-    invoke-interface {v2, v4}, Lcom/samsung/android/globalactions/presentation/view/GlobalActionsAnimator;->startDismissAnimation(Z)V
+    invoke-interface {v2, v4}, Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsAnimator;->startDismissAnimation(Z)V
 
     .line 112
     .line 113
@@ -392,7 +392,7 @@
 
     .line 118
     .line 119
-    invoke-interface {v2}, Lcom/samsung/android/globalactions/presentation/view/GlobalActionsAnimator;->startShowConfirmAnimation()V
+    invoke-interface {v2}, Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsAnimator;->startShowConfirmAnimation()V
 
     .line 120
     .line 121
@@ -418,7 +418,7 @@
 
     .line 131
     .line 132
-    invoke-interface {v2, v1}, Lcom/samsung/android/globalactions/presentation/view/GlobalActionsAnimator;->startDismissAnimation(Z)V
+    invoke-interface {v2, v1}, Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsAnimator;->startDismissAnimation(Z)V
 
     .line 133
     .line 134
@@ -444,7 +444,7 @@
 
     .line 144
     .line 145
-    invoke-interface {v2, v4}, Lcom/samsung/android/globalactions/presentation/view/GlobalActionsAnimator;->startDismissAnimation(Z)V
+    invoke-interface {v2, v4}, Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsAnimator;->startDismissAnimation(Z)V
 
     .line 146
     .line 147
@@ -470,7 +470,7 @@
 
     .line 157
     .line 158
-    invoke-interface {v2}, Lcom/samsung/android/globalactions/presentation/view/GlobalActionsAnimator;->startToastAnimation()V
+    invoke-interface {v2}, Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsAnimator;->startToastAnimation()V
 
     .line 159
     .line 160
@@ -487,7 +487,7 @@
 
     .line 165
     .line 166
-    invoke-interface {v2, v4}, Lcom/samsung/android/globalactions/presentation/view/GlobalActionsAnimator;->startDismissAnimation(Z)V
+    invoke-interface {v2, v4}, Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsAnimator;->startDismissAnimation(Z)V
 
     .line 167
     .line 168
@@ -513,7 +513,7 @@
 
     .line 178
     .line 179
-    invoke-interface {v2}, Lcom/samsung/android/globalactions/presentation/view/GlobalActionsAnimator;->startShowAnimation()V
+    invoke-interface {v2}, Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsAnimator;->startShowAnimation()V
 
     .line 180
     .line 181
@@ -786,7 +786,7 @@
     move-result-object v0
 
     .line 19
-    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mLogWrapper:Lcom/samsung/android/globalactions/util/LogWrapper;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;->mLogWrapper:Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
     .line 20
     .line 21
@@ -794,7 +794,7 @@
 
     .line 22
     .line 23
-    invoke-virtual {v1, v2, v0}, Lcom/samsung/android/globalactions/util/LogWrapper;->v(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v1, v2, v0}, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;->v(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 24
     .line 25

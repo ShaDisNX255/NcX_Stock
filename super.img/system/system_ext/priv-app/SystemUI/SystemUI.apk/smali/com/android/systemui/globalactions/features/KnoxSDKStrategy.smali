@@ -3,28 +3,28 @@
 .source "qb/73563223 fe378e894fe37ec6dd6172c2baac445480de745562988d83687da56e2e4ea9d8"
 
 # interfaces
-.implements Lcom/samsung/android/globalactions/presentation/strategies/ActionsCreationStrategy;
-.implements Lcom/samsung/android/globalactions/presentation/strategies/InitializationStrategy;
-.implements Lcom/samsung/android/globalactions/presentation/strategies/DefaultActionsCreationStrategy;
-.implements Lcom/samsung/android/globalactions/presentation/strategies/OnKeyListenerStrategy;
+.implements Lcom/samsung/android/globalactionsdlx/presentation/strategies/ActionsCreationStrategy;
+.implements Lcom/samsung/android/globalactionsdlx/presentation/strategies/InitializationStrategy;
+.implements Lcom/samsung/android/globalactionsdlx/presentation/strategies/DefaultActionsCreationStrategy;
+.implements Lcom/samsung/android/globalactionsdlx/presentation/strategies/OnKeyListenerStrategy;
 
 
 # instance fields
-.field public final mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+.field public final mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
-.field public final mGlobalActions:Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;
+.field public final mGlobalActions:Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;
 
 .field public final mKnoxCustomManagerWrapper:Lcom/android/systemui/globalactions/util/KnoxCustomManagerWrapper;
 
-.field public final mLogWrapper:Lcom/samsung/android/globalactions/util/LogWrapper;
+.field public final mLogWrapper:Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
 .field public final mProKioskManagerWrapper:Lcom/android/systemui/globalactions/util/ProKioskManagerWrapper;
 
-.field public final mViewModelFactory:Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;
+.field public final mViewModelFactory:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;
 
 
 # direct methods
-.method public constructor <init>(Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;Lcom/samsung/android/globalactions/util/ConditionChecker;Lcom/android/systemui/globalactions/util/KnoxCustomManagerWrapper;Lcom/android/systemui/globalactions/util/ProKioskManagerWrapper;Lcom/samsung/android/globalactions/util/LogWrapper;Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;)V
+.method public constructor <init>(Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;Lcom/android/systemui/globalactions/util/KnoxCustomManagerWrapper;Lcom/android/systemui/globalactions/util/ProKioskManagerWrapper;Lcom/samsung/android/globalactionsdlx/util/LogWrapper;Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;)V
     .locals 0
 
     .line 1
@@ -33,15 +33,15 @@
     .line 2
     .line 3
     .line 4
-    iput-object p6, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mGlobalActions:Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;
+    iput-object p6, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mGlobalActions:Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;
 
     .line 5
     .line 6
-    iput-object p1, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mViewModelFactory:Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;
+    iput-object p1, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mViewModelFactory:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;
 
     .line 7
     .line 8
-    iput-object p2, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iput-object p2, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
     .line 9
     .line 10
@@ -53,7 +53,7 @@
 
     .line 13
     .line 14
-    iput-object p5, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mLogWrapper:Lcom/samsung/android/globalactions/util/LogWrapper;
+    iput-object p5, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mLogWrapper:Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
     .line 15
     .line 16
@@ -798,11 +798,11 @@
 
 
 # virtual methods
-.method public final onCreateActions(Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;)V
+.method public final onCreateActions(Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;)V
     .locals 5
 
     .line 1
-    iget-object v0, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
     .line 2
     .line 3
@@ -810,7 +810,7 @@
 
     .line 4
     .line 5
-    invoke-interface {v0, v1}, Lcom/samsung/android/globalactions/util/ConditionChecker;->isEnabled(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;->isEnabled(Ljava/lang/Object;)Z
 
     .line 6
     .line 7
@@ -836,7 +836,7 @@
     const/4 v0, 0x1
 
     .line 17
-    invoke-interface {p1, v0}, Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;->setOverrideDefaultActions(Z)V
+    invoke-interface {p1, v0}, Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;->setOverrideDefaultActions(Z)V
 
     .line 18
     .line 19
@@ -882,7 +882,7 @@
 
     .line 36
     .line 37
-    iget-object v2, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mViewModelFactory:Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mViewModelFactory:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;
 
     .line 38
     .line 39
@@ -891,7 +891,7 @@
     .line 40
     .line 41
     .line 42
-    invoke-interface {v2, p1, v3}, Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;->createActionViewModel(Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;Ljava/lang/String;)Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;
+    invoke-interface {v2, p1, v3}, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;->createActionViewModel(Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;Ljava/lang/String;)Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;
 
     .line 43
     .line 44
@@ -899,7 +899,7 @@
     move-result-object v2
 
     .line 46
-    invoke-interface {p1, v2}, Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;->addAction(Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;)V
+    invoke-interface {p1, v2}, Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;->addAction(Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;)V
 
     .line 47
     .line 48
@@ -947,7 +947,7 @@
 
     .line 66
     .line 67
-    iget-object v2, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mViewModelFactory:Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mViewModelFactory:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;
 
     .line 68
     .line 69
@@ -956,7 +956,7 @@
     .line 70
     .line 71
     .line 72
-    invoke-interface {v2, p1, v3}, Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;->createActionViewModel(Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;Ljava/lang/String;)Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;
+    invoke-interface {v2, p1, v3}, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;->createActionViewModel(Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;Ljava/lang/String;)Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;
 
     .line 73
     .line 74
@@ -964,7 +964,7 @@
     move-result-object v2
 
     .line 76
-    invoke-interface {p1, v2}, Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;->addAction(Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;)V
+    invoke-interface {p1, v2}, Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;->addAction(Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;)V
 
     .line 77
     .line 78
@@ -1012,7 +1012,7 @@
 
     .line 96
     .line 97
-    iget-object v2, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mViewModelFactory:Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mViewModelFactory:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;
 
     .line 98
     .line 99
@@ -1020,7 +1020,7 @@
 
     .line 100
     .line 101
-    invoke-interface {v2, p1, v3}, Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;->createActionViewModel(Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;Ljava/lang/String;)Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;
+    invoke-interface {v2, p1, v3}, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;->createActionViewModel(Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;Ljava/lang/String;)Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;
 
     .line 102
     .line 103
@@ -1028,7 +1028,7 @@
     move-result-object v2
 
     .line 105
-    invoke-interface {p1, v2}, Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;->addAction(Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;)V
+    invoke-interface {p1, v2}, Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;->addAction(Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;)V
 
     .line 106
     .line 107
@@ -1069,7 +1069,7 @@
 
     .line 123
     .line 124
-    iget-object v1, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mViewModelFactory:Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mViewModelFactory:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;
 
     .line 125
     .line 126
@@ -1077,7 +1077,7 @@
 
     .line 127
     .line 128
-    invoke-interface {v1, p1, v2}, Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;->createActionViewModel(Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;Ljava/lang/String;)Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;
+    invoke-interface {v1, p1, v2}, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;->createActionViewModel(Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;Ljava/lang/String;)Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;
 
     .line 129
     .line 130
@@ -1085,7 +1085,7 @@
     move-result-object v1
 
     .line 132
-    invoke-interface {v1}, Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;->getActionInfo()Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;
+    invoke-interface {v1}, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;->getActionInfo()Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;
 
     .line 133
     .line 134
@@ -1093,16 +1093,16 @@
     move-result-object v2
 
     .line 136
-    sget-object v3, Lcom/samsung/android/globalactions/presentation/viewmodel/ViewType;->BOTTOM_BTN_LIST_VIEW:Lcom/samsung/android/globalactions/presentation/viewmodel/ViewType;
+    sget-object v3, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ViewType;->BOTTOM_BTN_LIST_VIEW:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ViewType;
 
     .line 137
     .line 138
-    invoke-virtual {v2, v3}, Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;->setViewType(Lcom/samsung/android/globalactions/presentation/viewmodel/ViewType;)V
+    invoke-virtual {v2, v3}, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;->setViewType(Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ViewType;)V
 
     .line 139
     .line 140
     .line 141
-    invoke-interface {p1, v1}, Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;->addAction(Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;)V
+    invoke-interface {p1, v1}, Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;->addAction(Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;)V
 
     .line 142
     .line 143
@@ -1139,7 +1139,7 @@
 
     .line 158
     .line 159
-    iget-object v0, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mViewModelFactory:Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mViewModelFactory:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;
 
     .line 160
     .line 161
@@ -1148,7 +1148,7 @@
     .line 162
     .line 163
     .line 164
-    invoke-interface {v0, p1, v1}, Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;->createActionViewModel(Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;Ljava/lang/String;)Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;
+    invoke-interface {v0, p1, v1}, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;->createActionViewModel(Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;Ljava/lang/String;)Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;
 
     .line 165
     .line 166
@@ -1156,7 +1156,7 @@
     move-result-object v0
 
     .line 168
-    invoke-interface {p1, v0}, Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;->addAction(Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;)V
+    invoke-interface {p1, v0}, Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;->addAction(Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;)V
 
     .line 169
     .line 170
@@ -1165,14 +1165,14 @@
 
     .line 172
     :cond_8
-    invoke-interface {p1, v1}, Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;->setOverrideDefaultActions(Z)V
+    invoke-interface {p1, v1}, Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;->setOverrideDefaultActions(Z)V
 
     .line 173
     .line 174
     .line 175
     :cond_9
     :goto_3
-    iget-object v0, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
     .line 176
     .line 177
@@ -1180,7 +1180,7 @@
 
     .line 178
     .line 179
-    invoke-interface {v0, v1}, Lcom/samsung/android/globalactions/util/ConditionChecker;->isEnabled(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;->isEnabled(Ljava/lang/Object;)Z
 
     .line 180
     .line 181
@@ -1196,7 +1196,7 @@
 
     .line 186
     .line 187
-    invoke-interface {p1, v0}, Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;->clearActions(Ljava/lang/String;)V
+    invoke-interface {p1, v0}, Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;->clearActions(Ljava/lang/String;)V
 
     .line 188
     .line 189
@@ -1319,11 +1319,11 @@
 
     .line 248
     .line 249
-    iget-object v3, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mViewModelFactory:Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;
+    iget-object v3, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mViewModelFactory:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;
 
     .line 250
     .line 251
-    invoke-interface {v3, p1, v0}, Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;->createActionViewModel(Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;Ljava/lang/String;)Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;
+    invoke-interface {v3, p1, v0}, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;->createActionViewModel(Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;Ljava/lang/String;)Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;
 
     .line 252
     .line 253
@@ -1339,7 +1339,7 @@
 
     .line 258
     .line 259
-    invoke-interface {v3, v4}, Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;->setIcon(Landroid/graphics/drawable/BitmapDrawable;)V
+    invoke-interface {v3, v4}, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;->setIcon(Landroid/graphics/drawable/BitmapDrawable;)V
 
     .line 260
     .line 261
@@ -1352,7 +1352,7 @@
 
     .line 265
     .line 266
-    invoke-interface {v3, v4}, Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;->setText(Ljava/lang/String;)V
+    invoke-interface {v3, v4}, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;->setText(Ljava/lang/String;)V
 
     .line 267
     .line 268
@@ -1361,7 +1361,7 @@
 
     .line 270
     .line 271
-    invoke-interface {v3, v4}, Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;->setIntent(Landroid/content/Intent;)V
+    invoke-interface {v3, v4}, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;->setIntent(Landroid/content/Intent;)V
 
     .line 272
     .line 273
@@ -1370,12 +1370,12 @@
 
     .line 275
     .line 276
-    invoke-interface {v3, v2}, Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;->setIntentAction(I)V
+    invoke-interface {v3, v2}, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;->setIntentAction(I)V
 
     .line 277
     .line 278
     .line 279
-    invoke-interface {p1, v3}, Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;->addAction(Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;)V
+    invoke-interface {p1, v3}, Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;->addAction(Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;)V
 
     .line 280
     .line 281
@@ -1511,7 +1511,7 @@
     .locals 2
 
     .line 1
-    iget-object v0, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
     .line 2
     .line 3
@@ -1519,7 +1519,7 @@
 
     .line 4
     .line 5
-    invoke-interface {v0, v1}, Lcom/samsung/android/globalactions/util/ConditionChecker;->isEnabled(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;->isEnabled(Ljava/lang/Object;)Z
 
     .line 6
     .line 7
@@ -1531,7 +1531,7 @@
 
     .line 10
     .line 11
-    iget-object v0, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
     .line 12
     .line 13
@@ -1539,7 +1539,7 @@
 
     .line 14
     .line 15
-    invoke-interface {v0, v1}, Lcom/samsung/android/globalactions/util/ConditionChecker;->isEnabled(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;->isEnabled(Ljava/lang/Object;)Z
 
     .line 16
     .line 17
@@ -1551,7 +1551,7 @@
 
     .line 20
     .line 21
-    iget-object p0, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object p0, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
     .line 22
     .line 23
@@ -1559,7 +1559,7 @@
 
     .line 24
     .line 25
-    invoke-interface {p0, v0}, Lcom/samsung/android/globalactions/util/ConditionChecker;->isEnabled(Ljava/lang/Object;)Z
+    invoke-interface {p0, v0}, Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;->isEnabled(Ljava/lang/Object;)Z
 
     .line 26
     .line 27
@@ -1630,7 +1630,7 @@
     .locals 2
 
     .line 1
-    iget-object v0, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
     .line 2
     .line 3
@@ -1638,7 +1638,7 @@
 
     .line 4
     .line 5
-    invoke-interface {v0, v1}, Lcom/samsung/android/globalactions/util/ConditionChecker;->isEnabled(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;->isEnabled(Ljava/lang/Object;)Z
 
     .line 6
     .line 7
@@ -1654,7 +1654,7 @@
 
     .line 12
     .line 13
-    iget-object p1, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mLogWrapper:Lcom/samsung/android/globalactions/util/LogWrapper;
+    iget-object p1, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mLogWrapper:Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
     .line 14
     .line 15
@@ -1666,16 +1666,16 @@
 
     .line 18
     .line 19
-    invoke-virtual {p1, v0, v1}, Lcom/samsung/android/globalactions/util/LogWrapper;->i(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p1, v0, v1}, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;->i(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 20
     .line 21
     .line 22
-    iget-object p0, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mGlobalActions:Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;
+    iget-object p0, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mGlobalActions:Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;
 
     .line 23
     .line 24
-    invoke-interface {p0}, Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;->setDisabled()V
+    invoke-interface {p0}, Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;->setDisabled()V
 
     .line 25
     .line 26
@@ -1726,11 +1726,11 @@
     .locals 2
 
     .line 1
-    iget-object v0, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mGlobalActions:Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mGlobalActions:Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;
 
     .line 2
     .line 3
-    invoke-interface {v0}, Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;->isActionConfirming()Z
+    invoke-interface {v0}, Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;->isActionConfirming()Z
 
     .line 4
     .line 5
@@ -1742,7 +1742,7 @@
 
     .line 8
     .line 9
-    iget-object v0, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
     .line 10
     .line 11
@@ -1750,7 +1750,7 @@
 
     .line 12
     .line 13
-    invoke-interface {v0, v1}, Lcom/samsung/android/globalactions/util/ConditionChecker;->isEnabled(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;->isEnabled(Ljava/lang/Object;)Z
 
     .line 14
     .line 15
@@ -1820,11 +1820,11 @@
 
     .line 45
     .line 46
-    iget-object p1, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mGlobalActions:Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;
+    iget-object p1, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mGlobalActions:Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;
 
     .line 47
     .line 48
-    iget-object v0, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mViewModelFactory:Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mViewModelFactory:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;
 
     .line 49
     .line 50
@@ -1833,7 +1833,7 @@
     .line 51
     .line 52
     .line 53
-    invoke-interface {v0, p1, v1}, Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModelFactory;->createActionViewModel(Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;Ljava/lang/String;)Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;
+    invoke-interface {v0, p1, v1}, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModelFactory;->createActionViewModel(Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;Ljava/lang/String;)Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;
 
     .line 54
     .line 55
@@ -1841,16 +1841,16 @@
     move-result-object v0
 
     .line 57
-    invoke-interface {p1, v0}, Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;->addAction(Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;)V
+    invoke-interface {p1, v0}, Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;->addAction(Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;)V
 
     .line 58
     .line 59
     .line 60
-    iget-object p1, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mGlobalActions:Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;
+    iget-object p1, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mGlobalActions:Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;
 
     .line 61
     .line 62
-    invoke-interface {p1}, Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;->getGlobalActionsView()Lcom/samsung/android/globalactions/presentation/view/ExtendableGlobalActionsView;
+    invoke-interface {p1}, Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;->getGlobalActionsView()Lcom/samsung/android/globalactionsdlx/presentation/view/ExtendableGlobalActionsView;
 
     .line 63
     .line 64
@@ -1858,16 +1858,16 @@
     move-result-object p1
 
     .line 66
-    invoke-interface {p1}, Lcom/samsung/android/globalactions/presentation/view/ExtendableGlobalActionsView;->updateViewList()V
+    invoke-interface {p1}, Lcom/samsung/android/globalactionsdlx/presentation/view/ExtendableGlobalActionsView;->updateViewList()V
 
     .line 67
     .line 68
     .line 69
-    iget-object p0, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mGlobalActions:Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;
+    iget-object p0, p0, Lcom/android/systemui/globalactions/features/KnoxSDKStrategy;->mGlobalActions:Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;
 
     .line 70
     .line 71
-    invoke-interface {p0}, Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;->getGlobalActionsView()Lcom/samsung/android/globalactions/presentation/view/ExtendableGlobalActionsView;
+    invoke-interface {p0}, Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;->getGlobalActionsView()Lcom/samsung/android/globalactionsdlx/presentation/view/ExtendableGlobalActionsView;
 
     .line 72
     .line 73
@@ -1875,7 +1875,7 @@
     move-result-object p0
 
     .line 75
-    invoke-interface {p0}, Lcom/samsung/android/globalactions/presentation/view/ExtendableGlobalActionsView;->forceRequestLayout()V
+    invoke-interface {p0}, Lcom/samsung/android/globalactionsdlx/presentation/view/ExtendableGlobalActionsView;->forceRequestLayout()V
 
     .line 76
     .line 77

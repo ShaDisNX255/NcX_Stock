@@ -3,7 +3,7 @@
 .source "qb/73563223 fe378e894fe37ec6dd6172c2baac445480de745562988d83687da56e2e4ea9d8"
 
 # interfaces
-.implements Lcom/samsung/android/globalactions/util/SamsungGlobalActionsAnalytics;
+.implements Lcom/samsung/android/globalactionsdlx/util/SamsungGlobalActionsAnalytics;
 
 
 # direct methods

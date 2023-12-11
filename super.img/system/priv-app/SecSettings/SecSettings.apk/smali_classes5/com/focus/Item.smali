@@ -27,7 +27,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f1501e0
+    const v0, 0x7f160261
 
     invoke-virtual {p0, v0}, Lcom/focus/Item;->addPreferencesFromResource(I)V
 

@@ -3,23 +3,23 @@
 .source "qb/73563223 fe378e894fe37ec6dd6172c2baac445480de745562988d83687da56e2e4ea9d8"
 
 # interfaces
-.implements Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;
+.implements Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;
 
 
 # instance fields
 .field public final mActivityStarterWrapper:Lcom/android/systemui/globalactions/util/ActivityStarterWrapper;
 
-.field public final mGlobalActions:Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;
+.field public final mGlobalActions:Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;
 
-.field public mInfo:Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;
+.field public mInfo:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;
 
-.field public final mLogWrapper:Lcom/samsung/android/globalactions/util/LogWrapper;
+.field public final mLogWrapper:Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
-.field public final mSamsungGlobalActionsAnalytics:Lcom/samsung/android/globalactions/util/SamsungGlobalActionsAnalytics;
+.field public final mSamsungGlobalActionsAnalytics:Lcom/samsung/android/globalactionsdlx/util/SamsungGlobalActionsAnalytics;
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;Lcom/samsung/android/globalactions/util/LogWrapper;Lcom/samsung/android/globalactions/presentation/features/FeatureFactory;Lcom/samsung/android/globalactions/util/KeyGuardManagerWrapper;Lcom/android/systemui/globalactions/util/ActivityStarterWrapper;Lcom/samsung/android/globalactions/util/ConditionChecker;Lcom/samsung/android/globalactions/util/SamsungGlobalActionsAnalytics;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;Lcom/samsung/android/globalactionsdlx/util/LogWrapper;Lcom/samsung/android/globalactionsdlx/presentation/features/FeatureFactory;Lcom/samsung/android/globalactionsdlx/util/KeyGuardManagerWrapper;Lcom/android/systemui/globalactions/util/ActivityStarterWrapper;Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;Lcom/samsung/android/globalactionsdlx/util/SamsungGlobalActionsAnalytics;)V
     .locals 0
 
     .line 1
@@ -28,11 +28,11 @@
     .line 2
     .line 3
     .line 4
-    iput-object p2, p0, Lcom/android/systemui/globalactions/presentation/viewmodel/SideKeyActionViewModel;->mGlobalActions:Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;
+    iput-object p2, p0, Lcom/android/systemui/globalactions/presentation/viewmodel/SideKeyActionViewModel;->mGlobalActions:Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;
 
     .line 5
     .line 6
-    iput-object p3, p0, Lcom/android/systemui/globalactions/presentation/viewmodel/SideKeyActionViewModel;->mLogWrapper:Lcom/samsung/android/globalactions/util/LogWrapper;
+    iput-object p3, p0, Lcom/android/systemui/globalactions/presentation/viewmodel/SideKeyActionViewModel;->mLogWrapper:Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
     .line 7
     .line 8
@@ -40,7 +40,7 @@
 
     .line 9
     .line 10
-    iput-object p8, p0, Lcom/android/systemui/globalactions/presentation/viewmodel/SideKeyActionViewModel;->mSamsungGlobalActionsAnalytics:Lcom/samsung/android/globalactions/util/SamsungGlobalActionsAnalytics;
+    iput-object p8, p0, Lcom/android/systemui/globalactions/presentation/viewmodel/SideKeyActionViewModel;->mSamsungGlobalActionsAnalytics:Lcom/samsung/android/globalactionsdlx/util/SamsungGlobalActionsAnalytics;
 
     .line 11
     .line 12
@@ -1481,11 +1481,11 @@
 
 
 # virtual methods
-.method public final getActionInfo()Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;
+.method public final getActionInfo()Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;
     .locals 0
 
     .line 1
-    iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/viewmodel/SideKeyActionViewModel;->mInfo:Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;
+    iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/viewmodel/SideKeyActionViewModel;->mInfo:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;
 
     .line 2
     .line 3
@@ -1517,7 +1517,7 @@
     .locals 9
 
     .line 1
-    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/viewmodel/SideKeyActionViewModel;->mLogWrapper:Lcom/samsung/android/globalactions/util/LogWrapper;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/viewmodel/SideKeyActionViewModel;->mLogWrapper:Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
     .line 2
     .line 3
@@ -1529,12 +1529,12 @@
 
     .line 6
     .line 7
-    invoke-virtual {v0, v1, v2}, Lcom/samsung/android/globalactions/util/LogWrapper;->i(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v1, v2}, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;->i(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 8
     .line 9
     .line 10
-    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/viewmodel/SideKeyActionViewModel;->mSamsungGlobalActionsAnalytics:Lcom/samsung/android/globalactions/util/SamsungGlobalActionsAnalytics;
+    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/viewmodel/SideKeyActionViewModel;->mSamsungGlobalActionsAnalytics:Lcom/samsung/android/globalactionsdlx/util/SamsungGlobalActionsAnalytics;
 
     .line 11
     .line 12
@@ -1554,7 +1554,7 @@
 
     .line 19
     .line 20
-    invoke-interface/range {v3 .. v8}, Lcom/samsung/android/globalactions/util/SamsungGlobalActionsAnalytics;->sendEventLog(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;J)V
+    invoke-interface/range {v3 .. v8}, Lcom/samsung/android/globalactionsdlx/util/SamsungGlobalActionsAnalytics;->sendEventLog(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;J)V
 
     .line 21
     .line 22
@@ -1597,11 +1597,11 @@
     .line 41
     .line 42
     .line 43
-    iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/viewmodel/SideKeyActionViewModel;->mGlobalActions:Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;
+    iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/viewmodel/SideKeyActionViewModel;->mGlobalActions:Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;
 
     .line 44
     .line 45
-    invoke-interface {p0, v2}, Lcom/samsung/android/globalactions/presentation/SamsungGlobalActions;->dismissDialog(Z)V
+    invoke-interface {p0, v2}, Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActions;->dismissDialog(Z)V
 
     .line 46
     .line 47
@@ -1633,11 +1633,11 @@
     .line 72
 .end method
 
-.method public final setActionInfo(Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;)V
+.method public final setActionInfo(Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;)V
     .locals 0
 
     .line 1
-    iput-object p1, p0, Lcom/android/systemui/globalactions/presentation/viewmodel/SideKeyActionViewModel;->mInfo:Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;
+    iput-object p1, p0, Lcom/android/systemui/globalactions/presentation/viewmodel/SideKeyActionViewModel;->mInfo:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;
 
     .line 2
     .line 3

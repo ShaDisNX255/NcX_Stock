@@ -213,7 +213,7 @@
     .line 82
     .line 83
     .line 84
-    iget-object p1, p1, Lcom/android/systemui/globalactions/util/FakeConditionChecker;->mLogWrapper:Lcom/samsung/android/globalactions/util/LogWrapper;
+    iget-object p1, p1, Lcom/android/systemui/globalactions/util/FakeConditionChecker;->mLogWrapper:Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
     .line 85
     .line 86
@@ -221,7 +221,7 @@
 
     .line 87
     .line 88
-    invoke-virtual {p1, p2, v1}, Lcom/samsung/android/globalactions/util/LogWrapper;->v(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p1, p2, v1}, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;->v(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 89
     .line 90
@@ -315,7 +315,7 @@
     .line 130
     .line 131
     .line 132
-    iget-object p1, p1, Lcom/android/systemui/globalactions/presentation/features/FakeFeatures;->mLogWrapper:Lcom/samsung/android/globalactions/util/LogWrapper;
+    iget-object p1, p1, Lcom/android/systemui/globalactions/presentation/features/FakeFeatures;->mLogWrapper:Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
     .line 133
     .line 134
@@ -323,7 +323,7 @@
 
     .line 135
     .line 136
-    invoke-virtual {p1, p2, v1}, Lcom/samsung/android/globalactions/util/LogWrapper;->v(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p1, p2, v1}, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;->v(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 137
     .line 138

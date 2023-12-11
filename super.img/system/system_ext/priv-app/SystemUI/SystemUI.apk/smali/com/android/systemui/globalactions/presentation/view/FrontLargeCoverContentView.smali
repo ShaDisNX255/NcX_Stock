@@ -3,8 +3,8 @@
 .source "qb/73563223 fe378e894fe37ec6dd6172c2baac445480de745562988d83687da56e2e4ea9d8"
 
 # interfaces
-.implements Lcom/samsung/android/globalactions/presentation/view/ContentView;
-.implements Lcom/samsung/android/globalactions/presentation/view/ViewStateController;
+.implements Lcom/samsung/android/globalactionsdlx/presentation/view/ContentView;
+.implements Lcom/samsung/android/globalactionsdlx/presentation/view/ViewStateController;
 
 
 # instance fields
@@ -14,7 +14,7 @@
 
 .field public mBackgroundView:Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView$FrontLargeCoverGlobalActionsBackgroundView;
 
-.field public final mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+.field public final mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
 .field public mConfirmView:Landroid/view/ViewGroup;
 
@@ -24,7 +24,7 @@
 
 .field public final mDialog:Landroid/app/Presentation;
 
-.field public final mFeatureFactory:Lcom/samsung/android/globalactions/presentation/features/FeatureFactory;
+.field public final mFeatureFactory:Lcom/samsung/android/globalactionsdlx/presentation/features/FeatureFactory;
 
 .field public mFoldStateListener:Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView$1;
 
@@ -32,7 +32,7 @@
 
 .field public final mFrontCoverAnimatorCallback:Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView$3;
 
-.field public final mHandler:Lcom/samsung/android/globalactions/util/HandlerUtil;
+.field public final mHandler:Lcom/samsung/android/globalactionsdlx/util/HandlerUtil;
 
 .field public final mIsCameraViewCover:Z
 
@@ -46,23 +46,23 @@
 
 .field public mListView:Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView$ContentGridView;
 
-.field public final mLogWrapper:Lcom/samsung/android/globalactions/util/LogWrapper;
+.field public final mLogWrapper:Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
-.field public final mParentView:Lcom/samsung/android/globalactions/presentation/view/ExtendableGlobalActionsView;
+.field public final mParentView:Lcom/samsung/android/globalactionsdlx/presentation/view/ExtendableGlobalActionsView;
 
-.field public final mPresenter:Lcom/samsung/android/globalactions/presentation/SamsungGlobalActionsPresenter;
+.field public final mPresenter:Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActionsPresenter;
 
-.field public final mResourceFactory:Lcom/samsung/android/globalactions/presentation/view/ResourceFactory;
+.field public final mResourceFactory:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceFactory;
 
 .field public mRootView:Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView$RootView;
 
-.field public mSelectedViewModel:Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;
+.field public mSelectedViewModel:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;
 
-.field public mState:Lcom/samsung/android/globalactions/presentation/view/ViewAnimationState;
+.field public mState:Lcom/samsung/android/globalactionsdlx/presentation/view/ViewAnimationState;
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Lcom/samsung/android/globalactions/presentation/view/ExtendableGlobalActionsView;Lcom/samsung/android/globalactions/presentation/features/FeatureFactory;Lcom/samsung/android/globalactions/util/ConditionChecker;Lcom/samsung/android/globalactions/presentation/view/ResourceFactory;Lcom/samsung/android/globalactions/util/LogWrapper;Lcom/samsung/android/globalactions/util/HandlerUtil;Lcom/samsung/android/globalactions/util/ToastController;Lcom/samsung/android/globalactions/presentation/SamsungGlobalActionsPresenter;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/samsung/android/globalactionsdlx/presentation/view/ExtendableGlobalActionsView;Lcom/samsung/android/globalactionsdlx/presentation/features/FeatureFactory;Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceFactory;Lcom/samsung/android/globalactionsdlx/util/LogWrapper;Lcom/samsung/android/globalactionsdlx/util/HandlerUtil;Lcom/samsung/android/globalactionsdlx/util/ToastController;Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActionsPresenter;)V
     .locals 4
 
     .line 1
@@ -151,39 +151,39 @@
 
     .line 41
     .line 42
-    iput-object p2, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mParentView:Lcom/samsung/android/globalactions/presentation/view/ExtendableGlobalActionsView;
+    iput-object p2, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mParentView:Lcom/samsung/android/globalactionsdlx/presentation/view/ExtendableGlobalActionsView;
 
     .line 43
     .line 44
-    iput-object p3, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mFeatureFactory:Lcom/samsung/android/globalactions/presentation/features/FeatureFactory;
+    iput-object p3, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mFeatureFactory:Lcom/samsung/android/globalactionsdlx/presentation/features/FeatureFactory;
 
     .line 45
     .line 46
-    iput-object p4, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iput-object p4, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
     .line 47
     .line 48
-    iput-object p5, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mResourceFactory:Lcom/samsung/android/globalactions/presentation/view/ResourceFactory;
+    iput-object p5, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mResourceFactory:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceFactory;
 
     .line 49
     .line 50
-    iput-object p6, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mLogWrapper:Lcom/samsung/android/globalactions/util/LogWrapper;
+    iput-object p6, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mLogWrapper:Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
     .line 51
     .line 52
-    iput-object p7, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mHandler:Lcom/samsung/android/globalactions/util/HandlerUtil;
+    iput-object p7, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mHandler:Lcom/samsung/android/globalactionsdlx/util/HandlerUtil;
 
     .line 53
     .line 54
-    iput-object p9, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mPresenter:Lcom/samsung/android/globalactions/presentation/SamsungGlobalActionsPresenter;
+    iput-object p9, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mPresenter:Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActionsPresenter;
 
     .line 55
     .line 56
-    sget-object p2, Lcom/samsung/android/globalactions/presentation/view/ViewAnimationState;->IDLE:Lcom/samsung/android/globalactions/presentation/view/ViewAnimationState;
+    sget-object p2, Lcom/samsung/android/globalactionsdlx/presentation/view/ViewAnimationState;->IDLE:Lcom/samsung/android/globalactionsdlx/presentation/view/ViewAnimationState;
 
     .line 57
     .line 58
-    iput-object p2, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mState:Lcom/samsung/android/globalactions/presentation/view/ViewAnimationState;
+    iput-object p2, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mState:Lcom/samsung/android/globalactionsdlx/presentation/view/ViewAnimationState;
 
     .line 59
     .line 60
@@ -202,7 +202,7 @@
 
     .line 66
     .line 67
-    invoke-interface {p4, p3}, Lcom/samsung/android/globalactions/util/ConditionChecker;->isEnabled(Ljava/lang/Object;)Z
+    invoke-interface {p4, p3}, Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;->isEnabled(Ljava/lang/Object;)Z
 
     .line 68
     .line 69
@@ -370,7 +370,7 @@
 
     .line 149
     .line 150
-    invoke-virtual {p6, p2, p1}, Lcom/samsung/android/globalactions/util/LogWrapper;->e(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p6, p2, p1}, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;->e(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 151
     .line 152
@@ -1010,11 +1010,11 @@
     .line 24
 .end method
 
-.method public final getAnimationState()Lcom/samsung/android/globalactions/presentation/view/ViewAnimationState;
+.method public final getAnimationState()Lcom/samsung/android/globalactionsdlx/presentation/view/ViewAnimationState;
     .locals 0
 
     .line 1
-    iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mState:Lcom/samsung/android/globalactions/presentation/view/ViewAnimationState;
+    iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mState:Lcom/samsung/android/globalactionsdlx/presentation/view/ViewAnimationState;
 
     .line 2
     .line 3
@@ -1042,11 +1042,11 @@
     .line 24
 .end method
 
-.method public final getState()Lcom/samsung/android/globalactions/presentation/view/ViewAnimationState;
+.method public final getState()Lcom/samsung/android/globalactionsdlx/presentation/view/ViewAnimationState;
     .locals 0
 
     .line 1
-    iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mState:Lcom/samsung/android/globalactions/presentation/view/ViewAnimationState;
+    iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mState:Lcom/samsung/android/globalactionsdlx/presentation/view/ViewAnimationState;
 
     .line 2
     .line 3
@@ -1114,15 +1114,15 @@
     .locals 2
 
     .line 1
-    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
     .line 2
     .line 3
-    sget-object v1, Lcom/samsung/android/globalactions/util/SystemConditions;->SUPPORT_SECONDARY_DISPLAY_AS_COVER:Lcom/samsung/android/globalactions/util/SystemConditions;
+    sget-object v1, Lcom/samsung/android/globalactionsdlx/util/SystemConditions;->SUPPORT_SECONDARY_DISPLAY_AS_COVER:Lcom/samsung/android/globalactionsdlx/util/SystemConditions;
 
     .line 4
     .line 5
-    invoke-interface {v0, v1}, Lcom/samsung/android/globalactions/util/ConditionChecker;->isEnabled(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;->isEnabled(Ljava/lang/Object;)Z
 
     .line 6
     .line 7
@@ -1134,15 +1134,15 @@
 
     .line 10
     .line 11
-    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
     .line 12
     .line 13
-    sget-object v1, Lcom/samsung/android/globalactions/util/SystemConditions;->IS_FOLDED:Lcom/samsung/android/globalactions/util/SystemConditions;
+    sget-object v1, Lcom/samsung/android/globalactionsdlx/util/SystemConditions;->IS_FOLDED:Lcom/samsung/android/globalactionsdlx/util/SystemConditions;
 
     .line 14
     .line 15
-    invoke-interface {v0, v1}, Lcom/samsung/android/globalactions/util/ConditionChecker;->isEnabled(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;->isEnabled(Ljava/lang/Object;)Z
 
     .line 16
     .line 17
@@ -1241,19 +1241,19 @@
     move-result-object v1
 
     .line 9
-    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v2, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
     .line 10
     .line 11
-    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mLogWrapper:Lcom/samsung/android/globalactions/util/LogWrapper;
+    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mLogWrapper:Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
     .line 12
     .line 13
-    iget-object v4, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mHandler:Lcom/samsung/android/globalactions/util/HandlerUtil;
+    iget-object v4, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mHandler:Lcom/samsung/android/globalactionsdlx/util/HandlerUtil;
 
     .line 14
     .line 15
-    iget-object v5, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mResourceFactory:Lcom/samsung/android/globalactions/presentation/view/ResourceFactory;
+    iget-object v5, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mResourceFactory:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceFactory;
 
     .line 16
     .line 17
@@ -1263,7 +1263,7 @@
     move-object v6, p0
 
     .line 19
-    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverViewAnimator;-><init>(Landroid/content/Context;Lcom/samsung/android/globalactions/util/ConditionChecker;Lcom/samsung/android/globalactions/util/LogWrapper;Lcom/samsung/android/globalactions/util/HandlerUtil;Lcom/samsung/android/globalactions/presentation/view/ResourceFactory;Lcom/samsung/android/globalactions/presentation/view/ViewStateController;)V
+    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverViewAnimator;-><init>(Landroid/content/Context;Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;Lcom/samsung/android/globalactionsdlx/util/LogWrapper;Lcom/samsung/android/globalactionsdlx/util/HandlerUtil;Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceFactory;Lcom/samsung/android/globalactionsdlx/presentation/view/ViewStateController;)V
 
     .line 20
     .line 21
@@ -1292,11 +1292,11 @@
 
     .line 33
     .line 34
-    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mLogWrapper:Lcom/samsung/android/globalactions/util/LogWrapper;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mLogWrapper:Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
     .line 35
     .line 36
-    invoke-direct {v0, v7, v1, p0}, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;-><init>(Lcom/samsung/android/globalactions/presentation/view/GlobalActionsAnimator;Lcom/samsung/android/globalactions/util/LogWrapper;Lcom/samsung/android/globalactions/presentation/view/ViewStateController;)V
+    invoke-direct {v0, v7, v1, p0}, Lcom/android/systemui/globalactions/presentation/view/CoverViewAnimatorFSM;-><init>(Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsAnimator;Lcom/samsung/android/globalactionsdlx/util/LogWrapper;Lcom/samsung/android/globalactionsdlx/presentation/view/ViewStateController;)V
 
     .line 37
     .line 38
@@ -1398,15 +1398,15 @@
 
     .line 13
     .line 14
-    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mResourceFactory:Lcom/samsung/android/globalactions/presentation/view/ResourceFactory;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mResourceFactory:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceFactory;
 
     .line 15
     .line 16
-    sget-object v2, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->ID_FRONT_COVER_ITEM:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object v2, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->ID_FRONT_COVER_ITEM:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     .line 17
     .line 18
-    invoke-interface {v1, v2}, Lcom/samsung/android/globalactions/presentation/view/ResourceFactory;->get(Lcom/samsung/android/globalactions/presentation/view/ResourceType;)I
+    invoke-interface {v1, v2}, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceFactory;->get(Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;)I
 
     .line 19
     .line 20
@@ -1509,15 +1509,15 @@
     move-result-object v0
 
     .line 71
-    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mResourceFactory:Lcom/samsung/android/globalactions/presentation/view/ResourceFactory;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mResourceFactory:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceFactory;
 
     .line 72
     .line 73
-    sget-object v3, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->DIMEN_MINI_SVIEW_COVER_SIDE_MARGIN:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object v3, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->DIMEN_MINI_SVIEW_COVER_SIDE_MARGIN:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     .line 74
     .line 75
-    invoke-interface {v1, v3}, Lcom/samsung/android/globalactions/presentation/view/ResourceFactory;->get(Lcom/samsung/android/globalactions/presentation/view/ResourceType;)I
+    invoke-interface {v1, v3}, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceFactory;->get(Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;)I
 
     .line 76
     .line 77
@@ -1549,15 +1549,15 @@
     move-result-object v0
 
     .line 90
-    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mResourceFactory:Lcom/samsung/android/globalactions/presentation/view/ResourceFactory;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mResourceFactory:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceFactory;
 
     .line 91
     .line 92
-    sget-object v3, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->DIMEN_FRONT_LARGE_COVER_VERTICAL_SPACE:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object v3, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->DIMEN_FRONT_LARGE_COVER_VERTICAL_SPACE:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     .line 93
     .line 94
-    invoke-interface {v1, v3}, Lcom/samsung/android/globalactions/presentation/view/ResourceFactory;->get(Lcom/samsung/android/globalactions/presentation/view/ResourceType;)I
+    invoke-interface {v1, v3}, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceFactory;->get(Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;)I
 
     .line 95
     .line 96
@@ -1586,15 +1586,15 @@
     move-result-object v1
 
     .line 108
-    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mResourceFactory:Lcom/samsung/android/globalactions/presentation/view/ResourceFactory;
+    iget-object v3, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mResourceFactory:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceFactory;
 
     .line 109
     .line 110
-    sget-object v4, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->DIMEN_FRONT_LARGE_COVER_HORIZONTAL_SPACE:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object v4, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->DIMEN_FRONT_LARGE_COVER_HORIZONTAL_SPACE:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     .line 111
     .line 112
-    invoke-interface {v3, v4}, Lcom/samsung/android/globalactions/presentation/view/ResourceFactory;->get(Lcom/samsung/android/globalactions/presentation/view/ResourceType;)I
+    invoke-interface {v3, v4}, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceFactory;->get(Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;)I
 
     .line 113
     .line 114
@@ -1718,15 +1718,15 @@
 
     .line 177
     .line 178
-    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mResourceFactory:Lcom/samsung/android/globalactions/presentation/view/ResourceFactory;
+    iget-object v1, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mResourceFactory:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceFactory;
 
     .line 179
     .line 180
-    sget-object v3, Lcom/samsung/android/globalactions/presentation/view/ResourceType;->ID_FRONT_COVER_COFIRM:Lcom/samsung/android/globalactions/presentation/view/ResourceType;
+    sget-object v3, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;->ID_FRONT_COVER_COFIRM:Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;
 
     .line 181
     .line 182
-    invoke-interface {v1, v3}, Lcom/samsung/android/globalactions/presentation/view/ResourceFactory;->get(Lcom/samsung/android/globalactions/presentation/view/ResourceType;)I
+    invoke-interface {v1, v3}, Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceFactory;->get(Lcom/samsung/android/globalactionsdlx/presentation/view/ResourceType;)I
 
     .line 183
     .line 184
@@ -1750,15 +1750,15 @@
 
     .line 193
     .line 194
-    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
     .line 195
     .line 196
-    sget-object v1, Lcom/samsung/android/globalactions/util/SystemConditions;->IS_WHITE_THEME:Lcom/samsung/android/globalactions/util/SystemConditions;
+    sget-object v1, Lcom/samsung/android/globalactionsdlx/util/SystemConditions;->IS_WHITE_THEME:Lcom/samsung/android/globalactionsdlx/util/SystemConditions;
 
     .line 197
     .line 198
-    invoke-interface {v0, v1}, Lcom/samsung/android/globalactions/util/ConditionChecker;->isEnabled(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;->isEnabled(Ljava/lang/Object;)Z
 
     .line 199
     .line 200
@@ -1783,15 +1783,15 @@
     .line 209
     .line 210
     .line 211
-    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
     .line 212
     .line 213
-    sget-object v1, Lcom/samsung/android/globalactions/util/SystemConditions;->IS_SUPPORT_SF_EFFECT:Lcom/samsung/android/globalactions/util/SystemConditions;
+    sget-object v1, Lcom/samsung/android/globalactionsdlx/util/SystemConditions;->IS_SUPPORT_SF_EFFECT:Lcom/samsung/android/globalactionsdlx/util/SystemConditions;
 
     .line 214
     .line 215
-    invoke-interface {v0, v1}, Lcom/samsung/android/globalactions/util/ConditionChecker;->isEnabled(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;->isEnabled(Ljava/lang/Object;)Z
 
     .line 216
     .line 217
@@ -1803,15 +1803,15 @@
 
     .line 220
     .line 221
-    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
     .line 222
     .line 223
-    sget-object v1, Lcom/samsung/android/globalactions/util/SystemConditions;->IS_SUPPORT_CAPTURED_BLUR:Lcom/samsung/android/globalactions/util/SystemConditions;
+    sget-object v1, Lcom/samsung/android/globalactionsdlx/util/SystemConditions;->IS_SUPPORT_CAPTURED_BLUR:Lcom/samsung/android/globalactionsdlx/util/SystemConditions;
 
     .line 224
     .line 225
-    invoke-interface {v0, v1}, Lcom/samsung/android/globalactions/util/ConditionChecker;->isEnabled(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;->isEnabled(Ljava/lang/Object;)Z
 
     .line 226
     .line 227
@@ -1841,11 +1841,11 @@
 
     .line 239
     .line 240
-    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mFeatureFactory:Lcom/samsung/android/globalactions/presentation/features/FeatureFactory;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mFeatureFactory:Lcom/samsung/android/globalactionsdlx/presentation/features/FeatureFactory;
 
     .line 241
     .line 242
-    invoke-interface {v0}, Lcom/samsung/android/globalactions/presentation/features/FeatureFactory;->createViewInflateStrategy()Ljava/util/List;
+    invoke-interface {v0}, Lcom/samsung/android/globalactionsdlx/presentation/features/FeatureFactory;->createViewInflateStrategy()Ljava/util/List;
 
     .line 243
     .line 244
@@ -1882,7 +1882,7 @@
     move-result-object v1
 
     .line 260
-    check-cast v1, Lcom/samsung/android/globalactions/presentation/strategies/ViewInflateStrategy;
+    check-cast v1, Lcom/samsung/android/globalactionsdlx/presentation/strategies/ViewInflateStrategy;
 
     .line 261
     .line 262
@@ -1890,7 +1890,7 @@
 
     .line 263
     .line 264
-    invoke-interface {v1, v3}, Lcom/samsung/android/globalactions/presentation/strategies/ViewInflateStrategy;->onInflateView(Landroid/view/View;)V
+    invoke-interface {v1, v3}, Lcom/samsung/android/globalactionsdlx/presentation/strategies/ViewInflateStrategy;->onInflateView(Landroid/view/View;)V
 
     .line 265
     .line 266
@@ -2405,11 +2405,11 @@
     .line 72
 .end method
 
-.method public final setAnimationState(Lcom/samsung/android/globalactions/presentation/view/ViewAnimationState;)V
+.method public final setAnimationState(Lcom/samsung/android/globalactionsdlx/presentation/view/ViewAnimationState;)V
     .locals 0
 
     .line 1
-    iput-object p1, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mState:Lcom/samsung/android/globalactions/presentation/view/ViewAnimationState;
+    iput-object p1, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mState:Lcom/samsung/android/globalactionsdlx/presentation/view/ViewAnimationState;
 
     .line 2
     .line 3
@@ -2436,11 +2436,11 @@
     .line 23
 .end method
 
-.method public final setState(Lcom/samsung/android/globalactions/presentation/view/ViewAnimationState;)V
+.method public final setState(Lcom/samsung/android/globalactionsdlx/presentation/view/ViewAnimationState;)V
     .locals 0
 
     .line 1
-    iput-object p1, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mState:Lcom/samsung/android/globalactions/presentation/view/ViewAnimationState;
+    iput-object p1, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mState:Lcom/samsung/android/globalactionsdlx/presentation/view/ViewAnimationState;
 
     .line 2
     .line 3
@@ -2568,15 +2568,15 @@
     .locals 3
 
     .line 1
-    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
     .line 2
     .line 3
-    sget-object v1, Lcom/samsung/android/globalactions/util/SystemConditions;->SUPPORT_SECONDARY_DISPLAY_AS_COVER:Lcom/samsung/android/globalactions/util/SystemConditions;
+    sget-object v1, Lcom/samsung/android/globalactionsdlx/util/SystemConditions;->SUPPORT_SECONDARY_DISPLAY_AS_COVER:Lcom/samsung/android/globalactionsdlx/util/SystemConditions;
 
     .line 4
     .line 5
-    invoke-interface {v0, v1}, Lcom/samsung/android/globalactions/util/ConditionChecker;->isEnabled(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;->isEnabled(Ljava/lang/Object;)Z
 
     .line 6
     .line 7
@@ -2588,15 +2588,15 @@
 
     .line 10
     .line 11
-    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mConditionChecker:Lcom/samsung/android/globalactions/util/ConditionChecker;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mConditionChecker:Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;
 
     .line 12
     .line 13
-    sget-object v1, Lcom/samsung/android/globalactions/util/SystemConditions;->IS_FOLDED:Lcom/samsung/android/globalactions/util/SystemConditions;
+    sget-object v1, Lcom/samsung/android/globalactionsdlx/util/SystemConditions;->IS_FOLDED:Lcom/samsung/android/globalactionsdlx/util/SystemConditions;
 
     .line 14
     .line 15
-    invoke-interface {v0, v1}, Lcom/samsung/android/globalactions/util/ConditionChecker;->isEnabled(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Lcom/samsung/android/globalactionsdlx/util/ConditionChecker;->isEnabled(Ljava/lang/Object;)Z
 
     .line 16
     .line 17
@@ -2642,7 +2642,7 @@
 
     .line 37
     .line 38
-    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mLogWrapper:Lcom/samsung/android/globalactions/util/LogWrapper;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mLogWrapper:Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
     .line 39
     .line 40
@@ -2651,7 +2651,7 @@
     .line 41
     .line 42
     .line 43
-    invoke-virtual {v0, v1, v2}, Lcom/samsung/android/globalactions/util/LogWrapper;->i(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v1, v2}, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;->i(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 44
     .line 45
@@ -2669,7 +2669,7 @@
 
     .line 52
     :cond_1
-    iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mLogWrapper:Lcom/samsung/android/globalactions/util/LogWrapper;
+    iget-object p0, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mLogWrapper:Lcom/samsung/android/globalactionsdlx/util/LogWrapper;
 
     .line 53
     .line 54
@@ -2677,7 +2677,7 @@
 
     .line 55
     .line 56
-    invoke-virtual {p0, v1, v0}, Lcom/samsung/android/globalactions/util/LogWrapper;->e(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v1, v0}, Lcom/samsung/android/globalactionsdlx/util/LogWrapper;->e(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 57
     .line 58
@@ -2699,11 +2699,11 @@
     .line 72
 .end method
 
-.method public final showConfirm(Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;)V
+.method public final showConfirm(Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;)V
     .locals 0
 
     .line 1
-    iput-object p1, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mSelectedViewModel:Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;
+    iput-object p1, p0, Lcom/android/systemui/globalactions/presentation/view/FrontLargeCoverContentView;->mSelectedViewModel:Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;
 
     .line 2
     .line 3
@@ -2736,11 +2736,11 @@
     .line 23
 .end method
 
-.method public final updateItemLists(Lcom/samsung/android/globalactions/presentation/SamsungGlobalActionsPresenter;)V
+.method public final updateItemLists(Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActionsPresenter;)V
     .locals 3
 
     .line 1
-    invoke-virtual {p1}, Lcom/samsung/android/globalactions/presentation/SamsungGlobalActionsPresenter;->getValidActions()Ljava/util/List;
+    invoke-virtual {p1}, Lcom/samsung/android/globalactionsdlx/presentation/SamsungGlobalActionsPresenter;->getValidActions()Ljava/util/List;
 
     .line 2
     .line 3
@@ -2795,11 +2795,11 @@
     move-result-object v0
 
     .line 28
-    check-cast v0, Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;
+    check-cast v0, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;
 
     .line 29
     .line 30
-    invoke-interface {v0}, Lcom/samsung/android/globalactions/presentation/viewmodel/ActionViewModel;->getActionInfo()Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;
+    invoke-interface {v0}, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionViewModel;->getActionInfo()Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;
 
     .line 31
     .line 32
@@ -2807,7 +2807,7 @@
     move-result-object v1
 
     .line 34
-    invoke-virtual {v1}, Lcom/samsung/android/globalactions/presentation/viewmodel/ActionInfo;->getName()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/samsung/android/globalactionsdlx/presentation/viewmodel/ActionInfo;->getName()Ljava/lang/String;
 
     .line 35
     .line 36
