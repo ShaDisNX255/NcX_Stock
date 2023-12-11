@@ -3583,4 +3583,5 @@
     <item type="id" name="zen_radio_buttons" />
     <item type="id" name="zen_radio_buttons_content" />
     <item type="id" name="zoom_layer" />
+    <item type="id" name="dev_settings" />
 </resources>
