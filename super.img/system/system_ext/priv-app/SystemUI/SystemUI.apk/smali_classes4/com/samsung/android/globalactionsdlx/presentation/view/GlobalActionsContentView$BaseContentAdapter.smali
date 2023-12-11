@@ -278,7 +278,7 @@
     # Setting the number of columns in portrait mode with the use of a key
     iget-object v0, p0, Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsContentView$BaseContentAdapter;->this$0:Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsContentView;
 
-    invoke-static {v0}, Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsContentView;->access$1300(Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsContentView;)Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsContentView$SamsungGlobalActionsGridView;
+    invoke-static {v0}, Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsContentView;->-$$Nest$fgetmListView(Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsContentView;)Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsContentView$SamsungGlobalActionsGridView;
 
     move-result-object v0
 
@@ -295,7 +295,7 @@
     # Setting the number of columns in landscape mode with the use of a key
     iget-object v0, p0, Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsContentView$BaseContentAdapter;->this$0:Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsContentView;
 
-    invoke-static {v0}, Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsContentView;->access$800(Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsContentView;)Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsContentView$SamsungGlobalActionsGridView;
+    invoke-static {v0}, Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsContentView;->-$$Nest$fgetmLandListView(Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsContentView;)Lcom/samsung/android/globalactionsdlx/presentation/view/GlobalActionsContentView$SamsungGlobalActionsGridView;
 
     move-result-object v0
 
