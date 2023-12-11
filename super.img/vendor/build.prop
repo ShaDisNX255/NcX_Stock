@@ -281,4 +281,6 @@ ro.vendor.nfc.info.deviceHeight=159.9
 ro.vendor.nfc.info.deviceFoldable=false
 ro.security.vaultkeeper.native=0
 ro.security.vaultkeeper.feature=0
+wlan.wfd.hdcp=disable
+wifi.interface=wlan0
 

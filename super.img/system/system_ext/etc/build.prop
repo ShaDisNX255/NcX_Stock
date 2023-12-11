@@ -24,5 +24,7 @@ ro.system_ext.build.version.sdk=34
 # from variable PRODUCT_SYSTEM_EXT_PROPERTIES
 ####################################
 persist.vendor.dpm.feature=11
+wlan.wfd.hdcp=disable
+wifi.interface=wlan0
 # end of file
 

@@ -98,5 +98,7 @@ ro.setupwizard.mode=OPTIONAL
 ro.opa.eligible_device=true
 ro.com.google.gmsversion=14_202310
 setupwizard.feature.enable_quick_start_flow=true
+wlan.wfd.hdcp=disable
+wifi.interface=wlan0
 # end of file
 

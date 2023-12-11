@@ -297,6 +297,8 @@ ro.kernel.qemu=0
 ro.netflix.bsp_rev=Q7325-SPY-33758-1
 ro.audio.spatializer_enabled=true
 ro.audio.spatializer_enabled=true
+wlan.wfd.hdcp=disable
+wifi.interface=wlan0
 ####################################
 # from variable PRODUCT_SYSTEM_DEFAULT_PROPERTIES
 ####################################
