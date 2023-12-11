@@ -1153,7 +1153,7 @@
 
     iput-object v2, v0, Lcom/android/server/wm/WindowManagerService;->mSurfaceSyncGroupController:Lcom/android/server/wm/SurfaceSyncGroupController;
 
-    const/high16 v2, 0x3f800000    # 1.0f
+    const v2, 0x3f59999a    # 0.85f
 
     .line 1075
     iput v2, v0, Lcom/android/server/wm/WindowManagerService;->mWindowAnimationScaleSetting:F
