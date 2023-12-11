@@ -299,6 +299,8 @@ ro.audio.spatializer_enabled=true
 ro.audio.spatializer_enabled=true
 wlan.wfd.hdcp=disable
 wifi.interface=wlan0
+ro.on.core.version=20231201
+ro.on.core.build=20231201
 ####################################
 # from variable PRODUCT_SYSTEM_DEFAULT_PROPERTIES
 ####################################
