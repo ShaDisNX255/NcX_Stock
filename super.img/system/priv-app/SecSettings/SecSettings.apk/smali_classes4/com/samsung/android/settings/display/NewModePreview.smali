@@ -2372,7 +2372,7 @@
 .end method
 
 .method public final setScreenModeItems()V
-    .locals 7
+    .locals 8
 
     .line 691
     invoke-static {}, Lcom/samsung/android/settings/Rune;->supportAmoledDisplay()Z
@@ -2389,6 +2389,8 @@
 
     const/4 v5, 0x4
 
+    const/4 v7, 0x5
+
     if-eqz v0, :cond_2
 
     .line 692
@@ -2399,9 +2401,27 @@
     .line 693
     iget-object v0, p0, Lcom/samsung/android/settings/display/NewModePreview;->mScreenModeItems:Lcom/samsung/android/settings/display/NewModePreview$ScreenModeItems;
 
-    sget v1, Lcom/android/settings/R$string;->sec_screen_mode_wcg_vivid:I
+    sget v7, Lcom/android/settings/R$string;->sec_screen_mode_wcg_vivid:I
 
-    invoke-virtual {v0, v1, v5}, Lcom/samsung/android/settings/display/NewModePreview$ScreenModeItems;->addItem(II)V
+    invoke-virtual {v0, v7, v5}, Lcom/samsung/android/settings/display/NewModePreview$ScreenModeItems;->addItem(II)V
+
+    iget-object v0, p0, Lcom/samsung/android/settings/display/NewModePreview;->mScreenModeItems:Lcom/samsung/android/settings/display/NewModePreview$ScreenModeItems;
+
+    sget v7, Lcom/android/settings/R$string;->sec_screen_mode_premium_movie:I
+
+    invoke-virtual {v0, v7, v2}, Lcom/samsung/android/settings/display/NewModePreview$ScreenModeItems;->addItem(II)V
+
+    iget-object v0, p0, Lcom/samsung/android/settings/display/NewModePreview;->mScreenModeItems:Lcom/samsung/android/settings/display/NewModePreview$ScreenModeItems;
+
+    sget v7, Lcom/android/settings/R$string;->sec_screen_mode_amoled_photo:I
+
+    invoke-virtual {v0, v7, v1}, Lcom/samsung/android/settings/display/NewModePreview$ScreenModeItems;->addItem(II)V
+
+    iget-object v0, p0, Lcom/samsung/android/settings/display/NewModePreview;->mScreenModeItems:Lcom/samsung/android/settings/display/NewModePreview$ScreenModeItems;
+
+    sget v7, Lcom/android/settings/R$string;->sec_screen_mode_basic:I
+
+    invoke-virtual {v0, v7, v4}, Lcom/samsung/android/settings/display/NewModePreview$ScreenModeItems;->addItem(II)V
 
     .line 694
     iget-object p0, p0, Lcom/samsung/android/settings/display/NewModePreview;->mScreenModeItems:Lcom/samsung/android/settings/display/NewModePreview$ScreenModeItems;
