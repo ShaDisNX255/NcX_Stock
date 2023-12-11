@@ -7,7 +7,7 @@
 .implements Landroid/util/DumpableContainer;
 
 # static fields
-.field private static mGearContext:Landroid/content/Context;
+.field private static mGearContext:Landroid/content/Context; ### Add this line
 
 
 # instance fields
@@ -112,7 +112,7 @@
     return p0
 .end method
 
-.method public static getContext()Landroid/content/Context;
+.method public static getContext()Landroid/content/Context; ###Add this method
     .locals 1
 
     sget-object v0, Lcom/android/systemui/SystemUIApplication;->mGearContext:Landroid/content/Context;
@@ -592,7 +592,7 @@
 
     invoke-virtual {p0, v1}, Landroid/app/Application;->setTheme(I)V
 
-     sput-object p0, Lcom/android/systemui/SystemUIApplication;->mGearContext:Landroid/content/Context;
+    sput-object p0, Lcom/android/systemui/SystemUIApplication;->mGearContext:Landroid/content/Context; ###Add this line
 
     .line 141
     invoke-static {}, Landroid/os/Process;->myUserHandle()Landroid/os/UserHandle;

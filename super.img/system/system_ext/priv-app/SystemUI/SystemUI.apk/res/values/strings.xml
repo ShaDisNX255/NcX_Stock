@@ -5059,4 +5059,15 @@ Wi‑Fi Address (BSSID)
     <string name="zen_silence_introduction_voice">"This blocks ALL sounds and vibrations, including from alarms, music, videos, and games. You'll still be able to make phone calls."</string>
     <string name="zoom_decrease_size_desc">Decrease size</string>
     <string name="zoom_increase_size_desc">Increase size</string>
+    <string name="recovery">Recovery mode</string>
+    <string name="recovery_confirm">Tap again to restart your phone in recovery mode</string>
+    <string name="download">Download mode</string>
+    <string name="download_confirm">Tap again to restart your phone in download mode</string>
+    <string name="quick_reboot">Quick restart</string>
+    <string name="quick_reboot_confirm">Tap again to do a quick restart</string>
+    <string name="reboot_ui">Restart SystemUI</string>
+    <string name="reboot_ui_confirm">Tap again to restart SystemUI</string>
+    <string name="screenshot">Screenshot</string>
+    <string name="screenrecord">Screenrecord</string>
+    <string name="flashlight">Flashlight</string>
 </resources>
