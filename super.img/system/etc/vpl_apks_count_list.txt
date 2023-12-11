@@ -1,0 +1,4 @@
+/system/preload/MinusOnePage/MinusOnePage.apk
+/system/preload/SmartSwitchAgent/SmartSwitchAgent.apk
+/system/preload/SamsungMessages/SamsungMessages.apk
+/system/preload/SecMyFiles2020/SecMyFiles2020.apk
