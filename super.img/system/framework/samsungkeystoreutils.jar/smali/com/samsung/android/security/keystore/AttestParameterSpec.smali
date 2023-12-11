@@ -221,7 +221,8 @@
 .method public isVerifiableIntegrity()Z
     .registers 2
 
-    const/4 v0, 0x1
+    .line 114
+    iget-boolean v0, p0, Lcom/samsung/android/security/keystore/AttestParameterSpec;->mVerifiableIntegrity:Z
 
     return v0
 .end method
