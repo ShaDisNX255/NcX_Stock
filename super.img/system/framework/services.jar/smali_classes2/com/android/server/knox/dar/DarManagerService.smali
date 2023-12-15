@@ -535,55 +535,10 @@
 .end method
 
 .method public final checkDeviceIntegrity([Ljava/security/cert/Certificate;)Z
-    .registers 3
-
-    const/4 p0, 0x0
-
-    .line 390
-    aget-object p1, p1, p0
-
-    check-cast p1, Ljava/security/cert/X509Certificate;
-
-    .line 394
-    :try_start_5
-    new-instance v0, Lcom/android/server/knox/dar/AttestedCertParser;
-
-    invoke-direct {v0, p1}, Lcom/android/server/knox/dar/AttestedCertParser;-><init>(Ljava/security/cert/X509Certificate;)V
-
-    .line 395
-    invoke-virtual {v0}, Lcom/android/server/knox/dar/AttestedCertParser;->getIntegrityStatus()Lcom/android/server/knox/dar/IntegrityStatus;
-
-    move-result-object p1
-
-    if-eqz p1, :cond_22
-
-    .line 397
-    invoke-virtual {p1}, Lcom/android/server/knox/dar/IntegrityStatus;->getWarranty()I
-
-    move-result v0
-
-    if-nez v0, :cond_22
-
-    .line 398
-    invoke-virtual {p1}, Lcom/android/server/knox/dar/IntegrityStatus;->getTrustBoot()I
-
-    move-result p1
-    :try_end_1a
-    .catch Ljava/security/cert/CertificateParsingException; {:try_start_5 .. :try_end_1a} :catch_1e
-
-    if-nez p1, :cond_22
+    .locals 0
 
     const/4 p0, 0x1
 
-    return p0
-
-    :catch_1e
-    move-exception p1
-
-    .line 402
-    invoke-virtual {p1}, Ljava/security/cert/CertificateParsingException;->printStackTrace()V
-
-    :cond_22
     return p0
 .end method
 
