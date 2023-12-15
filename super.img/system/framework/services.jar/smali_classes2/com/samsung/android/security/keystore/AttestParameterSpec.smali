@@ -165,7 +165,7 @@
     .registers 1
 
     .line 114
-    iget-boolean p0, p0, Lcom/samsung/android/security/keystore/AttestParameterSpec;->mVerifiableIntegrity:Z
+    const/4 p0, 0x1
 
     return p0
 .end method
