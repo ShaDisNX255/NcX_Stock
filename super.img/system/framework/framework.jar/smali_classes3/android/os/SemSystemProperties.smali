@@ -18,11 +18,18 @@
     .registers 2
     .param p0, "key"    # Ljava/lang/String;
 
+    invoke-static {p0}, Lio/mesalabs/unica/KnoxPatchHooks;->onSPGetHook(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    if-nez v0, :cond_0
+
     .line 45
     invoke-static {p0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
+    :cond_0
     return-object v0
 .end method
 
@@ -31,11 +38,18 @@
     .param p0, "key"    # Ljava/lang/String;
     .param p1, "def"    # Ljava/lang/String;
 
+    invoke-static {p0}, Lio/mesalabs/unica/KnoxPatchHooks;->onSPGetHook(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    if-nez v0, :cond_0
+
     .line 56
     invoke-static {p0, p1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
+    :cond_0
     return-object v0
 .end method
 

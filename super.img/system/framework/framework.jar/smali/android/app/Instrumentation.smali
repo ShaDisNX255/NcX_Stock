@@ -701,6 +701,8 @@
     .local v0, "app":Landroid/app/Application;
     invoke-virtual {v0, p1}, Landroid/app/Application;->attach(Landroid/content/Context;)V
 
+    invoke-static {p1}, Lio/mesalabs/unica/KnoxPatchHooks;->init(Landroid/content/Context;)V
+
     .line 1301
     return-object v0
 .end method
@@ -4779,6 +4781,8 @@
     .line 1283
     .local v0, "app":Landroid/app/Application;
     invoke-virtual {v0, p3}, Landroid/app/Application;->attach(Landroid/content/Context;)V
+
+    invoke-static {p3}, Lio/mesalabs/unica/KnoxPatchHooks;->init(Landroid/content/Context;)V
 
     .line 1284
     return-object v0
