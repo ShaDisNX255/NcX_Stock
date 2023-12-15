@@ -35,11 +35,6 @@ if [[ "$model" == "SM-A528B" ]]; then
       ui_print " Mounting partitions... "
       auto_mount_partitions
       ui_print " Done... "
-      ui_print " Adding CSC features... "
-      cscfeature="$addons/omc/cscfeature.xml"
-      cscfeature_network="$addons/omc/cscfeature_network.xml"
-      omc_decoder="$addons/omc/decoder.jar"
-      . "$addons/omc_edit.sh"
       ui_print " Installation complete... "
       ui_print " Press VOL+ if you want to reboot to recovery "
       ui_print " Press VOL- if you want to finish and close the install zip "
