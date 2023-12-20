@@ -8,3 +8,5 @@ libimage_enhancement.arcsoft.so
 liblow_light_hdr.arcsoft.so
 libhigh_dynamic_range.arcsoft.so
 libFacialAttributeDetection.arcsoft.so
+libobjectcapture.arcsoft.so
+libobjectcapture_jni.arcsoft.so
