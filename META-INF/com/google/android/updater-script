@@ -32,20 +32,16 @@ if [[ "$model" == "SM-A528B" ]]; then
       ui_print " Installing Super image... "
       update_zip -xz super.img.xz $(find_block super)
       ui_print " Done... "
-      ui_print " Mounting partitions... "
-      auto_mount_partitions
-      ui_print " Done... "
       ui_print " Installation complete... "
-      ui_print " Press VOL+ if you want to reboot to recovery "
-      ui_print " Press VOL- if you want to finish and close the install zip "
-      if $yes; then
-         run_program "$addons/reboot" recovery
-      else
-         ui_print " Done... "
-      fi
+      ui_print " Mounting cache... "
+      try_mount -rw /cache
+      ui_print " Extracting recovery script... "
+      package_extract_dir script /cache
+      ui_print " Rebooting to recovery to continue the installation... "
+      run_program "$addons/reboot" recovery
    else
-      ui_print " Your bootloader version is too old, please update to U5/S5 first "
+      abort " Your bootloader version is too old, please update to U5/S5 first "
    fi
 else
-   ui_print " Different model detected, this ROM is for the Galaxy A52s... "
+   abort " Different model detected, this ROM is for the Galaxy A52s... "
 fi
