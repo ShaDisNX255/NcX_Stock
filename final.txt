@@ -1,0 +1,5 @@
+# These are the final steps for NcX. Adding this as a reminder SO I DON'T FORGET!!!!
+- Compile jars and apks and push to system
+- Push patched bt libs to system
+- Patch camera
+    run: grep -rli 'ro.boot.flash.locked' * | xargs -i@ sed -i 's/ro.boot.flash.locked/ro.camera.notify_nfc/g' @
