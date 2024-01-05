@@ -112,7 +112,7 @@
     <!-- Photo features -->
     <local name="SUPPORT_MOTION_PHOTO" value="false" />
     <local name="BACK_WIDE_CAMERA_PREVIEW_FPS_MIN" value="10" />
-    <local name="SUPPORT_LOW_PERFORMANCE_REMOSAIC_CAPTURE" value="true"/
+    <local name="SUPPORT_LOW_PERFORMANCE_REMOSAIC_CAPTURE" value="true"/>
     <local name="SUPPORT_POST_PROCESSING_MOTION_PHOTO" value="true"/>>
 
     <!-- Intelligent features -->
