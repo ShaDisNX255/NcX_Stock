@@ -3,6 +3,7 @@ A complete OneUI6 ROM with added flagship features
 
 # Supported devices
 Samsung Galaxy A52s 5G (a52sxq): [XDA Link](https://xdaforums.com/t/rom-ota-encryption-ncx-oneui-6-rom-sm-a528b.4646417/)
+Samsung Galaxy A52 4G (a52q): [XDA Link](https://xdaforums.com/t/rom-ota-encryption-ncx-oneui-6-rom-sm-a525-m-f.4649313/)
 
 
 # Added OS Features:
