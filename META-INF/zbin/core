@@ -1,6 +1,5 @@
 #!/sbin/sh
-#Dynamic Installer by @BlassGO
-#Also uses code from @osm0sis and @topjohnwu
+#Dynamic Installer by @BlassGO --- Also uses code from @osm0sis and @topjohnwu
 
 unmount() { ( umount "$1" || umount -l "$1";) 2>/dev/null; is_mounted "$1" && return 1 || return 0; }
 
@@ -30,7 +29,7 @@ is_xz() { ( xxd -p "$1" | head -n1 | grep -q "fd377a585a00" ) 2>/dev/null; }
 
 is_tar() { ( xxd -p -s 257 "$1" | head -n1 | grep -q "7573746172" ) 2>/dev/null; }
 
-is_number() { echo "$1" | grep -Eq "^[0-9]+([.][0-9]+)?$"; }
+is_number() { echo "$1" | grep -Eq "^-?[0-9]+([.][0-9]+)?$"; }
 
 is_hex() { echo "$1" | grep -Eq "^[[:xdigit:]]+$"; }
 
@@ -40,7 +39,7 @@ is_text() { echo "$1" | tr -d '[[:space:]]' | grep -Eq "^[[:print:]]+$"; }
 
 is64bit() { local byte=$(od -An -t x1 -j 4 -N 1 "$1" | tr -d " "); if [[ "$byte" == "02" ]]; then return 0; elif [[ "$byte" == "01" ]]; then return 1; else echo Unknown && return 1; fi }
 
-show_progress() { if ! $BOOTMODE; then echo "progress $1 $2" >> $OUTFD; fi }
+show_progress() { [ -e "$OUTFD" ] && echo "progress $1 $2" >> $OUTFD; }
 
 apply_patch() { LD_LIBRARY_PATH=/system/lib$base_lib applypatch "$@"; }
 
@@ -48,7 +47,7 @@ apply_patch_check() { LD_LIBRARY_PATH=/system/lib$base_lib applypatch -c "$@"; }
 
 apply_patch_space() { LD_LIBRARY_PATH=/system/lib$base_lib applypatch -s $1; }
 
-rename() { mv -f "$1" "$(dirname "$1")/$2"; }
+rename() { local path=$(fullpath "$1"); if [ -n "$path" ]; then echo2 "rename: \"$path\" with \"$2\""; mv -f "$path" "$(dirname "$path")/$2"; else echo2 "CANT FIND: $1" && return 1; fi; }
 
 delete() { rm -f "$@"; }
 
@@ -74,7 +73,7 @@ create_dir() { local dir return=0; for dir; do if [ ! -d "$dir" ]; then mkdir -p
 
 create_file() { local file return=0; for file; do create_dir "$(dirname "$file")" || return 1; delete "$file"; touch "$file" 2>/dev/null; if [ -f "$file" ]; then set_perm2 $di_uid $di_gid $di_perm_f "$file" ; elif [ -e "$file" ]; then echo2 "Already exist some reference called: $file" && return=1; else echo2 "Cant create file: $file" && return=1; fi; done; return $return;  }
 
-testrw() { local test return=0; for test; do if [ -d "$test" ]; then touch "$test/.rw$$" 2>/dev/null; if [ -f "$test/.rw$$" ]; then delete "$test/.rw$$" ; else echo2 '!'"Read-Only: $test" && return=1; fi; else echo2 "Cant find: $test directory" && return=1; fi; done; return $return; }
+testrw() { local test return=0; for test; do if [ -d "$test" ]; then if grep " $(readlink -f "$test") " /proc/mounts | grep -Eq '(\(|[[:space:]]|,)ro(,|[[:space:]]|\))'; then echo2 '!'"Read-Only-Mount: $test" && return=2; else touch "$test/.rw$$" 2>/dev/null; if [ -f "$test/.rw$$" ]; then delete "$test/.rw$$" ; else echo2 '!'"Read-Only: $test" && return=1; fi; fi; else echo2 "Cant find: $test directory" && return=1; fi; done; return $return; }
 
 testvarname() { echo "$@" | grep -Eq '^[a-zA-Z_$][a-zA-Z_$0-9]*$'; }
 
@@ -89,6 +88,12 @@ int() { awk "BEGIN{print int($*)}"; }
 float() { is_number "$float_length" || local float_length=9; [ $# == 0 ] && set -- 0; awk 'BEGIN{printf("%.'$float_length'f\n", '$*')}'; }
 
 round() { [ $# == 0 ] && set -- 0; awk 'BEGIN{printf("%.0f\n", '$*')}'; }
+
+is_static() { local file="$1" result; [ -n "$file" -a ! -e "$file" ] && file=$(which "$1"); [ ! -e "$file" ] && echo2 "is_static: Cant find: $1" && return 1; result=$(strings "$file" | grep -E "^/(bin|etc|system|system_ext|vendor|product|odm|apex)(/[^/]+)*/bin/[^/]+" | while read need; do echo "$file needs \"$need\""; done); [ -n "$result" ] && echo2 "$result" && return 1 || return 0; }
+
+mount_file() { if [ ! -e "$1" ]; then echo2 "Cant find: $1" && return 1; elif [ ! -e "$2" ]; then create_file "$2" || return 1; fi; mount -o bind "$1" "$2";}
+
+support_option() { can_run "$2" && ("$2" --help 2>&1) | grep -Eq -m1 "[[:space:]]+$1[[:space:]]+";}
 
 ###################################
 #Common EDIFY extra references (For new users)
@@ -649,6 +654,52 @@ obfuscate() {
       echo "${_keys_}$_orig_"
    else return 1
    fi
+}
+
+replace_name() {
+   #regex="([^//]*/)*(${1}[^//]*)$"
+   local restore flag dir=false file=false find any name newname r regex
+   local fix='s/[]()\/$*.^[]/\\&/g'
+   restore=()
+   while [[ $# -gt 0 ]]; do
+   flag="$1"
+   case $flag in
+       -dirs|-d)
+       dir=true
+       shift;
+       ;;
+       -files|-f)
+       file=true
+       shift;
+       ;;
+       -recursive|-r)
+       r=true
+       shift;
+       ;;
+       -regex)
+       regex=true
+       shift;
+       ;;
+       *)   
+       restore+=("$1")
+       shift
+       ;;
+   esac
+   done
+   set -- "${restore[@]}"
+   if ($file && $dir); then if [ -z "$r" ]; then if [ ! -f "$3" -o ! -d "$3" ]; then echo2 "CANT FIND: $3" && return 1; fi; else find=" ( -type f -o -type d ) "; fi
+   elif $file; then if [ -z "$r" ]; then if [ ! -f "$3" ]; then echo2 "CANT FIND FILE: $3" && return 1; fi; else find=" -type f "; fi
+   elif $dir; then if [ -z "$r" ]; then if [ ! -d "$3" ]; then echo2 "CANT FIND DIR: $3" && return 1; fi; else find=" -type d "; fi
+   else if [ -z "$r" ]; then if [ ! -e "$3" ]; then echo2 "CANT FIND: $3" && return 1; fi; fi
+   fi
+   if [ -n "$r" -a ! -d "$3" ]; then echo2 "CANT FIND DIR: $3" && return 1; fi
+   while read any; do
+       [ -z "$any" ] && break
+       name=$(basename "$any")
+       if [ -n "$regex" ]; then newname=$(echo "$name" | sed -E "s;$1;$2;g"); else newname=${name//"$1"/"$2"}; fi
+       if [[ "$newname" == "$name" ]]; then continue; fi
+       rename "$any" "$newname"
+   done <<< $(if [ -n "$r" ]; then find "$3" -mindepth 1 $find; else echo "$3"; fi)
 }
 
 abort() {
@@ -1433,59 +1484,34 @@ add_lines_zip() {
     if [[ "$old" != "$new" ]]; then true; else false; fi
 }
 
-setup_bb() {
-   #Ensure /system/bin/sh
-   if [ ! -f /system/bin/sh ]; then
-      umount -l /system 2>/dev/null
-      mkdir -p /system/bin
-      ln -sf "$(command -v sh)" /system/bin/sh
-   fi
-   if [ -e "$bb" ]; then
-     if ! "$bb" --install -s "$l"; then
-        for i in $("$bb" --list); do
-          if ! ln -sf "$bb" "$l/$i" && ! "$bb" ln -sf "$bb" "$l/$i" && ! "$bb" ln -f "$bb" "$l/$i"; then
-            # create script wrapper if symlinking and hardlinking failed because of restrictive selinux policy
-            if ! echo "#!$bb" > "$l/$i" || ! chmod 755 "$l/$i"; then
-              abort "ERROR:1: Failed to setup busybox"
-            fi
-          fi
-        done
-     fi
-   else
-      abort "ERROR:2: Cant find busybox"
-   fi
-   if [ ! -f "$l/sh" ]; then abort "ERROR:3: Failed to setup busybox"; fi
-}
-
+find_bin() { [ -n "$2" ] && echo "$2" || echo "$binary_paths" | while read path; do [ -e "$path/$1" ] && echo "$path/$1" && break; done; }
+import_info() { ( echo >> "$l/info.txt"; cat "$1" >> "$l/info.txt"; rm -f "$1" ) 2>/dev/null; }
 get() {
-  #Get v1.2.0
-  #Ensure Extraction
-  local var flag from to in get rm root
-  for var; do
-    flag="$1"
-    case $flag in
+  local args=$# skip=0 from to in get rm root
+  while [ $args -gt 0 ]; do
+    case $1 in
        -from)
        from="$2"
-       shift 2
+       skip=2;
        ;;
        -to)
        to="$2"
-       shift 2
+       skip=2;
        ;;
        -in)
        in="$2"
-       shift 2
+       skip=2;
        ;;
        *)
        set -- "$@" "$1"
-       shift
+       skip=1;
        ;;
     esac
+    shift $skip; args=$(($args-$skip)); 
   done
-  if [ -z "$from" ] || [ ! -f "$from" ]; then abort "ERROR: Invalid ZIP name"; fi
-  [ -n "$in" ] && in="$in/"
-  [ -n "$to" ] && to="$to/" || to="$PWD/"
-  [ "$to" == "//" ] && to=/
+  [ -z "$from" -o ! -f "$from" ] && abort "ERROR: Invalid ZIP: \"$from\""
+  [ -z "$to" ] && to="$PWD"; to="${to%%/}/"
+  [ -n "$in" ] && in="${in%%/}/"
   for get in "$@"; do
      root="${in}$get"
      echo2 "Getting: $get"
@@ -1495,12 +1521,112 @@ get() {
         chmod 755 "${to}$get"
         if [ -f "${to}$get" ]; then
            rm=${root%%/*}
-           [ -n "$rm" ] && rm -rf "$to/$rm"
+           [ "$rm" != "$root" -a -d "${to}$rm" ] && rm -rf "${to}$rm"
         else abort "ERROR:2: Cant get $get"
         fi
      else abort "ERROR:1: Cant get $get"
      fi
   done
+}
+ensure_bin() {
+   local path bin
+   [ -z "$needed" ] && local needed=false
+   [ -z "$bb" ] && bb=$(find_bin busybox)
+   while [ "$1" ]; do
+      bin=
+      if [ ! -e "$(command -v "$1")" ]; then
+         bin=$(find_bin $1); [ -n "$bin" ] && bin="\"$bin\""
+         if [ -z "$bin" -a -n "$bb" ] && "$bb" --list | "$bb" grep -Eq "^$1$"; then bin="\"$bb\" $1"; fi
+         [ -n "$bin" ] && eval "$1() { $bin \"\$@\"; }"
+         ($needed && [ -z "$bin" ]) && abort "ERROR: Could not define \"$1\" binary"
+      fi
+      shift;
+   done
+}
+change_bin() {
+   local restore flag while
+   local path current pass name return=0
+   create_dir "$TMP/change_bin" || return 1
+   restore=()
+   while [[ $# -gt 0 ]]; do
+   flag="$1"
+   case $flag in
+       -while|-w)
+       while="$2"
+       shift;shift;
+       ;;
+       *)   
+       restore+=("$1")
+       shift
+       ;;
+   esac
+   done
+   set -- "${restore[@]}"
+   echo "$PATH" | grep -Eq "^$TMP/change_bin" || export PATH="$TMP/change_bin:$PATH"
+   while [ "$1" ]; do
+      current=
+      pass=false
+      name=$((basename "$1" || echo "$1")2>/dev/null)
+      [ -n "$(declare -f "$name" 2>/dev/null)" ] && echo2 "Unsetting function: \"$name\"" && unset -f "$name"
+      [ -e "$TMP/change_bin/$name" ] && current=$(readlink "$TMP/change_bin/$name") || current=$(command -v "$name")
+      echo2 " "
+      if [ -e "$current" ]; then echo2 "Currently using: \"$current\" binary"
+      else echo2 "Cant find any reference for: \"$name\" binary" && return 1
+      fi
+      while read bin; do
+          if [ -e "$bin" -a "$bin" != "$current" ] && (if [ -n "$while" ]; then support_option "$while" "$bin"; else true; fi); then echo2 "Changing to: \"$bin\" binary"; ln -sf "$bin" "$TMP/change_bin/$name" && pass=true; break; fi
+      done <<< $([ -f "$1" ] && echo "$1" || (which "$1" || command -v "$1"; find_bin "$1"; split_string : "$PATH" | while read path; do echo "$path/$1"; done) | sort -bu | grep -Ev "^$TMP/change_bin" | shuf)
+      if ! $pass; then echo2 "No possible changes found for: \"$name\" binary"; return=1; fi
+      echo2 " "
+      shift;
+   done
+   return $return
+}
+<<"EOF"
+change_bin() {
+   local path current pass name return=0
+   while [ "$1" ]; do
+      pass=false
+      name=$(basename "$1")
+      echo2 " "
+      current=$(declare -f "$name" 2>/dev/null | sed -n 's/^[^"]*"\([^"]*\)".*/\1/p' | head -n1)
+      [ -z "$current" ] && current=$(which "$name" || command -v "$name")
+      [ -n "$current" ] && echo2 "Currently using: \"$current\" binary"
+      while read bin; do
+          if [ -e "$bin" -a "$bin" != "$current" ]; then echo2 "Changing to: \"$bin\" binary"; eval "$name() { if [ -f \"$bin\" ]; then \"$bin\" \"\$@\"; else echo2 \"Cant find: $bin binary\"; change_bin $name && $name \"\$@\"; fi; }" && pass=true; break; fi
+      done <<< $([ -f "$1" ] && echo "$1" || (which "$1" || command -v "$1"; find_bin "$1"; split_string : "$PATH" | while read path; do echo "$path/$1"; done) | sort -bu | shuf)
+      if ! $pass; then echo2 "No possible changes found for: \"$name\" binary"; return=1; fi
+      echo2 " "
+      shift;
+   done
+   return $return
+}
+EOF
+setup_bb() {
+   #Try to ensure /system/bin/sh
+   needed=false; ensure_bin umount ln
+   if [ ! -f /system/bin/sh ]; then
+      umount -l /system 2>/dev/null
+      mkdir -p /system/bin
+      ln -sf "$(command -v sh)" /system/bin/sh
+   fi
+   if [ -e "$bb" ]; then
+     if ! echo "read me" | "$bb" grep -q "read me"; then
+        abort "ERROR:4: BusyBox cannot load on this device!"
+     elif ! "$bb" --install -s "$l"; then
+        for i in $("$bb" --list); do
+          if ! ln -sf "$bb" "$l/$i" && ! "$bb" ln -sf "$bb" "$l/$i" && ! "$bb" ln -f "$bb" "$l/$i"; then
+            # create script wrapper if symlinking and hardlinking failed because of restrictive selinux policy
+            if ! echo "#!$bb" > "$l/$i" || ! chmod 755 "$l/$i"; then
+              abort "ERROR:2: Failed to setup BusyBox"
+            fi
+          fi
+        done
+     fi
+   else
+      abort "ERROR:1: Cant find BusyBox"
+   fi
+   [ ! -f "$l/sh" ] && abort "ERROR:3: Failed to setup BusyBox"
 }
 
 set_context() {
@@ -1559,20 +1685,20 @@ eval_all_perm() { echo "$(eval_user "$1") $(eval_group "$1") $(eval_perm "$1")";
 
 patch_fstab() {
    #patch_fstab userdata "fileencryption" "encryptable" "FILE"
-   local huh line fstab count=0 back stock new
+   local huh fstab result stock new
    if exist "$4"; then savestate stock "$4"; else echo2 "patch_fstab: Cant find $4" && return 1; fi
-   fstab=$(grep -m1 "$1" "$4")
-   if undefined fstab; then echo2 "patch_fstab: Cant get $1 line in $4" && return 1; fi
-   back="$fstab"
+   fstab=$(grep -Em1 "^[[:space:]]*[^#].*$(string escape "$1")" "$4")
+   if undefined fstab; then echo2 "patch_fstab: Cant get \"$1\" line in $4" && return 1; fi
    huh=$(split_string ',' "$fstab" | grep -m1 "$2")
-   fstab=$(string force replace "$huh" "$3" "$fstab")
-   if defined back fstab huh && [[ "$fstab" != "$back" ]]; then
+   if defined huh; then
+      result=$(string replace "$huh" "$3" "$fstab")
+      if undefined result; then echo2 "patch_fstab: Nothing to do: \"$huh\"" && return 0; fi
       echo2 "patch_fstab: $huh to $3"
-      replace "$back" "$fstab" "$4" || return 1
+      replace "$fstab" "$result" "$4" || return 1
       savestate new "$4"
       if [[ "$stock" != "$new" ]]; then echo2 "patch_fstab: Patched $4" && return 0; else return 1; fi
    else
-      echo2 "patch_fstab: Abnormal fstab $4" && return 1
+      echo2 "patch_fstab: Cant find \"$2\" property in \"$fstab\"" && return 1
    fi
 }
 
@@ -1600,13 +1726,6 @@ import_config_zip() {
     rm -f "$TMP/$(basename "$1")"
 }
 
-import_info() {
-     ( echo >> "$l/info.txt"
-       cat "$1" >> "$l/info.txt"
-       rm -f "$1"
-     ) 2>/dev/null
-}
-
 getdefault() {
   grep -m1 "^setdefault $2" "$1" | tr -d '"' | sed s/"setdefault $2 "//
 }
@@ -1624,23 +1743,32 @@ endlog() { logpath=; }
 
 savelog() {
     if [ -n "$logpath" ]; then
-      echo "$1${n}" >> "$logpath"
+      while [ "$1" ]; do
+         echo "$1" >> "$logpath"
+         shift;
+      done
     fi
     return 0
 }
 
 echolog() {
     if [ -n "$logpath" ]; then
-      echo "$1${n}" >> "$logpath"
-      echo2 "$1"
+      while [ "$1" ]; do
+         echo "$1" >> "$logpath"
+         echo2 "$1"
+         shift;
+      done
     fi
     return 0
 }
 
 printlog() {
     if [ -n "$logpath" ]; then
-      echo "$1${n}" >> "$logpath"
-      ui_print "$1"
+      while [ "$1" ]; do
+         echo "$1" >> "$logpath"
+         ui_print "$1"
+         shift;
+      done
     fi
     return 0
 }
@@ -1788,9 +1916,6 @@ can_run() {
    if [ -f "$1" ]; then
       check=$("$1" $try 2>&1)
       [[ -x "$1" && "$check" != *"CANNOT LINK"* ]] && return 0 || return 1
-   elif [ -f "$(command -v "$1")" ]; then
-      check=$("$(command -v "$1")" $try 2>&1)
-      [[ -x "$(command -v "$1")" && "$check" != *"CANNOT LINK"* ]] && return 0 || return 1
    elif [ -f "$(which "$1")" ]; then
       check=$("$(which "$1")" $try 2>&1)
       [[ -x "$(which "$1")" && "$check" != *"CANNOT LINK"* ]] && return 0 || return 1
@@ -1846,9 +1971,10 @@ make_overlay_zip() {
 make_zip() {
    local make="$TMP/NewZIP" current=${PWD}
    local restore flag script include include2 type pa pm output i base head
-   local base_r="META-INF/com/google/android" base_m="META-INF/com/google/android/magisk" addons="META-INF/addons"
+   local base_r="META-INF/com/google/android" base_m="META-INF/com/google/android/magisk"
    local recovery="$make/$base_r"
    local magisk="$make/$base_m"
+   [ -z "$addons" ] && local addons="META-INF/addons"
    restore=()
    while [[ $# -gt 0 ]]; do
    flag="$1"
@@ -2729,7 +2855,7 @@ grep_prop() {
 
 try_mount() {
   local try basetry part result
-  local restore flag rw ro re name file LOOP express looped
+  local restore flag rw ro re name file LOOP express looped premounted
   restore=()
   while [[ $# -gt 0 ]]; do
   flag="$1"
@@ -2770,14 +2896,15 @@ try_mount() {
   if undefined ro rw; then rw=true && ro=true; fi
   for try in "$@"; do
      looped=false
+     premounted=false
+     part=
      if [ -z "$name" ]; then basetry=$(split_extract / 1 "$try"); else basetry="$name"; fi
-     if [[ -z "$file" && -z "$express" ]]; then part=$(find_block "$basetry")
-     elif [[ -z "$file" && -n "$express" ]]; then part=$(find_block -e "$basetry")
+     if [[ -z "$file" && -z "$express" ]]; then [ -n "$basetry" ] && part=$(find_block "$basetry")
+     elif [[ -z "$file" && -n "$express" ]]; then [ -n "$basetry" ] && part=$(find_block -e "$basetry")
      else
         basetry="No needed"
         if [ ! -e "$file" ]; then echo2 " CANT FIND: $file" && return 1
         elif [[ -b "$file" && -z "$name" ]]; then
-           looped=true
            echo2 " Using: $file"
            part="$file"
         elif can_run losetup2; then
@@ -2805,42 +2932,44 @@ try_mount() {
          if [ -n "$re" ]; then [[ -n "$name" && -d "/$name" ]] && unmount "/$name"; unmount "$try"; fi
          if ! is_mounted "$try" || [ -n "$file" ]; then
             if [ -n "$rw" ]; then
-               if $(mount -w "$try" 2>/dev/null); then
+               if (mount -w "$try" && testrw "$try") 2>/dev/null; then
                  echo2 " Mounting:1: $part $try" && result=0
-               elif $(mount -w "$part" "$try" 2>/dev/null); then
+               elif (mount -w "$part" "$try" && testrw "$try") 2>/dev/null; then
                  echo2 " Mounting:2: $part $try" && result=0
-               elif $(mount -w -t auto "$part" "$try" 2>/dev/null); then
+               elif (mount -w -t auto "$part" "$try" && testrw "$try") 2>/dev/null; then
                  echo2 " Mounting:3: $part $try" && result=0
-               elif $(mount -w -t ext4 "$part" "$try" 2>/dev/null); then
+               elif (mount -w -t ext4 "$part" "$try" && testrw "$try") 2>/dev/null; then
                  echo2 " Mounting:4: $part $try" && result=0
-               elif $(mount -o rw,remount -t auto "$try" 2>/dev/null); then
+               elif (mount -o rw,remount -t auto "$try" && testrw "$try") 2>/dev/null; then
                  echo2 " Mounting:5: $part $try" && result=0
-               elif $(mount -o rw,remount -t auto "$part" "$try" 2>/dev/null); then
+               elif (mount -o rw,remount -t auto "$part" "$try" && testrw "$try") 2>/dev/null; then
                  echo2 " Mounting:6: $part $try" && result=0
                else
-                 if ! is_mounted "$try"; then echo2 " CANT MOUNT: $try as RW" && result=1; fi
+                 echo2 " CANT MOUNT: $try as RW" && result=1
                fi
             fi
             if [ -n "$ro" ] && ! is_mounted "$try"; then
-               if $(mount -r "$try" 2>/dev/null); then
+               if (mount -r "$try") 2>/dev/null; then
                  echo2 " Mounting:ro:1: $part $try" && result=0
-               elif $(mount -r "$part" "$try" 2>/dev/null); then
+               elif (mount -r "$part" "$try") 2>/dev/null; then
                  echo2 " Mounting:ro:2: $part $try" && result=0
                else
-                 if ! is_mounted "$try"; then echo2 " CANT MOUNT: $try as RO" && result=1; fi;
+                 echo2 " CANT MOUNT: $try as RO" && result=1
                fi
             fi
          else
-            if [ -n "$rw" ] && $(mount -o rw,remount -t auto "$try" 2>/dev/null); then
+            premounted=true
+            if [ -n "$rw" ] && (mount -o rw,remount -t auto "$try" && testrw "$try") 2>/dev/null; then
                 echo2 " Mounting:auto:1: $part $try" && result=0
-            elif [ -n "$rw" ] && $(mount -o rw,remount -t auto "$part" "$try" 2>/dev/null); then
+            elif [ -n "$rw" ] && (mount -o rw,remount -t auto "$part" "$try" && testrw "$try") 2>/dev/null; then
                 echo2 " Mounting:auto:2: $part $try" && result=0
-            elif [ -n "$ro" ] && $(mount -o ro,remount -t auto "$try" 2>/dev/null); then
+            elif [ -n "$ro" ] && (mount -o ro,remount -t auto "$try") 2>/dev/null; then
                 echo2 " Mounting:auto:ro:1: $part $try" && result=0
-            elif [ -n "$ro" ] && $(mount -o ro,remount -t auto "$part" "$try" 2>/dev/null); then
+            elif [ -n "$ro" ] && (mount -o ro,remount -t auto "$part" "$try") 2>/dev/null; then
                 echo2 " Mounting:auto:ro:2: $part $try" && result=0
-            else
-                echo2 " Already mounted: $try" && result=1
+            else 
+                #echo2 " Already mounted but could not be remounted, resource probably busy or locked: \"$try\""
+                result=1
             fi
          fi
      else
@@ -2848,24 +2977,43 @@ try_mount() {
         if [ -n "$re" ]; then [[ -n "$name" && -d "/$name" ]] && unmount "/$name"; unmount "$try"; fi
         if ! is_mounted "$try"; then
            setup_mountpoint "$try"
-           if [ -n "$rw" ] && $(mount -w "$try" 2>/dev/null); then
+           if [ -n "$rw" ] && (mount -w "$try" && testrw "$try") 2>/dev/null; then
               echo2 " Mounting:noblock:rw: $try" && result=0
-           elif [ -n "$ro" ] && $(mount -r "$try" 2>/dev/null); then
+           elif [ -n "$ro" ] && (mount -r "$try") 2>/dev/null; then
               echo2 " Mounting:noblock:ro: $try" && result=0
            else
-              if ! is_mounted "$try"; then echo2 " CANT MOUNT: $try" && result=1; fi;
+              echo2 " CANT MOUNT: $try" && result=1
            fi
         else
-            if [ -n "$rw" ] && $(mount -o rw,remount -t auto "$try" 2>/dev/null); then
+            premounted=true
+            if [ -n "$rw" ] && (mount -o rw,remount -t auto "$try" && testrw "$try") 2>/dev/null; then
                 echo2 " Mounting:auto:noblock:1: $try" && result=0
-            elif [ -n "$ro" ] && $(mount -o ro,remount -t auto "$try" 2>/dev/null); then
+            elif [ -n "$ro" ] && (mount -o ro,remount -t auto "$try") 2>/dev/null; then
                 echo2 " Mounting:auto:noblock:ro:1: $try" && result=0
             else
-                echo2 " Already mounted: $try" && result=1
+                #echo2 " Already mounted but could not be remounted, resource probably busy or locked: \"$try\""
+                result=1
             fi
         fi
      fi
-     if is_mounted "$try"; then if $looped; then contains_array "$try" "${all_looped[@]}" || all_looped+=("$try"); else contains_array "$try" "${all_umount[@]}" || all_umount+=("$try"); fi; else result=1; fi
+     if [ $result != 0 ]; then
+       if is_mounted "$try"; then
+         if ! testrw "$try" 2>/dev/null; then
+           if [ -z "$ro" ]; then
+              echo2 "LOCKED: \"$try\" does NOT allow a Read/Write mount!"
+              echo2 "        You need to unlock it first."
+              if ! $premounted; then echo2 "        Now unmounting \"$try\"..."; unmount "$try"; fi
+              result=2
+           else
+              echo2 "There were problems, but \"$try\" is currently mounted as Read/Only" && result=0 && continue
+           fi
+         fi
+       fi
+       $looped && losetup -d $part
+     elif is_mounted "$try"; then
+        if [ -n "$part" ]; then contains_array "$part" "${all_mounted_part[@]}" || all_mounted_part+=("$part"); fi ; if $looped || ! $premounted; then contains_array "$try" "${all_looped[@]}" || all_looped+=("$try"); else contains_array "$try" "${all_umount[@]}" || all_umount+=("$try"); fi
+     else result=1
+     fi
   done
   return $result
 }
@@ -2891,20 +3039,27 @@ run_jar() {
     local dalvikvm file main
     #Inspired in the osm0sis method
     [ -z "$dalvik_logging" ] && local dalvik_logging=false
-    if /system/bin/dalvikvm -showversion >/dev/null; then 
+    if /system/bin/dalvikvm -showversion >/dev/null 2>&1; then 
        dalvikvm=/system/bin/dalvikvm
     elif dalvikvm -showversion >/dev/null 2>&1; then
        dalvikvm=dalvikvm
     else
-       echo2 "--------DALVIKVM LOGGING--------"
-       if [ -f "$(readlink -f /system/bin/dalvikvm)" ]; then
-          echo2 "$(/system/bin/dalvikvm -Xuse-stderr-logger -verbose:class,collector,compiler,deopt,gc,heap,interpreter,jdwp,jit,jni,monitor,oat,profiler,signals,simulator,startup,threads,verifier,verifier-debug,image,systrace-locks,plugin,agents,dex -showversion 2>&1)"
-       else
-          echo2 "Unable to find dalvikvm!"
-          [ -d /apex ] && echo2 "$(find /apex -type f -name "dalvikvm*")"
+       [ -z "$ANDROID_ART_ROOT" ] && ANDROID_ART_ROOT=$(find /apex -type d -name "com.android.art*" 2>/dev/null | head -n1)
+       if [ -n "$ANDROID_ART_ROOT" ]; then
+          dalvikvm=$(readlink -f "$(find "$ANDROID_ART_ROOT" \( -type f -o -type l \) -name "dalvikvm")")
+          if [ -z "$dalvikvm" ]; then if $is64bit; then dalvikvm=$(find "$ANDROID_ART_ROOT" \( -type f -o -type l \) -name "dalvikvm64"); else dalvikvm=$(find "$ANDROID_ART_ROOT" \( -type f -o -type l \) -name "dalvikvm32"); fi; fi
        fi
-       echo2 "--------------------------------"
-       echo "CANT LOAD DALVIKVM " && return 1
+       if ! $dalvikvm -showversion >/dev/null 2>&1; then
+          echo2 "--------DALVIKVM LOGGING--------"
+          if [ -f "$(readlink -f "$dalvikvm")" ]; then
+             echo2 "$($dalvikvm -Xuse-stderr-logger -verbose:class,collector,compiler,deopt,gc,heap,interpreter,jdwp,jit,jni,monitor,oat,profiler,signals,simulator,startup,threads,verifier,verifier-debug,image,systrace-locks,plugin,agents,dex -showversion 2>&1)"
+          else
+             echo2 "Unable to find dalvikvm!"
+             [ -d /apex ] && echo2 "$(find /apex -type f -name "dalvikvm*")"
+          fi
+          echo2 "--------------------------------"
+          echo "CANT LOAD DALVIKVM " && return 1
+       fi
     fi
     file="$1"
     if [ ! -f "$file" ]; then echo2 "CANT FIND: $file" && return 1; fi
@@ -2938,20 +3093,27 @@ run_jar_class() {
     local dalvikvm file main
     #Inspired in the osm0sis method
     [ -z "$dalvik_logging" ] && local dalvik_logging=false
-    if /system/bin/dalvikvm -showversion >/dev/null; then 
+    if /system/bin/dalvikvm -showversion >/dev/null 2>&1; then 
        dalvikvm=/system/bin/dalvikvm
     elif dalvikvm -showversion >/dev/null 2>&1; then
        dalvikvm=dalvikvm
     else
-       echo2 "--------DALVIKVM LOGGING--------"
-       if [ -f "$(readlink -f /system/bin/dalvikvm)" ]; then
-          echo2 "$(/system/bin/dalvikvm -Xuse-stderr-logger -verbose:class,collector,compiler,deopt,gc,heap,interpreter,jdwp,jit,jni,monitor,oat,profiler,signals,simulator,startup,threads,verifier,verifier-debug,image,systrace-locks,plugin,agents,dex -showversion 2>&1)"
-       else
-          echo2 "Unable to find dalvikvm!"
-          [ -d /apex ] && echo2 "$(find /apex -type f -name "dalvikvm*")"
+       [ -z "$ANDROID_ART_ROOT" ] && ANDROID_ART_ROOT=$(find /apex -type d -name "com.android.art*" 2>/dev/null | head -n1)
+       if [ -n "$ANDROID_ART_ROOT" ]; then
+          dalvikvm=$(readlink -f "$(find "$ANDROID_ART_ROOT" \( -type f -o -type l \) -name "dalvikvm")")
+          if [ -z "$dalvikvm" ]; then if $is64bit; then dalvikvm=$(find "$ANDROID_ART_ROOT" \( -type f -o -type l \) -name "dalvikvm64"); else dalvikvm=$(find "$ANDROID_ART_ROOT" \( -type f -o -type l \) -name "dalvikvm32"); fi; fi
        fi
-       echo2 "--------------------------------"
-       echo "CANT LOAD DALVIKVM " && return 1
+       if ! $dalvikvm -showversion >/dev/null 2>&1; then
+          echo2 "--------DALVIKVM LOGGING--------"
+          if [ -f "$(readlink -f "$dalvikvm")" ]; then
+             echo2 "$($dalvikvm -Xuse-stderr-logger -verbose:class,collector,compiler,deopt,gc,heap,interpreter,jdwp,jit,jni,monitor,oat,profiler,signals,simulator,startup,threads,verifier,verifier-debug,image,systrace-locks,plugin,agents,dex -showversion 2>&1)"
+          else
+             echo2 "Unable to find dalvikvm!"
+             [ -d /apex ] && echo2 "$(find /apex -type f -name "dalvikvm*")"
+          fi
+          echo2 "--------------------------------"
+          echo "CANT LOAD DALVIKVM " && return 1
+       fi
     fi
     file="$1"
     main="$2"
@@ -3236,7 +3398,7 @@ xml_kit() {
 dynamic_apktool() {
    #Dynamic Apktool for Dynamic Installer by BlassGO
    local file fullname filename filedir outdir folder outfile sign zipa add alladd move fw check out
-   local flag current restore ext ps manifest min max try
+   local flag current=${PWD} restore ext ps manifest min max try bk count result command noapi extra noextra sm
    restore=()
    while [[ $# -gt 0 ]]; do
    flag="$1"
@@ -3250,7 +3412,7 @@ dynamic_apktool() {
        shift;shift;
        ;;
        -r|-recompile)
-       folder="$2"
+       folder=${2%%/}
        outfile=$(cat "$folder/apktool.yml" | grep -m1 "FileName:" | tr -d " " | cut -f2 -d:)
        ext=${outfile##*.}
        shift;shift;
@@ -3269,15 +3431,16 @@ dynamic_apktool() {
        shift;shift;
        ;;
        -o|-output)
-       move="$2"
+       move=${2%%/}
        shift;shift;
        ;;
        -c|-command)
-       command="$2"
+       command+="$2"
        shift;shift;
        ;;
        -ps|-preserve-signature)
        ps=true
+       command+=" --copy-original "
        shift
        ;;
        -f|-framework)
@@ -3296,6 +3459,27 @@ dynamic_apktool() {
        max="$2"
        shift;shift;
        ;;
+       -use-baksmali)
+       bk="$2"
+       [ -e "$l/baksmali_${bk}" ] && bk="$l/baksmali_${bk}"
+       if [ ! -e "$bk" ]; then echo2 "dynamic_apktool: Cant find: $bk" && return 1; fi
+       command+=" --no-src "
+       shift;shift;
+       ;;
+       -use-smali)
+       sm="$2"
+       [ -e "$l/smali_${sm}" ] && sm="$l/smali_${sm}"
+       if [ ! -e "$sm" ]; then echo2 "dynamic_apktool: Cant find: $sm" && return 1; fi
+       shift;shift;
+       ;;
+       -no-api)
+       noapi=true
+       shift
+       ;;
+       -no-extras)
+       noextra=true
+       shift
+       ;;
        *)   
        restore+=("$1")
        shift
@@ -3307,14 +3491,40 @@ dynamic_apktool() {
    if [ ! -e "$l/apktool.jar" ]; then ui_print " Cant find apktool.jar " && return 1; fi
    if [ ! -e "$l/zipsigner.jar" ]; then ui_print " Cant find zipsigner.jar" && return 1; fi
    if [ ! -e "$l/axml.jar" ]; then ui_print " Cant find axml.jar" && return 1; fi
-   echo ">>Dynamic Apktool 1.2.0"
+   if [[ -z "$noapi" && -n "$API" ]]; then command+=" --api-level $API "; fi
+   echo ">>Dynamic Apktool 1.5.0"
    if [[ -n "$file" && -z "$folder" && -z "$zipa" && -z "$sign" ]]; then
+      [ -z "$move" ] && move="$outdir"
       if [ -n "$fw" ]; then cp -f "$fw" "$TMP/1.apk"; else cp -f /system/framework/framework-res.apk "$TMP/1.apk"; fi
       if [ -n "$move" ]; then
          rm -rf "$move" 2>/dev/null
          echo " L: Decompiling $fullname... "
+         if [ -n "$bk" ]; then echo " L: Using $(basename "$bk")"; fi
          echo " L: Please wait..."
          if ! run_jar "$l/apktool.jar" --aapt "$l/aapt" --no-res -p "$TMP" $command d "$file" -o "$move" >/dev/null 2>&1; then echo " ERROR: Cant decompile $fullname" && return 1; fi
+         if [ -n "$bk" ]; then
+            count=1
+            result=
+            while read dex; do
+               [ -z "$dex" ] && break
+               if package_extract_file "$dex" "$TMP/dex.tmp" "$file"; then
+                  if [ -n "$result" ]; then count=$(($count+1)); result="${move}/smali_classes$count"; delete "${move}/classes${count}.dex"; else result="${move}/smali"; delete "${move}/classes.dex"; fi
+                  if ! run_jar "$bk" d "$TMP/dex.tmp" -o "$result"; then echo "${n} ERROR: Cant decode: \"$dex\" with \"$bk\"" && return 1; fi
+               fi
+            done <<< $(find_content -r ".dex$" "$file")
+         fi
+         if [ -z "$noextra" ]; then
+            echo " L: Saving extras..."
+            while read extra; do
+                [ -z "$extra" ] && break
+                if [ ! -e "$move/original/$extra" ] && [ ! -e "$move/unknown/$extra" ]; then
+                   package_extract_file "$extra" "$move/unknown/$extra" "$file"
+                   if ! grep -q "unknownFiles:" "$move/apktool.yml"; then add_lines_string -after-line "sparseResources:" "unknownFiles:" "$move/apktool.yml"; fi
+                   if cat "$move/apktool.yml" | grep "unknownFiles:" | grep -q '{}'; then replace -a "unknownFiles:" "unknownFiles:" "$move/apktool.yml"; fi
+                   add_lines_string -after-line "unknownFiles:" "  $extra: '8'" "$move/apktool.yml"
+                fi
+            done <<< $(find_content -r ".*" "$file" | grep -Ev "^kotlin/.*|res/.*|resources\.arsc|AndroidManifest.xml|.*\.dex$")
+         fi
          echo " L: Checking results..."
          if [ ! -d "$move" ]; then echo "ERROR: Decompiling $fullname" && return 1; fi
          if [ -n "$add" ]; then
@@ -3325,19 +3535,7 @@ dynamic_apktool() {
             done
          fi
       else
-         rm -rf "$outdir" 2>/dev/null
-         echo " L: Decompiling $fullname..."
-         echo " L: Please wait..."
-         if ! run_jar "$l/apktool.jar" --aapt "$l/aapt" --no-res -p "$TMP" $command d "$file" -o "$outdir" >/dev/null 2>&1; then echo " ERROR: Cant decompile $fullname" && return 1; fi
-         echo " L: Checking results..."
-         if [ ! -d "$outdir" ]; then echo "ERROR: Decompiling $fullname" && return 1; fi
-         if [ -n "$add" ]; then
-            local IFS=$'\n'
-            for add in $(split_string : "$alladd"); do
-              echo " L: Adding $(basename "$add")"
-              cp -rf "$add" "$outdir"
-            done
-         fi
+          echo " ERROR: Invalid dest dir" && return 1
       fi
       echo " L: Success "
    elif [[ -z "$file" && -n "$folder" ]]; then
@@ -3345,6 +3543,7 @@ dynamic_apktool() {
          rm -f "$folder/try.apk" 2>/dev/null
          rm -rf "$folder/dist" 2>/dev/null
          echo " L: Recompiling $(basename "$folder")... "
+         if [ -n "$sm" ]; then echo " L: Using $(basename "$sm")"; fi
          if [[ -n "$min" || -n "$max" ]]; then
             if decode_xml "$folder/AndroidManifest.xml"; then
                if [ -n "$min" ]; then
@@ -3366,14 +3565,23 @@ dynamic_apktool() {
          fi
          if [ -z "$ps" ]; then
             echo " L: Using all changes..."
-            echo " L: Please wait..."
-            run_jar "$l/apktool.jar" --aapt "$l/aapt" -p "$TMP" -f $command b "$folder" -o "$folder/try.apk" >/dev/null 2>&1
          else
             echo " L: Saving signature..."
-            echo " L: Please wait..."
-            run_jar "$l/apktool.jar" --aapt "$l/aapt" -p "$TMP" -f $command --copy-original b "$folder" -o "$folder/try.apk" >/dev/null 2>&1
          fi
-         if [ ! -e "$folder/try.apk" ]; then echo "ERROR: Compiling $outfile" && return 1; fi
+         echo " L: Please wait..."
+         if [ -n "$sm" ]; then
+            count=1
+            result=
+            create_dir "$folder/classtmp" || return 1
+            while read dex; do
+               [ -z "$dex" ] && break
+               if [ -n "$result" ]; then count=$(($count+1)); result="${folder}/classes${count}.dex"; else result="${folder}/classes.dex"; fi
+               if ! run_jar "$sm" a "$dex" -o "$result" || ! is_valid "$result"; then echo "${n} ERROR: Cant compile: \"$dex\" with \"$sm\""; find "$folder/classtmp" -mindepth 1 -maxdepth 1 -type d -exec mv -f {} "$folder" \; ; delete_recursive "$folder/classtmp"; return 1; else move "$dex" "$folder/classtmp"; fi
+            done <<< $(find "$folder" -mindepth 1 -maxdepth 1 -type d -regex '.*/smali\(_classes[0-9]*\)*$')
+         fi
+         run_jar "$l/apktool.jar" --aapt "$l/aapt" -p "$TMP" -f $command b "$folder" -o "$folder/try.apk" >/dev/null 2>&1
+         if [ -d "$folder/classtmp" ]; then find "$folder/classtmp" -mindepth 1 -maxdepth 1 -type d -exec mv -f {} "$folder" \; ; delete_recursive "$folder/classtmp"; fi
+         if [ ! -f "$folder/try.apk" ]; then echo "ERROR: Compiling $outfile" && return 1; fi
          if [ -n "$add" ]; then
             local IFS=$'\n'
             current=${PWD}
@@ -3387,13 +3595,13 @@ dynamic_apktool() {
          if [ -n "$sign" ]; then
             echo " L: Signing $outfile"
             run_jar "$l/zipsigner.jar" "$folder/try.apk" "$folder/try.zp" >/dev/null
-            if [ ! -e "$folder/try.zp" ]; then echo "ERROR: sign $outfile" && return 1; fi
+            if [ ! -f "$folder/try.zp" ]; then echo "ERROR: sign $outfile" && return 1; fi
             mv -f "$folder/try.zp" "$folder/try.apk"
          fi
          if [[ -n "$zipa" || "$ext" == "apk" || -n "$ps" ]]; then
             echo " L: Zipaligning $(basename "$outfile")"
             zipalign -f -v 4 "$folder/try.apk" "$folder/try.zp" >/dev/null
-            if [ ! -e "$folder/try.zp" ]; then echo "ERROR: zipalign $outfile" && return 1; fi
+            if [ ! -f "$folder/try.zp" ]; then echo "ERROR: zipalign $outfile" && return 1; fi
             mv -f "$folder/try.zp" "$folder/try.apk"
          fi
          if [ -n "$move" ]; then
@@ -4189,10 +4397,10 @@ apex_pkg() {
     if [ -f "$apex/apex_manifest.json" ]; then
         dest=$(sed -n $pattern "$apex/apex_manifest.json" | tr -d " ")
     elif [ -f "$apex/apex_manifest.pb" ]; then
-        dest=$(strings "$apex/apex_manifest.pb" | head -n 1 | tr -d " ")
+        dest=$(strings "$apex/apex_manifest.pb" | head -n 1 | tr -cd '[:alnum:]_.')
     fi
     [ ! -z "$dest" ] && echo "$dest" && return
-    dest=$((unzip -qp "$apex" apex_manifest.pb | strings | head -n 1 | tr -d " ") 2>/dev/null)
+    dest=$((unzip -qp "$apex" apex_manifest.pb | strings | head -n 1 | tr -cd '[:alnum:]_.') 2>/dev/null)
     [ -z "$dest" ] && dest=$((unzip -qp "$apex" apex_manifest.json | sed -n $pattern | tr -d " ") 2>/dev/null)
     [ -z "$dest" ] && dest=$((unzip -qp "$apex" apex_build_info.pb | sed -n $pattern2 | tr -d " ") 2>/dev/null)
     [ ! -z "$dest" ] && echo "$dest" || return 1
@@ -4298,10 +4506,14 @@ getarch() {
   if [ "$ABILONG" = "arm64-v8a" ]; then arch=arm64; arch32=arm; is64bit=true; base_lib=64; fi;
   if [ "$ABILONG" = "x86_64" ]; then arch=x64; arch32=x86; is64bit=true; base_lib=64; fi;
   echo2 "------------Device INFO------------"
-  for info in TMP API ABI ABI2 ABILONG PROC arch arch32 max_arch is64bit chipname status encrypted slot dynamic_partitions virtual_partitions free_root free_system free_vendor di_version main_version; do
+  for info in API ABI ABI2 ABILONG PROC arch arch32 max_arch is64bit chipname status encrypted slot dynamic_partitions virtual_partitions free_root free_system free_vendor; do
      if defined $info; then echo2 "$info=$(checkvar $info)"; fi
   done
-  echo2 "-----------------------------------"
+  echo2 "------------Setup INFO------------"
+  for info in CUSTOM_SETUP TMP $SHARED_VARS di_version main_version; do
+     if defined $info; then echo2 "$info=$(checkvar $info)"; fi
+  done
+  echo2 "----------------------------------"
   if ! $BOOTMODE; then
      unmount /systemtmp
      unmount /vendortmp
@@ -4616,10 +4828,6 @@ update() {
         echo2 " "
         echo2 "-- Updated:1: $(basename "$orig")"
         echo2 " "
-    elif cat "$orig" > "$dest"; then
-        echo2 " "
-        echo2 "-- Updated:2: $(basename "$orig")"
-        echo2 " "
     else
         echo2 " "
         echo2 "-- Cant update: $(basename "$orig")"
@@ -4733,10 +4941,6 @@ update_zip() {
         echo2 " "
         echo2 "-- Updated:1: $(basename "$orig")"
         echo2 " "
-    elif unzip -qp "$installzip" "$orig" > "$dest"; then
-        echo2 " "
-        echo2 "-- Updated:2: $(basename "$orig")"
-        echo2 " "
     else
         echo2 " "
         echo2 "-- Cant update: $(basename "$orig")"
@@ -4762,25 +4966,19 @@ get_file_prop() {
   return 1
 }
 
-set_progress() { if ! $BOOTMODE; then echo "set_progress $1" >> $OUTFD; fi }
+set_progress() { [ -e "$OUTFD" ] && echo "set_progress $1" >> $OUTFD; }
 
 ui_print() {
-  until [ ! "$1" ]; do
+  while [ "$1" ]; do
      if ! $BOOTMODE; then
-        if [ $(echo "$1" | wc -l) -gt 1 ]; then
-           local IFS=$'\n' line
-           for line in $1; do
-             [ -e "$OUTFD" ] && echo "ui_print $line${n}ui_print" >> $OUTFD
-             [ ! -e "$OUTFD" ] && echo "$line"
-           done
-        else
-           [ -e "$OUTFD" ] && echo "ui_print $1${n}ui_print" >> $OUTFD
-           [ ! -e "$OUTFD" ] && echo "$1"
-        fi
+        local IFS=$'\n' line
+        for line in $1; do
+           [ -e "$OUTFD" ] && echo "ui_print $line${n}ui_print" >> $OUTFD || echo "$line"
+        done
      else 
        echo "$1"
      fi
-     shift
+     shift;
   done
 }
 
@@ -5057,8 +5255,10 @@ setup_mountpoint() {
 
 is_same_mount() {
    local try try2
-   try=$(df -Pk "$1" | sed "1d" | awk '{print $1}' 2>/dev/null)
-   try2=$(df -Pk "$2" | sed "1d" | awk '{print $1}' 2>/dev/null)
+   is_mounted "$1" && try=$(grep " $(readlink -f "$1") " /proc/mounts | awk '{print $1}' 2>/dev/null)
+   is_mounted "$2" && try2=$(grep " $(readlink -f "$2") " /proc/mounts | awk '{print $1}' 2>/dev/null)
+   [ -z "$try" ] && try=$(df -Pk "$1" | sed "1d" | awk '{print $1}' 2>/dev/null)
+   [ -z "$try2" ] && try2=$(df -Pk "$2" | sed "1d" | awk '{print $1}' 2>/dev/null)
    defined try try2 || return 1
    if [[ "$try" == "$try2" ]]; then echo2 "[$1:$try] == [$2:$try2]" && return 0; else echo2 "[$1:$try] != [$2:$try2]" && return 1; fi
 }
@@ -5086,7 +5286,7 @@ loop_setup() {
 
 mount_apex() {
   $BOOTMODE || [ ! -d /system/apex ] && return
-  local apex dest linkerconfig pkg post_apex
+  local apex dest linkerconfig pkg post_apex imported
   local list="$di_apex_list"
   delete "$list"
   setup_mountpoint /apex
@@ -5106,6 +5306,7 @@ mount_apex() {
   local FWK=/system/framework
   delete_recursive "$ANDROID_DATA"
   mkdir -p "$ANDROID_DATA"
+  export DEX2OATBOOTCLASSPATH=${APEXJARS}
   export BOOTCLASSPATH=${APEXJARS}\
 $FWK/framework.jar:$FWK/ext.jar:$FWK/telephony-common.jar:\
 $FWK/voip-common.jar:$FWK/ims-common.jar:$FWK/telephony-ext.jar
@@ -5123,6 +5324,11 @@ $FWK/voip-common.jar:$FWK/ims-common.jar:$FWK/telephony-ext.jar
      $linkerconfig --target /linkerconfig
      linkerconfig=$(find /linkerconfig -name '*.txt' | sort | tr '\n' ':')
   fi
+  #Importing APEX binaries
+  for bin in /apex/*/bin/*; do
+     [ ! -e "$bin" ] && continue
+     if [ ! -e "$l/$(basename "$bin")" ]; then ln -sf "$bin" "$l/$(basename "$bin")"; [ -n "$imported" ] && imported+=":"; imported+="$bin"; fi
+  done
   #Mount post-apex
   split_string : "$post_apex" | while read post; do
      [ -z "$post" ] && break
@@ -5132,7 +5338,7 @@ $FWK/voip-common.jar:$FWK/ims-common.jar:$FWK/telephony-ext.jar
   echo2 "------------APEX INFO------------"
   for dest in ANDROID_RUNTIME_ROOT ANDROID_ART_ROOT \
   ANDROID_TZDATA_ROOT ANDROID_I18N_ROOT ANDROID_DATA \
-  BOOTCLASSPATH DEX2OATBOOTCLASSPATH linkerconfig
+  BOOTCLASSPATH DEX2OATBOOTCLASSPATH linkerconfig imported
   do
      if defined $dest; then echo2 "$dest=$(checkvar $dest)"; fi
   done
@@ -5537,14 +5743,14 @@ super_rw() {
      ui_print "DI: Please install this ZIP with a Custom Recovery"
      ui_print "DI: This will allow the installer to unlock your partitions"
      ui_print " "
-     $custom_mode && return 1 || abort
+     [ $CUSTOM_SETUP = 1 ] && return 1 || abort
    elif undefined boot && $BOOTMODE; then
      ui_print " "
      ui_print "DI: Please add super_rw in the updater-script"
      ui_print "DI: Then install the ZIP with a Custom Recovery"
      ui_print "DI: This will allow the installer to unlock your partitions"
      ui_print " "
-     $custom_mode && return 1 || abort
+     [ $CUSTOM_SETUP = 1 ] && return 1 || abort
    fi
    printlog " -- Extracting:$super in $space..."
    superunpack "$super" 1 >> "$log" 2>&1
@@ -5643,6 +5849,8 @@ super_rw() {
 }
 
 ensure_root() {
+   local result pass=false opt
+   [ "$mount_all" = "ro" ] && opt=" -ro "
    free_root=$((df -Pk / | sed "1d" | awk '{print $4}') 2>/dev/null)
    [ -n "$free_root" ] && free_root=$(calc "$free_root * 1024")
    if is_number "$free_root" && ! is_greater "$free_root" "6144"; then
@@ -5651,9 +5859,12 @@ ensure_root() {
       ui_print " "
       abort " "
    fi
-   mount -o rw,remount -t auto / 2>/dev/null
-   try_mount -rw -n system /system_root
-   if is_mounted /system_root && testrw /system_root; then
+   mount -o rw,remount -t auto / 2>/dev/null; testrw /; result=$?
+   if [ $result == 0 ]; then
+      pass=true
+      try_mount $opt -n system /system_root || try_mount $opt -e -n system-verity /system_root; testrw /system_root; result=$?
+   fi
+   if [ -n "$opt" -o $result == 0 ]; then
       free_system=$((df -Pk /system_root | sed "1d" | awk '{print $4}') 2>/dev/null)
       [ -n "$free_system" ] && free_system=$(calc "$free_system * 1024")
       if is_number "$free_system" && ! is_greater "$free_system" "10485760"; then
@@ -5662,15 +5873,20 @@ ensure_root() {
          echo2 " "
       fi
       return 0
-   elif [[ "$virtual_partitions" == "true" ]]; then
+   elif [ "$ensure_root" != "off" -a $result == 2 ]; then
       ui_print " "
-      ui_print 'DI: Virtual partitions (Read/Only)...'
-      ui_print "DI: Your current SYSTEM.img are locked..."
-      ui_print 'DI: You need to use a ROM/GSI that supports mounting as Read/Write'
+      ui_print 'DI: Read/Only partitions...'
+      if $pass || $BOOTMODE; then 
+         ui_print "DI: Your current SYSTEM.img are locked..."
+         ui_print 'DI: You need to use a ROM/GSI that supports mounting as Read/Write'
+      else
+         ui_print "DI: Your current root \"/\" are locked..."
+      fi
       ui_print " "
       abort " "
    else
-      echo2 "ENSURE_ROOT: FAILED" && return 1
+      ($pass || $BOOTMODE) && echo2 "DI: ENSURE_ROOT FAILED: /system and /system_root are NOT writable!" || echo2 "DI: ENSURE_ROOT FAILED: root \"/\" are NOT writable!"
+      return 1
    fi
 }
 
@@ -5723,6 +5939,7 @@ mount_all_old() {
     ;;
   esac
   if is_mounted /system_root; then
+    contains_array "/system_root" "${all_looped[@]}" || all_looped+=("/system_root")
     if [ -f /system_root/build.prop ]; then
       echo2 " Mounting:bind: /system_root /system"
       mount -o bind /system_root /system
@@ -5761,16 +5978,17 @@ umount_all() {
          if ! contains_array "$umount" "${all_umount[@]}"; then all_umount+=("$umount"); fi
      done
      for simple_umt in "${all_binded_part[@]}"; do
-        echo2 " Unmounting $simple_umt "
-        umount -l "$simple_umt" 2>/dev/null
+        if is_mounted "$simple_umt"; then
+           echo2 " Unmounting $simple_umt "
+           umount -l "$simple_umt" 2>/dev/null
+        fi
      done
-     echo2 " Unmounting /system_root "
-     unmount /system_root || unmount /system_root
-     if is_mounted /system_root; then echo2 " CANT UNMOUNT: /system_root"; else rm -rf /system_root; fi
      for loop in "${all_looped[@]}"; do
-       echo2 " Unmounting $loop "
-       umount -ld "$loop" 2>/dev/null
-       if is_mounted "$loop"; then echo2 " CANT UNMOUNT: $loop"; fi
+       if is_mounted "$loop"; then
+          echo2 " Unmounting $loop "
+          umount -ld "$loop" 2>/dev/null
+          if is_mounted "$loop"; then echo2 " CANT UNMOUNT: $loop"; fi
+       fi
      done
      for loop in "${all_looped_loop[@]}"; do
        losetup -d "$loop" 2>/dev/null
@@ -5784,7 +6002,9 @@ umount_all() {
      for part in "${all_umount[@]}"; do
         if is_mounted "$part"; then
            if ! try_mount -ro "$part"; then
-              blockdev --setro $(find_block -e "$(split_extract / 1 "$part")") 2>/dev/null
+              for restore in "${all_mounted_part[@]}"; do
+                 blockdev --setro "$restore" 2>/dev/null
+              done
               if ! try_mount -ro "$part"; then
                  echo2 " "
                  echo2 " CANT RESTORE: $part as Read/Only "
@@ -5800,15 +6020,22 @@ umount_all() {
      done
      $APEX_MOUNT_PASS && umount_apex
      for simple_umt in "${all_binded_part[@]}"; do
-        umount -l "$simple_umt" 2>/dev/null
+        if is_mounted "$simple_umt"; then
+           echo2 " Unmounting $simple_umt "
+           umount -l "$simple_umt" 2>/dev/null
+        fi
      done
      for part in "${all_umount[@]}"; do
-       echo2 " Unmounting $part "
-       unmount "$part" || post+=("$part")
+       if is_mounted "$part"; then
+          echo2 " Unmounting $part "
+          unmount "$part" || post+=("$part")
+       fi
      done
      for loop in "${all_looped[@]}"; do
-       echo2 " Unmounting $loop "
-       umount -ld "$loop" 2>/dev/null || post+=("$loop")
+       if is_mounted "$loop"; then
+          echo2 " Unmounting $loop "
+          umount -ld "$loop" 2>/dev/null || post+=("$loop")
+       fi
      done
      for loop in "${all_looped_loop[@]}"; do
        losetup -d "$loop" 2>/dev/null
@@ -5830,7 +6057,7 @@ umount_all() {
     umount -l /data
   fi)
   $BOOTMODE || umount -l /dev/random 2>/dev/null
-  unset all_binded_part all_umount all_looped all_looped_loop
+  unset all_binded_part all_umount all_looped all_looped_loop all_mounted_part
   return $result
 }
 
@@ -5881,7 +6108,8 @@ inject() {
 }
 
 auto_mount_partitions() {
-    local main block extra noexist bind
+    local main block extra noexist bind opt
+    [ "$mount_all" = "ro" ] && opt=" -ro "
     if ! $BOOTMODE; then
       mount -o bind /dev/urandom /dev/random
       umount_all
@@ -5896,9 +6124,6 @@ auto_mount_partitions() {
     #Ensure root space
     ensure_root
     if $BOOTMODE; then
-       if ! is_mounted /system_root; then
-          try_mount -n system /system_root
-       fi
        if is_mounted /system_root; then
           if [ -f /system_root/build.prop ]; then
             echo2 " Mounting:bind: /system_root /system"
@@ -5921,7 +6146,7 @@ auto_mount_partitions() {
        fi
        for extra in system_ext vendor product odm; do
           if ! contains_array "/$extra" "${all_binded_part[@]}" && exist $(find_block -e $extra); then
-             try_mount "/$extra"
+             try_mount $opt "/$extra"
           fi
        done
        if is_mounted /vendor; then
@@ -5938,7 +6163,7 @@ auto_mount_partitions() {
        for main in system system_ext vendor product odm; do
           if ! is_mounted "/$main"; then
              if [[ "$main" == "system" ]]; then 
-                try_mount -remount -n system /system_root
+                ensure_root
                 if is_mounted /system_root; then
                    setup_mountpoint /system
                    if [ -f /system_root/build.prop ]; then
@@ -5997,13 +6222,12 @@ auto_mount_partitions() {
        else apex_mount "$runtime"
        fi
     fi
-    ( mount -o rw,remount -t auto /system || mount -o rw,remount -t auto /
+    [ -z "$opt" ] && ( mount -o rw,remount -t auto /system || mount -o rw,remount -t auto /
     mount -o rw,remount -t auto /vendor 
     mount -o rw,remount -t auto /product
     mount -o rw,remount -t auto /odm
-    mount -o rw,remount -t auto /system_ext ) 2>/dev/null
-    #Extra RW for /system_root
-    mount -o remount,rw /system_root
+    mount -o rw,remount -t auto /system_ext
+    mount -o remount,rw /system_root ) 2>/dev/null
 }
 if [ -z "$BOOTMODE" ]; then
    ps | grep zygote | grep -qv grep && export BOOTMODE=true || export BOOTMODE=false
@@ -6020,54 +6244,62 @@ if [ -z "$di_version" ]; then
 fi
 test "$di_version" && main_version=$(echo "$di_version" | cut -d- -f1)
 test "$ANDROID_ROOT" || ANDROID_ROOT=/system
+if test ! "$CUSTOM_SETUP"; then [ -z "$installzip" ] && export CUSTOM_SETUP=1 || export CUSTOM_SETUP=0; fi
 getarch
 
+export di_apex_list="$TMP/apex_list_0001.txt"
+export binary_paths=$(echo -e "/sbin\n/system/bin")
 export APEX_MOUNT_PASS=false
-export custom_mode=false
+export yes=chooseport
 export n='
 '
-export yes=chooseport
-export MYPATH="$1"
+PS1="di-$main_version> "
 shopt -s expand_aliases
 alias not=!
 
+setdefault permissions "0:0:0755:0777"
+
 #Recovery Mode + Test Mode Implementation
 #(Maintenance or just testing for Devs)
-if [[ -z "$installzip" && "$BOOTMODE" == "false" ]]; then
-   export custom_mode=true
-   export apex_mount=on
-   echo " >> Recovery Mode 1.1.0 "
-   echo " @BlassGO "
-   echo " "
-   defined MYPATH && echo " -- Working from: $MYPATH"
-   echo " -- Loading environment..."
-   echo
-elif [[ -z "$installzip" && "$BOOTMODE" == "true" ]]; then
-   export custom_mode=true
-   export PATH="/data/data/com.termux/files/usr/bin:/data/data/com.termux/files/usr/bin/applets:/sbin:/sbin/su:/su/bin:/su/xbin:/system/bin:/system/xbin:$PATH"
-   echo " >> Test Mode 1.7.0 "
-   echo " @BlassGO "
-   echo " "
-   defined MYPATH && echo " -- Working from: $MYPATH"
-   echo " -- Loading environment..."
-   echo
-fi
-
-#CUSTOM MODES (Generic Setup)
-if [[ "$custom_mode" == "true" ]]; then
-   
-   #Global vars
-   if defined TMPDIR Dynamic_Setup; then export TMP="$TMPDIR"
-   elif ! $BOOTMODE && [ -d /tmp ]; then export TMP=/tmp
-   elif [ -d /data ] && mkdir -p /data/tmp && [ -d /data/tmp ]; then export TMP=/data/tmp
-   else export TMP=/dev/tmp
+if [ $CUSTOM_SETUP = 1 ]; then
+   export MYPATH="$1"
+   if ! $BOOTMODE; then
+      export apex_mount=on
+      echo " >> Recovery Mode 1.1.2 "
+   else
+      export PATH="/data/data/com.termux/files/usr/bin:/data/data/com.termux/files/usr/bin/applets:/sbin:/sbin/su:/su/bin:/su/xbin:/system/bin:/system/xbin:$PATH"
+      echo " >> Test Mode 1.7.2 "
    fi
-   if undefined TMP; then echo2 "FATAL ERROR: Cant start TMP" && exit 1; fi
-   export l="$TMP/ugu"
+   echo " @BlassGO "
+   echo " "
+   [ -d "$MYPATH" ] && echo " -- Working from: $MYPATH"
+   echo " -- Loading environment..."
+   echo " "
+   
+   #Start
+   needed=true; ensure_bin unzip mkdir chmod mv
+   needed=false; ensure_bin rm cp
+
+   if defined TMPDIR Dynamic_Setup; then export TMP="$TMPDIR"
+   else
+       for TMP in /tmp /data/tmp /dev/tmp /cache/tmp /mnt/tmp; do
+          (mkdir -p $TMP; testrw $TMP) 2>/dev/null && break
+       done
+   fi
+   if ! testrw "$TMP"; then echo2 "FATAL ERROR: Failed to create temporary directory" && exit 1; fi
+
+   #Global vars
+   export TMPDIR="$TMP"
+   export DNM="META-INF/com/google/android/magisk"
+   export cert="META-INF/zbin/version.txt"
    export addons="$TMP/addons"
-   bb="$TMP/busybox"
-   bin="$TMP/bin.xz"
-   extra="$TMP/extra.zip"
+   export l="$TMP/ugu"
+
+   #Magisk vars
+   export ZIPFILE="$3"
+   export PERSISTDIR=/sbin/.magisk/mirror/persist
+
+   bb="$TMP/busybox"; bin="$TMP/bin.xz"; extra="$TMP/extra.zip"
    
    #Remove only zbin plugins
    ( rm -rf "$l" "$TMP/zbin"
@@ -6075,12 +6307,9 @@ if [[ "$custom_mode" == "true" ]]; then
    ) 2>/dev/null
    
    #Create work DIRs
-   mkdir -p "$l"
-   mkdir -p "$TMP/zbin"
-   mkdir -p "$addons"
-   if [ ! -d "$l" ] || [ ! -d "$TMP/zbin" ]; then
-     echo "ERROR: Cant startup"
-     exit 1
+   mkdir -p "$l" "$TMP/zbin" "$addons"
+   if [ ! -d "$l" -o ! -d "$TMP/zbin" ]; then
+     echo "ERROR: Cant startup"; exit 1
    fi
    
    #Getting zbin plugins
@@ -6116,12 +6345,11 @@ if [[ "$custom_mode" == "true" ]]; then
    chmod 755 "$bb" "$bin" "$extra" 2>/dev/null
    
    #First ensuring Busybox environment
-   setup_bb
-   export PATH="$l:$PATH"
+   setup_bb; export PATH="$l:$PATH"
    
    #Loading bin
    xz -d "$bin" >/dev/null 2>&1
-   if [ ! -f "$TMP/bin" ]; then echo "CANT EMULATE BIN" && exit 1; fi;
+   if [ ! -f "$TMP/bin" ]; then echo "ERROR: CANT EMULATE BIN" && exit 1; fi;
    unzip -qo "$TMP/bin" -d "$TMP/zbin"
    import_info "$TMP/zbin/info.txt"
   
@@ -6147,9 +6375,8 @@ end_tmp
 if [ -d "$tmp2" ]; then abort "CANT SETUP:2: TMP2"; fi
 unset tmp2
 
-#Extra environment vars
-export di_apex_list="$TMP/apex_list_0001.txt"
-setdefault permissions "0:0:0755:0777"
+#Try using external unzip binary
+change_bin unzip -while -p
 
 #Checking possible exceptions (Read/Only Functions)
 pattern=off_readonly
@@ -6168,7 +6395,7 @@ if defined installzip; then
 fi
 unset pattern ole
 
-if ! $custom_mode; then
+if [ $CUSTOM_SETUP != 1 ]; then
    #Ensuring Dynamic Installer functions
    for func in $(declare -F 2>/dev/null | awk '{ print $3; }'); do
       if contains_array "$func" "${exception[@]}" 2>/dev/null; then echo2 "readonly:off: $func"; else readonly -f $func 2>/dev/null; fi
@@ -6189,20 +6416,30 @@ unset vars var exception
 #Destroy Recovery env
 $BOOTMODE || destroy_env
 
-#Check Custom Mode
-if $custom_mode; then setdefault permissions "0:0:0755:0644"; return; fi
+#Importing APEX binaries
+if $BOOTMODE && [ -d /apex ]; then
+  for bin in /apex/*/bin/*; do
+     [ ! -e "$bin" ] && continue 
+     [ ! -e "$l/$(basename "$bin")" ] && ln -sf "$bin" "$l/$(basename "$bin")"
+  done
+fi
+unset bin
 
-# Pre-setup
+#Check Custom Mode
+if [ $CUSTOM_SETUP = 1 ]; then setdefault permissions "0:0:0755:0644"; return; fi
+
+#Pre-setup
 package_extract_file META-INF/com/google/android/updater-script "$TMP/updater-script" || abort "FATAL ERROR: Cant get updater-script"
 package_extract_dir META-INF/zbin/configs "$l"
 devices=$(getdefault "$TMP/updater-script" devices)
 apex_mount=$(getdefault "$TMP/updater-script" apex_mount)
 magisk_support=$(getdefault "$TMP/updater-script" magisk_support)
+ensure_root=$(getdefault "$TMP/updater-script" ensure_root)
 extraction_speed=$(getdefault "$TMP/updater-script" extraction_speed)
 permissions=$(getdefault "$TMP/updater-script" permissions)
 import_addons=$(getdefault "$TMP/updater-script" import_addons)
 echo2 "---------Installer Configs----------"
-for info in devices apex_mount magisk_support import_addons extraction_speed permissions; do
+for info in devices apex_mount magisk_support ensure_root import_addons extraction_speed permissions; do
    if defined $info; then echo2 "$info=$(checkvar $info)"; else echo2 "$info undefined!"; fi
 done
 echo2 "-----------------------------------"
@@ -6246,23 +6483,14 @@ setdefault permissions "$permissions" || setdefault permissions "0:0:0755:0644"
 if [[ "$import_addons" == "on" ]]; then
     while read addon; do
        if exist "$addon"; then
-          echo2 "- Importing $(basename "$addon")"
+          echo2 "- Importing \"$(basename "$addon")\""
           . "$addon"
        fi
     done <<< $(find "$addons" -mindepth 1 -maxdepth 1 -type f -name "*.sh" | sort)
     unset addon
 fi
 
-if $BOOTMODE && [[ "$magisk_support" != "on" ]]; then
-   if ! exist "$TMP"; then abort "FATAL ERROR: Cant find $TMP"; fi
-   echo2 "----------------Running SCRIPTs------------"
-   . "$TMP/updater-script"
-   remove_tmp
-   echo2 "-------------------------------------------"
-   exit 0
-fi
-
-if ! $BOOTMODE; then
+if [[ "$magisk_support" == "off" ]] || (! $BOOTMODE && [[ "$magisk_support" != "force" ]]); then
 echo2 "----------------Running SCRIPTs------------"
 . "$TMP/updater-script"
 remove_tmp
@@ -6272,11 +6500,24 @@ echo2 "-------------------------------------------"
 else
 
 require_new_magisk() {
-    ui_print "*******************************"
-    ui_print " Please install Magisk v19.0+! "
-    ui_print "*******************************"
+    if ! $BOOTMODE && $encrypted; then
+       ui_print "*******************************"
+       ui_print " Please decrypt the device!    "
+       ui_print "*******************************"
+    else
+       ui_print "*******************************"
+       ui_print " Please install Magisk v19.0+! "
+       ui_print "*******************************"
+    fi
     abort
 }
+
+mount /data 2>/dev/null
+if [ $CUSTOM_SETUP != 2 ]; then
+   [ -f /data/adb/magisk/util_functions.sh ] || require_new_magisk
+   . /data/adb/magisk/util_functions.sh
+   [ $MAGISK_VER_CODE -lt 19000 ] && require_new_magisk
+fi
 
 magisk_print() {
   ui_print "----------------------------------------"
@@ -6284,12 +6525,6 @@ magisk_print() {
   ui_print "----------------------------------------"
   ui_print " "
 }
-
-mount /data 2>/dev/null
-
-[ -f /data/adb/magisk/util_functions.sh ] || require_new_magisk
-. /data/adb/magisk/util_functions.sh
-[ $MAGISK_VER_CODE -lt 19000 ] && require_new_magisk
 
 is_legacy_script() {
   unzip -l "$ZIPFILE" $DNM/install.sh | grep -q install.sh
@@ -6359,7 +6594,8 @@ install_module() {
     cp -af $TMPDIR/module.prop $MODPATH/module.prop
     $POSTFSDATA && cp -af $TMPDIR/post-fs-data.sh $MODPATH/post-fs-data.sh
     $LATESTARTSERVICE && cp -af $TMPDIR/service.sh $MODPATH/service.sh
-
+    
+    echo2 "- Setting permissions"
     set_permissions
   else
     magisk_print
@@ -6420,14 +6656,71 @@ install_module() {
 
 }
 
-if [ $MAGISK_VER_CODE -ge 20400 ]; then
-  # New Magisk have complete installation logic within util_functions.sh
-  echo2 "----------------Running SCRIPTs------------"
-  install_module
-  restore_env
-  echo2 "-------------------------------------------"
-  exit 0
+install_custom_module() {
+  [ -z "$MODPATH" ] && abort "! Invalid implementation: MODPATH is not defined"
+  
+  if is_legacy_script; then
+    package_extract_dir $DNM $TMPDIR
+    
+    # Load install script
+    . $TMPDIR/install.sh
+
+    # Callbacks
+    on_install
+    
+    [ -f $TMPDIR/uninstall.sh ] && cp -af $TMPDIR/uninstall.sh $MODPATH/uninstall.sh
+    $PROPFILE && cp -af $TMPDIR/system.prop $MODPATH/system.prop
+    $POSTFSDATA && cp -af $TMPDIR/post-fs-data.sh $MODPATH/post-fs-data.sh
+    $LATESTARTSERVICE && cp -af $TMPDIR/service.sh $MODPATH/service.sh
+    
+    echo2 "- Setting permissions"
+    set_permissions
+  else
+    package_extract_file $DNM/customize.sh $MODPATH/customize.sh
+
+    if ! grep -q '^SKIPUNZIP=1$' $MODPATH/customize.sh 2>/dev/null && [ $SKIPUNZIP != 1 ]; then
+      package_extract_dir $DNM $MODPATH
+
+      # Default permissions
+      echo2 "- Setting common permissions/contexts"
+      echo2 " "
+      set_perm_recursive2 $di_uid $di_gid $di_perm_d $di_perm_f $MODPATH
+      ch_con_recursive system_file system_file $MODPATH
+      for perm in /system/bin /system/xbin /system/system_ext/bin /system/vendor/bin; do
+         if [ -d "$MODPATH$perm" ]; then
+            set_perm_recursive2 0 2000 0755 0755 "$MODPATH$perm"
+         fi
+      done
+      if [ -d "$MODPATH/system/vendor" ]; then ch_con_recursive vendor_file vendor_file "$MODPATH/system/vendor"; fi
+      unset perm
+    fi
+
+    # Load customization script
+    [ -f $MODPATH/customize.sh ] && . $MODPATH/customize.sh
+  fi
+
+  # Remove stuff that doesn't belong to modules and clean up any empty directories
+  rm -rf \
+  $MODPATH/system/placeholder $MODPATH/customize.sh \
+  $MODPATH/README.md $MODPATH/.git*
+  rmdir -p $MODPATH
+  
+  rm -rf $TMPDIR
+}
+
+if [ $CUSTOM_SETUP = 2 ]; then
+   echo2 "----------------Running SCRIPTs------------"
+   install_custom_module
+   echo2 "-------------------------------------------"
+elif [ $MAGISK_VER_CODE -ge 20400 ]; then
+   # New Magisk have complete installation logic within util_functions.sh
+   echo2 "----------------Running SCRIPTs------------"
+   install_module
+   echo2 "-------------------------------------------"
 fi
+
+restore_env
+exit 0
 
 fi
 

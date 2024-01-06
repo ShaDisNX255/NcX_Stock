@@ -4,6 +4,7 @@
 #The #MAGISK tag is required, dont remove it
 #MAGISK
 setdefault magisk_support off
+setdefault ensure_root off
 setdefault import_addons off
 setdefault apex_mount on
 setdefault extraction_speed default
@@ -11,37 +12,42 @@ setdefault permissions "0:0:0755:0644"
 setdefault devices off
 #-----------------------------------------------#
 #Your script starts here:
-
-#Print
-ui_print " "
 #Get device info
-model=$(grep_cmdline androidboot.em.model)
 bootrp=$(grep_cmdline androidboot.rp)
-if [[ "$model" == "SM-A528B" ]]; then
-   ui_print " Samsung Galaxy A52s detected... "
-   if [[ "$bootrp" == "5" ]]; then
-      ui_print " Beginning ROM installation... "
-      ui_print " Unmounting all partitions... "
-      umount_all
-      ui_print " Done... "
-      ui_print " Installing stock kernel... "
-      update_zip boot.img $(find_block boot)
-      update_zip dtbo.img $(find_block dtbo)
-      update_zip vendor_boot.img $(find_block vendor_boot)
-      ui_print " Done... "
-      ui_print " Installing Super image... "
-      update_zip -xz super.img.xz $(find_block super)
-      ui_print " Done... "
-      ui_print " Installation complete... "
-      ui_print " Mounting cache... "
-      try_mount -rw /cache
-      ui_print " Extracting recovery script... "
-      package_extract_dir script /cache
-      ui_print " Rebooting to recovery to continue the installation... "
+ui_print " Samsung Galaxy A52s detected... "
+if [[ "$bootrp" == "5" ]]; then
+   ui_print " Beginning ROM installation... "
+   ui_print " Unmounting all partitions... "
+   umount_all
+   ui_print " Done... "
+   ui_print " Installing stock kernel... "
+   update_zip boot.img $(find_block boot)
+   update_zip dtbo.img $(find_block dtbo)
+   update_zip vendor_boot.img $(find_block vendor_boot)
+   ui_print " Done... "
+   ui_print " Installing Super image... "
+   update_zip -xz super.img.xz $(find_block super)
+   ui_print " Done... "
+   ui_print " Mounting optics... "
+   try_mount -rw /optics
+   ui_print " Mounting prism... "
+   try_mount -rw /prism
+   ui_print " Mounting omr... "
+   try_mount -rw /omr
+   ui_print " Done... "
+   ui_print " Installing CSC features... "
+   cscfeature="$addons/omc/cscfeature.xml"
+   omc_decoder="$addons/omcdecoder"
+   . "$addons/omc_edit.sh"
+   ui_print " Installation complete... "
+   ui_print " NcX has finished installation. "
+   ui_print " If you want to reboot to recovery, press vol + "
+   ui_print " If you want to close the installer, press vol - "
+   if $yes; then
       run_program "$addons/reboot" recovery
    else
-      abort " Your bootloader version is too old, please update to U5/S5 first "
+      end "Installation closed... "
    fi
 else
-   abort " Different model detected, this ROM is for the Galaxy A52s... "
+   abort " Your bootloader version is too old, please update to U5/S5 first "
 fi
