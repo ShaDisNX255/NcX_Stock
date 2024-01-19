@@ -1,5 +1,0 @@
-install /cache/bt-patch.zip
-cmd rm -rf /cache/bt-patch.zip
-wipe cache
-reboot recovery
-

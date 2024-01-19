@@ -9,7 +9,7 @@ setdefault import_addons off
 setdefault apex_mount on
 setdefault extraction_speed default
 setdefault permissions "0:0:0755:0644"
-setdefault devices off
+setdefault devices "SM-A528B"
 #-----------------------------------------------#
 #Your script starts here:
 #Get device info
