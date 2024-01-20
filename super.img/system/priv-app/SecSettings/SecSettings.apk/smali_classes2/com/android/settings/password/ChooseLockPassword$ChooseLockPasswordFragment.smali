@@ -623,7 +623,7 @@
 
     if-eqz p0, :cond_0
 
-    const/4 p0, 0x6
+    const/4 p0, 0x4
 
     goto :goto_0
 
@@ -2401,7 +2401,7 @@
 .method public final isAutoPinConfirmPossible(I)Z
     .locals 0
 
-    const/4 p0, 0x6
+    const/4 p0, 0x4
 
     if-lt p1, p0, :cond_0
 
