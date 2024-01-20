@@ -1,5 +1,7 @@
+/system/preload/GalaxyApps_OPEN/GalaxyApps_OPEN.apk
 /system/preload/MinusOnePage/MinusOnePage.apk
-/system/preload/SmartSwitchAgent/SmartSwitchAgent.apk
-/system/preload/SmartSwitchAssistant/SmartSwitchAssistant.apk
+/system/preload/SamsungGallery2018/SamsungGallery2018.apk
 /system/preload/SamsungMessages/SamsungMessages.apk
 /system/preload/SecMyFiles2020/SecMyFiles2020.apk
+/system/preload/SmartSwitchAgent/SmartSwitchAgent.apk
+/system/preload/SmartSwitchStub/SmartSwitchStub.apk
