@@ -1022,25 +1022,7 @@
 .end method
 
 .method public static setTrialExpiredPackage(Ljava/lang/String;)V
-    .locals 2
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    const-string v1, "setTrialExpiredPackage = "
-
-    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string v1, "Noti"
-
-    invoke-static {v1, v0}, Lcom/samsung/android/thememanager/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    sput-object p0, Lcom/samsung/android/thememanager/period/ThemeNotiUtils;->trialExpiredPackage:Ljava/lang/String;
+    .registers 5
 
     return-void
 .end method
