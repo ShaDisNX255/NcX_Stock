@@ -1,0 +1,10 @@
+{
+  "version": "6.0",
+  "framework": "tflite",
+  "precision": "float16",
+  "runtime": "gpu",
+  "org_model_name": "fourier-lite-8l-rep-2-mix3-sky-ft1-1725999-fp16-torch-512-c4.tflite",
+  "model_path": [
+    "/system/etc/objectremoval/db/objecteraser.tflite"
+  ]
+}

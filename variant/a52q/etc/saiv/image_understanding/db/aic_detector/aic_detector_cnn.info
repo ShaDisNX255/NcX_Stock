@@ -1,0 +1,9 @@
+{
+	"version_id": "v7",
+	"tag" : "7.12",
+	"model_type" : "dsp",
+	"precision" : "qasymm8",
+	"complier" : "snpe1.50.0.2622_SM7325",
+	"latency": "0",
+	"model_path" : "/vendor/etc/saiv/image_understanding/db/aic_detector/aic_detector_cnn.dlc"
+}

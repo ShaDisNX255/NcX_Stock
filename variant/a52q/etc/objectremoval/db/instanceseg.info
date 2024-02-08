@@ -1,0 +1,11 @@
+{
+  "version": "6.0",
+  "framework": "tflite",
+  "precision": "float16",
+  "runtime": "cpu",
+  "backbone": "yolact_fcos",
+  "org_model_name": "no_named_HQ_Commercial_88ced721.tflite",
+  "model_path": [
+    "/system/etc/objectremoval/db/instanceseg.tflite"
+  ]
+}
